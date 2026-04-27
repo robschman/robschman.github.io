@@ -1796,6 +1796,11 @@ body.theme-boy .gender-btn.selected {
   box-shadow: 0 4px 16px rgba(30,136,229,0.3);
 }
 
+body.theme-boy .name-save-btn {
+  background: linear-gradient(135deg, #42a5f5, #1565c0);
+  box-shadow: 0 4px 16px rgba(21,101,192,0.4);
+}
+
 body.theme-boy .ob-option.selected {
   border-color: #1e88e5;
   background: linear-gradient(135deg, #e3f2fd, #bbdefb);

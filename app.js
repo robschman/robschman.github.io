@@ -1219,7 +1219,7 @@ function getGreeting() {
   const h = new Date().getHours();
   const isBoy = getGender() === 'boy';
   if (h >= 5  && h < 12) return { text: t('greetingMorning'), emoji: isBoy ? '☀️' : '☀️' };
-  if (h >= 12 && h < 17) return { text: t('greetingDay'),     emoji: isBoy ? '💪' : '🌸' };
+  if (h >= 12 && h < 17) return { text: t('greetingDay'),     emoji: isBoy ? '🤙' : '🌸' };
   if (h >= 17 && h < 22) return { text: t('greetingEvening'), emoji: isBoy ? '🌙' : '🌙' };
   return                         { text: t('greetingNight'),   emoji: isBoy ? '😎' : '⭐' };
 }
@@ -1257,7 +1257,11 @@ function updateHairEmojisForGender(gender) {
 
 // ===== THEME =====
 function applyTheme(gender) {
-  document.body.classList.toggle('theme-boy', gender === 'boy');
+  const isBoy = gender === 'boy';
+  // Update letsGo translation dynamically
+  TRANSLATIONS.de.letsGo = isBoy ? "Los geht's! ⚡" : "Los geht's! 🌸";
+  TRANSLATIONS.en.letsGo = isBoy ? "Let's go! ⚡"   : "Let's go! 🌸";
+  document.body.classList.toggle('theme-boy', isBoy);
   applyGenderContent();
   updateHairEmojisForGender(gender);
   renderAll();
@@ -1304,7 +1308,7 @@ function applyGenderContent() {
   const branding = document.querySelector('.header-branding');
   if (branding) {
     branding.innerHTML = isBoy
-      ? '💪 made with 💪<br>⚡ zoe &amp; robschman'
+      ? '🛠️ made with 🔧<br>⚡ zoe &amp; robschman'
       : '🌸 made with 🌸<br>✨ zoe &amp; robschman';
   }
 
@@ -1313,8 +1317,12 @@ function applyGenderContent() {
   setFirstTextNode(document.getElementById('resetAllBtn'),   isBoy ? '🗑️' : '💫');
   setFirstTextNode(document.getElementById('termineOpenBtn'),isBoy ? '📅'  : '💜');
 
+  // "Los geht's" Button im Onboarding
+  const obFinish = document.getElementById('obFinish');
+  if (obFinish) obFinish.textContent = isBoy ? "Los geht's! ⚡" : "Los geht's! 🌸";
+
   // Tab-Emojis
-  const tabEmojis = { morning: isBoy ? '💪' : '🌸', evening: isBoy ? '🌙' : '🌙', weekly: isBoy ? '✂️' : '💅' };
+  const tabEmojis = { morning: isBoy ? '🪮' : '🌸', evening: isBoy ? '🌙' : '🌙', weekly: isBoy ? '✂️' : '💅' };
   document.querySelectorAll('.tab').forEach(tab => {
     const e = tab.querySelector('.tab-emoji');
     if (e && tabEmojis[tab.dataset.tab]) e.textContent = tabEmojis[tab.dataset.tab];
@@ -1361,7 +1369,7 @@ function fitLogoText() {
 function showGreeting(name) {
   const isBoy = getGender() === 'boy';
   const logoName = document.getElementById('logoName');
-  if (logoName) logoName.textContent = `${t('logoNamePrefix')} ${isBoy ? name.toUpperCase() : name}${isBoy ? ' 💪' : ' 🌸✨'}`;
+  if (logoName) logoName.textContent = `${t('logoNamePrefix')} ${isBoy ? name.toUpperCase() : name}${isBoy ? ' 🎯' : ' 🌸✨'}`;
   setTimeout(fitLogoText, 0);
 
   const { text, emoji } = getGreeting();
@@ -1987,8 +1995,8 @@ document.addEventListener('DOMContentLoaded', init);
     ctx.globalAlpha = alpha;
     if (getGender() === 'boy') {
       // ⚡ Lightning bolt shape
-      ctx.fillStyle = '#ffe066';
-      ctx.shadowColor = '#ffe066';
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = '#ffffff';
       ctx.shadowBlur = r * 5;
       ctx.beginPath();
       const s = r * 1.2;
