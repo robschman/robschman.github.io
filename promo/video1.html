@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>Promo 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 390px;
+    height: 844px;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+  }
+
+  .scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+  }
+  .scene.active { opacity: 1; pointer-events: all; }
+
+  /* ===== SCENE 1 ===== */
+  #s1 {
+    background: linear-gradient(160deg, #ff6b9d 0%, #c44dff 50%, #6b2fff 100%);
+  }
+  #s1 .sparkles {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+  }
+  #s1 .sparkle {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    animation: twinkle 1.5s infinite;
+  }
+  @keyframes twinkle {
+    0%,100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+  #s1 .phone-mockup {
+    width: 200px;
+    height: 380px;
+    background: linear-gradient(160deg, #ffe0f0, #f8c8ff);
+    border-radius: 36px;
+    border: 6px solid rgba(255,255,255,0.8);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 2px rgba(255,255,255,0.3);
+    display: flex; flex-direction: column; align-items: center;
+    padding: 20px 12px;
+    position: relative;
+    animation: floatPhone 3s ease-in-out infinite;
+    margin-bottom: 30px;
+  }
+  @keyframes floatPhone {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+  }
+  #s1 .phone-mockup::before {
+    content: '';
+    position: absolute; top: 14px;
+    width: 80px; height: 6px;
+    background: rgba(200,100,150,0.4);
+    border-radius: 3px;
+  }
+  #s1 .phone-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    color: #c2185b;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+  #s1 .phone-check {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    padding: 8px 10px;
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #444;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  #s1 .check-circle {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: linear-gradient(135deg, #f06292, #ab47bc);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 10px; flex-shrink: 0;
+  }
+  #s1 .headline {
+    font-size: 36px;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    animation: slideUp 0.8s ease forwards;
+    opacity: 0;
+    animation-delay: 0.3s;
+  }
+  #s1 .headline span { color: #FFE680; }
+  #s1 .sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    margin-top: 10px;
+    animation: slideUp 0.8s ease forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SCENE 2 ===== */
+  #s2 { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  #s2 .stars {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  }
+  #s2 .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: starTwinkle 2s infinite;
+  }
+  @keyframes starTwinkle {
+    0%,100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  #s2 .routine-list {
+    width: 340px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+  }
+  #s2 .list-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f48fb1;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  #s2 .routine-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 14px;
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.5s ease;
+  }
+  #s2 .routine-item.show {
+    opacity: 1; transform: translateX(0);
+  }
+  #s2 .routine-item.done {
+    background: rgba(240,98,146,0.2);
+    border: 1px solid rgba(240,98,146,0.3);
+  }
+  #s2 .item-check {
+    width: 24px; height: 24px; border-radius: 50%;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+  #s2 .item-check.checked {
+    background: linear-gradient(135deg, #f06292, #ab47bc);
+    border-color: transparent;
+  }
+  #s2 .item-name { font-size: 14px; font-weight: 600; color: white; }
+  #s2 .item-hint { font-size: 11px; color: rgba(255,255,255,0.5); }
+  #s2 .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    margin-top: 16px;
+    overflow: hidden;
+  }
+  #s2 .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f06292, #ab47bc);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 1.5s ease;
+  }
+  #s2 .big-text {
+    font-size: 38px; font-weight: 900; color: white;
+    text-align: center; line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  #s2 .big-text span {
+    background: linear-gradient(90deg, #f48fb1, #ce93d8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  /* ===== SCENE 3 ===== */
+  #s3 { background: linear-gradient(160deg, #ff9a9e 0%, #fecfef 40%, #ffecd2 100%); }
+  #s3 .features {
+    display: flex; flex-direction: column; gap: 14px;
+    width: 340px; margin-bottom: 30px;
+  }
+  #s3 .feature-card {
+    background: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    opacity: 0; transform: scale(0.8);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  #s3 .feature-card.show { opacity: 1; transform: scale(1); }
+  #s3 .feat-icon {
+    width: 50px; height: 50px; border-radius: 14px;
+    background: linear-gradient(135deg, #f06292, #ab47bc);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(240,98,146,0.4);
+  }
+  #s3 .feat-title { font-size: 15px; font-weight: 700; color: #333; }
+  #s3 .feat-desc { font-size: 12px; color: #666; margin-top: 2px; }
+  #s3 .cta-box {
+    background: linear-gradient(135deg, #f06292, #ab47bc);
+    border-radius: 24px;
+    padding: 20px 30px;
+    text-align: center;
+    width: 340px;
+    box-shadow: 0 16px 40px rgba(240,98,146,0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+  #s3 .cta-box.show { opacity: 1; transform: translateY(0); }
+  #s3 .cta-text { font-size: 22px; font-weight: 900; color: white; line-height: 1.2; }
+  #s3 .cta-sub { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 6px; }
+  #s3 .cta-btn {
+    display: inline-block;
+    background: white;
+    color: #c2185b;
+    font-size: 15px; font-weight: 800;
+    padding: 12px 28px;
+    border-radius: 50px;
+    margin-top: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    50% { transform: scale(1.04); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+  }
+  #s3 .top-text {
+    font-size: 32px; font-weight: 900; color: #c2185b;
+    text-align: center; line-height: 1.1; margin-bottom: 24px;
+  }
+
+  /* ===== SCENE 4 ===== */
+  #s4 {
+    background: linear-gradient(160deg, #667eea 0%, #764ba2 100%);
+    flex-direction: column;
+    gap: 0;
+  }
+  #s4 .logo-area {
+    text-align: center; margin-bottom: 20px;
+    animation: popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    opacity: 0;
+  }
+  #s4 .logo-big {
+    font-family: 'Dancing Script', cursive;
+    font-size: 56px; color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    line-height: 1;
+  }
+  #s4 .logo-sub { font-size: 14px; color: rgba(255,255,255,0.7); letter-spacing: 4px; font-weight: 600; }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+    to { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+  #s4 .stats {
+    display: flex; gap: 16px; margin: 16px 0;
+  }
+  #s4 .stat {
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 16px 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.5s ease;
+  }
+  #s4 .stat.show { opacity: 1; transform: translateY(0); }
+  #s4 .stat-num { font-size: 28px; font-weight: 900; color: #FFE680; }
+  #s4 .stat-label { font-size: 11px; color: rgba(255,255,255,0.8); font-weight: 600; margin-top: 2px; }
+  #s4 .final-msg {
+    font-size: 28px; font-weight: 900; color: white;
+    text-align: center; line-height: 1.2;
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.6s ease;
+    padding: 0 30px;
+    margin-top: 16px;
+  }
+  #s4 .final-msg.show { opacity: 1; transform: translateY(0); }
+  #s4 .final-msg span { color: #FFE680; }
+  #s4 .download-area {
+    margin-top: 24px;
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+  #s4 .download-area.show { opacity: 1; transform: translateY(0); }
+  #s4 .dl-label { font-size: 12px; color: rgba(255,255,255,0.7); text-align: center; margin-bottom: 10px; letter-spacing: 1px; }
+  #s4 .dl-btn {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 40px;
+    font-size: 18px; font-weight: 800;
+    color: #764ba2;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    animation: pulse 1.5s infinite;
+  }
+  #s4 .url { font-size: 13px; color: rgba(255,255,255,0.6); text-align: center; margin-top: 10px; }
+
+  /* Overlay text (TikTok style) */
+  .overlay-badge {
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+  }
+</style>
+</head>
+<body>
+
+<!-- SCENE 1: Hook -->
+<div class="scene active" id="s1">
+  <div class="sparkles" id="sparkles1"></div>
+  <div class="phone-mockup">
+    <div class="phone-title">Beauty Routine ✨</div>
+    <div class="phone-check"><div class="check-circle">✓</div> Reinigung</div>
+    <div class="phone-check"><div class="check-circle">✓</div> Serum</div>
+    <div class="phone-check"><div class="check-circle">✓</div> SPF 30+</div>
+    <div class="phone-check"><div class="check-circle">✓</div> Make-up</div>
+  </div>
+  <div class="headline">Deine Haut<br>verdient <span>das Beste</span> 🌸</div>
+  <div class="sub">Die App die deine Beauty-Routine verändert</div>
+</div>
+
+<!-- SCENE 2: Features -->
+<div class="scene" id="s2">
+  <div class="stars" id="stars2"></div>
+  <div class="big-text">Nie wieder<br><span>was vergessen</span> 💜</div>
+  <div class="routine-list">
+    <div class="list-title">🌅 Morgen-Routine</div>
+    <div class="routine-item done" id="ri1">
+      <div class="item-check checked">✓</div>
+      <div><div class="item-name">💧 Gesicht reinigen</div></div>
+    </div>
+    <div class="routine-item done" id="ri2">
+      <div class="item-check checked">✓</div>
+      <div><div class="item-name">💎 Serum auftragen</div></div>
+    </div>
+    <div class="routine-item" id="ri3">
+      <div class="item-check"></div>
+      <div><div class="item-name">🧴 Feuchtigkeitscreme</div><div class="item-hint">Barrier schützen & hydratisieren</div></div>
+    </div>
+    <div class="routine-item" id="ri4">
+      <div class="item-check"></div>
+      <div><div class="item-name">☀️ Sonnencreme SPF 30+</div><div class="item-hint">Täglich – Anti-Aging!</div></div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="pf2"></div></div>
+  </div>
+</div>
+
+<!-- SCENE 3: Feature Cards -->
+<div class="scene" id="s3">
+  <div class="top-text">Alles was du<br>brauchst 🌟</div>
+  <div class="features">
+    <div class="feature-card" id="fc1">
+      <div class="feat-icon">📅</div>
+      <div><div class="feat-title">Termine verwalten</div><div class="feat-desc">Nail-Termin, Friseur & mehr – nie vergessen</div></div>
+    </div>
+    <div class="feature-card" id="fc2">
+      <div class="feat-icon">✨</div>
+      <div><div class="feat-title">Tägliche Tipps</div><div class="feat-desc">Professionelle Beauty-Tipps jeden Tag</div></div>
+    </div>
+    <div class="feature-card" id="fc3">
+      <div class="feat-icon">🎨</div>
+      <div><div class="feat-title">Personalisierbar</div><div class="feat-desc">Deine Routine, dein Style, deine Regeln</div></div>
+    </div>
+  </div>
+  <div class="cta-box" id="ctaBox">
+    <div class="cta-text">Kostenlos im<br>Browser öffnen 🌸</div>
+    <div class="cta-sub">Kein Download nötig!</div>
+    <div class="cta-btn">Jetzt starten →</div>
+  </div>
+</div>
+
+<!-- SCENE 4: CTA -->
+<div class="scene" id="s4">
+  <div class="logo-area" id="logoArea">
+    <div class="logo-big">Beauty</div>
+    <div class="logo-sub">ROUTINE</div>
+  </div>
+  <div class="stats">
+    <div class="stat" id="st1"><div class="stat-num">2x</div><div class="stat-label">Morgen &<br>Abend</div></div>
+    <div class="stat" id="st2"><div class="stat-num">100%</div><div class="stat-label">Kostenlos</div></div>
+    <div class="stat" id="st3"><div class="stat-num">🌸</div><div class="stat-label">Für dich</div></div>
+  </div>
+  <div class="final-msg" id="finalMsg">
+    Starte heute mit<br>deiner <span>perfekten<br>Beauty Routine</span> ✨
+  </div>
+  <div class="download-area" id="dlArea">
+    <div class="dl-label">JETZT KOSTENLOS TESTEN</div>
+    <div class="dl-btn">robschman.github.io</div>
+    <div class="url">Beauty Routine App 🌸</div>
+  </div>
+</div>
+
+<script>
+  // Sparkles for scene 1
+  const sc1 = document.getElementById('sparkles1');
+  for(let i=0;i<20;i++){
+    const s=document.createElement('div');
+    s.className='sparkle';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=Math.random()*2+'s';
+    s.style.width=s.style.height=(4+Math.random()*6)+'px';
+    sc1.appendChild(s);
+  }
+  // Stars for scene 2
+  const sc2=document.getElementById('stars2');
+  for(let i=0;i<40;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=1+Math.random()*3;
+    s.style.width=s.style.height=sz+'px';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=Math.random()*2+'s';
+    sc2.appendChild(s);
+  }
+
+  const scenes=[
+    {id:'s1', dur:3000, onEnter:()=>{}},
+    {id:'s2', dur:4000, onEnter:()=>{
+      setTimeout(()=>{document.getElementById('ri1').classList.add('show')},300);
+      setTimeout(()=>{document.getElementById('ri2').classList.add('show')},600);
+      setTimeout(()=>{document.getElementById('ri3').classList.add('show')},900);
+      setTimeout(()=>{document.getElementById('ri4').classList.add('show')},1200);
+      setTimeout(()=>{document.getElementById('pf2').style.width='50%'},1500);
+    }},
+    {id:'s3', dur:4000, onEnter:()=>{
+      setTimeout(()=>{document.getElementById('fc1').classList.add('show')},200);
+      setTimeout(()=>{document.getElementById('fc2').classList.add('show')},500);
+      setTimeout(()=>{document.getElementById('fc3').classList.add('show')},800);
+      setTimeout(()=>{document.getElementById('ctaBox').classList.add('show')},1200);
+    }},
+    {id:'s4', dur:5000, onEnter:()=>{
+      document.getElementById('logoArea').style.animationPlayState='running';
+      setTimeout(()=>{document.getElementById('st1').classList.add('show')},600);
+      setTimeout(()=>{document.getElementById('st2').classList.add('show')},900);
+      setTimeout(()=>{document.getElementById('st3').classList.add('show')},1100);
+      setTimeout(()=>{document.getElementById('finalMsg').classList.add('show')},1500);
+      setTimeout(()=>{document.getElementById('dlArea').classList.add('show')},2000);
+    }},
+  ];
+
+  let cur=0;
+  function nextScene(){
+    document.getElementById(scenes[cur].id).classList.remove('active');
+    cur=(cur+1)%scenes.length;
+    const el=document.getElementById(scenes[cur].id);
+    el.classList.add('active');
+    scenes[cur].onEnter();
+    setTimeout(nextScene, scenes[cur].dur);
+  }
+  scenes[0].onEnter();
+  setTimeout(nextScene, scenes[0].dur);
+</script>
+</body>
+</html>

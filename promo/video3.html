@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>Promo 3 – Glow Up</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 390px; height: 844px; overflow: hidden; font-family: 'Poppins', sans-serif; background: #000; }
+
+  .scene {
+    position: absolute; width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.6s ease; pointer-events: none;
+  }
+  .scene.active { opacity: 1; pointer-events: all; }
+
+  /* Floating particles */
+  .particles { position: absolute; top:0;left:0;right:0;bottom:0; pointer-events:none; }
+  .particle {
+    position: absolute; border-radius: 50%;
+    animation: particleFloat 4s ease-in-out infinite;
+  }
+  @keyframes particleFloat {
+    0%,100% { transform: translateY(0) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+  }
+
+  /* ===== SCENE 1: POV ===== */
+  #s1 { background: linear-gradient(160deg, #0f0c29, #302b63, #24243e); }
+  #s1 .pov-text {
+    font-size: 22px; color: rgba(255,255,255,0.6);
+    font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 12px; text-align: center;
+    animation: fadeInSlow 1s ease 0.5s forwards; opacity: 0;
+  }
+  @keyframes fadeInSlow { to { opacity: 1; } }
+  #s1 .pov-main {
+    font-size: 36px; font-weight: 900; color: white;
+    text-align: center; line-height: 1.2;
+    animation: fadeInSlow 1s ease 1s forwards; opacity: 0;
+    text-shadow: 0 4px 30px rgba(200,100,255,0.5);
+  }
+  #s1 .pov-main span { color: #f48fb1; }
+  #s1 .clock {
+    font-size: 72px; margin: 20px 0;
+    animation: fadeInSlow 1s ease 0.2s forwards, clockTick 1s ease-in-out infinite;
+    opacity: 0;
+  }
+  @keyframes clockTick {
+    0%,100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+  #s1 .pov-sub {
+    font-size: 16px; color: rgba(255,255,255,0.7); text-align: center; margin-top: 16px;
+    animation: fadeInSlow 1s ease 2s forwards; opacity: 0;
+  }
+
+  /* ===== SCENE 2: Morning Routine checklist ===== */
+  #s2 { background: linear-gradient(160deg, #ffd3a5, #fd9853); }
+  #s2 .time-badge {
+    background: rgba(0,0,0,0.2); color: white;
+    font-size: 13px; font-weight: 700; padding: 6px 16px;
+    border-radius: 50px; margin-bottom: 16px; letter-spacing: 1px;
+  }
+  #s2 .check-title {
+    font-size: 28px; font-weight: 900; color: white;
+    margin-bottom: 16px; text-align: center;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+  #s2 .checklist { width: 340px; }
+  #s2 .c-item {
+    background: rgba(255,255,255,0.9); border-radius: 16px;
+    padding: 12px 16px; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    opacity: 0; transform: translateX(-20px);
+    transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  #s2 .c-item.show { opacity: 1; transform: translateX(0); }
+  #s2 .c-item.checked-item { background: rgba(240,98,146,0.15); border: 1.5px solid rgba(240,98,146,0.4); }
+  #s2 .c-circle {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  #s2 .c-circle.done { background: linear-gradient(135deg, #f06292, #ab47bc); color: white; }
+  #s2 .c-circle.pending { border: 2px solid #ddd; }
+  #s2 .c-name { font-size: 14px; font-weight: 700; color: #333; }
+  #s2 .c-hint { font-size: 11px; color: #888; }
+  #s2 .streak-badge {
+    background: linear-gradient(135deg, #f06292, #ab47bc);
+    color: white; border-radius: 50px; padding: 10px 24px;
+    font-size: 15px; font-weight: 800; margin-top: 16px;
+    box-shadow: 0 8px 24px rgba(240,98,146,0.4);
+    opacity: 0; transform: scale(0.8);
+    transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  #s2 .streak-badge.show { opacity: 1; transform: scale(1); }
+
+  /* ===== SCENE 3: Tips ===== */
+  #s3 { background: linear-gradient(160deg, #a18cd1, #fbc2eb); }
+  #s3 .tip-title {
+    font-size: 30px; font-weight: 900; color: white;
+    text-align: center; margin-bottom: 24px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  #s3 .tip-bubble {
+    background: rgba(255,255,255,0.9); border-radius: 24px;
+    padding: 18px 20px; width: 340px; margin-bottom: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.5s ease;
+  }
+  #s3 .tip-bubble.show { opacity: 1; transform: translateY(0); }
+  #s3 .tip-bubble .t-emoji { font-size: 28px; margin-bottom: 8px; }
+  #s3 .tip-bubble .t-text { font-size: 14px; color: #444; font-weight: 600; line-height: 1.4; }
+  #s3 .tip-bubble .t-source { font-size: 11px; color: #f06292; font-weight: 700; margin-top: 6px; }
+
+  /* ===== SCENE 4: Final CTA ===== */
+  #s4 {
+    background: linear-gradient(160deg, #ff9a9e, #fecfef, #ffecd2);
+  }
+  #s4 .confetti-container {
+    position: absolute; top:0;left:0;right:0;bottom:0; pointer-events:none; overflow:hidden;
+  }
+  #s4 .confetti-piece {
+    position: absolute;
+    width: 10px; height: 14px;
+    border-radius: 2px;
+    animation: confettiFall linear infinite;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(900px) rotate(720deg); opacity: 0; }
+  }
+  #s4 .brand {
+    font-family: 'Dancing Script', cursive;
+    font-size: 64px; color: #c2185b;
+    text-shadow: 0 4px 20px rgba(194,24,91,0.3);
+    animation: brandPop 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    transform: scale(0); opacity: 0;
+  }
+  @keyframes brandPop { to { transform: scale(1); opacity: 1; } }
+  #s4 .brand-sub {
+    font-size: 13px; letter-spacing: 5px; color: #e91e8c;
+    font-weight: 700; margin-bottom: 30px;
+    opacity: 0; animation: fadeUp 0.6s ease 0.5s forwards;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  #s4 .testimonial {
+    background: white; border-radius: 24px; padding: 20px 24px;
+    width: 340px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.6s ease 0.8s forwards;
+  }
+  #s4 .t-quote {
+    font-size: 16px; color: #333; font-weight: 600; line-height: 1.5;
+    font-style: italic;
+  }
+  #s4 .t-quote::before { content: '"'; color: #f06292; font-size: 24px; }
+  #s4 .t-quote::after { content: '"'; color: #f06292; font-size: 24px; }
+  #s4 .t-stars { color: #f06292; font-size: 18px; margin-top: 8px; }
+  #s4 .dl-box {
+    background: linear-gradient(135deg, #f06292, #ab47bc);
+    border-radius: 24px; padding: 20px 30px; text-align: center; width: 340px;
+    box-shadow: 0 16px 50px rgba(240,98,146,0.45);
+    opacity: 0; animation: fadeUp 0.6s ease 1.2s forwards;
+  }
+  #s4 .dl-main { font-size: 20px; font-weight: 900; color: white; }
+  #s4 .dl-url { font-size: 15px; color: rgba(255,255,255,0.9); margin: 8px 0; font-weight: 700; }
+  #s4 .dl-free { font-size: 13px; color: rgba(255,255,255,0.8); }
+  #s4 .pointer { font-size: 30px; animation: pointerBounce 0.7s ease infinite alternate; margin-top: 12px; }
+  @keyframes pointerBounce { from { transform: translateY(0); } to { transform: translateY(6px); } }
+</style>
+</head>
+<body>
+
+<!-- SCENE 1 -->
+<div class="scene active" id="s1">
+  <div class="particles" id="p1"></div>
+  <div class="pov-text">POV:</div>
+  <div class="clock">⏰</div>
+  <div class="pov-main">Du willst endlich<br><span>deine Skincare</span><br>durchziehen 💪</div>
+  <div class="pov-sub">Diese App macht es dir kinderleicht 👇</div>
+</div>
+
+<!-- SCENE 2 -->
+<div class="scene" id="s2">
+  <div class="time-badge">🌅 7:30 UHR — MORGENROUTINE</div>
+  <div class="check-title">Dein Beauty-Plan ✨</div>
+  <div class="checklist">
+    <div class="c-item checked-item" id="ci1">
+      <div class="c-circle done">✓</div>
+      <div><div class="c-name">💧 Gesicht waschen</div></div>
+    </div>
+    <div class="c-item checked-item" id="ci2">
+      <div class="c-circle done">✓</div>
+      <div><div class="c-name">💎 Vitamin-C Serum</div></div>
+    </div>
+    <div class="c-item checked-item" id="ci3">
+      <div class="c-circle done">✓</div>
+      <div><div class="c-name">🧴 Feuchtigkeitscreme</div></div>
+    </div>
+    <div class="c-item" id="ci4">
+      <div class="c-circle pending"></div>
+      <div><div class="c-name">☀️ Sonnencreme SPF 50</div><div class="c-hint">Der wichtigste Anti-Aging-Schritt!</div></div>
+    </div>
+    <div class="c-item" id="ci5">
+      <div class="c-circle pending"></div>
+      <div><div class="c-name">💋 Make-up / Lippenpflege</div></div>
+    </div>
+  </div>
+  <div class="streak-badge" id="streakBadge">🔥 7 Tage Streak! Weiter so!</div>
+</div>
+
+<!-- SCENE 3 -->
+<div class="scene" id="s3">
+  <div class="tip-title">Heute's Beauty-Tipp 💜</div>
+  <div class="tip-bubble" id="tb1">
+    <div class="t-emoji">☀️</div>
+    <div class="t-text">SPF ist der wichtigste Anti-Aging-Schritt überhaupt. Täglich auftragen – auch bei bewölktem Himmel!</div>
+    <div class="t-source">✨ Beauty Routine App Tipp</div>
+  </div>
+  <div class="tip-bubble" id="tb2">
+    <div class="t-emoji">💧</div>
+    <div class="t-text">Serum VOR der Feuchtigkeitscreme auftragen – für maximale Wirkung der Wirkstoffe.</div>
+    <div class="t-source">✨ Beauty Routine App Tipp</div>
+  </div>
+  <div class="tip-bubble" id="tb3">
+    <div class="t-emoji">🌙</div>
+    <div class="t-text">Abends nie mit Make-up schlafen – deine Haut regeneriert sich nachts am besten!</div>
+    <div class="t-source">✨ Beauty Routine App Tipp</div>
+  </div>
+</div>
+
+<!-- SCENE 4 -->
+<div class="scene" id="s4">
+  <div class="confetti-container" id="confetti"></div>
+  <div class="brand">Beauty</div>
+  <div class="brand-sub">ROUTINE</div>
+  <div class="testimonial">
+    <div class="t-quote">Seit ich die App nutze, vergesse ich nie mehr meinen SPF. Meine Haut sieht so viel besser aus!</div>
+    <div class="t-stars">★★★★★</div>
+  </div>
+  <div class="dl-box">
+    <div class="dl-main">Starte kostenlos 🌸</div>
+    <div class="dl-url">robschman.github.io</div>
+    <div class="dl-free">Kein Download – direkt im Browser!</div>
+    <div class="pointer">👇</div>
+  </div>
+</div>
+
+<script>
+  // Particles scene 1
+  const colors1=['#f48fb1','#ce93d8','#FFE680','#fff'];
+  for(let i=0;i<15;i++){
+    const d=document.createElement('div');
+    d.className='particle';
+    const sz=4+Math.random()*8;
+    d.style.cssText=`width:${sz}px;height:${sz}px;background:${colors1[i%4]};left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s;opacity:0.3;`;
+    document.getElementById('p1').appendChild(d);
+  }
+
+  // Confetti scene 4
+  const confColors=['#f06292','#ab47bc','#FFE680','#64b5f6','#81c784','#ff8a65'];
+  for(let i=0;i<30;i++){
+    const d=document.createElement('div');
+    d.className='confetti-piece';
+    d.style.cssText=`background:${confColors[i%6]};left:${Math.random()*100}%;animation-duration:${2+Math.random()*2}s;animation-delay:${Math.random()*3}s;`;
+    document.getElementById('confetti').appendChild(d);
+  }
+
+  const scenes=[
+    {id:'s1',dur:3500,onEnter:()=>{}},
+    {id:'s2',dur:5000,onEnter:()=>{
+      [['ci1',200],['ci2',500],['ci3',800],['ci4',1100],['ci5',1400]].forEach(([id,d])=>
+        setTimeout(()=>document.getElementById(id).classList.add('show'),d));
+      setTimeout(()=>document.getElementById('streakBadge').classList.add('show'),2000);
+    }},
+    {id:'s3',dur:5000,onEnter:()=>{
+      setTimeout(()=>document.getElementById('tb1').classList.add('show'),300);
+      setTimeout(()=>document.getElementById('tb2').classList.add('show'),900);
+      setTimeout(()=>document.getElementById('tb3').classList.add('show'),1500);
+    }},
+    {id:'s4',dur:6000,onEnter:()=>{}},
+  ];
+
+  let cur=0;
+  function next(){
+    document.getElementById(scenes[cur].id).classList.remove('active');
+    cur=(cur+1)%scenes.length;
+    document.getElementById(scenes[cur].id).classList.add('active');
+    scenes[cur].onEnter();
+    setTimeout(next,scenes[cur].dur);
+  }
+  scenes[0].onEnter();
+  setTimeout(next,scenes[0].dur);
+</script>
+</body>
+</html>
