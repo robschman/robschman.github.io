@@ -1366,17 +1366,59 @@ function fitLogoText() {
   }
 }
 
+function fitGreetingText() {
+  const row = document.getElementById('greetingRow');
+  if (!row) return;
+  const maxSize = 0.92;
+  const minSize = 0.58;
+  row.style.fontSize = maxSize + 'rem';
+  row.style.whiteSpace = 'nowrap';
+  let size = maxSize;
+  while (row.scrollWidth > row.offsetWidth && size > minSize) {
+    size -= 0.02;
+    row.style.fontSize = size + 'rem';
+  }
+}
+
+function getPersonaEmoji() {
+  const isBoy  = getGender() === 'boy';
+  const color  = store.get('routine_haircolor')  || '';
+  const length = store.get('routine_hairlength') || '';
+
+  // Haarfarbe-Emoji
+  const colorEmoji = {
+    blond:    isBoy ? '👱‍♂️' : '👱‍♀️',
+    braun:    isBoy ? '👨‍🦱' : '👩‍🦱',
+    schwarz:  isBoy ? '🧔'   : '👩‍🦳',
+    rot:      isBoy ? '👨‍🦰' : '👩‍🦰',
+    grau:     isBoy ? '👨‍🦳' : '👩‍🦳',
+    gefaerbt: isBoy ? '💈'   : '💇‍♀️',
+  }[color] || (isBoy ? '👦' : '👧');
+
+  // Haarlänge-Emoji (als zweites)
+  const lengthEmoji = {
+    kurz:   isBoy ? '✂️' : '💁‍♀️',
+    mittel: isBoy ? '🪮' : '💇‍♀️',
+    lang:   isBoy ? '🧔' : '👸',
+  }[length] || '';
+
+  return lengthEmoji ? `${colorEmoji}${lengthEmoji}` : colorEmoji;
+}
+
 function showGreeting(name) {
   const isBoy = getGender() === 'boy';
   const logoName = document.getElementById('logoName');
-  if (logoName) logoName.textContent = `${t('logoNamePrefix')} ${isBoy ? name.toUpperCase() : name}${isBoy ? ' 🎯' : ' 🌸✨'}`;
+  if (logoName) logoName.textContent = `${t('logoNamePrefix')} ${isBoy ? name.toUpperCase() : name} ${getPersonaEmoji()}`;
   setTimeout(fitLogoText, 0);
 
   const { text, emoji } = getGreeting();
   const motivations = isBoy ? t('motivationsBoy') : t('motivations');
   const msg = motivations[Math.floor(Math.random() * motivations.length)];
   const row = document.getElementById('greetingRow');
-  if (row) row.innerHTML = `${emoji} ${text}, <strong>${escHtml(name)}</strong>! — <em>${msg}</em>`;
+  if (row) {
+    row.innerHTML = `${emoji} ${text}, <strong>${escHtml(name)}</strong>! — <em>${msg}</em>`;
+    setTimeout(fitGreetingText, 0);
+  }
 }
 
 // ===== Settings Modal =====
@@ -1655,7 +1697,7 @@ function init() {
   loadTermine();
   updateTodayBadge();
   applyTheme(getGender());
-  setTimeout(fitLogoText, 50);
+  setTimeout(() => { fitLogoText(); fitGreetingText(); }, 50);
   document.getElementById('termineOpenBtn').addEventListener('click', openTermineOverlay);
   document.getElementById('termineCloseBtn').addEventListener('click', closeTermineOverlay);
   document.getElementById('addTerminBtn').addEventListener('click', () => openTerminEdit(null));
