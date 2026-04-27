@@ -1385,24 +1385,30 @@ function getPersonaEmoji() {
   const color  = store.get('routine_haircolor')  || '';
   const length = store.get('routine_hairlength') || '';
 
-  // Haarfarbe-Emoji
-  const colorEmoji = {
-    blond:    isBoy ? '👱‍♂️' : '👱‍♀️',
-    braun:    isBoy ? '👨‍🦱' : '👩‍🦱',
-    schwarz:  isBoy ? '🧔'   : '👩‍🦳',
-    rot:      isBoy ? '👨‍🦰' : '👩‍🦰',
-    grau:     isBoy ? '👨‍🦳' : '👩‍🦳',
-    gefaerbt: isBoy ? '💈'   : '💇‍♀️',
-  }[color] || (isBoy ? '👦' : '👧');
-
-  // Haarlänge-Emoji (als zweites)
-  const lengthEmoji = {
-    kurz:   isBoy ? '✂️' : '💁‍♀️',
-    mittel: isBoy ? '🪮' : '💇‍♀️',
-    lang:   isBoy ? '🧔' : '👸',
-  }[length] || '';
-
-  return lengthEmoji ? `${colorEmoji}${lengthEmoji}` : colorEmoji;
+  // Eine Kombinations-Tabelle: [gender][color][length] → ein passendes Emoji
+  if (isBoy) {
+    if (color === 'blond') return length === 'lang' ? '🧝‍♂️' : '👱‍♂️';
+    if (color === 'rot')   return '👨‍🦰';
+    if (color === 'grau')  return '👨‍🦳';
+    if (color === 'braun') return length === 'kurz' ? '👦' : '🧔';
+    if (color === 'schwarz') return length === 'lang' ? '🧙‍♂️' : '🧔‍♂️';
+    if (color === 'gefaerbt') return '🤩';
+    // Fallback nach Länge
+    return length === 'kurz' ? '👦' : length === 'lang' ? '🧔' : '👨';
+  } else {
+    if (color === 'blond' && length === 'lang')   return '👸';
+    if (color === 'blond' && length === 'mittel')  return '👱‍♀️';
+    if (color === 'blond' && length === 'kurz')    return '💁‍♀️';
+    if (color === 'rot')   return length === 'lang' ? '🧝‍♀️' : '👩‍🦰';
+    if (color === 'grau')  return '👩‍🦳';
+    if (color === 'braun' && length === 'lang')   return '🧝‍♀️';
+    if (color === 'braun') return '👩‍🦱';
+    if (color === 'schwarz' && length === 'lang') return '🧛‍♀️';
+    if (color === 'schwarz') return '👩‍🦱';
+    if (color === 'gefaerbt') return '💅';
+    // Fallback nach Länge
+    return length === 'lang' ? '👸' : length === 'kurz' ? '💁‍♀️' : '👩';
+  }
 }
 
 function showGreeting(name) {
