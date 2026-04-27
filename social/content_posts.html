@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Routine – Fertige Posts</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#fce4ec,#f3e5f5,#ede7f6);
+  min-height:100vh; padding:24px 16px; color:#333;
+}
+h1 {
+  font-family:'Dancing Script',cursive;
+  font-size:36px; color:#c2185b;
+  text-align:center; margin-bottom:4px;
+}
+.subtitle { text-align:center; font-size:12px; color:#bbb; font-weight:600; letter-spacing:2px; margin-bottom:24px; }
+
+.week-title {
+  font-size:11px; font-weight:800; letter-spacing:2px; color:#ab47bc;
+  text-transform:uppercase; margin:20px 0 10px;
+  padding:6px 14px; background:rgba(171,71,188,0.1); border-radius:50px;
+  display:inline-block;
+}
+.post-card {
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.post-header {
+  display:flex; align-items:center; gap:10px; margin-bottom:12px;
+}
+.platform-badge {
+  font-size:10px; font-weight:800; padding:4px 10px; border-radius:50px;
+  letter-spacing:1px; text-transform:uppercase;
+}
+.pb-tiktok  { background:#000; color:#fff; }
+.pb-ig      { background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
+.pb-yt      { background:#ff0000; color:#fff; }
+.pb-all     { background:linear-gradient(135deg,#f06292,#ab47bc); color:#fff; }
+.day-label  { font-size:11px; color:#bbb; font-weight:600; }
+.post-title { font-size:14px; font-weight:800; color:#333; margin-bottom:8px; }
+
+.copy-block {
+  background:#f8f8f8; border-radius:12px; padding:12px 14px;
+  font-size:12px; line-height:1.7; color:#444;
+  border-left:3px solid #f06292;
+  margin-bottom:8px;
+  white-space:pre-wrap;
+  cursor:pointer;
+  position:relative;
+  transition:background 0.15s;
+}
+.copy-block:hover { background:#fce4ec; }
+.copy-block:hover::after {
+  content:'📋 Kopieren';
+  position:absolute; top:8px; right:10px;
+  font-size:10px; font-weight:700; color:#c2185b;
+}
+.hash-block {
+  background:#f0e8ff; border-radius:12px; padding:10px 14px;
+  font-size:11px; line-height:1.8; color:#7b1fa2;
+  cursor:pointer; transition:background 0.15s;
+  position:relative;
+}
+.hash-block:hover { background:#e1bee7; }
+.hash-block:hover::after {
+  content:'📋 Kopieren';
+  position:absolute; top:6px; right:10px;
+  font-size:10px; font-weight:700; color:#7b1fa2;
+}
+.tip-row {
+  font-size:11px; color:#bbb; margin-top:8px;
+  display:flex; align-items:center; gap:6px;
+}
+.copied-toast {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+  background:#333; color:#fff; font-size:12px; font-weight:700;
+  padding:10px 22px; border-radius:50px;
+  opacity:0; pointer-events:none;
+  transition:opacity 0.3s;
+  z-index:999;
+}
+.copied-toast.show { opacity:1; }
+
+.buffer-box {
+  background:rgba(255,255,255,0.9);
+  border-radius:20px; padding:20px; margin-bottom:20px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  text-align:center;
+}
+.buffer-box h3 { font-size:15px; font-weight:800; margin-bottom:6px; }
+.buffer-box p  { font-size:12px; color:#888; margin-bottom:14px; line-height:1.6; }
+.btn-primary {
+  display:inline-block;
+  background:linear-gradient(135deg,#f06292,#ab47bc);
+  color:white; font-weight:800; font-size:13px;
+  padding:12px 28px; border-radius:50px;
+  text-decoration:none;
+  box-shadow:0 4px 16px rgba(240,98,146,0.4);
+}
+.step-list { text-align:left; margin:12px 0; }
+.step-list li {
+  font-size:12px; color:#555; padding:5px 0;
+  display:flex; align-items:flex-start; gap:8px; list-style:none;
+}
+.step-num-s {
+  width:20px; height:20px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg,#f06292,#ab47bc);
+  color:white; font-size:10px; font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+  margin-top:1px;
+}
+</style>
+</head>
+<body>
+
+<h1>Fertige Posts</h1>
+<div class="subtitle">COPY & PASTE FÜR TIKTOK · INSTAGRAM · YOUTUBE</div>
+
+<div class="buffer-box">
+  <h3>🔧 Buffer – Automatisch planen & posten</h3>
+  <p>Mit Buffer einmal pro Woche alle Posts einplanen.<br>Buffer postet dann automatisch zum besten Zeitpunkt.</p>
+  <ol class="step-list">
+    <li><div class="step-num-s">1</div>Konto auf buffer.com erstellen (kostenlos)</li>
+    <li><div class="step-num-s">2</div>TikTok, Instagram & YouTube verbinden</li>
+    <li><div class="step-num-s">3</div>Posts aus dieser Seite kopieren & einplanen</li>
+    <li><div class="step-num-s">4</div>Buffer postet automatisch! ✅</li>
+  </ol>
+  <a class="btn-primary" href="https://buffer.com" target="_blank">buffer.com öffnen →</a>
+</div>
+
+<!-- WOCHE 1 -->
+<div class="week-title">📅 Woche 1 – Launch</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-all">Alle Plattformen</div>
+    <div class="day-label">Tag 1 · Montag</div>
+  </div>
+  <div class="post-title">🚀 App Launch – Wir starten!</div>
+  <div class="copy-block" onclick="copyText(this)">✨ Die Beauty Routine App ist LIVE!
+
+Deine persönliche Skincare-Begleiterin – kostenlos, kein Download nötig.
+
+🌸 Morgen & Abend Routine
+💅 Wöchentliche Pflege
+📅 Termine nie mehr vergessen
+💡 Tägliche Beauty-Tipps
+
+👉 beautyroutine.app – einfach öffnen, loslegen!</div>
+  <div class="hash-block" onclick="copyText(this)">#beautyapp #skincareaddict #beautyroutine #skincareroutine #beautytips #skincaretips #morgenroutine #abendroutine #glowup #beautyroutineapp #kostenlos #beautycare #skincarecommunity #glowskin #selfcare</div>
+  <div class="tip-row">💡 Tipp: Video dazu → promo/video4.mp4 hochladen</div>
+</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-tiktok">TikTok</div>
+    <div class="day-label">Tag 3 · Mittwoch</div>
+  </div>
+  <div class="post-title">✨ Skincare Routine in 60 Sek</div>
+  <div class="copy-block" onclick="copyText(this)">Meine komplette Skincare Routine – und die App erinnert mich täglich daran! 🌸
+
+Kennt ihr das? Man vergisst einfach Schritte... Die Beauty Routine App hilft 💕
+
+👉 beautyroutine.app (Link in Bio)</div>
+  <div class="hash-block" onclick="copyText(this)">#skincaretiktok #beautyroutine #glowup #skincare2026 #morgenroutine #skincarecheck #beautyhacks #skincaregirl #dailyroutine #beautyapp #tiktokbeauty #skintok #selfcaretips #beautylife #glowskin</div>
+  <div class="tip-row">💡 Video dazu → promo/video6.mp4 (Routine Showcase)</div>
+</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-ig">Instagram</div>
+    <div class="day-label">Tag 5 · Freitag</div>
+  </div>
+  <div class="post-title">📱 App auf Homescreen installieren</div>
+  <div class="copy-block" onclick="copyText(this)">Wusstest du das? Die Beauty Routine App lässt sich wie eine echte App auf dem Homescreen installieren! 📱✨
+
+Kein Download, kein App Store – einfach:
+1️⃣ beautyroutine.app öffnen
+2️⃣ Teilen-Symbol tippen
+3️⃣ "Zum Home-Bildschirm" wählen
+
+Fertig! 🎉 Deine Skincare-Begleiterin immer griffbereit 🌸
+
+👉 beautyroutine.app</div>
+  <div class="hash-block" onclick="copyText(this)">#beautyapp #skincareroutine #beautylife #selfcare #skincaretips #instaskincare #beautygram #glowup #skincareaddict #beautyroutine #dailyskincare #skincareobsessed #makeuptips #beautyinspo #skincarecommunity</div>
+  <div class="tip-row">💡 Video dazu → promo/video7.mp4 (Homescreen Install)</div>
+</div>
+
+<!-- WOCHE 2 -->
+<div class="week-title">📅 Woche 2 – Features zeigen</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-tiktok">TikTok</div>
+    <div class="day-label">Tag 8 · Montag</div>
+  </div>
+  <div class="post-title">📅 Termine nie mehr vergessen</div>
+  <div class="copy-block" onclick="copyText(this)">POV: Du vergisst nie wieder deinen Friseur-Termin 💇‍♀️✨
+
+Die Beauty Routine App hat eine Termin-Funktion – kostenlos!
+
+👉 beautyroutine.app</div>
+  <div class="hash-block" onclick="copyText(this)">#beautytips #skincareroutine #beautyapp #friseurtipp #beautyhacks #tiktokbeauty #skintok #glowup #selfcaretips #terminemanagen #beautylife #skincareaddict #dailyroutine #beautyorganization #beautyroutine</div>
+  <div class="tip-row">💡 Video dazu → promo/video5.mp4 (Termine)</div>
+</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-ig">Instagram</div>
+    <div class="day-label">Tag 10 · Mittwoch</div>
+  </div>
+  <div class="post-title">🌙 Abend-Routine für perfekte Haut</div>
+  <div class="copy-block" onclick="copyText(this)">Die Abendroutine ist genauso wichtig wie morgens! 🌙✨
+
+Meine Must-Haves:
+🧴 Abschminken & reinigen
+💧 Serum auftragen
+🌿 Feuchtigkeitscreme
+👁️ Augencreme nicht vergessen!
+
+Die Beauty Routine App erinnert mich jeden Abend – damit ich keinen Schritt vergesse 🌸
+
+Was ist euer wichtigster Schritt in der Abendroutine? Schreibt es in die Kommentare! 👇
+
+👉 beautyroutine.app</div>
+  <div class="hash-block" onclick="copyText(this)">#nightskincare #abendroutine #skincareaddict #beautyroutine #nightroutine #skincaretips #glowskin #skincareobsessed #beautyapp #selfcaresunday #skincareregimen #beautylife #instaskincare #skincarecommunity #glowup</div>
+</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-yt">YouTube Shorts</div>
+    <div class="day-label">Tag 12 · Freitag</div>
+  </div>
+  <div class="post-title">📋 So fügst du eine Routine hinzu</div>
+  <div class="copy-block" onclick="copyText(this)">Beauty Routine App Tutorial – Routine Schritt hinzufügen in 30 Sekunden!
+
+In diesem Video zeige ich dir, wie du ganz einfach eigene Schritte zu deiner Morgen- oder Abendroutine hinzufügst.
+
+✅ 100% kostenlos
+✅ Kein Download nötig
+✅ Funktioniert auf iPhone & Android
+
+👉 beautyroutine.app
+
+#beautyapp #skincaretutorial #beautyroutine #howto</div>
+  <div class="hash-block" onclick="copyText(this)">#beautyroutine #skincaretutorial #beautyapp #howto #skincareapp #beautytips #glowup #skincareroutine #selfcare #beautylife #youtubeshorts #skincarehacks #beautyorganization #dailyroutine #skincareaddict</div>
+  <div class="tip-row">💡 Video dazu → promo/video9.mp4 (Routine hinzufügen)</div>
+</div>
+
+<!-- WOCHE 3 -->
+<div class="week-title">📅 Woche 3 – Community & Engagement</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-all">Alle Plattformen</div>
+    <div class="day-label">Tag 15 · Montag</div>
+  </div>
+  <div class="post-title">💬 Frage an die Community</div>
+  <div class="copy-block" onclick="copyText(this)">Welche Skincare-Routine machst du? ⬇️
+
+A) Nur Morgen 🌅
+B) Nur Abend 🌙
+C) Morgen & Abend ✨
+D) Ich vergesse es meistens 😅
+
+Schreibt A, B, C oder D in die Kommentare! 👇
+
+(Mit der Beauty Routine App vergisst du es nie mehr 😉)
+👉 beautyroutine.app</div>
+  <div class="hash-block" onclick="copyText(this)">#skincarecommunity #beautyquiz #skincareaddict #beautyroutine #skincaretips #selfcare #glowup #beautylife #skintok #beautytok #morgenroutine #abendroutine #beautyapp #skincarecheck #beautyinspo</div>
+</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-tiktok">TikTok</div>
+    <div class="day-label">Tag 17 · Mittwoch</div>
+  </div>
+  <div class="post-title">🧴 Hautpflege-Tipps die wirklich helfen</div>
+  <div class="copy-block" onclick="copyText(this)">3 Skincare-Fehler die ich früher gemacht habe 😬
+
+1️⃣ Sonnencreme vergessen → SPF ist Anti-Aging!
+2️⃣ Abends nicht abschminken → größter Fehler ever
+3️⃣ Keine Routine → Haut braucht Konstanz!
+
+Die Beauty Routine App hilft mir, es täglich durchzuziehen 🌸
+
+👉 beautyroutine.app</div>
+  <div class="hash-block" onclick="copyText(this)">#skincaremistakes #beautytips #glowup #skincareaddict #spf #sunscreen #beautyroutine #skincaretips #skintok #tiktokbeauty #beautylife #dailyskincare #skincarehacks #selfcare #beautyapp</div>
+</div>
+
+<!-- WOCHE 4 -->
+<div class="week-title">📅 Woche 4 – Ergebnisse & Glow</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-ig">Instagram</div>
+    <div class="day-label">Tag 22 · Montag</div>
+  </div>
+  <div class="post-title">✨ 3 Wochen Ergebnis!</div>
+  <div class="copy-block" onclick="copyText(this)">3 Wochen mit der Beauty Routine App – und meine Haut dankt es mir! ✨🌸
+
+Was sich verändert hat:
+✅ Keine Schritte mehr vergessen
+✅ Haut strahlt mehr
+✅ Routine ist zur Gewohnheit geworden
+✅ Termine immer im Blick
+
+Das Beste: Die App ist 100% KOSTENLOS 💕
+
+Testet es selbst → beautyroutine.app</div>
+  <div class="hash-block" onclick="copyText(this)">#skincaretransformation #glowup #beautyroutine #skincaresunday #skincareresults #selfcare #beautyapp #skincareaddict #skincarecommunity #beautygram #glowskin #skincareobsessed #dailyskincare #beautyroutineapp #skincaretips</div>
+</div>
+
+<div class="post-card">
+  <div class="post-header">
+    <div class="platform-badge pb-all">Alle Plattformen</div>
+    <div class="day-label">Tag 28 · Sonntag</div>
+  </div>
+  <div class="post-title">🌸 Monat 1 – Danke!</div>
+  <div class="copy-block" onclick="copyText(this)">Ein Monat Beauty Routine App 🌸✨
+
+Danke an alle die dabei sind! 💕
+
+Die App ist kostenlos, braucht keinen Download und funktioniert auf jedem Handy.
+
+Falls du sie noch nicht ausprobiert hast – jetzt ist der perfekte Zeitpunkt! 👇
+
+👉 beautyroutine.app</div>
+  <div class="hash-block" onclick="copyText(this)"># beautyroutine #skincarecommunity #beautyapp #selfcare #glowup #skincareaddict #beautytips #skincaretips #beautylife #dailyroutine #skincareapp #beautyroutineapp #thankyou #beautyinspo #skincaregirl</div>
+</div>
+
+<div style="height:40px;"></div>
+
+<div id="toast" class="copied-toast">✅ Kopiert!</div>
+
+<script>
+function copyText(el) {
+  const text = el.innerText.replace('📋 Kopieren','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  });
+}
+</script>
+</body>
+</html>

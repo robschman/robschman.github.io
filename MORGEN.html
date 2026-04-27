@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morgen – Nächste Schritte</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#fce4ec,#f3e5f5,#ede7f6);
+  min-height:100vh; padding:24px 16px; color:#333;
+}
+h1 {
+  font-family:'Dancing Script',cursive;
+  font-size:38px; color:#c2185b;
+  text-align:center; margin-bottom:2px;
+}
+.subtitle { text-align:center; font-size:12px; color:#bbb; font-weight:600; letter-spacing:2px; margin-bottom:6px; }
+.date     { text-align:center; font-size:13px; color:#e91e8c; font-weight:700; margin-bottom:24px; }
+
+.step-card {
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(10px);
+  border-radius:22px;
+  padding:20px;
+  margin-bottom:16px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.07);
+  position:relative;
+  overflow:hidden;
+}
+.step-card::before {
+  content:'';
+  position:absolute; top:0; left:0; bottom:0; width:5px;
+  border-radius:22px 0 0 22px;
+}
+.step-card.video::before  { background:linear-gradient(#f06292,#ab47bc); }
+.step-card.social::before { background:linear-gradient(#42a5f5,#1565c0); }
+.step-card.seo::before    { background:linear-gradient(#66bb6a,#2e7d32); }
+.step-card.buffer::before { background:linear-gradient(#ffa726,#e65100); }
+.step-card.land::before   { background:linear-gradient(#ab47bc,#6a1b9a); }
+
+.step-header {
+  display:flex; align-items:center; gap:12px; margin-bottom:14px;
+}
+.step-num {
+  width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; font-weight:900; color:white; flex-shrink:0;
+}
+.video  .step-num  { background:linear-gradient(135deg,#f06292,#ab47bc); }
+.social .step-num  { background:linear-gradient(135deg,#42a5f5,#1565c0); }
+.seo    .step-num  { background:linear-gradient(135deg,#66bb6a,#2e7d32); }
+.buffer .step-num  { background:linear-gradient(135deg,#ffa726,#e65100); }
+.land   .step-num  { background:linear-gradient(135deg,#ab47bc,#6a1b9a); }
+
+.step-title { font-size:15px; font-weight:800; color:#333; }
+.step-time  { font-size:10px; font-weight:700; color:#bbb; margin-top:2px; }
+
+.action-list { list-style:none; }
+.action-list li {
+  display:flex; align-items:flex-start; gap:10px;
+  padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05);
+  font-size:13px; line-height:1.5;
+}
+.action-list li:last-child { border:none; padding-bottom:0; }
+.a-icon { flex-shrink:0; font-size:15px; margin-top:1px; }
+
+.code-block {
+  background:#1e1e1e; color:#f8f8f2;
+  border-radius:12px; padding:12px 16px;
+  font-family:monospace; font-size:12px;
+  margin:10px 0; line-height:1.6;
+  cursor:pointer; position:relative;
+}
+.code-block:hover::after {
+  content:'📋 Kopieren';
+  position:absolute; top:8px; right:10px;
+  font-size:10px; color:#f06292; font-weight:700; font-family:'Poppins',sans-serif;
+}
+.cmd-comment { color:#75715e; }
+.cmd-main    { color:#a6e22e; }
+.cmd-path    { color:#e6db74; }
+
+.link-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  background:linear-gradient(135deg,#f06292,#ab47bc);
+  color:white; font-weight:800; font-size:12px;
+  padding:9px 18px; border-radius:50px;
+  text-decoration:none; margin-top:10px;
+  box-shadow:0 4px 14px rgba(240,98,146,0.35);
+}
+.link-btn.blue { background:linear-gradient(135deg,#42a5f5,#1565c0); box-shadow:0 4px 14px rgba(66,165,245,0.35); }
+.link-btn.green { background:linear-gradient(135deg,#66bb6a,#2e7d32); box-shadow:0 4px 14px rgba(102,187,106,0.35); }
+.link-btn.orange { background:linear-gradient(135deg,#ffa726,#e65100); box-shadow:0 4px 14px rgba(255,167,38,0.35); }
+
+.tip-box {
+  background:rgba(240,98,146,0.07);
+  border-radius:12px; padding:10px 14px;
+  font-size:12px; color:#c2185b; margin-top:10px;
+  border-left:3px solid #f06292;
+}
+
+.bio-block {
+  background:#f8f8f8; border-radius:12px; padding:12px 14px;
+  font-size:12px; line-height:1.7; color:#444;
+  border-left:3px solid #42a5f5;
+  cursor:pointer; position:relative; margin:8px 0;
+  white-space:pre-wrap;
+}
+.bio-block:hover { background:#e3f2fd; }
+.bio-block:hover::after {
+  content:'📋 Kopieren';
+  position:absolute; top:8px; right:10px;
+  font-size:10px; color:#1565c0; font-weight:700;
+}
+
+.done-badge {
+  display:inline-block;
+  background:#e8f5e9; color:#2e7d32;
+  font-size:10px; font-weight:800;
+  padding:3px 10px; border-radius:50px;
+  margin-left:8px;
+}
+
+#toast {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+  background:#333; color:#fff; font-size:12px; font-weight:700;
+  padding:10px 22px; border-radius:50px;
+  opacity:0; pointer-events:none; transition:opacity 0.3s; z-index:999;
+}
+#toast.show { opacity:1; }
+</style>
+</head>
+<body>
+
+<h1>Morgen starten wir! 🚀</h1>
+<div class="subtitle">SCHRITT FÜR SCHRITT · ALLES VORBEREITET</div>
+<div class="date">📅 Dienstag, 28. April 2026</div>
+
+<!-- SCHRITT 1: VIDEOS -->
+<div class="step-card video">
+  <div class="step-header">
+    <div class="step-num">1</div>
+    <div>
+      <div class="step-title">🎬 Videos aufnehmen</div>
+      <div class="step-time">⏱ ca. 20–30 Minuten · vollautomatisch</div>
+    </div>
+  </div>
+  <ul class="action-list">
+    <li><span class="a-icon">1️⃣</span>Terminal öffnen (Cmd+Leertaste → "Terminal")</li>
+    <li><span class="a-icon">2️⃣</span>Diesen Befehl kopieren und ausführen:</li>
+  </ul>
+  <div class="code-block" onclick="copyCode(this)"><span class="cmd-comment"># Videos aufnehmen (läuft automatisch durch)</span>
+<span class="cmd-main">cd</span> <span class="cmd-path">"/Users/robschmansimac/Claude Projekte/Routine/promo"</span> <span class="cmd-main">&amp;&amp; node record.js</span></div>
+  <ul class="action-list">
+    <li><span class="a-icon">3️⃣</span>Warten – 6 Videos werden automatisch aufgenommen</li>
+    <li><span class="a-icon">4️⃣</span>Fertige MP4s findest du in: <code style="font-size:11px;background:#f0f0f0;padding:2px 6px;border-radius:4px;">promo/output/</code></li>
+  </ul>
+  <div class="tip-box">💡 Mac muss wach bleiben – Energiesparmodus ausschalten während der Aufnahme!</div>
+</div>
+
+<!-- SCHRITT 2: INSTAGRAM -->
+<div class="step-card social">
+  <div class="step-header">
+    <div class="step-num">2</div>
+    <div>
+      <div class="step-title">📸 Instagram erstellen</div>
+      <div class="step-time">⏱ ca. 10 Minuten</div>
+    </div>
+  </div>
+  <ul class="action-list">
+    <li><span class="a-icon">📱</span>Instagram App öffnen → "Neues Konto erstellen"</li>
+    <li><span class="a-icon">👤</span>Benutzername: <strong>@beautyroutineapp</strong></li>
+    <li><span class="a-icon">📝</span>Diese Bio kopieren:</li>
+  </ul>
+  <div class="bio-block" onclick="copyText(this)">✨ Deine persönliche Beauty-Begleiterin
+🌸 Morgen & Abend Routine Tracker
+💅 Termine · Tipps · Wochenpflege
+👇 Kostenlos starten – kein Download!
+🔗 beautyroutine.app</div>
+  <ul class="action-list">
+    <li><span class="a-icon">🔗</span>Link in Bio: <strong>beautyroutine.app</strong></li>
+    <li><span class="a-icon">🖼️</span>Highlight Cover hochladen → <a href="/social/highlight_covers.html" style="color:#1565c0;">highlight_covers.html</a> öffnen, screenshotten</li>
+    <li><span class="a-icon">🎬</span>Erstes Reel posten → promo/output/promo4_showcase.mp4</li>
+  </ul>
+  <a class="link-btn blue" href="https://instagram.com" target="_blank">Instagram öffnen →</a>
+</div>
+
+<!-- SCHRITT 3: TIKTOK -->
+<div class="step-card social">
+  <div class="step-header">
+    <div class="step-num">3</div>
+    <div>
+      <div class="step-title">🎵 TikTok erstellen</div>
+      <div class="step-time">⏱ ca. 10 Minuten</div>
+    </div>
+  </div>
+  <ul class="action-list">
+    <li><span class="a-icon">📱</span>TikTok App öffnen → Konto erstellen</li>
+    <li><span class="a-icon">👤</span>Benutzername: <strong>@beautyroutineapp</strong></li>
+    <li><span class="a-icon">📝</span>Diese Bio kopieren:</li>
+  </ul>
+  <div class="bio-block" onclick="copyText(this)">✨ Beauty Routine App
+🌸 Kostenloser Skincare Tracker
+💅 kein Download · beautyroutine.app</div>
+  <ul class="action-list">
+    <li><span class="a-icon">🔗</span>Link: <strong>beautyroutine.app</strong></li>
+    <li><span class="a-icon">🎬</span>Erstes Video → promo4_showcase.mp4 oder promo6_routine.mp4</li>
+  </ul>
+  <a class="link-btn blue" href="https://tiktok.com" target="_blank">TikTok öffnen →</a>
+</div>
+
+<!-- SCHRITT 4: YOUTUBE -->
+<div class="step-card social">
+  <div class="step-header">
+    <div class="step-num">4</div>
+    <div>
+      <div class="step-title">▶️ YouTube Kanal erstellen</div>
+      <div class="step-time">⏱ ca. 10 Minuten</div>
+    </div>
+  </div>
+  <ul class="action-list">
+    <li><span class="a-icon">💻</span>youtube.com → Google Konto → Kanal erstellen</li>
+    <li><span class="a-icon">📛</span>Kanal-Name: <strong>Beauty Routine App</strong></li>
+    <li><span class="a-icon">📝</span>Diese Beschreibung kopieren:</li>
+  </ul>
+  <div class="bio-block" onclick="copyText(this)">Die Beauty Routine App ist deine kostenlose persönliche Skincare-Begleiterin! 🌸
+
+✨ Morgen & Abend Routine Checklisten
+💅 Wöchentliche Pflege-Routine
+📅 Termine verwalten – Friseur, Maniküre & mehr
+💡 Tägliche Beauty-Tipps vom Profi
+
+👉 beautyroutine.app – kostenlos, kein Download nötig!</div>
+  <ul class="action-list">
+    <li><span class="a-icon">🎬</span>Erste Shorts → alle promo*.mp4 hochladen als YouTube Shorts</li>
+  </ul>
+  <a class="link-btn blue" href="https://youtube.com" target="_blank">YouTube öffnen →</a>
+</div>
+
+<!-- SCHRITT 5: BUFFER -->
+<div class="step-card buffer">
+  <div class="step-header">
+    <div class="step-num">5</div>
+    <div>
+      <div class="step-title">🔧 Buffer einrichten – Auto-Posting</div>
+      <div class="step-time">⏱ ca. 15 Minuten · dann läuft alles automatisch</div>
+    </div>
+  </div>
+  <ul class="action-list">
+    <li><span class="a-icon">1️⃣</span>Konto auf buffer.com erstellen (kostenlos – 3 Kanäle gratis)</li>
+    <li><span class="a-icon">2️⃣</span>Instagram, TikTok & YouTube verbinden</li>
+    <li><span class="a-icon">3️⃣</span>Posts aus <a href="/social/content_posts.html" style="color:#e65100;">content_posts.html</a> kopieren & einplanen</li>
+    <li><span class="a-icon">4️⃣</span>Buffer postet dann täglich automatisch! ✅</li>
+  </ul>
+  <a class="link-btn orange" href="https://buffer.com" target="_blank">buffer.com öffnen →</a>
+</div>
+
+<!-- SCHRITT 6: GOOGLE SEARCH CONSOLE -->
+<div class="step-card seo">
+  <div class="step-header">
+    <div class="step-num">6</div>
+    <div>
+      <div class="step-title">🔍 Google Search Console</div>
+      <div class="step-time">⏱ ca. 10 Minuten · für Google-Sichtbarkeit</div>
+    </div>
+  </div>
+  <ul class="action-list">
+    <li><span class="a-icon">1️⃣</span>search.google.com/search-console öffnen</li>
+    <li><span class="a-icon">2️⃣</span>"Domain" auswählen → <strong>beautyroutine.app</strong> eingeben</li>
+    <li><span class="a-icon">3️⃣</span>DNS-Verifizierung: TXT-Eintrag bei IONOS einfügen</li>
+    <li><span class="a-icon">4️⃣</span>Sitemap einreichen: <strong>beautyroutine.app/sitemap.xml</strong></li>
+  </ul>
+  <div class="tip-box">💡 Nach ca. 2–3 Tagen erscheint die App in Google-Suchergebnissen!</div>
+  <a class="link-btn green" href="https://search.google.com/search-console" target="_blank">Search Console öffnen →</a>
+</div>
+
+<!-- SCHRITT 7: LANDINGPAGE -->
+<div class="step-card land">
+  <div class="step-header">
+    <div class="step-num">7</div>
+    <div>
+      <div class="step-title">🌐 Landingpage live schalten</div>
+      <div class="step-time">⏱ wenn alles andere läuft</div>
+    </div>
+  </div>
+  <ul class="action-list">
+    <li><span class="a-icon">👁️</span>Entwurf ansehen: <a href="/promo/landing_preview.html" style="color:#7b1fa2;">promo/landing_preview.html</a></li>
+    <li><span class="a-icon">✏️</span>Fertig machen & als neue index.html deployen</li>
+    <li><span class="a-icon">🚀</span>Die App dann über einen "Öffnen"-Button erreichbar</li>
+  </ul>
+</div>
+
+<div style="text-align:center;padding:30px 0 10px;font-size:13px;color:#bbb;">
+  Viel Erfolg morgen! 🌸✨<br>
+  <span style="font-size:11px;">beautyroutine.app · Alle Dateien bereit</span>
+</div>
+
+<div id="toast" class="copied-toast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#333;color:#fff;font-size:12px;font-weight:700;padding:10px 22px;border-radius:50px;opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:999;">✅ Kopiert!</div>
+
+<script>
+function copyText(el) {
+  const text = el.innerText.replace('📋 Kopieren','').trim();
+  navigator.clipboard.writeText(text).then(showToast);
+}
+function copyCode(el) {
+  const text = el.innerText.replace('📋 Kopieren','').trim();
+  navigator.clipboard.writeText(text).then(showToast);
+}
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+</script>
+</body>
+</html>
