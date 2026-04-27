@@ -1949,7 +1949,7 @@ document.addEventListener('DOMContentLoaded', init);
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const sparkles = [];
-  const COUNT = 28;
+  const COUNT = 18;
 
   function resize() {
     const rect = canvas.parentElement.getBoundingClientRect();
@@ -1962,12 +1962,13 @@ document.addEventListener('DOMContentLoaded', init);
   function rand(min, max) { return Math.random() * (max - min) + min; }
 
   function createSparkle() {
+    const isBoy = getGender() === 'boy';
     return {
       x: rand(0, canvas.width),
       y: rand(0, canvas.height),
-      size: rand(1.5, 4),
+      size: isBoy ? rand(4, 9) : rand(1.5, 4),
       alpha: 0,
-      maxAlpha: rand(0.4, 0.95),
+      maxAlpha: rand(0.55, 1.0),
       speed: rand(0.008, 0.022),
       phase: Math.random() < 0.5 ? 'in' : 'out',
       delay: rand(0, 200),
