@@ -1224,10 +1224,42 @@ function getGreeting() {
   return                         { text: t('greetingNight'),   emoji: isBoy ? '😎' : '⭐' };
 }
 
+// ===== HAIR EMOJIS FOR GENDER =====
+function updateHairEmojisForGender(gender) {
+  const isBoy = gender === 'boy';
+  // Haarfarbe: blond emoji
+  document.querySelectorAll('#hairColorOptions .ob-option[data-value="blond"], #settingsHairColor .ob-option[data-value="blond"]').forEach(el => {
+    el.textContent = isBoy ? '👱‍♂️' : '👱‍♀️';
+  });
+  // Haarlänge: kurz / mittel / lang
+  const lengthMaps = {
+    kurz:  { girl: '💁‍♀️', boy: '💇‍♂️' },
+    mittel: { girl: '💇‍♀️', boy: '🧔' },
+    lang:  { girl: '👸',   boy: '🧑' },
+  };
+  ['#hairLengthOptions', '#settingsHairLength'].forEach(sel => {
+    document.querySelectorAll(`${sel} .ob-option`).forEach(el => {
+      const val = el.dataset.value;
+      if (!lengthMaps[val]) return;
+      const span = el.querySelector('.hair-label') || el.querySelector('span');
+      const small = el.querySelector('small');
+      const newEmoji = lengthMaps[val][isBoy ? 'boy' : 'girl'];
+      // Replace first text node (emoji) keeping child elements
+      const firstNode = el.firstChild;
+      if (firstNode && firstNode.nodeType === Node.TEXT_NODE) {
+        firstNode.textContent = newEmoji;
+      } else {
+        el.insertBefore(document.createTextNode(newEmoji), el.firstChild);
+      }
+    });
+  });
+}
+
 // ===== THEME =====
 function applyTheme(gender) {
   document.body.classList.toggle('theme-boy', gender === 'boy');
   applyGenderContent();
+  updateHairEmojisForGender(gender);
   renderAll();
   renderTips();
 }
@@ -1466,6 +1498,7 @@ function initOnboarding() {
         btn.classList.add('selected');
         selectedGender = btn.dataset.value;
         applyTheme(selectedGender);
+        updateHairEmojisForGender(selectedGender);
       });
     });
     document.getElementById('obNext1b').addEventListener('click', () => {
@@ -1507,6 +1540,7 @@ function initOnboarding() {
       store.set('routine_gender', selectedGender);
       applyHairProfile();
       screen.classList.remove('show');
+      applyTheme(selectedGender);
       showGreeting(val);
       renderAll();
       updateProgress();
@@ -1950,20 +1984,37 @@ document.addEventListener('DOMContentLoaded', init);
   function drawStar(x, y, r, alpha) {
     ctx.save();
     ctx.globalAlpha = alpha;
-    ctx.fillStyle = '#ffffff';
-    ctx.shadowColor = '#fff';
-    ctx.shadowBlur = r * 4;
-    // 4-pointed star
-    ctx.beginPath();
-    for (let i = 0; i < 8; i++) {
-      const angle = (i * Math.PI) / 4;
-      const dist = i % 2 === 0 ? r : r * 0.35;
-      const px = x + Math.cos(angle) * dist;
-      const py = y + Math.sin(angle) * dist;
-      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+    if (getGender() === 'boy') {
+      // ⚡ Lightning bolt shape
+      ctx.fillStyle = '#ffe066';
+      ctx.shadowColor = '#ffe066';
+      ctx.shadowBlur = r * 5;
+      ctx.beginPath();
+      const s = r * 1.2;
+      ctx.moveTo(x + s * 0.2,  y - s);
+      ctx.lineTo(x - s * 0.35, y + s * 0.1);
+      ctx.lineTo(x + s * 0.05, y + s * 0.05);
+      ctx.lineTo(x - s * 0.2,  y + s);
+      ctx.lineTo(x + s * 0.35, y - s * 0.1);
+      ctx.lineTo(x - s * 0.05, y - s * 0.05);
+      ctx.closePath();
+      ctx.fill();
+    } else {
+      // ✨ 4-pointed star
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = '#fff';
+      ctx.shadowBlur = r * 4;
+      ctx.beginPath();
+      for (let i = 0; i < 8; i++) {
+        const angle = (i * Math.PI) / 4;
+        const dist = i % 2 === 0 ? r : r * 0.35;
+        const px = x + Math.cos(angle) * dist;
+        const py = y + Math.sin(angle) * dist;
+        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fill();
     }
-    ctx.closePath();
-    ctx.fill();
     ctx.restore();
   }
 
