@@ -1613,6 +1613,8 @@ function initOnboarding() {
 function init() {
   loadPersisted();
   currentLang = store.get('routine_lang') || 'de';
+  // Theme sofort anwenden (vor allem anderen) – verhindert Boy-Modus Flackern nach Reload
+  document.body.classList.toggle('theme-boy', getGender() === 'boy');
   try { applyTranslations(); } catch(e) { console.error('Translation init error:', e); updateDate(); }
   updateDate();
   initOnboarding();
@@ -2111,7 +2113,7 @@ document.addEventListener('DOMContentLoaded', init);
       color:  isBoy ? '#1565c0' : '#c2185b',
       shadow: isBoy ? '0 4px 20px rgba(30,136,229,0.25), 0 0 0 1.5px rgba(30,136,229,0.15)'
                     : '0 4px 20px rgba(233,30,140,0.25), 0 0 0 1.5px rgba(233,30,140,0.15)',
-      pull:   isBoy ? '💪 Zum Aktualisieren ziehen' : '🌸 Zum Aktualisieren ziehen',
+      pull:   isBoy ? '⚡ Zum Aktualisieren ziehen' : '🌸 Zum Aktualisieren ziehen',
       ready:  isBoy ? '⚡ Loslassen zum Aktualisieren' : '💜 Loslassen zum Aktualisieren',
       done:   isBoy ? '🔄 Wird aktualisiert…' : '✨ Wird aktualisiert…',
     };
