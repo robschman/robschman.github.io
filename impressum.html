@@ -56,12 +56,22 @@ h1 {
 
 <div class="card">
   <h2>Betreiber der Website</h2>
-  <address>
-    <strong>DEIN VORNAME NACHNAME</strong><br>
-    DEINE STRASSE 1<br>
-    1234 DEINE STADT<br>
+  <p style="font-size:13px;color:#444;line-height:1.8;">
+    Verantwortlich für den Inhalt dieser Website gemäß § 5 ECG:
+  </p>
+  <div id="adresseToggle" onclick="document.getElementById('adresseBox').style.display='block';this.style.display='none';"
+    style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f06292,#ab47bc);color:white;font-size:12px;font-weight:700;padding:9px 18px;border-radius:50px;cursor:pointer;">
+    📋 Angaben anzeigen
+  </div>
+  <address id="adresseBox" style="display:none;margin-top:12px;font-style:normal;font-size:13px;line-height:1.9;color:#444;background:#f9f9f9;border-radius:12px;padding:12px 14px;">
+    <strong>Robert Thalhammer</strong><br>
+    Grabengasse 13/3/2<br>
+    2630 Ternitz<br>
     Österreich
   </address>
+  <div class="highlight" style="margin-top:10px;">
+    ℹ️ Diese Angaben sind gesetzlich verpflichtend (§ 5 ECG). Sie werden nur auf dieser Seite angezeigt.
+  </div>
 </div>
 
 <div class="card">
