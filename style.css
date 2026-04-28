@@ -1968,3 +1968,10 @@ body.theme-boy body,
 body.theme-boy {
   background-color: #f0f8ff;
 }
+
+body.theme-boy .legal-footer a {
+  color: #42a5f5 !important;
+}
+body.theme-boy .legal-footer span {
+  color: #90caf9 !important;
+}
