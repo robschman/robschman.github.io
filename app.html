@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#ec407a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Beauty Routine" />
+  <title>Beauty Routine App – Deine kostenlose Skincare & Beauty Routine</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Beauty Routine App – Deine persönliche Skincare-Begleiterin. Morgen & Abend Routine, wöchentliche Pflege, Termine und tägliche Beauty-Tipps. Kostenlos, kein Download nötig." />
+  <meta name="keywords" content="beauty routine, skincare routine, beauty app, morgenroutine, abendroutine, hautpflege, selfcare, kostenlos, beautyroutine.app" />
+  <meta name="author" content="Beauty Routine App" />
+  <link rel="canonical" href="https://beautyroutine.app/" />
+
+  <!-- Open Graph (für Facebook, Instagram, WhatsApp Vorschau) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://beautyroutine.app/" />
+  <meta property="og:title" content="Beauty Routine App – Kostenlose Skincare Routine" />
+  <meta property="og:description" content="Deine persönliche Beauty-Begleiterin. Morgen & Abend Routine, Termine, tägliche Tipps – gratis & kein Download nötig." />
+  <meta property="og:image" content="https://beautyroutine.app/og-image.png" />
+  <meta property="og:locale" content="de_AT" />
+  <meta property="og:site_name" content="Beauty Routine App" />
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Beauty Routine App – Kostenlose Skincare Routine" />
+  <meta name="twitter:description" content="Deine persönliche Beauty-Begleiterin. Morgen & Abend Routine, Termine, tägliche Tipps – gratis & kein Download nötig." />
+  <meta name="twitter:image" content="https://beautyroutine.app/og-image.png" />
+
+  <!-- Structured Data (Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Beauty Routine App",
+    "url": "https://beautyroutine.app",
+    "description": "Kostenlose Beauty-Routine App für Morgen & Abend Pflege, wöchentliche Routinen, Termine und tägliche Beauty-Tipps.",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS, Android, Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "inLanguage": "de",
+    "keywords": "beauty routine, skincare, selfcare, hautpflege"
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=1.4" />
+  <script>
+    // AdSense nur auf echter Website laden, nicht beim lokalen Test
+    if (location.protocol !== 'file:') {
+      var _a = document.createElement('script');
+      _a.async = true; _a.crossOrigin = 'anonymous';
+      _a.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4308220666561084';
+      document.head.appendChild(_a);
+    }
+  </script>
+</head>
+<body>
+  <div class="app">
+
+    <!-- Onboarding -->
+    <div class="onboarding" id="onboarding">
+      <div class="onboarding-card">
+
+        <!-- Schritt 0: Sprache -->
+        <div class="ob-step" id="ob-step0">
+          <div class="onboarding-emoji">🌍</div>
+          <h2 class="onboarding-title">Choose your language</h2>
+          <p class="onboarding-text">Wähle deine Sprache</p>
+
+          <!-- AGB Akzeptieren -->
+          <div class="agb-accept">
+            <label class="agb-check-label">
+              <input type="checkbox" id="agbAcceptCheck" />
+              <span>
+                Ich akzeptiere die <button class="agb-inline-btn" id="agbInlineBtn" type="button">AGB &amp; Datenschutz</button>
+                &nbsp;/&nbsp;
+                I accept the <button class="agb-inline-btn" id="agbInlineBtn2" type="button">Terms &amp; Privacy</button>
+              </span>
+            </label>
+          </div>
+
+          <div class="lang-options">
+            <button class="lang-btn" data-lang="de" disabled>🇩🇪<span>Deutsch</span></button>
+            <button class="lang-btn" data-lang="en" disabled>🇬🇧<span>English</span></button>
+          </div>
+        </div>
+
+        <!-- Schritt 1: Name -->
+        <div class="ob-step" id="ob-step1" style="display:none">
+          <div class="onboarding-emoji">🌸</div>
+          <h2 class="onboarding-title" data-tr="welcome"></h2>
+          <p class="onboarding-text" data-tr="whatIsYourName"></p>
+          <input type="text" id="nameInput" class="name-input" maxlength="30" />
+          <button class="name-save-btn" id="obNext1" data-tr="next"></button>
+        </div>
+
+        <!-- Schritt 1b: Geschlecht -->
+        <div class="ob-step" id="ob-step1b" style="display:none">
+          <div class="onboarding-emoji" id="genderEmoji">👧</div>
+          <h2 class="onboarding-title" data-tr="genderTitle"></h2>
+          <p class="onboarding-text" data-tr="genderHint"></p>
+          <div class="gender-options">
+            <button class="gender-btn selected" id="genderGirl" data-value="girl">
+              <span class="gender-icon">👧</span>
+              <span data-tr="girl"></span>
+            </button>
+            <button class="gender-btn" id="genderBoy" data-value="boy">
+              <span class="gender-icon">👦</span>
+              <span data-tr="boy"></span>
+            </button>
+          </div>
+          <button class="name-save-btn" id="obNext1b" data-tr="next"></button>
+        </div>
+
+        <!-- Schritt 2: Haarfarbe -->
+        <div class="ob-step" id="ob-step2" style="display:none">
+          <div class="onboarding-emoji">💇‍♀️</div>
+          <h2 class="onboarding-title" data-tr="yourHairColor"></h2>
+          <p class="onboarding-text" data-tr="hairColorHint"></p>
+          <div class="ob-options" id="hairColorOptions">
+            <button class="ob-option" data-value="blond" data-tr-label="blond">👱‍♀️</button>
+            <button class="ob-option" data-value="braun" data-tr-label="braun">🟤</button>
+            <button class="ob-option" data-value="schwarz" data-tr-label="schwarz">🖤</button>
+            <button class="ob-option" data-value="rot" data-tr-label="rot">🔴</button>
+            <button class="ob-option" data-value="gefarbt" data-tr-label="gefarbt">🌈</button>
+            <button class="ob-option" data-value="grau" data-tr-label="grau">🩶</button>
+          </div>
+          <button class="name-save-btn ob-next-btn" id="obNext2" disabled data-tr="next"></button>
+        </div>
+
+        <!-- Schritt 3: Haarlänge -->
+        <div class="ob-step" id="ob-step3" style="display:none">
+          <div class="onboarding-emoji">✂️</div>
+          <h2 class="onboarding-title" data-tr="yourHairLength"></h2>
+          <p class="onboarding-text" data-tr="hairLengthHint"></p>
+          <div class="ob-options" id="hairLengthOptions">
+            <button class="ob-option ob-option-wide" data-value="kurz">💁‍♀️<span class="hair-label" data-tr="short"></span><small data-tr="shortDesc"></small></button>
+            <button class="ob-option ob-option-wide" data-value="mittel">💇‍♀️<span class="hair-label" data-tr="medium"></span><small data-tr="mediumDesc"></small></button>
+            <button class="ob-option ob-option-wide" data-value="lang">👸<span class="hair-label" data-tr="long"></span><small data-tr="longDesc"></small></button>
+          </div>
+          <button class="name-save-btn ob-next-btn" id="obFinish" disabled data-tr="letsGo"></button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sticky Top -->
+    <div class="sticky-top">
+      <header class="header">
+        <canvas id="header-sparkle-canvas"></canvas>
+        <div class="header-row">
+          <h1 class="logo">
+            <div class="logo-top">
+              <span class="logo-beauty">Beauty</span>
+              <span class="logo-name" id="logoName"></span>
+            </div>
+            <span class="logo-routine">Routine</span>
+          </h1>
+          <div class="header-right">
+            <div class="header-branding">🌸 made with 🌸<br>✨ zoe &amp; robschman</div>
+            <div class="date-display" id="dateDisplay"></div>
+          </div>
+        </div>
+        <div class="greeting-row" id="greetingRow"></div>
+        <div class="progress-row">
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <span class="progress-label" id="progressLabel">0 / 0</span>
+        </div>
+      </header>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="morning"><span class="tab-emoji">🌸</span><span class="tab-label" data-tr="morning"></span></button>
+        <button class="tab" data-tab="evening"><span class="tab-emoji">🌙</span><span class="tab-label" data-tr="evening"></span></button>
+        <button class="tab" data-tab="weekly"><span class="tab-emoji">💅</span><span class="tab-label" data-tr="weekly"></span></button>
+        <button class="edit-toggle-btn" id="editToggleBtn">✏️</button>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- MORNING TAB -->
+      <section class="tab-content active" id="tab-morning">
+        <div class="completion-banner" id="banner-morning" data-tr="morningDone"></div>
+        <div class="category" data-key="morning_skincare">
+          <h2 class="category-title">🧖‍♀️ <span data-tr="skincare"></span></h2>
+          <ul class="checklist" id="morning-skincare"></ul>
+          <button class="add-item-btn" data-key="morning_skincare" data-tr="addItem"></button>
+        </div>
+        <div class="category" data-key="morning_makeup">
+          <h2 class="category-title">💄 <span data-tr="makeup"></span></h2>
+          <ul class="checklist" id="morning-makeup"></ul>
+          <button class="add-item-btn" data-key="morning_makeup" data-tr="addItem"></button>
+        </div>
+        <div class="category" data-key="morning_body">
+          <h2 class="category-title">💆‍♀️ <span data-tr="bodyHair"></span></h2>
+          <ul class="checklist" id="morning-body"></ul>
+          <button class="add-item-btn" data-key="morning_body" data-tr="addItem"></button>
+        </div>
+        <div class="category" data-key="morning_wellness">
+          <h2 class="category-title">🌿 <span data-tr="wellness"></span></h2>
+          <ul class="checklist" id="morning-wellness"></ul>
+          <button class="add-item-btn" data-key="morning_wellness" data-tr="addItem"></button>
+        </div>
+      </section>
+
+      <!-- EVENING TAB -->
+      <section class="tab-content" id="tab-evening">
+        <div class="completion-banner" id="banner-evening" data-tr="eveningDone"></div>
+        <div class="category" data-key="evening_skincare">
+          <h2 class="category-title">🧖‍♀️ <span data-tr="skincare"></span></h2>
+          <ul class="checklist" id="evening-skincare"></ul>
+          <button class="add-item-btn" data-key="evening_skincare" data-tr="addItem"></button>
+        </div>
+        <div class="category" data-key="evening_body">
+          <h2 class="category-title">💆‍♀️ <span data-tr="bodyHair"></span></h2>
+          <ul class="checklist" id="evening-body"></ul>
+          <button class="add-item-btn" data-key="evening_body" data-tr="addItem"></button>
+        </div>
+        <div class="category" data-key="evening_wellness">
+          <h2 class="category-title">🌿 <span data-tr="wellness"></span></h2>
+          <ul class="checklist" id="evening-wellness"></ul>
+          <button class="add-item-btn" data-key="evening_wellness" data-tr="addItem"></button>
+        </div>
+      </section>
+
+      <!-- WEEKLY TAB -->
+      <section class="tab-content" id="tab-weekly">
+        <div class="completion-banner" id="banner-weekly" data-tr="weeklyDone"></div>
+        <div class="category" data-key="weekly_skincare">
+          <h2 class="category-title">🧖‍♀️ <span data-tr="skincare"></span></h2>
+          <ul class="checklist" id="weekly-skincare"></ul>
+          <button class="add-item-btn" data-key="weekly_skincare" data-tr="addItem"></button>
+        </div>
+        <div class="category" data-key="weekly_hair">
+          <h2 class="category-title">💇‍♀️ <span data-tr="hairCare"></span></h2>
+          <ul class="checklist" id="weekly-hair"></ul>
+          <button class="add-item-btn" data-key="weekly_hair" data-tr="addItem"></button>
+        </div>
+        <div class="category" data-key="weekly_nails">
+          <h2 class="category-title">💅 <span data-tr="nailCare"></span></h2>
+          <ul class="checklist" id="weekly-nails"></ul>
+          <button class="add-item-btn" data-key="weekly_nails" data-tr="addItem"></button>
+        </div>
+        <div class="category" data-key="weekly_body">
+          <h2 class="category-title">🛁 <span data-tr="bodyCare"></span></h2>
+          <ul class="checklist" id="weekly-body"></ul>
+          <button class="add-item-btn" data-key="weekly_body" data-tr="addItem"></button>
+        </div>
+      </section>
+
+      <!-- Pflegehinweise / Tips -->
+      <div class="tips-card" id="tipsCard">
+        <h3 class="tips-title">💡 <span data-tr="careTips"></span></h3>
+        <div class="tips-bubbles" id="tipsBubbles"></div>
+      </div>
+
+      <!-- Einstellungen Button (ersetzt Ad-Container) -->
+      <div class="settings-area">
+        <button class="settings-open-btn" id="settingsOpenBtn">
+          ⚙️ <span data-tr="settings"></span>
+        </button>
+      </div>
+
+      <!-- Legal Footer -->
+      <div class="legal-footer" style="text-align:center;padding:8px 0 80px;font-size:11px;">
+        <a href="/impressum.html" style="color:#bbb;text-decoration:none;margin:0 10px;">Impressum</a>
+        <span style="color:#ddd;">·</span>
+        <a href="/datenschutz.html" style="color:#bbb;text-decoration:none;margin:0 10px;">Datenschutz</a>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <div class="footer">
+      <button class="reset-btn" id="resetBtn">🌸<span class="btn-label"><span data-tr="morningEvening"></span><em data-tr="restart"></em></span></button>
+      <button class="reset-all-btn" id="resetAllBtn">💫<span class="btn-label"><span data-tr="all"></span><em data-tr="restart"></em></span></button>
+      <button class="termine-btn" id="termineOpenBtn">💜<span class="btn-label"><span data-tr="my"></span><span data-tr="appointmentsWord"></span><em data-tr="manage"></em></span></button>
+    </div>
+
+    <!-- Termine Overlay (Vollbild) -->
+    <div class="termine-overlay" id="termineOverlay">
+      <div class="termine-panel">
+        <div class="termine-header">
+          <h2 class="termine-title">💜 <span data-tr="myAppointments"></span></h2>
+          <button class="termine-close-btn" id="termineCloseBtn">✕</button>
+        </div>
+        <div class="termine-list" id="termineList"></div>
+        <button class="add-termin-fab" id="addTerminBtn">
+          <span>＋</span><span data-tr="addAppointment"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Termin Hinzufügen / Bearbeiten Modal -->
+    <div class="modal-overlay" id="terminEditOverlay">
+      <div class="modal termin-edit-modal">
+        <h3 class="modal-title" id="terminEditTitle"></h3>
+        <div class="termin-presets" id="terminPresets"></div>
+        <div class="modal-field">
+          <label data-tr="emoji"></label>
+          <input type="text" id="terminEmoji" maxlength="4" placeholder="✂️" autocomplete="off" />
+          <div class="emoji-grid" id="terminEmojiGrid"></div>
+        </div>
+        <div class="modal-field">
+          <label data-tr="nameRequired"></label>
+          <input type="text" id="terminName" maxlength="60" />
+        </div>
+        <div class="modal-field">
+          <label data-tr="date"></label>
+          <input type="date" id="terminDate" />
+        </div>
+        <div class="modal-field">
+          <label data-tr="time"></label>
+          <input type="time" id="terminTime" />
+        </div>
+        <div class="modal-field">
+          <label data-tr="noteOptional"></label>
+          <input type="text" id="terminNote" maxlength="120" />
+        </div>
+        <div class="modal-actions">
+          <button class="modal-cancel" id="terminEditCancel" data-tr="cancel"></button>
+          <button class="modal-save" id="terminEditSave" data-tr="save"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Item hinzufügen / bearbeiten -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <div class="modal-presets" id="modalPresets"></div>
+        <div class="modal-field">
+          <label for="modalEmoji" data-tr="emoji"></label>
+          <input type="text" id="modalEmoji" maxlength="4" placeholder="🌸" autocomplete="off" />
+          <div class="emoji-grid" id="emojiGrid"></div>
+        </div>
+        <div class="modal-field">
+          <label for="modalName" data-tr="nameRequired"></label>
+          <input type="text" id="modalName" maxlength="60" />
+        </div>
+        <div class="modal-field">
+          <label for="modalHint" data-tr="tipOptional"></label>
+          <input type="text" id="modalHint" maxlength="100" />
+        </div>
+        <div class="modal-actions">
+          <button class="modal-cancel" id="modalCancel" data-tr="cancel"></button>
+          <button class="modal-save" id="modalSave" data-tr="save"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsOverlay">
+      <div class="modal settings-modal">
+        <h3 class="modal-title">⚙️ <span data-tr="settings"></span></h3>
+
+        <!-- Geschlecht -->
+        <div class="settings-section">
+          <div class="settings-label">🎀 <span data-tr="genderTitle"></span></div>
+          <div class="gender-options settings-gender">
+            <button class="gender-btn" id="settingsGenderGirl" data-value="girl">
+              <span class="gender-icon">👧</span>
+              <span data-tr="girl"></span>
+            </button>
+            <button class="gender-btn" id="settingsGenderBoy" data-value="boy">
+              <span class="gender-icon">👦</span>
+              <span data-tr="boy"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sprache -->
+        <div class="settings-section">
+          <div class="settings-label">🌍 <span data-tr="language"></span></div>
+          <div class="settings-lang-btns">
+            <button class="settings-lang-btn" data-lang="de" id="settingsLangDe">🇩🇪 Deutsch</button>
+            <button class="settings-lang-btn" data-lang="en" id="settingsLangEn">🇬🇧 English</button>
+          </div>
+        </div>
+
+        <!-- Name -->
+        <div class="settings-section">
+          <div class="settings-label">✏️ <span data-tr="yourName"></span></div>
+          <input type="text" id="settingsName" class="settings-input" maxlength="30" />
+        </div>
+
+        <!-- Haarfarbe -->
+        <div class="settings-section">
+          <div class="settings-label">💇‍♀️ <span data-tr="yourHairColor"></span></div>
+          <div class="ob-options settings-hair-options" id="settingsHairColor">
+            <button class="ob-option" data-value="blond" data-tr-label="blond">👱‍♀️</button>
+            <button class="ob-option" data-value="braun" data-tr-label="braun">🟤</button>
+            <button class="ob-option" data-value="schwarz" data-tr-label="schwarz">🖤</button>
+            <button class="ob-option" data-value="rot" data-tr-label="rot">🔴</button>
+            <button class="ob-option" data-value="gefarbt" data-tr-label="gefarbt">🌈</button>
+            <button class="ob-option" data-value="grau" data-tr-label="grau">🩶</button>
+          </div>
+        </div>
+
+        <!-- Haarlänge -->
+        <div class="settings-section">
+          <div class="settings-label">✂️ <span data-tr="yourHairLength"></span></div>
+          <div class="ob-options settings-hair-wide-row" id="settingsHairLength">
+            <button class="ob-option ob-option-wide" data-value="kurz">💁‍♀️<span class="hair-label" data-tr="short"></span></button>
+            <button class="ob-option ob-option-wide" data-value="mittel">💇‍♀️<span class="hair-label" data-tr="medium"></span></button>
+            <button class="ob-option ob-option-wide" data-value="lang">👸<span class="hair-label" data-tr="long"></span></button>
+          </div>
+        </div>
+
+        <!-- AGB -->
+        <div class="settings-section">
+          <button class="agb-btn" id="agbOpenBtn">📋 <span data-tr="termsBtn"></span></button>
+        </div>
+
+        <div class="modal-actions">
+          <button class="modal-cancel" id="settingsCancel" data-tr="cancel"></button>
+          <button class="modal-save" id="settingsSave" data-tr="saveSettings"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGB Modal -->
+    <div class="modal-overlay" id="agbOverlay">
+      <div class="modal agb-modal">
+        <h3 class="modal-title">📋 <span data-tr="termsTitle"></span></h3>
+        <div class="agb-content" id="agbContent"></div>
+        <div class="modal-actions">
+          <button class="modal-save" id="agbClose" data-tr="close"></button>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+  </div>
+
+  <script src="app.js?v=2.0"></script>
+</body>
+</html>

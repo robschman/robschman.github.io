@@ -2,447 +2,931 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#ec407a" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Beauty Routine" />
-  <title>Beauty Routine App – Deine kostenlose Skincare & Beauty Routine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Routine App – Deine tägliche Beauty-Routine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Beauty Routine App – Deine persönliche Skincare-Begleiterin. Morgen & Abend Routine, wöchentliche Pflege, Termine und tägliche Beauty-Tipps. Kostenlos, kein Download nötig." />
-  <meta name="keywords" content="beauty routine, skincare routine, beauty app, morgenroutine, abendroutine, hautpflege, selfcare, kostenlos, beautyroutine.app" />
-  <meta name="author" content="Beauty Routine App" />
-  <link rel="canonical" href="https://beautyroutine.app/" />
-
-  <!-- Open Graph (für Facebook, Instagram, WhatsApp Vorschau) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://beautyroutine.app/" />
-  <meta property="og:title" content="Beauty Routine App – Kostenlose Skincare Routine" />
-  <meta property="og:description" content="Deine persönliche Beauty-Begleiterin. Morgen & Abend Routine, Termine, tägliche Tipps – gratis & kein Download nötig." />
-  <meta property="og:image" content="https://beautyroutine.app/og-image.png" />
-  <meta property="og:locale" content="de_AT" />
-  <meta property="og:site_name" content="Beauty Routine App" />
-
-  <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Beauty Routine App – Kostenlose Skincare Routine" />
-  <meta name="twitter:description" content="Deine persönliche Beauty-Begleiterin. Morgen & Abend Routine, Termine, tägliche Tipps – gratis & kein Download nötig." />
-  <meta name="twitter:image" content="https://beautyroutine.app/og-image.png" />
-
-  <!-- Structured Data (Google Rich Results) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Beauty Routine App",
-    "url": "https://beautyroutine.app",
-    "description": "Kostenlose Beauty-Routine App für Morgen & Abend Pflege, wöchentliche Routinen, Termine und tägliche Beauty-Tipps.",
-    "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "iOS, Android, Web",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR"
-    },
-    "inLanguage": "de",
-    "keywords": "beauty routine, skincare, selfcare, hautpflege"
-  }
-  </script>
-
-  <link rel="stylesheet" href="style.css?v=1.4" />
-  <script>
-    // AdSense nur auf echter Website laden, nicht beim lokalen Test
-    if (location.protocol !== 'file:') {
-      var _a = document.createElement('script');
-      _a.async = true; _a.crossOrigin = 'anonymous';
-      _a.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4308220666561084';
-      document.head.appendChild(_a);
+    :root {
+      --pink:     #fce4ec;
+      --lavender: #f3e5f5;
+      --mint:     #e8f5e9;
+      --sky:      #e3f2fd;
+      --accent-pink: #e91e8c;
+      --accent-purple: #9c27b0;
+      --text-dark: #3a2a3f;
+      --text-mid:  #6b5b73;
+      --text-light: #9e8ea5;
+      --glass: rgba(255,255,255,0.62);
+      --glass-border: rgba(255,255,255,0.85);
+      --shadow-soft: 0 8px 40px rgba(180,100,200,0.13);
+      --shadow-card: 0 4px 28px rgba(180,100,200,0.10);
     }
-  </script>
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background: linear-gradient(160deg, #fce4ec 0%, #f3e5f5 30%, #e3f2fd 65%, #e8f5e9 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BACKGROUND CLOUDS ─────────────────────────────────────── */
+    .cloud-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .cloud-layer svg { position: absolute; opacity: 0.55; }
+    .c1 { top: -40px; left: -80px; width: 520px; animation: drift 22s ease-in-out infinite alternate; }
+    .c2 { top: 15%; right: -100px; width: 420px; animation: drift 28s ease-in-out infinite alternate-reverse; }
+    .c3 { bottom: 5%; left: 10%; width: 380px; animation: drift 18s ease-in-out infinite alternate; }
+    .c4 { top: 55%; right: 5%; width: 300px; animation: drift 24s ease-in-out infinite alternate-reverse; }
+    @keyframes drift {
+      0%   { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(30px) translateY(-18px); }
+    }
+
+    /* ── FLOATING PARTICLES ─────────────────────────────────────── */
+    .particles { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
+    .particle {
+      position: absolute;
+      font-size: 14px;
+      animation: float-up linear infinite;
+      opacity: 0;
+    }
+    @keyframes float-up {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.8; }
+      90%  { opacity: 0.5; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────────────── */
+    .wrapper { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── GLASS CARD ─────────────────────────────────────────────── */
+    .glass {
+      background: var(--glass);
+      border: 1.5px solid var(--glass-border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 28px;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      padding: 14px 0;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(255,255,255,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.7);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Dancing Script', cursive; font-size: 1.7rem; font-weight: 700; }
+    .nav-logo span.b { background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-logo span.r { color: var(--text-mid); font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px; display: block; margin-top: -6px; }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      color: #fff; border: none; border-radius: 50px; padding: 10px 26px;
+      font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; display: inline-block;
+      box-shadow: 0 4px 18px rgba(233,30,140,0.30);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(233,30,140,0.38); }
+
+    /* ── HERO ─────────────────────────────────────────────────────── */
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: flex; align-items: center;
+      padding: 80px 0 60px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero-text h1 .beauty { background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-text h1 .sub { font-family: 'Poppins', sans-serif; font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; color: var(--text-mid); display: block; margin-top: 4px; }
+    .hero-tagline {
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      color: var(--text-mid); line-height: 1.7;
+      margin: 22px 0 36px;
+      font-weight: 400;
+    }
+    .hero-tagline strong { color: var(--accent-pink); font-weight: 600; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.75); border: 1.5px solid rgba(233,30,140,0.18);
+      border-radius: 50px; padding: 8px 18px; font-size: 0.82rem; color: var(--text-mid);
+      margin-bottom: 28px; backdrop-filter: blur(10px);
+    }
+    .hero-badge .dot { width: 8px; height: 8px; background: #4caf50; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 3px rgba(76,175,80,0.2); animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 3px rgba(76,175,80,0.2);} 50%{box-shadow:0 0 0 6px rgba(76,175,80,0.12);} }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      color: #fff; border-radius: 50px; padding: 16px 36px;
+      font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 600;
+      text-decoration: none; box-shadow: 0 6px 28px rgba(233,30,140,0.32);
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .hero-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(233,30,140,0.4); }
+    .hero-cta .arrow { font-size: 1.1rem; transition: transform 0.22s; }
+    .hero-cta:hover .arrow { transform: translateX(4px); }
+
+    /* ── IPHONE MOCKUP (Hero) ───────────────────────────────────── */
+    .hero-mockup { display: flex; justify-content: center; position: relative; }
+    .phone-float { animation: phone-float 5s ease-in-out infinite; }
+    @keyframes phone-float {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50%      { transform: translateY(-18px) rotate(2deg); }
+    }
+
+    /* ── SECTION SHARED ─────────────────────────────────────────── */
+    section { padding: 90px 0; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1rem; color: var(--text-mid); line-height: 1.75;
+      max-width: 520px;
+    }
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .section-head .section-desc { margin: 0 auto; }
+
+    /* ── FEATURES GRID ──────────────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      padding: 34px 28px;
+      border-radius: 28px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%);
+      border-radius: inherit;
+    }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(180,100,200,0.18); }
+    .feature-card > * { position: relative; z-index: 1; }
+    .feature-icon {
+      font-size: 2.4rem; margin-bottom: 18px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(180,100,200,0.12);
+    }
+    .feature-card h3 {
+      font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; color: var(--text-dark);
+    }
+    .feature-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+    .fc-pink    { background: linear-gradient(145deg, #fce4ec, #f8bbd0); }
+    .fc-lavender{ background: linear-gradient(145deg, #f3e5f5, #e1bee7); }
+    .fc-mint    { background: linear-gradient(145deg, #e8f5e9, #c8e6c9); }
+    .fc-sky     { background: linear-gradient(145deg, #e3f2fd, #bbdefb); }
+    .fc-peach   { background: linear-gradient(145deg, #fff3e0, #ffe0b2); }
+    .fc-lilac   { background: linear-gradient(145deg, #ede7f6, #d1c4e9); }
+
+    /* ── SCREENSHOTS ────────────────────────────────────────────── */
+    .screenshots-bg {
+      background: linear-gradient(160deg, rgba(243,229,245,0.6), rgba(227,242,253,0.6));
+      border-radius: 48px;
+      padding: 64px 40px;
+    }
+    .screenshots-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .screenshot-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .screenshot-label {
+      font-size: 0.82rem; font-weight: 600; color: var(--text-mid);
+      background: rgba(255,255,255,0.75);
+      padding: 6px 18px; border-radius: 50px;
+      border: 1.5px solid rgba(255,255,255,0.9);
+    }
+    .screenshot-wrap:nth-child(2) .iphone-frame { transform: scale(1.06) translateY(-10px); }
+
+    /* ── IPHONE FRAME ───────────────────────────────────────────── */
+    .iphone-frame {
+      width: 220px;
+      background: #1a0a1e;
+      border-radius: 42px;
+      padding: 12px;
+      box-shadow:
+        0 0 0 1.5px rgba(255,255,255,0.15),
+        0 24px 60px rgba(0,0,0,0.28),
+        0 8px 20px rgba(180,100,200,0.2),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .iphone-screen {
+      background: #fff;
+      border-radius: 32px;
+      overflow: hidden;
+      height: 440px;
+      position: relative;
+    }
+    .iphone-notch {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 90px; height: 26px;
+      background: #1a0a1e;
+      border-radius: 0 0 18px 18px;
+      z-index: 10;
+    }
+    /* status bar */
+    .iphone-status {
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      display: flex; align-items: flex-end; justify-content: flex-end;
+      padding: 0 14px 4px;
+      font-size: 8px; color: rgba(255,255,255,0.7); font-weight: 500;
+    }
+    /* app header */
+    .app-header {
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      padding: 10px 14px 14px;
+    }
+    .app-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 16px; color: #fff; font-weight: 700;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .app-subtitle { font-size: 8px; color: rgba(255,255,255,0.75); margin-top: 2px; font-weight: 400; }
+    /* tabs */
+    .app-tabs {
+      display: flex; gap: 2px;
+      background: rgba(0,0,0,0.15);
+      border-radius: 20px;
+      padding: 3px;
+      margin-top: 10px;
+    }
+    .app-tab {
+      flex: 1; text-align: center;
+      padding: 5px 0; border-radius: 16px;
+      font-size: 7px; color: rgba(255,255,255,0.7);
+      cursor: pointer; white-space: nowrap; overflow: hidden;
+    }
+    .app-tab.active { background: rgba(255,255,255,0.25); color: #fff; font-weight: 600; }
+    /* app body */
+    .app-body { padding: 10px 12px; background: #fafafa; flex: 1; overflow: hidden; }
+    .app-date-chip {
+      background: linear-gradient(135deg, rgba(233,30,140,0.1), rgba(156,39,176,0.1));
+      border: 1px solid rgba(233,30,140,0.2);
+      border-radius: 20px; padding: 4px 10px;
+      font-size: 7px; color: var(--accent-pink); font-weight: 600;
+      display: inline-block; margin-bottom: 8px;
+    }
+    .app-category-label {
+      font-size: 7.5px; font-weight: 700; color: var(--text-mid);
+      margin: 8px 0 4px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .check-item {
+      display: flex; align-items: center; gap: 7px;
+      background: #fff; border-radius: 10px;
+      padding: 6px 8px; margin-bottom: 4px;
+      box-shadow: 0 1px 6px rgba(180,100,200,0.08);
+    }
+    .check-circle {
+      width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+      border: 2px solid #e0d0e8;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .check-circle.done {
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      border: none;
+    }
+    .check-circle.done::after { content: '✓'; font-size: 8px; color: #fff; font-weight: 700; }
+    .check-text { font-size: 7.5px; color: var(--text-dark); flex: 1; }
+    .check-text.done { color: var(--text-light); text-decoration: line-through; }
+    .check-streak { font-size: 7px; }
+
+    /* termin card */
+    .termin-card {
+      background: linear-gradient(135deg, rgba(233,30,140,0.08), rgba(156,39,176,0.08));
+      border: 1px solid rgba(233,30,140,0.18);
+      border-radius: 10px; padding: 8px 10px; margin-bottom: 6px;
+    }
+    .termin-date { font-size: 7px; color: var(--accent-pink); font-weight: 600; margin-bottom: 2px; }
+    .termin-name { font-size: 8.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 1px; }
+    .termin-desc { font-size: 7px; color: var(--text-mid); }
+    .termin-icon { font-size: 14px; float: right; margin-top: -20px; }
+    .month-chip {
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      border-radius: 10px; padding: 7px 10px; margin-bottom: 8px; color: #fff;
+    }
+    .month-chip .m-name { font-size: 8px; font-weight: 700; }
+    .month-chip .m-count { font-size: 7px; opacity: 0.8; }
+
+    /* tip card */
+    .tip-card {
+      background: linear-gradient(135deg, #fff8e1, #fff3cd);
+      border: 1px solid rgba(255,193,7,0.3);
+      border-radius: 10px; padding: 8px 10px; margin-bottom: 6px;
+    }
+    .tip-category { font-size: 7px; color: #f57c00; font-weight: 600; margin-bottom: 2px; }
+    .tip-title { font-size: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; }
+    .tip-body { font-size: 7px; color: var(--text-mid); line-height: 1.5; }
+    .tip-like { font-size: 7px; color: var(--accent-pink); margin-top: 4px; font-weight: 600; }
+    .tip-divider { font-size: 18px; text-align: center; margin: 6px 0 4px; }
+
+    /* ── INSTALL SECTION ────────────────────────────────────────── */
+    .install-bg {
+      background: linear-gradient(145deg, rgba(232,245,233,0.7), rgba(227,242,253,0.7));
+      border-radius: 48px;
+      padding: 64px 40px;
+    }
+    .install-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+      max-width: 700px; margin: 0 auto;
+    }
+    .install-step {
+      display: flex; gap: 18px; align-items: flex-start;
+      background: rgba(255,255,255,0.75);
+      border: 1.5px solid rgba(255,255,255,0.9);
+      border-radius: 22px; padding: 22px 20px;
+      box-shadow: 0 4px 20px rgba(180,100,200,0.08);
+      transition: transform 0.22s;
+    }
+    .install-step:hover { transform: translateY(-3px); }
+    .step-badge {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 1rem;
+      box-shadow: 0 4px 16px rgba(233,30,140,0.28);
+    }
+    .step-text h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 4px; color: var(--text-dark); }
+    .step-text p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; }
+    .install-note {
+      max-width: 480px; margin: 28px auto 0;
+      background: rgba(255,255,255,0.7);
+      border: 1.5px solid rgba(255,255,255,0.9);
+      border-radius: 18px; padding: 16px 22px;
+      font-size: 0.82rem; color: var(--text-mid); text-align: center;
+      line-height: 1.6;
+    }
+    .install-note strong { color: var(--text-dark); }
+
+    /* ── CTA FOOTER ─────────────────────────────────────────────── */
+    .cta-section { padding: 80px 0 40px; }
+    .cta-card {
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      border-radius: 48px; padding: 64px 40px; text-align: center;
+      position: relative; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(233,30,140,0.25);
+    }
+    .cta-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='150' cy='80' rx='200' ry='100' fill='rgba(255,255,255,0.07)'/%3E%3Cellipse cx='480' cy='320' rx='160' ry='80' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E") no-repeat center/cover;
+    }
+    .cta-card > * { position: relative; z-index: 1; }
+    .cta-card h2 {
+      font-family: 'Dancing Script', cursive; font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #fff; margin-bottom: 14px;
+    }
+    .cta-card p { color: rgba(255,255,255,0.88); font-size: 1rem; margin-bottom: 32px; }
+    .cta-main-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff;
+      color: var(--accent-pink);
+      border-radius: 50px; padding: 16px 42px;
+      font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .cta-main-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 44px rgba(0,0,0,0.2); }
+    .cta-hashtags { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .cta-hashtags span {
+      color: rgba(255,255,255,0.7); font-size: 0.82rem; font-weight: 500;
+      background: rgba(255,255,255,0.12); border-radius: 50px; padding: 4px 14px;
+    }
+    .site-footer {
+      text-align: center; padding: 32px 0 48px;
+      font-size: 0.8rem; color: var(--text-light);
+    }
+    .site-footer a { color: var(--accent-purple); text-decoration: none; font-weight: 500; }
+
+    /* ── DIVIDER WAVE ───────────────────────────────────────────── */
+    .wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+    .wave-divider svg { display: block; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-text { order: 1; }
+      .hero-mockup { order: 2; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .screenshots-row { gap: 18px; }
+      .iphone-frame { width: 180px; }
+      .iphone-screen { height: 360px; }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .install-grid { grid-template-columns: 1fr; }
+      .screenshots-bg { padding: 36px 16px; }
+      .install-bg { padding: 36px 16px; }
+      .cta-card { padding: 44px 20px; }
+      .iphone-frame { width: 160px; }
+      .iphone-screen { height: 320px; }
+      .screenshot-wrap:nth-child(2) .iphone-frame { transform: none; }
+    }
+  </style>
 </head>
 <body>
-  <div class="app">
 
-    <!-- Onboarding -->
-    <div class="onboarding" id="onboarding">
-      <div class="onboarding-card">
-
-        <!-- Schritt 0: Sprache -->
-        <div class="ob-step" id="ob-step0">
-          <div class="onboarding-emoji">🌍</div>
-          <h2 class="onboarding-title">Choose your language</h2>
-          <p class="onboarding-text">Wähle deine Sprache</p>
-
-          <!-- AGB Akzeptieren -->
-          <div class="agb-accept">
-            <label class="agb-check-label">
-              <input type="checkbox" id="agbAcceptCheck" />
-              <span>
-                Ich akzeptiere die <button class="agb-inline-btn" id="agbInlineBtn" type="button">AGB &amp; Datenschutz</button>
-                &nbsp;/&nbsp;
-                I accept the <button class="agb-inline-btn" id="agbInlineBtn2" type="button">Terms &amp; Privacy</button>
-              </span>
-            </label>
-          </div>
-
-          <div class="lang-options">
-            <button class="lang-btn" data-lang="de" disabled>🇩🇪<span>Deutsch</span></button>
-            <button class="lang-btn" data-lang="en" disabled>🇬🇧<span>English</span></button>
-          </div>
-        </div>
-
-        <!-- Schritt 1: Name -->
-        <div class="ob-step" id="ob-step1" style="display:none">
-          <div class="onboarding-emoji">🌸</div>
-          <h2 class="onboarding-title" data-tr="welcome"></h2>
-          <p class="onboarding-text" data-tr="whatIsYourName"></p>
-          <input type="text" id="nameInput" class="name-input" maxlength="30" />
-          <button class="name-save-btn" id="obNext1" data-tr="next"></button>
-        </div>
-
-        <!-- Schritt 1b: Geschlecht -->
-        <div class="ob-step" id="ob-step1b" style="display:none">
-          <div class="onboarding-emoji" id="genderEmoji">👧</div>
-          <h2 class="onboarding-title" data-tr="genderTitle"></h2>
-          <p class="onboarding-text" data-tr="genderHint"></p>
-          <div class="gender-options">
-            <button class="gender-btn selected" id="genderGirl" data-value="girl">
-              <span class="gender-icon">👧</span>
-              <span data-tr="girl"></span>
-            </button>
-            <button class="gender-btn" id="genderBoy" data-value="boy">
-              <span class="gender-icon">👦</span>
-              <span data-tr="boy"></span>
-            </button>
-          </div>
-          <button class="name-save-btn" id="obNext1b" data-tr="next"></button>
-        </div>
-
-        <!-- Schritt 2: Haarfarbe -->
-        <div class="ob-step" id="ob-step2" style="display:none">
-          <div class="onboarding-emoji">💇‍♀️</div>
-          <h2 class="onboarding-title" data-tr="yourHairColor"></h2>
-          <p class="onboarding-text" data-tr="hairColorHint"></p>
-          <div class="ob-options" id="hairColorOptions">
-            <button class="ob-option" data-value="blond" data-tr-label="blond">👱‍♀️</button>
-            <button class="ob-option" data-value="braun" data-tr-label="braun">🟤</button>
-            <button class="ob-option" data-value="schwarz" data-tr-label="schwarz">🖤</button>
-            <button class="ob-option" data-value="rot" data-tr-label="rot">🔴</button>
-            <button class="ob-option" data-value="gefarbt" data-tr-label="gefarbt">🌈</button>
-            <button class="ob-option" data-value="grau" data-tr-label="grau">🩶</button>
-          </div>
-          <button class="name-save-btn ob-next-btn" id="obNext2" disabled data-tr="next"></button>
-        </div>
-
-        <!-- Schritt 3: Haarlänge -->
-        <div class="ob-step" id="ob-step3" style="display:none">
-          <div class="onboarding-emoji">✂️</div>
-          <h2 class="onboarding-title" data-tr="yourHairLength"></h2>
-          <p class="onboarding-text" data-tr="hairLengthHint"></p>
-          <div class="ob-options" id="hairLengthOptions">
-            <button class="ob-option ob-option-wide" data-value="kurz">💁‍♀️<span class="hair-label" data-tr="short"></span><small data-tr="shortDesc"></small></button>
-            <button class="ob-option ob-option-wide" data-value="mittel">💇‍♀️<span class="hair-label" data-tr="medium"></span><small data-tr="mediumDesc"></small></button>
-            <button class="ob-option ob-option-wide" data-value="lang">👸<span class="hair-label" data-tr="long"></span><small data-tr="longDesc"></small></button>
-          </div>
-          <button class="name-save-btn ob-next-btn" id="obFinish" disabled data-tr="letsGo"></button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Sticky Top -->
-    <div class="sticky-top">
-      <header class="header">
-        <canvas id="header-sparkle-canvas"></canvas>
-        <div class="header-row">
-          <h1 class="logo">
-            <div class="logo-top">
-              <span class="logo-beauty">Beauty</span>
-              <span class="logo-name" id="logoName"></span>
-            </div>
-            <span class="logo-routine">Routine</span>
-          </h1>
-          <div class="header-right">
-            <div class="header-branding">🌸 made with 🌸<br>✨ zoe &amp; robschman</div>
-            <div class="date-display" id="dateDisplay"></div>
-          </div>
-        </div>
-        <div class="greeting-row" id="greetingRow"></div>
-        <div class="progress-row">
-          <div class="progress-bar-wrap">
-            <div class="progress-bar" id="progressBar"></div>
-          </div>
-          <span class="progress-label" id="progressLabel">0 / 0</span>
-        </div>
-      </header>
-
-      <nav class="tabs">
-        <button class="tab active" data-tab="morning"><span class="tab-emoji">🌸</span><span class="tab-label" data-tr="morning"></span></button>
-        <button class="tab" data-tab="evening"><span class="tab-emoji">🌙</span><span class="tab-label" data-tr="evening"></span></button>
-        <button class="tab" data-tab="weekly"><span class="tab-emoji">💅</span><span class="tab-label" data-tr="weekly"></span></button>
-        <button class="edit-toggle-btn" id="editToggleBtn">✏️</button>
-      </nav>
-    </div>
-
-    <!-- Main Content -->
-    <main class="content">
-
-      <!-- MORNING TAB -->
-      <section class="tab-content active" id="tab-morning">
-        <div class="completion-banner" id="banner-morning" data-tr="morningDone"></div>
-        <div class="category" data-key="morning_skincare">
-          <h2 class="category-title">🧖‍♀️ <span data-tr="skincare"></span></h2>
-          <ul class="checklist" id="morning-skincare"></ul>
-          <button class="add-item-btn" data-key="morning_skincare" data-tr="addItem"></button>
-        </div>
-        <div class="category" data-key="morning_makeup">
-          <h2 class="category-title">💄 <span data-tr="makeup"></span></h2>
-          <ul class="checklist" id="morning-makeup"></ul>
-          <button class="add-item-btn" data-key="morning_makeup" data-tr="addItem"></button>
-        </div>
-        <div class="category" data-key="morning_body">
-          <h2 class="category-title">💆‍♀️ <span data-tr="bodyHair"></span></h2>
-          <ul class="checklist" id="morning-body"></ul>
-          <button class="add-item-btn" data-key="morning_body" data-tr="addItem"></button>
-        </div>
-        <div class="category" data-key="morning_wellness">
-          <h2 class="category-title">🌿 <span data-tr="wellness"></span></h2>
-          <ul class="checklist" id="morning-wellness"></ul>
-          <button class="add-item-btn" data-key="morning_wellness" data-tr="addItem"></button>
-        </div>
-      </section>
-
-      <!-- EVENING TAB -->
-      <section class="tab-content" id="tab-evening">
-        <div class="completion-banner" id="banner-evening" data-tr="eveningDone"></div>
-        <div class="category" data-key="evening_skincare">
-          <h2 class="category-title">🧖‍♀️ <span data-tr="skincare"></span></h2>
-          <ul class="checklist" id="evening-skincare"></ul>
-          <button class="add-item-btn" data-key="evening_skincare" data-tr="addItem"></button>
-        </div>
-        <div class="category" data-key="evening_body">
-          <h2 class="category-title">💆‍♀️ <span data-tr="bodyHair"></span></h2>
-          <ul class="checklist" id="evening-body"></ul>
-          <button class="add-item-btn" data-key="evening_body" data-tr="addItem"></button>
-        </div>
-        <div class="category" data-key="evening_wellness">
-          <h2 class="category-title">🌿 <span data-tr="wellness"></span></h2>
-          <ul class="checklist" id="evening-wellness"></ul>
-          <button class="add-item-btn" data-key="evening_wellness" data-tr="addItem"></button>
-        </div>
-      </section>
-
-      <!-- WEEKLY TAB -->
-      <section class="tab-content" id="tab-weekly">
-        <div class="completion-banner" id="banner-weekly" data-tr="weeklyDone"></div>
-        <div class="category" data-key="weekly_skincare">
-          <h2 class="category-title">🧖‍♀️ <span data-tr="skincare"></span></h2>
-          <ul class="checklist" id="weekly-skincare"></ul>
-          <button class="add-item-btn" data-key="weekly_skincare" data-tr="addItem"></button>
-        </div>
-        <div class="category" data-key="weekly_hair">
-          <h2 class="category-title">💇‍♀️ <span data-tr="hairCare"></span></h2>
-          <ul class="checklist" id="weekly-hair"></ul>
-          <button class="add-item-btn" data-key="weekly_hair" data-tr="addItem"></button>
-        </div>
-        <div class="category" data-key="weekly_nails">
-          <h2 class="category-title">💅 <span data-tr="nailCare"></span></h2>
-          <ul class="checklist" id="weekly-nails"></ul>
-          <button class="add-item-btn" data-key="weekly_nails" data-tr="addItem"></button>
-        </div>
-        <div class="category" data-key="weekly_body">
-          <h2 class="category-title">🛁 <span data-tr="bodyCare"></span></h2>
-          <ul class="checklist" id="weekly-body"></ul>
-          <button class="add-item-btn" data-key="weekly_body" data-tr="addItem"></button>
-        </div>
-      </section>
-
-      <!-- Pflegehinweise / Tips -->
-      <div class="tips-card" id="tipsCard">
-        <h3 class="tips-title">💡 <span data-tr="careTips"></span></h3>
-        <div class="tips-bubbles" id="tipsBubbles"></div>
-      </div>
-
-      <!-- Einstellungen Button (ersetzt Ad-Container) -->
-      <div class="settings-area">
-        <button class="settings-open-btn" id="settingsOpenBtn">
-          ⚙️ <span data-tr="settings"></span>
-        </button>
-      </div>
-
-      <!-- Legal Footer -->
-      <div class="legal-footer" style="text-align:center;padding:8px 0 80px;font-size:11px;">
-        <a href="/impressum.html" style="color:#bbb;text-decoration:none;margin:0 10px;">Impressum</a>
-        <span style="color:#ddd;">·</span>
-        <a href="/datenschutz.html" style="color:#bbb;text-decoration:none;margin:0 10px;">Datenschutz</a>
-      </div>
-
-    </main>
-
-    <!-- Footer -->
-    <div class="footer">
-      <button class="reset-btn" id="resetBtn">🌸<span class="btn-label"><span data-tr="morningEvening"></span><em data-tr="restart"></em></span></button>
-      <button class="reset-all-btn" id="resetAllBtn">💫<span class="btn-label"><span data-tr="all"></span><em data-tr="restart"></em></span></button>
-      <button class="termine-btn" id="termineOpenBtn">💜<span class="btn-label"><span data-tr="my"></span><span data-tr="appointmentsWord"></span><em data-tr="manage"></em></span></button>
-    </div>
-
-    <!-- Termine Overlay (Vollbild) -->
-    <div class="termine-overlay" id="termineOverlay">
-      <div class="termine-panel">
-        <div class="termine-header">
-          <h2 class="termine-title">💜 <span data-tr="myAppointments"></span></h2>
-          <button class="termine-close-btn" id="termineCloseBtn">✕</button>
-        </div>
-        <div class="termine-list" id="termineList"></div>
-        <button class="add-termin-fab" id="addTerminBtn">
-          <span>＋</span><span data-tr="addAppointment"></span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Termin Hinzufügen / Bearbeiten Modal -->
-    <div class="modal-overlay" id="terminEditOverlay">
-      <div class="modal termin-edit-modal">
-        <h3 class="modal-title" id="terminEditTitle"></h3>
-        <div class="termin-presets" id="terminPresets"></div>
-        <div class="modal-field">
-          <label data-tr="emoji"></label>
-          <input type="text" id="terminEmoji" maxlength="4" placeholder="✂️" autocomplete="off" />
-          <div class="emoji-grid" id="terminEmojiGrid"></div>
-        </div>
-        <div class="modal-field">
-          <label data-tr="nameRequired"></label>
-          <input type="text" id="terminName" maxlength="60" />
-        </div>
-        <div class="modal-field">
-          <label data-tr="date"></label>
-          <input type="date" id="terminDate" />
-        </div>
-        <div class="modal-field">
-          <label data-tr="time"></label>
-          <input type="time" id="terminTime" />
-        </div>
-        <div class="modal-field">
-          <label data-tr="noteOptional"></label>
-          <input type="text" id="terminNote" maxlength="120" />
-        </div>
-        <div class="modal-actions">
-          <button class="modal-cancel" id="terminEditCancel" data-tr="cancel"></button>
-          <button class="modal-save" id="terminEditSave" data-tr="save"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal: Item hinzufügen / bearbeiten -->
-    <div class="modal-overlay" id="modalOverlay">
-      <div class="modal">
-        <h3 class="modal-title" id="modalTitle"></h3>
-        <div class="modal-presets" id="modalPresets"></div>
-        <div class="modal-field">
-          <label for="modalEmoji" data-tr="emoji"></label>
-          <input type="text" id="modalEmoji" maxlength="4" placeholder="🌸" autocomplete="off" />
-          <div class="emoji-grid" id="emojiGrid"></div>
-        </div>
-        <div class="modal-field">
-          <label for="modalName" data-tr="nameRequired"></label>
-          <input type="text" id="modalName" maxlength="60" />
-        </div>
-        <div class="modal-field">
-          <label for="modalHint" data-tr="tipOptional"></label>
-          <input type="text" id="modalHint" maxlength="100" />
-        </div>
-        <div class="modal-actions">
-          <button class="modal-cancel" id="modalCancel" data-tr="cancel"></button>
-          <button class="modal-save" id="modalSave" data-tr="save"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Settings Modal -->
-    <div class="modal-overlay" id="settingsOverlay">
-      <div class="modal settings-modal">
-        <h3 class="modal-title">⚙️ <span data-tr="settings"></span></h3>
-
-        <!-- Geschlecht -->
-        <div class="settings-section">
-          <div class="settings-label">🎀 <span data-tr="genderTitle"></span></div>
-          <div class="gender-options settings-gender">
-            <button class="gender-btn" id="settingsGenderGirl" data-value="girl">
-              <span class="gender-icon">👧</span>
-              <span data-tr="girl"></span>
-            </button>
-            <button class="gender-btn" id="settingsGenderBoy" data-value="boy">
-              <span class="gender-icon">👦</span>
-              <span data-tr="boy"></span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Sprache -->
-        <div class="settings-section">
-          <div class="settings-label">🌍 <span data-tr="language"></span></div>
-          <div class="settings-lang-btns">
-            <button class="settings-lang-btn" data-lang="de" id="settingsLangDe">🇩🇪 Deutsch</button>
-            <button class="settings-lang-btn" data-lang="en" id="settingsLangEn">🇬🇧 English</button>
-          </div>
-        </div>
-
-        <!-- Name -->
-        <div class="settings-section">
-          <div class="settings-label">✏️ <span data-tr="yourName"></span></div>
-          <input type="text" id="settingsName" class="settings-input" maxlength="30" />
-        </div>
-
-        <!-- Haarfarbe -->
-        <div class="settings-section">
-          <div class="settings-label">💇‍♀️ <span data-tr="yourHairColor"></span></div>
-          <div class="ob-options settings-hair-options" id="settingsHairColor">
-            <button class="ob-option" data-value="blond" data-tr-label="blond">👱‍♀️</button>
-            <button class="ob-option" data-value="braun" data-tr-label="braun">🟤</button>
-            <button class="ob-option" data-value="schwarz" data-tr-label="schwarz">🖤</button>
-            <button class="ob-option" data-value="rot" data-tr-label="rot">🔴</button>
-            <button class="ob-option" data-value="gefarbt" data-tr-label="gefarbt">🌈</button>
-            <button class="ob-option" data-value="grau" data-tr-label="grau">🩶</button>
-          </div>
-        </div>
-
-        <!-- Haarlänge -->
-        <div class="settings-section">
-          <div class="settings-label">✂️ <span data-tr="yourHairLength"></span></div>
-          <div class="ob-options settings-hair-wide-row" id="settingsHairLength">
-            <button class="ob-option ob-option-wide" data-value="kurz">💁‍♀️<span class="hair-label" data-tr="short"></span></button>
-            <button class="ob-option ob-option-wide" data-value="mittel">💇‍♀️<span class="hair-label" data-tr="medium"></span></button>
-            <button class="ob-option ob-option-wide" data-value="lang">👸<span class="hair-label" data-tr="long"></span></button>
-          </div>
-        </div>
-
-        <!-- AGB -->
-        <div class="settings-section">
-          <button class="agb-btn" id="agbOpenBtn">📋 <span data-tr="termsBtn"></span></button>
-        </div>
-
-        <div class="modal-actions">
-          <button class="modal-cancel" id="settingsCancel" data-tr="cancel"></button>
-          <button class="modal-save" id="settingsSave" data-tr="saveSettings"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- AGB Modal -->
-    <div class="modal-overlay" id="agbOverlay">
-      <div class="modal agb-modal">
-        <h3 class="modal-title">📋 <span data-tr="termsTitle"></span></h3>
-        <div class="agb-content" id="agbContent"></div>
-        <div class="modal-actions">
-          <button class="modal-save" id="agbClose" data-tr="close"></button>
-        </div>
-      </div>
-    </div>
-
-    <canvas id="confetti-canvas"></canvas>
+  <!-- BACKGROUND CLOUDS -->
+  <div class="cloud-layer">
+    <svg class="c1" viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="200" cy="130" rx="200" ry="90" fill="rgba(252,228,236,0.8)"/>
+      <ellipse cx="100" cy="110" rx="100" ry="65" fill="rgba(252,228,236,0.7)"/>
+      <ellipse cx="340" cy="110" rx="130" ry="70" fill="rgba(243,229,245,0.65)"/>
+      <ellipse cx="250" cy="90" rx="130" ry="60" fill="rgba(255,255,255,0.75)"/>
+    </svg>
+    <svg class="c2" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="180" cy="110" rx="180" ry="80" fill="rgba(243,229,245,0.7)"/>
+      <ellipse cx="80"  cy="95"  rx="90"  ry="55" fill="rgba(243,229,245,0.6)"/>
+      <ellipse cx="290" cy="90"  rx="110" ry="58" fill="rgba(255,255,255,0.7)"/>
+    </svg>
+    <svg class="c3" viewBox="0 0 380 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="160" cy="100" rx="160" ry="70" fill="rgba(232,245,233,0.75)"/>
+      <ellipse cx="70"  cy="85"  rx="85"  ry="50" fill="rgba(232,245,233,0.65)"/>
+      <ellipse cx="270" cy="82"  rx="100" ry="52" fill="rgba(255,255,255,0.68)"/>
+    </svg>
+    <svg class="c4" viewBox="0 0 300 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="130" cy="80" rx="130" ry="58" fill="rgba(227,242,253,0.72)"/>
+      <ellipse cx="55"  cy="68" rx="70"  ry="44" fill="rgba(227,242,253,0.62)"/>
+      <ellipse cx="220" cy="65" rx="85"  ry="44" fill="rgba(255,255,255,0.65)"/>
+    </svg>
   </div>
 
-  <script src="app.js?v=2.0"></script>
+  <!-- FLOATING PARTICLES -->
+  <div class="particles" id="particles"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="b">Beauty</span>
+        <span class="r">Routine App</span>
+      </div>
+      <a href="/app.html" class="nav-cta">✨ Jetzt starten</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="wrapper">
+      <div class="hero-inner">
+
+        <!-- Text -->
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Kostenlos &amp; ohne Anmeldung nutzbar
+          </div>
+          <h1>
+            <span class="beauty">Beauty</span>
+            <span class="sub">Routine App</span>
+          </h1>
+          <p class="hero-tagline">
+            Deine tägliche Beauty-Routine.<br>
+            <strong>Einfach. Schön. Gratis.</strong><br>
+            Morgen &amp; Abend, Wochenroutinen, Termine und tägliche Tipps – alles an einem Ort.
+          </p>
+          <a href="/app.html" class="hero-cta">
+            Jetzt starten – beautyroutine.app
+            <span class="arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Hero iPhone -->
+        <div class="hero-mockup">
+          <div class="phone-float">
+            <div class="iphone-frame" style="width:240px;">
+              <div class="iphone-screen" style="height:480px;">
+                <div class="iphone-notch"></div>
+                <div class="iphone-status">9:41</div>
+                <div class="app-header">
+                  <div class="app-title">Beauty von ZOE 🌸✨</div>
+                  <div class="app-subtitle">Deine persönliche Beauty-Begleiterin</div>
+                  <div class="app-tabs">
+                    <div class="app-tab active">🌸 Morgen</div>
+                    <div class="app-tab">🌙 Abend</div>
+                    <div class="app-tab">💅 Woche</div>
+                    <div class="app-tab">📅 Termine</div>
+                    <div class="app-tab">💡 Tipps</div>
+                  </div>
+                </div>
+                <div class="app-body">
+                  <div class="app-date-chip">☀️ Montag, 27. April 2026</div>
+                  <div class="app-category-label">💧 Reinigung</div>
+                  <div class="check-item">
+                    <div class="check-circle done"></div>
+                    <span class="check-text done">Gesicht waschen</span>
+                    <span class="check-streak">🔥 5</span>
+                  </div>
+                  <div class="check-item">
+                    <div class="check-circle done"></div>
+                    <span class="check-text done">Toner auftragen</span>
+                    <span class="check-streak">🔥 3</span>
+                  </div>
+                  <div class="app-category-label">✨ Pflege</div>
+                  <div class="check-item">
+                    <div class="check-circle done"></div>
+                    <span class="check-text done">Serum</span>
+                    <span class="check-streak">⭐ neu</span>
+                  </div>
+                  <div class="check-item">
+                    <div class="check-circle"></div>
+                    <span class="check-text">Tagescreme SPF 30</span>
+                  </div>
+                  <div class="check-item">
+                    <div class="check-circle"></div>
+                    <span class="check-text">Lippenpflege</span>
+                  </div>
+                  <div class="app-category-label">💄 Make-up</div>
+                  <div class="check-item">
+                    <div class="check-circle"></div>
+                    <span class="check-text">BB Cream</span>
+                  </div>
+                  <div class="check-item">
+                    <div class="check-circle"></div>
+                    <span class="check-text">Mascara</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       FEATURES
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="features">
+    <div class="wrapper">
+      <div class="section-head">
+        <div class="section-label">✨ Was dich erwartet</div>
+        <h2 class="section-title">Alles für deine Beauty-Welt</h2>
+        <p class="section-desc">Von der Morgenroutine bis zum Friseurtermin – die Beauty Routine App begleitet dich den ganzen Tag.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card glass fc-pink">
+          <div class="feature-icon">🌸</div>
+          <h3>Morgen &amp; Abend Routine</h3>
+          <p>Tägliche Checklisten für deine Pflege – morgens und abends. Kein Schritt mehr vergessen, Streaks für Motivation.</p>
+        </div>
+        <div class="feature-card glass fc-lavender">
+          <div class="feature-icon">💅</div>
+          <h3>Wöchentliche Pflege</h3>
+          <p>Haare, Nails, Body-Care, Rasur – wöchentliche Aufgaben immer im Blick. Perfekt für eine ganzheitliche Routine.</p>
+        </div>
+        <div class="feature-card glass fc-sky">
+          <div class="feature-icon">📅</div>
+          <h3>Termine verwalten</h3>
+          <p>Friseur, Kosmetik, Massage & Co ganz einfach eintragen. Nie mehr einen wichtigen Termin verpassen.</p>
+        </div>
+        <div class="feature-card glass fc-peach">
+          <div class="feature-icon">💡</div>
+          <h3>Tägliche Beauty-Tipps</h3>
+          <p>Profi-Wissen gratis – täglich neue Tipps zu Haut, Haaren, Make-up und Wellness von echten Expertinnen.</p>
+        </div>
+        <div class="feature-card glass fc-mint">
+          <div class="feature-icon">✏️</div>
+          <h3>Voll personalisierbar</h3>
+          <p>Eigene Schritte hinzufügen, anpassen und neu sortieren. Deine Routine, dein Stil – ganz nach dir.</p>
+        </div>
+        <div class="feature-card glass fc-lilac">
+          <div class="feature-icon">👦👧</div>
+          <h3>Für alle</h3>
+          <p>Zwei Modi – Mädchen &amp; Buben – ein gemeinsamer Look. Die App passt sich deinem Style an.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SCREENSHOTS
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="screenshots">
+    <div class="wrapper">
+      <div class="section-head">
+        <div class="section-label">📱 Einblicke in die App</div>
+        <h2 class="section-title">So sieht sie aus</h2>
+        <p class="section-desc">Zart. Klar. Schön. Die Beauty Routine App ist so gestaltet, dass du sie jeden Morgen gerne öffnest.</p>
+      </div>
+      <div class="screenshots-bg glass">
+        <div class="screenshots-row">
+
+          <!-- Screenshot 1: Morgen-Routine -->
+          <div class="screenshot-wrap">
+            <div class="iphone-frame">
+              <div class="iphone-screen">
+                <div class="iphone-notch"></div>
+                <div class="iphone-status">9:41</div>
+                <div class="app-header">
+                  <div class="app-title">Beauty von ZOE 🌸✨</div>
+                  <div class="app-subtitle">Deine persönliche Beauty-Begleiterin</div>
+                  <div class="app-tabs">
+                    <div class="app-tab active">🌸 Morgen</div>
+                    <div class="app-tab">🌙 Abend</div>
+                    <div class="app-tab">💅 Woche</div>
+                    <div class="app-tab">📅</div>
+                    <div class="app-tab">💡</div>
+                  </div>
+                </div>
+                <div class="app-body">
+                  <div class="app-date-chip">☀️ Morgenroutine · 5/7</div>
+                  <div class="app-category-label">💧 Reinigung</div>
+                  <div class="check-item">
+                    <div class="check-circle done"></div>
+                    <span class="check-text done">Gesicht waschen</span>
+                    <span class="check-streak">🔥 7</span>
+                  </div>
+                  <div class="check-item">
+                    <div class="check-circle done"></div>
+                    <span class="check-text done">Toner</span>
+                    <span class="check-streak">🔥 4</span>
+                  </div>
+                  <div class="app-category-label">✨ Pflege</div>
+                  <div class="check-item">
+                    <div class="check-circle done"></div>
+                    <span class="check-text done">Vitamin C Serum</span>
+                  </div>
+                  <div class="check-item">
+                    <div class="check-circle done"></div>
+                    <span class="check-text done">Feuchtigkeitscreme</span>
+                  </div>
+                  <div class="check-item">
+                    <div class="check-circle done"></div>
+                    <span class="check-text done">Sonnenschutz SPF</span>
+                    <span class="check-streak">⭐</span>
+                  </div>
+                  <div class="app-category-label">💄 Finishing</div>
+                  <div class="check-item">
+                    <div class="check-circle"></div>
+                    <span class="check-text">Concealer</span>
+                  </div>
+                  <div class="check-item">
+                    <div class="check-circle"></div>
+                    <span class="check-text">Lippenpflege</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screenshot-label">🌸 Morgen-Routine</div>
+          </div>
+
+          <!-- Screenshot 2: Termine -->
+          <div class="screenshot-wrap">
+            <div class="iphone-frame">
+              <div class="iphone-screen">
+                <div class="iphone-notch"></div>
+                <div class="iphone-status">9:41</div>
+                <div class="app-header">
+                  <div class="app-title">Beauty von ZOE 🌸✨</div>
+                  <div class="app-subtitle">Deine persönliche Beauty-Begleiterin</div>
+                  <div class="app-tabs">
+                    <div class="app-tab">🌸</div>
+                    <div class="app-tab">🌙</div>
+                    <div class="app-tab">💅</div>
+                    <div class="app-tab active">📅 Termine</div>
+                    <div class="app-tab">💡</div>
+                  </div>
+                </div>
+                <div class="app-body">
+                  <div class="month-chip">
+                    <div>
+                      <div class="m-name">📅 Mai 2026</div>
+                      <div class="m-count">3 Termine</div>
+                    </div>
+                    <span style="font-size:16px;">➕</span>
+                  </div>
+                  <div class="termin-card">
+                    <div class="termin-date">Mo, 5. Mai · 10:00 Uhr</div>
+                    <div class="termin-name">Friseur – Schnitt &amp; Farbe</div>
+                    <div class="termin-desc">Salon Bella, Hauptstraße 12</div>
+                    <div class="termin-icon">✂️</div>
+                  </div>
+                  <div class="termin-card">
+                    <div class="termin-date">Di, 13. Mai · 14:30 Uhr</div>
+                    <div class="termin-name">Kosmetikstudio</div>
+                    <div class="termin-desc">Gesichtsbehandlung + Augenbrauen</div>
+                    <div class="termin-icon">💆‍♀️</div>
+                  </div>
+                  <div class="termin-card">
+                    <div class="termin-date">Sa, 24. Mai · 11:00 Uhr</div>
+                    <div class="termin-name">Nagelstudio</div>
+                    <div class="termin-desc">Gel-Nails Auffüllen</div>
+                    <div class="termin-icon">💅</div>
+                  </div>
+                  <div style="text-align:center;margin-top:8px;">
+                    <span style="font-size:7px;color:var(--text-light);">+ Neuen Termin hinzufügen</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screenshot-label">📅 Termine</div>
+          </div>
+
+          <!-- Screenshot 3: Tipps -->
+          <div class="screenshot-wrap">
+            <div class="iphone-frame">
+              <div class="iphone-screen">
+                <div class="iphone-notch"></div>
+                <div class="iphone-status">9:41</div>
+                <div class="app-header">
+                  <div class="app-title">Beauty von ZOE 🌸✨</div>
+                  <div class="app-subtitle">Deine persönliche Beauty-Begleiterin</div>
+                  <div class="app-tabs">
+                    <div class="app-tab">🌸</div>
+                    <div class="app-tab">🌙</div>
+                    <div class="app-tab">💅</div>
+                    <div class="app-tab">📅</div>
+                    <div class="app-tab active">💡 Tipps</div>
+                  </div>
+                </div>
+                <div class="app-body">
+                  <div class="app-date-chip">💡 Beauty-Tipps des Tages</div>
+                  <div class="tip-divider">🌸</div>
+                  <div class="tip-card">
+                    <div class="tip-category">💧 HYDRATION</div>
+                    <div class="tip-title">Trinke morgens ein Glas Wasser</div>
+                    <div class="tip-body">Vor dem Frühstück ein großes Glas Wasser trinken aktiviert den Stoffwechsel und gibt deiner Haut Feuchtigkeit.</div>
+                    <div class="tip-like">❤️ 128 Likes</div>
+                  </div>
+                  <div class="tip-card" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);border-color:rgba(233,30,140,0.2);">
+                    <div class="tip-category" style="color:var(--accent-pink);">💄 MAKE-UP</div>
+                    <div class="tip-title">Primer vor Foundation</div>
+                    <div class="tip-body">Ein guter Primer lässt dein Make-up länger halten und schmeichelt dem Teint.</div>
+                    <div class="tip-like">❤️ 94 Likes</div>
+                  </div>
+                  <div class="tip-card" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-color:rgba(76,175,80,0.2);">
+                    <div class="tip-category" style="color:#388e3c;">🌿 NATUR-PUR</div>
+                    <div class="tip-title">Aloe Vera für strahlende Haut</div>
+                    <div class="tip-body">Frisches Aloe-Vera-Gel direkt auf die Haut – kühlt, spendet Feuchtigkeit & beruhigt.</div>
+                    <div class="tip-like">❤️ 71 Likes</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screenshot-label">💡 Tipps des Tages</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       INSTALLATIONSANLEITUNG
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="install">
+    <div class="wrapper">
+      <div class="section-head">
+        <div class="section-label">📲 Installation</div>
+        <h2 class="section-title">In 4 Schritten installiert</h2>
+        <p class="section-desc">Keine App Store-Suche. Kein Download. Einfach im Browser öffnen und als App speichern – gratis.</p>
+      </div>
+      <div class="install-bg glass">
+        <div class="install-grid">
+          <div class="install-step">
+            <div class="step-badge">1</div>
+            <div class="step-text">
+              <h4>Safari öffnen</h4>
+              <p>Öffne Safari auf deinem iPhone und tippe <strong>beautyroutine.app</strong> in die Adresszeile ein.</p>
+            </div>
+          </div>
+          <div class="install-step">
+            <div class="step-badge">2</div>
+            <div class="step-text">
+              <h4>Teilen-Button antippen</h4>
+              <p>Tippe auf das <strong>⬆️ Teilen-Symbol</strong> unten in der Mitte der Safari-Leiste.</p>
+            </div>
+          </div>
+          <div class="install-step">
+            <div class="step-badge">3</div>
+            <div class="step-text">
+              <h4>„Zum Home-Bildschirm"</h4>
+              <p>Scrolle im Menü nach unten und wähle <strong>„Zum Home-Bildschirm hinzufügen"</strong>. Dann auf „Hinzufügen" tippen.</p>
+            </div>
+          </div>
+          <div class="install-step">
+            <div class="step-badge">🎉</div>
+            <div class="step-text">
+              <h4>Fertig!</h4>
+              <p>Das App-Icon erscheint auf deinem Home-Bildschirm. Öffne sie wie jede andere App!</p>
+            </div>
+          </div>
+        </div>
+        <div class="install-note">
+          <strong>📱 Auch auf Android:</strong> Chrome öffnen → <strong>beautyroutine.app</strong> aufrufen → Menü (⋮) → „App installieren" oder „Zum Startbildschirm hinzufügen"
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CTA + FOOTER
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="wrapper">
+      <div class="cta-card">
+        <h2>Bereit für deine Traumroutine?</h2>
+        <p>Kostenlos starten – kein Account, keine App-Store-Suche, kein Abo.</p>
+        <a href="/app.html" class="cta-main-btn">
+          ✨ beautyroutine.app öffnen
+        </a>
+        <div class="cta-hashtags">
+          <span>#BeautyRoutine</span>
+          <span>#SkinCare</span>
+          <span>#MorgenRoutine</span>
+          <span>#BeautyTipps</span>
+          <span>#SelfCare</span>
+          <span>#GratisFürImmer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <p>© 2026 Beauty Routine App · <a href="https://beautyroutine.app">beautyroutine.app</a> · Made with 🌸 &amp; lots of love</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── FLOATING PARTICLES
+    const emojis = ['✨','🌸','💕','⭐','💫','🌷','💖','🌼','💎','🌙'];
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 28; i++) {
+      const el = document.createElement('div');
+      el.className = 'particle';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.top = Math.random() * 100 + 'vh';
+      el.style.fontSize = (10 + Math.random() * 12) + 'px';
+      const dur = 12 + Math.random() * 20;
+      el.style.animationDuration = dur + 's';
+      el.style.animationDelay = (-Math.random() * dur) + 's';
+      container.appendChild(el);
+    }
+  </script>
+
 </body>
 </html>
