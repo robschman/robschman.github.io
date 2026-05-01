@@ -1,187 +1,58 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
 <meta charset="UTF-8">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
-  width:1200px; height:630px; overflow:hidden;
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#fce4ec 0%,#f3e5f5 40%,#e8eaf6 100%);
-  position:relative;
+  width: 1200px; height: 630px; overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 40%, #e8eaf6 70%, #e3f2fd 100%);
+  position: relative;
 }
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700;800;900&display=swap');
-
-/* Wolken-Deko */
-.cloud {
-  position:absolute; border-radius:50%;
-  background:rgba(255,255,255,0.35);
-  filter:blur(40px);
-}
-
-/* Linke Seite – Text */
-.left {
-  position:absolute; left:70px; top:0; bottom:0;
-  display:flex; flex-direction:column; justify-content:center;
-  width:540px;
-}
-.badge {
-  background:rgba(240,98,146,0.12);
-  border:1.5px solid rgba(240,98,146,0.3);
-  border-radius:50px; padding:7px 18px;
-  font-size:13px; font-weight:700; color:#c2185b;
-  letter-spacing:2px; text-transform:uppercase;
-  display:inline-flex; align-items:center; gap:6px;
-  width:fit-content; margin-bottom:22px;
-}
-.logo {
-  font-family:'Dancing Script',cursive;
-  font-size:80px; color:#c2185b; line-height:1;
-  margin-bottom:6px;
-  text-shadow:0 4px 20px rgba(194,24,91,0.15);
-}
-.tagline {
-  font-size:22px; font-weight:800; color:#4a4a6a; line-height:1.3;
-  margin-bottom:28px;
-}
-.tagline span { color:#e91e8c; }
-.features {
-  display:flex; flex-direction:column; gap:10px; margin-bottom:30px;
-}
-.feat {
-  display:flex; align-items:center; gap:10px;
-  font-size:16px; font-weight:600; color:#555;
-}
-.feat-dot {
-  width:8px; height:8px; border-radius:50%;
-  background:linear-gradient(135deg,#f06292,#ab47bc);
-  flex-shrink:0;
-}
-.url-pill {
-  background:linear-gradient(135deg,#e91e8c,#9c27b0);
-  border-radius:50px; padding:14px 28px;
-  font-size:22px; font-weight:900; color:white;
-  display:inline-block;
-  box-shadow:0 8px 30px rgba(233,30,140,0.35);
-  width:fit-content;
-}
-
-/* Rechte Seite – iPhone Mockup */
-.right {
-  position:absolute; right:60px; top:40px; bottom:40px;
-  width:260px;
-  display:flex; align-items:center; justify-content:center;
-}
-.iphone {
-  width:240px; height:490px;
-  background:linear-gradient(160deg,#1c1c1e,#2c2c2e);
-  border-radius:46px; border:8px solid #3a3a3c;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.08),
-    0 40px 80px rgba(0,0,0,0.25),
-    0 0 60px rgba(233,30,140,0.2),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-  position:relative; overflow:hidden;
-}
-.iphone-screen {
-  position:absolute; inset:0;
-  background:linear-gradient(160deg,#fde8f5,#f0e8ff);
-  overflow:hidden;
-}
-.notch {
-  position:absolute; top:10px; left:50%; transform:translateX(-50%);
-  width:95px; height:28px; background:#1c1c1e; border-radius:20px; z-index:10;
-}
-.app-header {
-  background:linear-gradient(135deg,#e91e8c,#9c27b0);
-  padding:46px 16px 12px;
-}
-.app-logo-line {
-  font-family:'Dancing Script',cursive;
-  font-size:20px; color:white; display:inline;
-}
-.app-name { font-size:13px; font-weight:800; color:white; }
-.app-sub { font-size:10px; color:rgba(255,255,255,0.7); margin-top:2px; letter-spacing:1px; }
-.app-greet { font-size:11px; color:rgba(255,255,255,0.9); font-weight:600; margin-top:6px; }
-.app-bar { height:3px; background:rgba(255,255,255,0.2); border-radius:2px; margin-top:8px; }
-.app-bar-fill { height:100%; width:55%; background:white; border-radius:2px; }
-.app-tabs {
-  display:flex; background:white;
-  border-bottom:1px solid #f0e8f8;
-}
-.app-tab { flex:1; padding:7px 4px; text-align:center; font-size:9px; font-weight:700; color:#ccc; }
-.app-tab.act { color:#e91e8c; border-bottom:2px solid #e91e8c; }
-.app-body { padding:8px 10px; }
-.cat-title { font-size:10px; font-weight:800; color:#c2185b; margin-bottom:5px; }
-.app-item {
-  display:flex; align-items:center; gap:7px;
-  background:white; border-radius:8px; padding:6px 8px; margin-bottom:4px;
-  box-shadow:0 1px 4px rgba(0,0,0,0.06);
-  font-size:10px; font-weight:600; color:#444;
-}
-.chk-done {
-  width:14px; height:14px; border-radius:50%;
-  background:linear-gradient(135deg,#f06292,#ab47bc);
-  color:white; font-size:8px;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.chk-open {
-  width:14px; height:14px; border-radius:50%;
-  border:1.5px solid #e0d0e8; flex-shrink:0;
-}
+.bg-circle { position:absolute; border-radius:50%; opacity:0.25; }
+.bc1 { width:500px; height:500px; background:radial-gradient(#f48fb1,#ce93d8); top:-150px; left:-100px; }
+.bc2 { width:400px; height:400px; background:radial-gradient(#ce93d8,#9fa8da); bottom:-120px; right:-80px; }
+.gloss { position:absolute; top:0; left:0; right:0; height:200px; background:linear-gradient(180deg,rgba(255,255,255,0.45) 0%,transparent 100%); }
+.content { position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center; padding:60px; }
+.deco-top { font-size:28px; letter-spacing:12px; margin-bottom:20px; opacity:0.8; }
+.logo-beauty { font-family:'Dancing Script',cursive; font-size:96px; font-weight:700; background:linear-gradient(135deg,#e91e8c,#9c27b0,#673ab7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; margin-bottom:4px; }
+.logo-routine { font-size:32px; font-weight:700; letter-spacing:14px; color:#7b1fa2; text-transform:uppercase; margin-bottom:6px; }
+.logo-app { font-size:16px; font-weight:600; letter-spacing:6px; color:#ab47bc; text-transform:uppercase; margin-bottom:30px; }
+.divider { width:120px; height:3px; background:linear-gradient(90deg,transparent,#e91e8c,#9c27b0,transparent); border-radius:2px; margin-bottom:28px; }
+.tagline { font-size:26px; font-weight:500; color:#6a1b9a; margin-bottom:10px; line-height:1.4; }
+.tagline strong { color:#e91e8c; font-weight:700; }
+.pills { display:flex; gap:14px; margin:22px 0 28px; flex-wrap:wrap; justify-content:center; }
+.pill { background:rgba(255,255,255,0.75); border:1.5px solid rgba(233,30,140,0.2); border-radius:50px; padding:8px 20px; font-size:15px; color:#7b1fa2; font-weight:500; }
+.url-badge { background:linear-gradient(135deg,#e91e8c,#9c27b0); color:white; font-size:20px; font-weight:700; padding:14px 40px; border-radius:50px; letter-spacing:1px; box-shadow:0 8px 28px rgba(233,30,140,0.35); }
+.star { position:absolute; font-size:22px; opacity:0.4; }
+.s1 { top:60px; left:80px; } .s2 { top:40px; right:120px; font-size:16px; opacity:0.3; }
+.s3 { bottom:80px; left:120px; font-size:18px; opacity:0.35; } .s4 { top:160px; left:200px; font-size:14px; opacity:0.25; }
+.s5 { bottom:120px; right:200px; font-size:20px; opacity:0.3; } .s6 { top:80px; left:500px; font-size:12px; opacity:0.25; }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<div class="cloud" style="width:500px;height:500px;top:-150px;right:200px;"></div>
-<div class="cloud" style="width:400px;height:400px;bottom:-100px;left:100px;"></div>
-<div class="cloud" style="width:300px;height:300px;top:100px;left:400px;"></div>
-
-<div class="left">
-  <div class="badge">✨ 100% Kostenlos · Kein Download</div>
-  <div class="logo">Beauty</div>
-  <div class="tagline">Routine App –<br>Deine <span>Skincare-Begleiterin</span></div>
-  <div class="features">
-    <div class="feat"><div class="feat-dot"></div>Morgen & Abend Routine Checklisten</div>
-    <div class="feat"><div class="feat-dot"></div>Termine verwalten – nie mehr vergessen</div>
-    <div class="feat"><div class="feat-dot"></div>Tägliche Beauty-Tipps vom Profi</div>
-    <div class="feat"><div class="feat-dot"></div>100% personalisierbar</div>
+<div class="bg-circle bc1"></div>
+<div class="bg-circle bc2"></div>
+<div class="gloss"></div>
+<div class="star s1">✨</div><div class="star s2">⭐</div>
+<div class="star s3">💫</div><div class="star s4">✨</div>
+<div class="star s5">🌸</div><div class="star s6">💕</div>
+<div class="content">
+  <div class="deco-top">🌸 ✨ 🌸</div>
+  <div class="logo-beauty">Beauty</div>
+  <div class="logo-routine">Routine</div>
+  <div class="logo-app">App</div>
+  <div class="divider"></div>
+  <div class="tagline">Deine tägliche Skincare-Routine.<br><strong>Kostenlos. Ohne Anmeldung.</strong></div>
+  <div class="pills">
+    <div class="pill">🌅 Morgenroutine</div>
+    <div class="pill">🌙 Abendroutine</div>
+    <div class="pill">📅 Termine</div>
+    <div class="pill">💡 Beauty-Tipps</div>
   </div>
-  <div class="url-pill">beautyroutine.app</div>
+  <div class="url-badge">beautyroutine.app</div>
 </div>
-
-<div class="right">
-  <div class="iphone">
-    <div class="iphone-screen">
-      <div class="notch"></div>
-      <div class="app-header">
-        <div>
-          <span class="app-logo-line">Beauty</span>
-          <span class="app-name"> von ZOE 🌸✨</span>
-        </div>
-        <div class="app-sub">ROUTINE</div>
-        <div class="app-greet">☀️ Guten Morgen, Zoe!</div>
-        <div class="app-bar"><div class="app-bar-fill"></div></div>
-      </div>
-      <div class="app-tabs">
-        <div class="app-tab act">🌸 Morgen</div>
-        <div class="app-tab">🌙 Abend</div>
-        <div class="app-tab">💅 Woche</div>
-        <div class="app-tab">📅</div>
-      </div>
-      <div class="app-body">
-        <div class="cat-title">💧 Hautpflege</div>
-        <div class="app-item"><div class="chk-done">✓</div>Gesicht reinigen</div>
-        <div class="app-item"><div class="chk-done">✓</div>Serum auftragen</div>
-        <div class="app-item"><div class="chk-open"></div>Feuchtigkeitscreme</div>
-        <div class="app-item"><div class="chk-open"></div>☀️ SPF 30+</div>
-        <div class="cat-title" style="margin-top:8px;">💄 Make-up</div>
-        <div class="app-item"><div class="chk-open"></div>Foundation</div>
-        <div class="app-item"><div class="chk-open"></div>Mascara 👁️</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
