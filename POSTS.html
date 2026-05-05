@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Posts – 7 Tage Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#fce4ec,#f3e5f5,#ede7f6);
+  min-height:100vh; padding:24px 16px; color:#333;
+}
+h1 { font-family:'Dancing Script',cursive; font-size:38px; color:#c2185b; text-align:center; margin-bottom:2px; }
+.subtitle { text-align:center; font-size:12px; color:#bbb; font-weight:600; letter-spacing:2px; margin-bottom:4px; }
+.date { text-align:center; font-size:13px; color:#e91e8c; font-weight:700; margin-bottom:28px; }
+
+.day-card {
+  background:rgba(255,255,255,0.9);
+  border-radius:24px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.07);
+}
+.day-header {
+  display:flex; align-items:center; gap:12px; margin-bottom:16px;
+  padding-bottom:12px; border-bottom:2px solid #fce4ec;
+}
+.day-num {
+  width:48px; height:48px; border-radius:50%;
+  background:linear-gradient(135deg,#e91e8c,#9c27b0);
+  display:flex; align-items:center; justify-content:center;
+  color:white; font-weight:900; font-size:16px; flex-shrink:0;
+}
+.day-title { font-size:17px; font-weight:800; color:#333; }
+.day-date { font-size:12px; color:#bbb; font-weight:600; }
+.video-badge {
+  margin-left:auto;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:white; font-size:11px; font-weight:700;
+  padding:5px 14px; border-radius:50px;
+  white-space:nowrap;
+}
+
+/* Platform tabs */
+.platform-tabs { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+.platform-tab {
+  padding:6px 16px; border-radius:50px; font-size:12px; font-weight:700;
+  cursor:pointer; border:2px solid transparent; transition:all 0.2s;
+}
+.tab-tiktok { background:#e8f5ff; color:#010101; border-color:#b3d9f7; }
+.tab-tiktok.active { background:#010101; color:white; border-color:#010101; }
+.tab-instagram { background:#fce4f7; color:#c13584; border-color:#f0a0d8; }
+.tab-instagram.active { background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:white; border-color:transparent; }
+.tab-youtube { background:#fff0f0; color:#ff0000; border-color:#ffb3b3; }
+.tab-youtube.active { background:#ff0000; color:white; border-color:#ff0000; }
+
+/* Post content */
+.post-panel { display:none; }
+.post-panel.active { display:block; }
+
+.post-section { margin-bottom:12px; }
+.post-label {
+  font-size:10px; font-weight:800; letter-spacing:1.5px;
+  text-transform:uppercase; color:#bbb; margin-bottom:6px;
+}
+.post-text {
+  background:#f8f8f8; border-radius:14px;
+  padding:14px 16px; font-size:13px; line-height:1.7; color:#444;
+  border-left:3px solid #e91e8c;
+  cursor:pointer; position:relative; white-space:pre-wrap;
+  transition:background 0.2s;
+}
+.post-text:hover { background:#fce4ec; }
+.post-text:hover::after {
+  content:'📋 Kopieren';
+  position:absolute; top:10px; right:12px;
+  font-size:10px; color:#e91e8c; font-weight:700;
+}
+.post-text.youtube-title {
+  border-left-color:#ff0000; font-weight:700; font-size:14px;
+  background:#fff5f5;
+}
+.post-text.youtube-title:hover { background:#ffe0e0; }
+.post-text.youtube-title:hover::after { color:#ff0000; }
+
+.tip-box {
+  background:rgba(233,30,140,0.06);
+  border-radius:10px; padding:10px 14px;
+  font-size:11px; color:#c2185b;
+  border-left:3px solid #f06292;
+  margin-top:8px;
+}
+.tip-box.blue { background:rgba(33,150,243,0.06); border-left-color:#42a5f5; color:#1565c0; }
+.tip-box.red { background:rgba(255,0,0,0.06); border-left-color:#ff0000; color:#c62828; }
+
+#toast {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+  background:#333; color:#fff; font-size:12px; font-weight:700;
+  padding:10px 22px; border-radius:50px;
+  opacity:0; pointer-events:none; transition:opacity 0.3s; z-index:999;
+}
+#toast.show { opacity:1; }
+
+.legend {
+  background:rgba(255,255,255,0.7); border-radius:18px;
+  padding:16px 20px; margin-bottom:20px;
+  font-size:12px; color:#666;
+}
+.legend h3 { font-size:13px; font-weight:800; color:#333; margin-bottom:10px; }
+.legend-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+.legend-icon { font-size:16px; width:24px; }
+</style>
+</head>
+<body>
+
+<h1>7 Tage Posts 🌸</h1>
+<div class="subtitle">COPY & PASTE FERTIG · TIKTOK · INSTAGRAM · YOUTUBE</div>
+<div class="date">📅 5. Mai – 11. Mai 2026</div>
+
+<div class="legend">
+  <h3>📌 So geht's:</h3>
+  <div class="legend-row"><span class="legend-icon">1️⃣</span> Tag auswählen → Plattform antippen → Text kopieren</div>
+  <div class="legend-row"><span class="legend-icon">2️⃣</span> Passendes Video aus <strong>promo/output/</strong> auf dein iPhone per AirDrop</div>
+  <div class="legend-row"><span class="legend-icon">3️⃣</span> Video hochladen → kopierten Text einfügen → Posten!</div>
+</div>
+
+<!-- ══ TAG 1 ══ -->
+<div class="day-card">
+  <div class="day-header">
+    <div class="day-num">1</div>
+    <div>
+      <div class="day-title">Montag · Start der Woche 🚀</div>
+      <div class="day-date">5. Mai 2026</div>
+    </div>
+    <div class="video-badge">📹 promo1.mp4</div>
+  </div>
+  <div class="platform-tabs">
+    <div class="platform-tab tab-tiktok active" onclick="switchTab(this,'day1','tiktok')">🎵 TikTok</div>
+    <div class="platform-tab tab-instagram" onclick="switchTab(this,'day1','instagram')">📸 Instagram</div>
+    <div class="platform-tab tab-youtube" onclick="switchTab(this,'day1','youtube')">▶️ YouTube</div>
+  </div>
+
+  <div id="day1-tiktok" class="post-panel active">
+    <div class="post-section">
+      <div class="post-label">Caption (Text beim Video)</div>
+      <div class="post-text" onclick="copyText(this)">Deine Beauty Routine – jetzt als kostenlose App 🌸✨
+
+Morgenroutine, Abendroutine, Termine & Beauty-Tipps – alles an einem Ort. Kein Download, kein Abo.
+
+👉 beautyroutine.app (Link in Bio)
+
+#BeautyRoutine #SkinCare #MorgenRoutine #BeautyApp #GratisFürImmer #SkincareTips #BeautyTok</div>
+    </div>
+    <div class="tip-box">💡 TikTok: Video direkt hochladen → Caption einfügen → Trending Sound dazu → Posten!</div>
+  </div>
+
+  <div id="day1-instagram" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Caption (Text beim Reel)</div>
+      <div class="post-text" onclick="copyText(this)">Deine Beauty Routine als kostenlose App 🌸✨
+
+Endlich eine App die dich jeden Morgen & Abend durch deine Skincare begleitet – ohne Abo, ohne Anmeldung, einfach gratis.
+
+✅ Morgenroutine Checkliste
+✅ Abendroutine Checkliste  
+✅ Wöchentliche Pflege
+✅ Termine verwalten
+✅ Tägliche Beauty-Tipps
+
+👉 beautyroutine.app – Link in Bio!
+
+#BeautyRoutine #SkinCare #BeautyApp #MorgenRoutine #Skincare #BeautyTipps #SelfCare #GratisApp #BeautyRoutineApp #Pflegeroutine</div>
+    </div>
+    <div class="tip-box" style="border-left-color:#c13584;background:rgba(193,53,132,0.06);color:#880e4f;">💡 Instagram: Als Reel hochladen → Caption einfügen → Vorschaubild wählen → Teilen!</div>
+  </div>
+
+  <div id="day1-youtube" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Titel</div>
+      <div class="post-text youtube-title" onclick="copyText(this)">Die kostenlose Beauty Routine App 🌸 Skincare nie wieder vergessen!</div>
+    </div>
+    <div class="post-section">
+      <div class="post-label">Beschreibung</div>
+      <div class="post-text" onclick="copyText(this)">Deine tägliche Beauty Routine als kostenlose App – kein Download, kein Abo!
+
+🌸 Was die Beauty Routine App kann:
+✅ Morgenroutine & Abendroutine Checkliste
+✅ Wöchentliche Pflegesteps
+✅ Termine verwalten (Friseur, Kosmetik & mehr)
+✅ Tägliche Beauty-Tipps vom Profi
+✅ Voll personalisierbar
+
+👉 Kostenlos starten: https://beautyroutine.app
+
+#BeautyRoutine #SkinCare #BeautyApp #MorgenRoutine #KostenlosApp</div>
+    </div>
+    <div class="tip-box red">💡 YouTube: Als Short hochladen (unter 60 Sek) → Titel & Beschreibung einfügen → Thumbnail wählen → Veröffentlichen!</div>
+  </div>
+</div>
+
+<!-- ══ TAG 2 ══ -->
+<div class="day-card">
+  <div class="day-header">
+    <div class="day-num">2</div>
+    <div>
+      <div class="day-title">Dienstag · Beauty Tipps 💡</div>
+      <div class="day-date">6. Mai 2026</div>
+    </div>
+    <div class="video-badge">📹 promo2.mp4</div>
+  </div>
+  <div class="platform-tabs">
+    <div class="platform-tab tab-tiktok active" onclick="switchTab(this,'day2','tiktok')">🎵 TikTok</div>
+    <div class="platform-tab tab-instagram" onclick="switchTab(this,'day2','instagram')">📸 Instagram</div>
+    <div class="platform-tab tab-youtube" onclick="switchTab(this,'day2','youtube')">▶️ YouTube</div>
+  </div>
+
+  <div id="day2-tiktok" class="post-panel active">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">Jeden Tag ein neuer Beauty-Tipp direkt in der App 💡🌸
+
+Vitamin C Serum, Aloe Vera, Sonnenschutz... die App erinnert dich täglich daran! Komplett kostenlos.
+
+👉 beautyroutine.app (Link in Bio)
+
+#BeautyTipps #SkincareTips #GlowUp #BeautyHacks #SkinCareRoutine #BeautyTok #DailyBeauty</div>
+    </div>
+    <div class="tip-box">💡 Heute: Beauty-Tipps Funktion zeigen → Hook: „Wusstest du dass..."</div>
+  </div>
+
+  <div id="day2-instagram" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">Täglich neue Beauty-Tipps direkt in deiner Routine App 💡✨
+
+Wusstest du? Vitamin C Serum morgens aufgetragen schützt die Haut vor freien Radikalen – die Beauty Routine App erinnert dich täglich daran! 🌸
+
+Gratis, kein Abo, kein Download nötig.
+
+👉 beautyroutine.app – Link in Bio!
+
+#BeautyTipps #SkincareTips #GlowUp #BeautyHacks #SkinCareRoutine #ViaminC #GlassSkin #BeautyRoutineApp #Pflege #DeutscheBeauty</div>
+    </div>
+  </div>
+
+  <div id="day2-youtube" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Titel</div>
+      <div class="post-text youtube-title" onclick="copyText(this)">Täglich neue Beauty-Tipps – komplett GRATIS! 💡 Beauty Routine App</div>
+    </div>
+    <div class="post-section">
+      <div class="post-label">Beschreibung</div>
+      <div class="post-text" onclick="copyText(this)">Die Beauty Routine App liefert dir täglich neue Skincare & Beauty Tipps – kostenlos und ohne Anmeldung!
+
+💡 Jeden Tag neu:
+• Hydration Tipps
+• Make-up Hacks  
+• Naturkosmetik Tipps
+• Haarpflege Tipps
+
+👉 Jetzt gratis starten: https://beautyroutine.app
+
+#BeautyTipps #SkincareTips #BeautyHacks #GratisSkincare</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAG 3 ══ -->
+<div class="day-card">
+  <div class="day-header">
+    <div class="day-num">3</div>
+    <div>
+      <div class="day-title">Mittwoch · Wochenroutine 💅</div>
+      <div class="day-date">7. Mai 2026</div>
+    </div>
+    <div class="video-badge">📹 promo3.mp4</div>
+  </div>
+  <div class="platform-tabs">
+    <div class="platform-tab tab-tiktok active" onclick="switchTab(this,'day3','tiktok')">🎵 TikTok</div>
+    <div class="platform-tab tab-instagram" onclick="switchTab(this,'day3','instagram')">📸 Instagram</div>
+    <div class="platform-tab tab-youtube" onclick="switchTab(this,'day3','youtube')">▶️ YouTube</div>
+  </div>
+
+  <div id="day3-tiktok" class="post-panel active">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">Wöchentliche Pflege nie wieder vergessen 💅🌸
+
+Haare, Nails, Body-Care, Gesichtsmaske – die App erinnert dich an alles. Einmal einrichten, für immer nutzen!
+
+👉 beautyroutine.app (Link in Bio)
+
+#WeeklyRoutine #SelfCareSunday #NailCare #HairCare #BeautyRoutine #SkinCare #BeautyTok #Pflegeroutine</div>
+    </div>
+  </div>
+
+  <div id="day3-instagram" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">Wöchentliche Pflege – endlich alles im Blick 💅✨
+
+Haare, Nägel, Gesichtsmaske, Body Scrub... wie oft vergisst du einen dieser Steps? Die Beauty Routine App erinnert dich wöchentlich an alles!
+
+🗓️ Einmal einrichten → für immer nutzen
+💸 100% kostenlos, kein Abo
+
+👉 beautyroutine.app – Link in Bio!
+
+#WeeklyRoutine #SelfCare #NailCare #HairCare #BodyCare #BeautyRoutine #Pflegeroutine #SelfCareSunday #BeautyApp #GratisApp</div>
+    </div>
+  </div>
+
+  <div id="day3-youtube" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Titel</div>
+      <div class="post-text youtube-title" onclick="copyText(this)">Wöchentliche Pflege-Routine NIE vergessen 💅 Beauty Routine App Gratis</div>
+    </div>
+    <div class="post-section">
+      <div class="post-label">Beschreibung</div>
+      <div class="post-text" onclick="copyText(this)">Mit der Beauty Routine App vergisst du keine wöchentliche Pflege mehr – Haare, Nägel, Gesichtsmaske und mehr!
+
+💅 Wöchentliche Routine in der App:
+• Haare waschen & pflegen
+• Nagelcare
+• Gesichtsmaske
+• Body Scrub
+• Augenbrauen zupfen
+
+👉 Gratis testen: https://beautyroutine.app
+
+#WeeklyRoutine #SelfCare #NailCare #BeautyApp</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAG 4 ══ -->
+<div class="day-card">
+  <div class="day-header">
+    <div class="day-num">4</div>
+    <div>
+      <div class="day-title">Donnerstag · App Showcase 📱</div>
+      <div class="day-date">8. Mai 2026</div>
+    </div>
+    <div class="video-badge">📹 promo4_showcase.mp4</div>
+  </div>
+  <div class="platform-tabs">
+    <div class="platform-tab tab-tiktok active" onclick="switchTab(this,'day4','tiktok')">🎵 TikTok</div>
+    <div class="platform-tab tab-instagram" onclick="switchTab(this,'day4','instagram')">📸 Instagram</div>
+    <div class="platform-tab tab-youtube" onclick="switchTab(this,'day4','youtube')">▶️ YouTube</div>
+  </div>
+
+  <div id="day4-tiktok" class="post-panel active">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">POV: Deine Beauty Routine ist endlich organisiert ✨🌸
+
+Kein Download. Kein Abo. Einfach öffnen und loslegen. Die schönste Routine App die du je hattest!
+
+👉 beautyroutine.app (Link in Bio)
+
+#POV #BeautyRoutine #Organized #SkinCare #GlowUp #BeautyApp #aesthetic #BeautyTok #SkinCareRoutine</div>
+    </div>
+  </div>
+
+  <div id="day4-instagram" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">POV: Deine Beauty Routine ist endlich organised ✨
+
+Ich zeig euch kurz wie einfach die Beauty Routine App wirklich ist – kein Schnickschnack, nur das was du wirklich brauchst 🌸
+
+📱 Einfach beautyroutine.app im Safari öffnen → zum Homescreen hinzufügen → fertig!
+
+Kein Download, kein Abo, kein Account nötig 💸
+
+👉 Link in Bio – beautyroutine.app
+
+#BeautyApp #SkinCareRoutine #Organized #GlowUp #BeautyRoutine #aesthetic #MorgenRoutine #SkinCare #GratisApp #BeautyTok</div>
+    </div>
+  </div>
+
+  <div id="day4-youtube" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Titel</div>
+      <div class="post-text youtube-title" onclick="copyText(this)">Beauty Routine App Tour 📱 So einfach ist die kostenlose Skincare App!</div>
+    </div>
+    <div class="post-section">
+      <div class="post-label">Beschreibung</div>
+      <div class="post-text" onclick="copyText(this)">Komplette App-Tour durch die Beauty Routine App – so sieht die App wirklich aus!
+
+📱 Was du siehst:
+• Morgenroutine mit Checkliste
+• Abendroutine
+• Wöchentliche Pflege
+• Termine verwalten
+• Beauty-Tipps
+
+Kein Download nötig – einfach beautyroutine.app im Browser öffnen!
+
+👉 https://beautyroutine.app
+
+#BeautyApp #SkinCare #AppTour #GratisApp #BeautyRoutine</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAG 5 ══ -->
+<div class="day-card">
+  <div class="day-header">
+    <div class="day-num">5</div>
+    <div>
+      <div class="day-title">Freitag · Termine Feature 📅</div>
+      <div class="day-date">9. Mai 2026</div>
+    </div>
+    <div class="video-badge">📹 promo5_termine.mp4</div>
+  </div>
+  <div class="platform-tabs">
+    <div class="platform-tab tab-tiktok active" onclick="switchTab(this,'day5','tiktok')">🎵 TikTok</div>
+    <div class="platform-tab tab-instagram" onclick="switchTab(this,'day5','instagram')">📸 Instagram</div>
+    <div class="platform-tab tab-youtube" onclick="switchTab(this,'day5','youtube')">▶️ YouTube</div>
+  </div>
+
+  <div id="day5-tiktok" class="post-panel active">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">Friseur-Termin vergessen? Nie wieder! ✂️📅
+
+Trag alle deine Beauty-Termine direkt in der App ein – Friseur, Kosmetik, Maniküre & mehr. Alles an einem Ort!
+
+👉 beautyroutine.app (Link in Bio)
+
+#Friseur #Termine #BeautyApp #Organisation #Maniküre #Kosmetik #BeautyRoutine #NeverMissAgain #BeautyTok</div>
+    </div>
+  </div>
+
+  <div id="day5-instagram" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">Alle deine Beauty-Termine an einem Ort 📅✨
+
+Friseur ✂️ Kosmetik 💆‍♀️ Maniküre 💅 Massage 🧖‍♀️
+
+Mit der Beauty Routine App trägst du alle Termine einfach ein und vergisst nie wieder einen wichtigen Appointment!
+
+Und das Beste? Komplett GRATIS 💸
+
+👉 beautyroutine.app – Link in Bio!
+
+#Friseur #BeautyTermine #Maniküre #Kosmetik #Organisation #BeautyApp #NeverMissAgain #SelfCare #BeautyRoutine #GratisApp</div>
+    </div>
+  </div>
+
+  <div id="day5-youtube" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Titel</div>
+      <div class="post-text youtube-title" onclick="copyText(this)">Friseur-Termin vergessen? NICHT MEHR! 📅 Beauty Routine App Termine Feature</div>
+    </div>
+    <div class="post-section">
+      <div class="post-label">Beschreibung</div>
+      <div class="post-text" onclick="copyText(this)">Mit dem Termine-Feature der Beauty Routine App vergisst du nie wieder einen Beauty-Appointment!
+
+📅 Alle Beauty-Termine in der App:
+• Friseur
+• Kosmetikstudio
+• Nagelstudio / Maniküre
+• Massage
+• Augenbrauen & Wimpern
+
+👉 Gratis testen: https://beautyroutine.app
+
+#BeautyTermine #Friseur #Maniküre #Kosmetik #BeautyApp #Organisation</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAG 6 ══ -->
+<div class="day-card">
+  <div class="day-header">
+    <div class="day-num">6</div>
+    <div>
+      <div class="day-title">Samstag · Abendroutine 🌙</div>
+      <div class="day-date">10. Mai 2026</div>
+    </div>
+    <div class="video-badge">📹 promo6_routine.mp4</div>
+  </div>
+  <div class="platform-tabs">
+    <div class="platform-tab tab-tiktok active" onclick="switchTab(this,'day6','tiktok')">🎵 TikTok</div>
+    <div class="platform-tab tab-instagram" onclick="switchTab(this,'day6','instagram')">📸 Instagram</div>
+    <div class="platform-tab tab-youtube" onclick="switchTab(this,'day6','youtube')">▶️ YouTube</div>
+  </div>
+
+  <div id="day6-tiktok" class="post-panel active">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">Deine Abendroutine – aber organized 🌙✨
+
+Make-up entfernen, Toner, Nachtcreme... die App führt dich Schritt für Schritt durch deine Abendpflege. Gratis!
+
+👉 beautyroutine.app (Link in Bio)
+
+#Abendroutine #NightRoutine #SkinCare #MakeupRemover #NightCream #BeautyRoutine #GlassSkin #BeautyTok #SkinCareTok</div>
+    </div>
+  </div>
+
+  <div id="day6-instagram" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">Abendroutine goals 🌙✨
+
+Wer kennt es – man kommt müde nach Hause und überspringt einfach die komplette Skincare. Mit der Beauty Routine App hast du eine simple Checkliste die dich motiviert, auch abends für deine Haut zu sorgen!
+
+🌙 Abendroutine in der App:
+• Make-up entfernen
+• Gesicht reinigen
+• Toner
+• Serum
+• Nachtcreme
+
+Kostenlos, kein Download! 🌸
+
+👉 beautyroutine.app – Link in Bio!
+
+#Abendroutine #NightRoutine #SkinCare #NightCream #MakeupRemover #GlassSkin #BeautyRoutine #SelfCare #SkinCareTok #BeautyApp</div>
+    </div>
+  </div>
+
+  <div id="day6-youtube" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Titel</div>
+      <div class="post-text youtube-title" onclick="copyText(this)">Abendroutine NIE mehr vergessen 🌙 Skincare Checkliste App GRATIS</div>
+    </div>
+    <div class="post-section">
+      <div class="post-label">Beschreibung</div>
+      <div class="post-text" onclick="copyText(this)">Die Beauty Routine App hilft dir, deine Abendroutine konsequent durchzuhalten – mit einer einfachen Checkliste!
+
+🌙 Deine Abendroutine:
+• Make-up entfernen
+• Doppelreinigung
+• Toner auftragen
+• Serum
+• Augencreme
+• Nachtcreme
+
+👉 Gratis testen: https://beautyroutine.app
+
+#Abendroutine #NightRoutine #SkinCare #GlassSkin #BeautyApp</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAG 7 ══ -->
+<div class="day-card">
+  <div class="day-header">
+    <div class="day-num">7</div>
+    <div>
+      <div class="day-title">Sonntag · Homescreen Tipp 📲</div>
+      <div class="day-date">11. Mai 2026</div>
+    </div>
+    <div class="video-badge">📹 promo7_homescreen.mp4</div>
+  </div>
+  <div class="platform-tabs">
+    <div class="platform-tab tab-tiktok active" onclick="switchTab(this,'day7','tiktok')">🎵 TikTok</div>
+    <div class="platform-tab tab-instagram" onclick="switchTab(this,'day7','instagram')">📸 Instagram</div>
+    <div class="platform-tab tab-youtube" onclick="switchTab(this,'day7','youtube')">▶️ YouTube</div>
+  </div>
+
+  <div id="day7-tiktok" class="post-panel active">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">So installierst du die Beauty Routine App auf deinem iPhone 📲🌸
+
+Safari öffnen → beautyroutine.app → Teilen ⬆️ → Zum Homescreen hinzufügen → Fertig! Kein App Store nötig!
+
+👉 beautyroutine.app (Link in Bio)
+
+#iPhone #Tutorial #BeautyApp #Hack #iPhoneTip #BeautyRoutine #GratisApp #SkinCare #BeautyTok #AppTipp</div>
+    </div>
+  </div>
+
+  <div id="day7-instagram" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Caption</div>
+      <div class="post-text" onclick="copyText(this)">iPhone Trick: Beauty Routine App in 10 Sekunden installieren 📲✨
+
+Viele wissen gar nicht wie einfach das geht:
+
+1️⃣ Safari öffnen
+2️⃣ beautyroutine.app eintippen
+3️⃣ Teilen-Symbol ⬆️ antippen
+4️⃣ „Zum Home-Bildschirm" wählen
+5️⃣ Fertig! 🎉
+
+Das App-Icon erscheint direkt am Homescreen – genauso wie eine normale App, nur ohne App Store Download!
+
+👉 beautyroutine.app – kostenlos & ohne Anmeldung 🌸
+
+#iPhone #iPhoneTipp #BeautyApp #Tutorial #HomeScreen #BeautyRoutine #GratisApp #SkinCare #iPhoneHack #AppleTip</div>
+    </div>
+  </div>
+
+  <div id="day7-youtube" class="post-panel">
+    <div class="post-section">
+      <div class="post-label">Titel</div>
+      <div class="post-text youtube-title" onclick="copyText(this)">Beauty App OHNE App Store installieren 📲 iPhone Trick in 10 Sekunden!</div>
+    </div>
+    <div class="post-section">
+      <div class="post-label">Beschreibung</div>
+      <div class="post-text" onclick="copyText(this)">So installierst du die Beauty Routine App direkt auf deinem iPhone-Homescreen – ohne App Store!
+
+📲 Anleitung:
+1. Safari öffnen
+2. beautyroutine.app aufrufen
+3. Teilen-Symbol antippen
+4. „Zum Home-Bildschirm hinzufügen"
+5. Fertig!
+
+Funktioniert auch auf Android mit Chrome!
+
+👉 Jetzt gratis starten: https://beautyroutine.app
+
+#iPhone #iPhoneTipp #BeautyApp #Tutorial #GratisApp #BeautyRoutine #SkinCare</div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:30px 0 10px;font-size:13px;color:#bbb;">
+  Viel Erfolg! 🌸✨<br>
+  <span style="font-size:11px;">beautyroutine.app · 7 Tage Plan · 5.–11. Mai 2026</span>
+</div>
+
+<div id="toast">✅ Kopiert!</div>
+
+<script>
+function switchTab(btn, day, platform) {
+  const card = btn.closest('.day-card');
+  card.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+  card.querySelectorAll('.post-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(day + '-' + platform).classList.add('active');
+}
+function copyText(el) {
+  const text = el.innerText.replace('📋 Kopieren','').trim();
+  navigator.clipboard.writeText(text).then(showToast);
+}
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+</script>
+</body>
+</html>
