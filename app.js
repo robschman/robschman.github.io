@@ -305,32 +305,40 @@ const TIPS_POOL = {
 // ===== AGB / Terms =====
 const AGB_TEXT = {
   de: `<h4>📋 Nutzungsbedingungen</h4>
-<p>Willkommen bei Beauty Routine! Diese App ist ein persönliches Wellness-Tool für deine tägliche Beauty-Routine.</p>
-<h4>📱 Datenspeicherung</h4>
-<p>Alle deine Daten (Name, Haarfarbe, Haarlänge, Checklisten-Status) werden ausschließlich lokal auf deinem Gerät im Browser-Speicher (localStorage) gespeichert. Es werden keine Daten an externe Server übertragen.</p>
-<h4>🔒 Datenschutz</h4>
-<p>Wir erheben keine personenbezogenen Daten. Deine eingegebenen Informationen verlassen niemals dein Gerät. Es gibt keine Benutzerkonten, keine Cloud-Speicherung und keine Weitergabe an Dritte.</p>
+<p>Willkommen bei der Beauty Routine App! Diese App ist ein kostenloses, persönliches Wellness-Tool für deine tägliche Beauty-Routine.</p>
+<h4>📱 Lokale Datenspeicherung</h4>
+<p>Alle deine App-Daten (Name, Einstellungen, Checklisten, Termine) werden <strong>ausschließlich lokal</strong> auf deinem Gerät gespeichert (Browser-localStorage). Diese Daten verlassen dein Gerät nicht.</p>
 <h4>🍪 Cookies & Tracking</h4>
-<p>Diese App verwendet keine eigenen Tracking-Cookies. Google AdSense kann jedoch eigene Cookies für die Anzeigenauslieferung nutzen. Mehr dazu in der <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzrichtlinie</a>.</p>
+<p>Nach deiner Einwilligung (Cookie-Banner) nutzen wir <strong>Google Analytics</strong> (Besucherstatistiken) und <strong>Google AdSense</strong> (Werbung). Ohne Einwilligung werden keine Tracking-Cookies gesetzt. Du kannst deine Einwilligung jederzeit widerrufen.</p>
 <h4>⚠️ Haftungsausschluss</h4>
-<p>Die Beauty-Tipps und Routinen in dieser App sind allgemeine Empfehlungen und kein medizinischer Rat. Bei Hautproblemen oder Allergien bitte immer eine Ärztin oder Dermatologin konsultieren.</p>
+<p>Die Beauty-Tipps in dieser App sind allgemeine Empfehlungen und kein medizinischer Rat. Bei Hautproblemen oder Allergien bitte immer eine Ärztin konsultieren.</p>
 <h4>✏️ Änderungen</h4>
-<p>Diese App wird kontinuierlich weiterentwickelt. Wir behalten uns vor, Inhalte und Funktionen jederzeit anzupassen.</p>
-<p style="margin-top:14px;font-size:0.75rem;color:#bbb">Version 1.1 · made with 🌸 by zoe &amp; robschman</p>`,
+<p>Diese App wird kontinuierlich weiterentwickelt. Wir behalten uns vor, Inhalte jederzeit anzupassen.</p>
+<p style="margin-top:16px;">
+  <a href="/datenschutz.html" target="_blank" style="color:#e91e8c;font-weight:700;text-decoration:underline;">📄 Vollständige Datenschutzerklärung lesen →</a>
+</p>
+<p style="margin-top:6px;">
+  <a href="/impressum.html" target="_blank" style="color:#9c27b0;font-weight:700;text-decoration:underline;">📋 Impressum →</a>
+</p>
+<p style="margin-top:14px;font-size:0.75rem;color:#bbb">Version 1.2 · made with 🌸 · beautyroutine.app</p>`,
 
   en: `<h4>📋 Terms of Use</h4>
-<p>Welcome to Beauty Routine! This app is a personal wellness tool for your daily beauty routine.</p>
-<h4>📱 Data Storage</h4>
-<p>All your data (name, hair color, hair length, checklist status) is stored exclusively locally on your device in browser storage (localStorage). No data is transmitted to external servers.</p>
-<h4>🔒 Privacy</h4>
-<p>We do not collect any personal data. The information you enter never leaves your device. There are no user accounts, no cloud storage, and no sharing with third parties.</p>
+<p>Welcome to the Beauty Routine App! This app is a free personal wellness tool for your daily beauty routine.</p>
+<h4>📱 Local Data Storage</h4>
+<p>All your app data (name, settings, checklists, appointments) is stored <strong>exclusively locally</strong> on your device (browser localStorage). This data never leaves your device.</p>
 <h4>🍪 Cookies & Tracking</h4>
-<p>This app does not use its own tracking cookies. However, Google AdSense may use its own cookies for ad delivery. Learn more in the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.</p>
+<p>After your consent (cookie banner) we use <strong>Google Analytics</strong> (visitor statistics) and <strong>Google AdSense</strong> (advertising). Without consent, no tracking cookies are set. You can withdraw your consent at any time.</p>
 <h4>⚠️ Disclaimer</h4>
-<p>The beauty tips and routines in this app are general recommendations and not medical advice. For skin problems or allergies, always consult a doctor or dermatologist.</p>
+<p>The beauty tips in this app are general recommendations and not medical advice. For skin problems or allergies, always consult a doctor or dermatologist.</p>
 <h4>✏️ Changes</h4>
-<p>This app is continuously being developed. We reserve the right to adjust content and features at any time.</p>
-<p style="margin-top:14px;font-size:0.75rem;color:#bbb">Version 1.1 · made with 🌸 by zoe &amp; robschman</p>`,
+<p>This app is continuously being developed. We reserve the right to adjust content at any time.</p>
+<p style="margin-top:16px;">
+  <a href="/datenschutz.html" target="_blank" style="color:#e91e8c;font-weight:700;text-decoration:underline;">📄 Read full Privacy Policy →</a>
+</p>
+<p style="margin-top:6px;">
+  <a href="/impressum.html" target="_blank" style="color:#9c27b0;font-weight:700;text-decoration:underline;">📋 Legal Notice →</a>
+</p>
+<p style="margin-top:14px;font-size:0.75rem;color:#bbb">Version 1.2 · made with 🌸 · beautyroutine.app</p>`,
 };
 
 // ===== Routine Data =====
