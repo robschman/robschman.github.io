@@ -82,9 +82,9 @@
             <label class="agb-check-label">
               <input type="checkbox" id="agbAcceptCheck" />
               <span>
-                Ich akzeptiere die <button class="agb-inline-btn" id="agbInlineBtn" type="button">AGB &amp; Datenschutz</button>
+                Ich akzeptiere die <button class="agb-inline-btn" id="agbInlineBtn" type="button" onclick="event.preventDefault();event.stopPropagation();openAgb();">AGB &amp; Datenschutz</button>
                 &nbsp;/&nbsp;
-                I accept the <button class="agb-inline-btn" id="agbInlineBtn2" type="button">Terms &amp; Privacy</button>
+                I accept the <button class="agb-inline-btn" id="agbInlineBtn2" type="button" onclick="event.preventDefault();event.stopPropagation();openAgb();">Terms &amp; Privacy</button>
               </span>
             </label>
           </div>
