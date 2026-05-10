@@ -2,6 +2,12 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <!-- Automatischer Redirect zur App wenn bereits eingerichtet -->
+  <script>
+    if (localStorage.getItem('routine_username')) {
+      window.location.replace('/app.html');
+    }
+  </script>
   <!-- Cookie Consent + Analytics/AdSense (DSGVO-konform) -->
   <script src="/cookie-consent.js?v=1.0"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
