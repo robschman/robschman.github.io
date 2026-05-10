@@ -1,0 +1,20 @@
+{
+  "name": "Beauty Routine App",
+  "short_name": "Beauty Routine",
+  "description": "Deine tägliche Beauty-Routine. Morgen & Abend, Termine, Tipps – kostenlos.",
+  "start_url": "/app.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fce4ec",
+  "theme_color": "#e91e8c",
+  "lang": "de",
+  "icons": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["lifestyle", "health", "beauty"]
+}
