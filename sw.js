@@ -1,10 +1,23 @@
 // Beauty Routine App – Service Worker
-const CACHE = 'beauty-routine-v1';
+const CACHE = 'beauty-routine-v2';
 const ASSETS = [
   '/app.html',
   '/style.css',
   '/app.js',
-  '/manifest.json'
+  '/manifest.json',
+  '/fonts.css',
+  '/fonts/poppins-400.woff2',
+  '/fonts/poppins-400-ext.woff2',
+  '/fonts/poppins-600.woff2',
+  '/fonts/poppins-600-ext.woff2',
+  '/fonts/poppins-700.woff2',
+  '/fonts/poppins-700-ext.woff2',
+  '/fonts/dancing-script-600.woff2',
+  '/fonts/dancing-script-600-ext.woff2',
+  '/fonts/dancing-script-700.woff2',
+  '/fonts/dancing-script-700-ext.woff2',
+  '/fonts/exo2-700.woff2',
+  '/fonts/exo2-700-ext.woff2'
 ];
 
 self.addEventListener('install', e => {

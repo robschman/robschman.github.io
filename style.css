@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Exo+2:wght@700&display=swap');
+/* Fonts werden lokal über /fonts.css geladen (DSGVO-konform) */
 
 /* ===== Reset & Base ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
