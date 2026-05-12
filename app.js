@@ -315,10 +315,13 @@ const AGB_TEXT = {
 <h4>✏️ Änderungen</h4>
 <p>Diese App wird kontinuierlich weiterentwickelt. Wir behalten uns vor, Inhalte jederzeit anzupassen.</p>
 <p style="margin-top:16px;">
-  <a href="/datenschutz.html" target="_blank" style="color:#e91e8c;font-weight:700;text-decoration:underline;">📄 Vollständige Datenschutzerklärung lesen →</a>
+  <a href="/nutzungsbedingungen.html" target="_blank" style="color:#e91e8c;font-weight:700;text-decoration:underline;">📋 Vollständige Nutzungsbedingungen →</a>
 </p>
 <p style="margin-top:6px;">
-  <a href="/impressum.html" target="_blank" style="color:#9c27b0;font-weight:700;text-decoration:underline;">📋 Impressum →</a>
+  <a href="/datenschutz.html" target="_blank" style="color:#e91e8c;font-weight:700;text-decoration:underline;">📄 Datenschutzerklärung →</a>
+</p>
+<p style="margin-top:6px;">
+  <a href="/impressum.html" target="_blank" style="color:#9c27b0;font-weight:700;text-decoration:underline;">🏠 Impressum →</a>
 </p>
 <p style="margin-top:14px;font-size:0.75rem;color:#bbb">Version 1.2 · made with 🌸 · beautyroutine.app</p>`,
 
@@ -333,10 +336,13 @@ const AGB_TEXT = {
 <h4>✏️ Changes</h4>
 <p>This app is continuously being developed. We reserve the right to adjust content at any time.</p>
 <p style="margin-top:16px;">
-  <a href="/datenschutz.html" target="_blank" style="color:#e91e8c;font-weight:700;text-decoration:underline;">📄 Read full Privacy Policy →</a>
+  <a href="/nutzungsbedingungen.html" target="_blank" style="color:#e91e8c;font-weight:700;text-decoration:underline;">📋 Full Terms of Use →</a>
 </p>
 <p style="margin-top:6px;">
-  <a href="/impressum.html" target="_blank" style="color:#9c27b0;font-weight:700;text-decoration:underline;">📋 Legal Notice →</a>
+  <a href="/datenschutz.html" target="_blank" style="color:#e91e8c;font-weight:700;text-decoration:underline;">📄 Privacy Policy →</a>
+</p>
+<p style="margin-top:6px;">
+  <a href="/impressum.html" target="_blank" style="color:#9c27b0;font-weight:700;text-decoration:underline;">🏠 Legal Notice →</a>
 </p>
 <p style="margin-top:14px;font-size:0.75rem;color:#bbb">Version 1.2 · made with 🌸 · beautyroutine.app</p>`,
 };

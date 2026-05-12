@@ -1,21 +1,38 @@
-// ══════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════
 //  DSGVO Cookie Consent – Beauty Routine App
-// ══════════════════════════════════════════════
+//  Google Consent Mode v2 (Pflicht für EWR-Publisher seit März 2024)
+// ══════════════════════════════════════════════════════════════
 
 (function () {
   var CONSENT_KEY = 'bra_cookie_consent'; // bra = beauty routine app
 
-  // ── Scripts nur laden wenn Zustimmung vorhanden ──
+  // ── Google Consent Mode v2: Standardmäßig ALLES ablehnen ──
+  // Muss VOR dem Laden von Analytics/AdSense gesetzt werden!
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  gtag('consent', 'default', {
+    'ad_storage':              'denied',
+    'analytics_storage':       'denied',
+    'ad_user_data':            'denied',
+    'ad_personalization':      'denied',
+    'functionality_storage':   'denied',
+    'personalization_storage': 'denied',
+    'security_storage':        'granted',
+    'wait_for_update':         500
+  });
+
+  // ── Scripts laden ──
   function loadAnalytics() {
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=G-L1FZJXJSP5';
     document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-L1FZJXJSP5');
+    s.onload = function () {
+      gtag('js', new Date());
+      gtag('config', 'G-L1FZJXJSP5', { 'anonymize_ip': true });
+    };
   }
 
   function loadAdSense() {
@@ -26,10 +43,36 @@
     document.head.appendChild(s);
   }
 
+  // ── Consent Mode v2: Zustimmung updaten ──
+  function grantConsent() {
+    gtag('consent', 'update', {
+      'ad_storage':              'granted',
+      'analytics_storage':       'granted',
+      'ad_user_data':            'granted',
+      'ad_personalization':      'granted',
+      'functionality_storage':   'granted',
+      'personalization_storage': 'granted'
+    });
+  }
+
+  function denyConsent() {
+    gtag('consent', 'update', {
+      'ad_storage':              'denied',
+      'analytics_storage':       'denied',
+      'ad_user_data':            'denied',
+      'ad_personalization':      'denied',
+      'functionality_storage':   'denied',
+      'personalization_storage': 'denied'
+    });
+  }
+
   function applyConsent(val) {
     if (val === 'accepted') {
+      grantConsent();
       loadAnalytics();
       loadAdSense();
+    } else {
+      denyConsent();
     }
   }
 
@@ -44,9 +87,9 @@
       box-shadow: 0 -8px 40px rgba(180,100,200,0.15);
       padding: 18px 20px;
       font-family: 'Poppins', system-ui, sans-serif;
-      animation: slideUp 0.4s ease;
+      animation: braSlideUp 0.4s ease;
     }
-    @keyframes slideUp {
+    @keyframes braSlideUp {
       from { transform: translateY(100%); opacity: 0; }
       to   { transform: translateY(0);    opacity: 1; }
     }
@@ -92,6 +135,14 @@
     }
   `;
 
+  function hideBanner(banner) {
+    banner.style.animation = 'none';
+    banner.style.opacity = '0';
+    banner.style.transform = 'translateY(100%)';
+    banner.style.transition = 'all 0.3s ease';
+    setTimeout(function () { banner.remove(); }, 300);
+  }
+
   // ── Banner HTML ──
   function showBanner() {
     var style = document.createElement('style');
@@ -106,9 +157,9 @@
         <div class="bra-text">
           <strong>Diese Website verwendet Cookies</strong>
           <p>Wir nutzen Google Analytics (Besucherstatistiken) und Google AdSense (Werbung).
-          Diese Dienste setzen Cookies und verarbeiten Daten gemäß unserer
-          <a href="/datenschutz.html">Datenschutzerklärung</a>.
-          Du kannst jederzeit widersprechen.</p>
+          Diese Dienste setzen Cookies und können Daten in die USA übertragen (Google LLC, Data Privacy Framework).
+          Weitere Infos in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.
+          Ablehnen ist jederzeit möglich.</p>
         </div>
         <div class="bra-btns">
           <button class="bra-accept" id="bra-accept-btn">✓ Alle akzeptieren</button>
@@ -120,23 +171,29 @@
 
     document.getElementById('bra-accept-btn').addEventListener('click', function () {
       localStorage.setItem(CONSENT_KEY, 'accepted');
-      banner.style.animation = 'none';
-      banner.style.opacity = '0';
-      banner.style.transform = 'translateY(100%)';
-      banner.style.transition = 'all 0.3s ease';
-      setTimeout(function () { banner.remove(); }, 300);
+      hideBanner(banner);
       applyConsent('accepted');
     });
 
     document.getElementById('bra-decline-btn').addEventListener('click', function () {
       localStorage.setItem(CONSENT_KEY, 'rejected');
-      banner.style.animation = 'none';
-      banner.style.opacity = '0';
-      banner.style.transform = 'translateY(100%)';
-      banner.style.transition = 'all 0.3s ease';
-      setTimeout(function () { banner.remove(); }, 300);
+      hideBanner(banner);
+      applyConsent('rejected');
     });
   }
+
+  // ── Widerrufs-Button global verfügbar machen ──
+  // Kann auf der Datenschutzseite eingebunden werden
+  window.braRevokeConsent = function () {
+    localStorage.removeItem(CONSENT_KEY);
+    denyConsent();
+    // Banner erneut anzeigen
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    } else {
+      showBanner();
+    }
+  };
 
   // ── Hauptlogik ──
   var saved = localStorage.getItem(CONSENT_KEY);

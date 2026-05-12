@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutzungsbedingungen – Beauty Routine App</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#fce4ec,#f3e5f5,#ede7f6);
+  min-height:100vh; padding:24px 16px; color:#333;
+}
+.back-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:700; color:#c2185b;
+  text-decoration:none; margin-bottom:20px;
+  background:rgba(255,255,255,0.7); padding:8px 16px; border-radius:50px;
+}
+h1 {
+  font-family:'Dancing Script',cursive;
+  font-size:36px; color:#c2185b; text-align:center; margin-bottom:4px;
+}
+.subtitle { text-align:center; font-size:11px; color:#bbb; font-weight:600; letter-spacing:2px; margin-bottom:24px; }
+.card {
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(10px);
+  border-radius:20px; padding:22px;
+  margin-bottom:14px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.card h2 {
+  font-size:13px; font-weight:800; letter-spacing:1px;
+  text-transform:uppercase; color:#c2185b; margin-bottom:14px;
+  padding-bottom:8px; border-bottom:1px solid #fce4ec;
+}
+.card p { font-size:13px; line-height:1.9; color:#444; margin-bottom:8px; }
+.card p:last-child { margin-bottom:0; }
+.card a { color:#c2185b; }
+.card ul { padding-left:18px; font-size:13px; line-height:2; color:#444; }
+.warn-box {
+  background:#fff3e0; border-left:3px solid #ffa726;
+  border-radius:8px; padding:12px 14px;
+  font-size:12px; color:#e65100; margin-top:8px; line-height:1.8;
+}
+.warn-box strong { display:block; margin-bottom:4px; font-size:13px; }
+.good-box {
+  background:#e8f5e9; border-left:3px solid #66bb6a;
+  border-radius:8px; padding:10px 14px;
+  font-size:12px; color:#2e7d32; margin-top:8px;
+}
+/* Boy Mode */
+body.theme-boy {
+  background:linear-gradient(135deg,#e3f2fd,#e8eaf6,#ede7f6);
+}
+body.theme-boy .back-btn { color:#1565c0; }
+body.theme-boy h1 { color:#1565c0; }
+body.theme-boy .card h2 { color:#1565c0; border-bottom-color:#bbdefb; }
+body.theme-boy .card a { color:#1565c0; }
+</style>
+<script>
+  if (localStorage.getItem('routine_gender') === 'boy') {
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('theme-boy');
+    });
+  }
+</script>
+</head>
+<body>
+
+<a class="back-btn" href="/">← Zurück zur App</a>
+
+<h1>Nutzungsbedingungen</h1>
+<div class="subtitle">ALLGEMEINE NUTZUNGSBEDINGUNGEN</div>
+
+<!-- 1. Leistungsbeschreibung -->
+<div class="card">
+  <h2>1. Leistungsbeschreibung</h2>
+  <p>Die Beauty Routine App (beautyroutine.app) ist eine kostenlose Web-Applikation, die Nutzerinnen und Nutzern hilft, ihre tägliche Skincare- und Beauty-Routine zu strukturieren und zu verfolgen.</p>
+  <p>Die App ist kostenlos nutzbar und wird durch Werbeanzeigen (Google AdSense) finanziert. Es besteht kein Vertragsverhältnis zwischen Nutzer und Betreiber – die Nutzung erfolgt ohne Registrierung oder Kaufverpflichtung.</p>
+  <div class="good-box">✅ Keine Registrierung, kein Konto, keine Kosten – alle Daten bleiben auf deinem Gerät.</div>
+</div>
+
+<!-- 2. Gesundheitshinweis -->
+<div class="card">
+  <h2>2. Wichtiger Gesundheits- &amp; Beauty-Hinweis</h2>
+  <div class="warn-box">
+    <strong>⚠️ Kein medizinischer oder dermatologischer Rat</strong>
+    Die Inhalte dieser App (Routine-Schritte, Produkthinweise, Tipps) sind ausschließlich zur allgemeinen Information und als Orientierungshilfe gedacht. Sie ersetzen <strong>keine professionelle medizinische, dermatologische oder pharmakologische Beratung</strong>.
+  </div>
+  <p style="margin-top:12px;">Bei Hautproblemen, Reizungen, Allergien oder Unverträglichkeiten wende dich bitte an eine Ärztin/einen Arzt oder eine Apotheke. Brich die Verwendung eines Produkts sofort ab, wenn du Hautreaktionen bemerkst.</p>
+  <div class="warn-box" style="margin-top:8px;">
+    <strong>⚠️ Allergiehinweis</strong>
+    Prüfe immer die Inhaltsstoffe (INCI) von Beauty- und Pflegeprodukten, bevor du sie anwendest – besonders bei bekannten Allergien oder empfindlicher Haut. Die in der App dargestellten Routinen sind allgemeine Empfehlungen und nicht auf individuelle Hautprobleme abgestimmt.
+  </div>
+  <p style="margin-top:12px;">Rechtsgrundlage: Produkthaftungsgesetz (PHG), ABGB §1295</p>
+</div>
+
+<!-- 3. Mindestalter -->
+<div class="card">
+  <h2>3. Mindestalter</h2>
+  <p>Die Nutzung der App ist grundsätzlich für alle Altersgruppen geeignet. Die Anzeige von <strong>personalisierten Werbeanzeigen (Google AdSense)</strong> richtet sich jedoch ausschließlich an Personen ab <strong>16 Jahren</strong>, entsprechend Art. 8 DSGVO und § 4 DSG.</p>
+  <p>Nutzer unter 16 Jahren sollten im Cookie-Banner ausschließlich <em>„Nur notwendige"</em> wählen, um keine personalisierten Ads zu aktivieren.</p>
+</div>
+
+<!-- 4. Werbung (AdSense) -->
+<div class="card">
+  <h2>4. Werbeanzeigen (Google AdSense)</h2>
+  <p>Diese App wird durch Werbeanzeigen von <strong>Google AdSense</strong> (Google LLC, Mountain View, CA, USA) finanziert. Werbeanzeigen werden als solche gekennzeichnet und sind klar von den App-Inhalten getrennt.</p>
+  <p>Google AdSense kann nach deiner Cookie-Zustimmung Cookies setzen und personalisierte Werbung anzeigen, die auf deinen Interessen basiert.</p>
+  <ul>
+    <li>Werbeeinstellungen ändern: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a></li>
+    <li>Personalisierung deaktivieren: <a href="https://www.google.com/settings/ads" target="_blank">google.com/settings/ads</a></li>
+  </ul>
+  <p style="margin-top:8px;">Ohne deine Cookie-Zustimmung werden ausschließlich nicht-personalisierte Anzeigen oder keine Anzeigen angezeigt.</p>
+</div>
+
+<!-- 5. App-Nutzung & Offline -->
+<div class="card">
+  <h2>5. App-Nutzung &amp; Offline-Funktion</h2>
+  <p>Die App kann als <strong>Progressive Web App (PWA)</strong> auf deinem Gerät installiert werden und funktioniert auch offline. Dazu werden App-Dateien über einen Service Worker im lokalen Browser-Cache gespeichert.</p>
+  <p>Gespeicherte Offline-Daten:</p>
+  <ul>
+    <li>App-Dateien (HTML, CSS, JavaScript) für den Offline-Betrieb</li>
+    <li>Deine Routine-Daten und Einstellungen (nur im localStorage deines Geräts)</li>
+  </ul>
+  <div class="good-box">✅ Keine Synchronisation mit externen Servern – alle persönlichen Daten bleiben auf deinem Gerät.</div>
+  <p style="margin-top:10px;"><strong>Cache löschen:</strong> Du kannst den Service-Worker-Cache jederzeit über die Browser-Einstellungen → Website-Daten löschen entfernen.</p>
+</div>
+
+<!-- 6. Verfügbarkeit -->
+<div class="card">
+  <h2>6. Verfügbarkeit &amp; Änderungen</h2>
+  <p>Der Betreiber bemüht sich um eine kontinuierliche Verfügbarkeit der App, übernimmt jedoch keine Garantie für unterbrechungsfreien Betrieb. Wartungsarbeiten oder technische Ausfälle können die Verfügbarkeit vorübergehend einschränken.</p>
+  <p>Der Betreiber behält sich das Recht vor, die App jederzeit zu ändern, zu erweitern oder einzustellen. Bei wesentlichen Änderungen wird ein entsprechender Hinweis in der App platziert.</p>
+</div>
+
+<!-- 7. Urheberrecht -->
+<div class="card">
+  <h2>7. Urheberrecht &amp; Nutzungsrechte</h2>
+  <p>Alle Inhalte der Beauty Routine App (Texte, Grafiken, Code, Design) unterliegen dem österreichischen Urheberrecht (UrhG). Die Nutzung ist ausschließlich für den persönlichen, nicht-kommerziellen Gebrauch erlaubt.</p>
+  <p>Nicht erlaubt sind:</p>
+  <ul>
+    <li>Kopieren, Weiterverbreiten oder kommerzielle Nutzung der App-Inhalte</li>
+    <li>Reverse Engineering des App-Codes</li>
+    <li>Automatisiertes Auslesen der Inhalte (Scraping)</li>
+  </ul>
+</div>
+
+<!-- 8. Haftungsbeschränkung -->
+<div class="card">
+  <h2>8. Haftungsbeschränkung</h2>
+  <p>Die Nutzung der App erfolgt auf eigene Verantwortung. Der Betreiber haftet nicht für:</p>
+  <ul>
+    <li>Schäden durch Anwendung von Beauty-Routinen oder Produkten, die in der App erwähnt werden</li>
+    <li>Datenverlust durch Löschen des Browser-Caches oder localStorage</li>
+    <li>Technische Ausfälle oder Nichtverfügbarkeit der App</li>
+    <li>Inhalte verlinkter externer Webseiten</li>
+  </ul>
+  <p style="margin-top:8px;">Die Haftungsbeschränkung gilt im gesetzlich zulässigen Rahmen (ABGB §1295 ff., PHG). Sie berührt nicht Ansprüche bei grober Fahrlässigkeit oder Vorsatz.</p>
+</div>
+
+<!-- 9. Anwendbares Recht -->
+<div class="card">
+  <h2>9. Anwendbares Recht &amp; Gerichtsstand</h2>
+  <p>Es gilt österreichisches Recht unter Ausschluss des UN-Kaufrechts (CISG). Gerichtsstand für alle Streitigkeiten aus der Nutzung dieser App ist, soweit gesetzlich zulässig, Ternitz, Niederösterreich, Österreich.</p>
+  <p>Verbraucher können auch an ihrem gesetzlichen Gerichtsstand klagen (§ 14 KSchG).</p>
+</div>
+
+<!-- 10. Kontakt -->
+<div class="card">
+  <h2>10. Kontakt</h2>
+  <p>Bei Fragen zu diesen Nutzungsbedingungen:<br>
+  E-Mail: <a href="mailto:hello@beautyroutine.app">hello@beautyroutine.app</a></p>
+  <p>Weitere Informationen: <a href="/datenschutz.html">Datenschutzerklärung</a> | <a href="/impressum.html">Impressum</a></p>
+</div>
+
+<p style="text-align:center;font-size:11px;color:#bbb;padding:20px 0;">Stand: Mai 2026</p>
+
+</body>
+</html>
