@@ -1,0 +1,15 @@
+# Internes Archiv – wird NICHT auf GitHub hochgeladen (Datenschutz!)
+_archiv/
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+promo/node_modules/
+
+# Lokale Arbeitsdateien
+make-logo.js
+make-og-image.js
+logo-square.html
+og-image.html
