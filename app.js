@@ -1765,6 +1765,16 @@ function loadTermine() {
     const t = store.get('routine_termine');
     termine = t ? JSON.parse(t) : [];
   } catch(e) { termine = []; }
+  // Auto-Löschen: Termine, die älter als 30 Tage sind, werden entfernt
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - 30);
+  const beforeCount = termine.length;
+  termine = termine.filter(tr => {
+    if (!tr.date) return true; // Termine ohne Datum behalten
+    const appt = new Date(tr.date + (tr.time ? 'T' + tr.time : 'T23:59'));
+    return appt >= cutoff;
+  });
+  if (termine.length < beforeCount) saveTermine();
 }
 
 function saveTermine() {
@@ -1789,6 +1799,13 @@ function isTerminSoon(dateStr, timeStr) {
   const appt = new Date(dateStr + (timeStr ? 'T' + timeStr : 'T23:59'));
   const diff = appt - now;
   return diff >= 0 && diff < 7 * 24 * 60 * 60 * 1000; // within 7 days
+}
+
+function isTerminPast(dateStr, timeStr) {
+  if (!dateStr) return false;
+  const now  = new Date();
+  const appt = new Date(dateStr + (timeStr ? 'T' + timeStr : 'T23:59'));
+  return appt < now;
 }
 
 function updateFabPosition() {
@@ -1859,13 +1876,19 @@ function renderTermine() {
   list.innerHTML = '';
   sorted.forEach(termin => {
     const soon = isTerminSoon(termin.date, termin.time);
+    const past = isTerminPast(termin.date, termin.time);
     const card = document.createElement('div');
-    card.className = 'termin-card' + (soon ? ' termin-soon' : '');
+    card.className = 'termin-card' + (soon ? ' termin-soon' : '') + (past ? ' termin-past' : '');
+
+    const pastBadge = past
+      ? `<div class="termin-past-badge">${currentLang === 'en' ? '✓ Past' : '✓ Vergangen'}</div>`
+      : '';
 
     card.innerHTML = `
       <div class="termin-emoji">${termin.emoji || '📅'}</div>
       <div class="termin-info">
         <div class="termin-name">${escHtml(termin.name)}</div>
+        ${pastBadge}
         ${termin.date ? `<div class="termin-datetime">${formatTerminDate(termin.date, termin.time)}</div>` : ''}
         ${termin.note ? `<div class="termin-note">${escHtml(termin.note)}</div>` : ''}
       </div>
