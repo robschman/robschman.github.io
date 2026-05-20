@@ -1,0 +1,122 @@
+/* Shared Styles für alle Blog-Artikel und die Blog-Übersicht */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#fce4ec,#f3e5f5,#ede7f6);
+  min-height:100vh; padding:24px 16px; color:#333;
+}
+.wrap { max-width:760px; margin:0 auto; }
+.back-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:700; color:#c2185b;
+  text-decoration:none; margin-bottom:20px;
+  background:rgba(255,255,255,0.7); padding:8px 16px; border-radius:50px;
+}
+h1 {
+  font-family:'Dancing Script',cursive;
+  font-size:38px; color:#c2185b; text-align:center;
+  line-height:1.1; margin-bottom:6px;
+}
+.eyebrow { text-align:center; font-size:11px; color:#bbb; font-weight:600; letter-spacing:2px; margin-bottom:20px; }
+.lead {
+  font-size:16px; line-height:1.7; color:#c2185b;
+  font-weight:600; text-align:center;
+  margin-bottom:24px; padding:0 6px;
+}
+.card {
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(10px);
+  border-radius:20px; padding:22px 24px;
+  margin-bottom:14px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.card h2 {
+  font-size:18px; font-weight:800; color:#c2185b;
+  margin-bottom:12px; line-height:1.3;
+}
+.card h3 {
+  font-size:15px; font-weight:700; color:#444;
+  margin-top:18px; margin-bottom:8px;
+}
+.card p, .card li {
+  font-size:14px; line-height:1.8; color:#444;
+}
+.card p { margin-bottom:12px; }
+.card ul, .card ol { margin:0 0 12px 20px; }
+.card li { margin-bottom:6px; }
+.card a { color:#c2185b; font-weight:600; text-decoration:none; }
+.card a:hover { text-decoration:underline; }
+.tip-box {
+  background:linear-gradient(135deg,#fce4ec,#f8bbd0);
+  border-left:4px solid #c2185b;
+  padding:12px 16px; border-radius:12px;
+  margin:12px 0; font-size:13px; color:#722146;
+}
+.related {
+  margin-top:30px; padding:20px 22px;
+  background:rgba(255,255,255,0.75);
+  border-radius:20px;
+}
+.related h3 {
+  font-size:13px; font-weight:800; color:#c2185b;
+  text-transform:uppercase; letter-spacing:1px;
+  margin-bottom:14px;
+}
+.related ul { list-style:none; margin:0; padding:0; }
+.related li { margin-bottom:8px; }
+.related a {
+  display:block; padding:10px 14px;
+  background:rgba(255,255,255,0.7);
+  border-radius:12px; color:#c2185b;
+  font-size:13px; font-weight:600;
+  text-decoration:none;
+}
+.cta-row { text-align:center; margin-top:24px; }
+.cta-row a {
+  display:inline-block; padding:12px 28px;
+  background:linear-gradient(135deg,#e91e8c,#9c27b0); color:#fff !important;
+  text-decoration:none; border-radius:50px; font-weight:700;
+  font-size:14px; letter-spacing:0.5px;
+}
+.meta {
+  text-align:center; font-size:11px; color:#999;
+  margin-bottom:24px; letter-spacing:0.5px;
+}
+/* Blog-Übersicht — Karten-Liste */
+.post-list { display:grid; gap:14px; margin-bottom:20px; }
+.post-link {
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(10px);
+  border-radius:20px; padding:20px 24px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  text-decoration:none; display:block;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.post-link:hover {
+  transform: translateY(-2px);
+  box-shadow:0 6px 26px rgba(0,0,0,0.10);
+}
+.post-link h2 {
+  font-size:18px; font-weight:800; color:#c2185b;
+  margin-bottom:6px;
+}
+.post-link p {
+  font-size:13px; line-height:1.6; color:#666;
+}
+.post-link .read-more {
+  display:inline-block; margin-top:10px;
+  font-size:12px; font-weight:700; color:#c2185b;
+}
+/* Boy mode */
+body.theme-boy { background:linear-gradient(135deg,#e3f2fd,#e8eaf6,#ede7f6); }
+body.theme-boy .back-btn { color:#1565c0; }
+body.theme-boy h1 { color:#1565c0; }
+body.theme-boy .card h2 { color:#1565c0; }
+body.theme-boy .card a { color:#1565c0; }
+body.theme-boy .lead { color:#1565c0; }
+body.theme-boy .tip-box { background:linear-gradient(135deg,#e3f2fd,#bbdefb); border-left-color:#1565c0; color:#0d3a6e; }
+body.theme-boy .related h3 { color:#1565c0; }
+body.theme-boy .related a { color:#1565c0; }
+body.theme-boy .cta-row a { background:linear-gradient(135deg,#1565c0,#3949ab); }
+body.theme-boy .post-link h2 { color:#1565c0; }
+body.theme-boy .post-link .read-more { color:#1565c0; }
