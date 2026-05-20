@@ -163,3 +163,38 @@ body.theme-boy .related a { color:#1565c0; }
 body.theme-boy .cta-row a { background:linear-gradient(135deg,#1565c0,#3949ab); }
 body.theme-boy .post-link h2 { color:#1565c0; }
 body.theme-boy .post-link .read-more { color:#1565c0; }
+
+
+/* Legal Footer (ECG §5) */
+.legal-footer-blog {
+  text-align: center;
+  padding: 24px 0 32px;
+  font-size: 11px;
+  color: #bbb;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 32px;
+}
+.legal-footer-blog a {
+  color: #bbb;
+  text-decoration: none;
+  margin: 0 6px;
+}
+.legal-footer-blog a:hover { color: #c2185b; }
+
+/* Disclaimer Box */
+.disclaimer-box {
+  background: #fff8e1;
+  border-left: 3px solid #ffc107;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: #795548;
+  margin: 16px 0 20px;
+  line-height: 1.7;
+}
+body.theme-boy .disclaimer-box {
+  background: #e3f2fd;
+  border-left-color: #1e88e5;
+  color: #1565c0;
+}
+body.theme-boy .legal-footer-blog a:hover { color: #1565c0; }
