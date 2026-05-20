@@ -66,7 +66,31 @@ body.theme-boy .card h2 { color:#1565c0; border-bottom-color:#bbdefb; }
 body.theme-boy .card a { color:#1565c0; }
 body.theme-boy .lead { color:#1565c0; }
 body.theme-boy .cta-row a { background:linear-gradient(135deg,#1565c0,#3949ab); }
+/* Sprach-Switcher (Flag-Buttons rechts oben) */
+.lang-switch {
+  position:fixed; top:20px; right:20px;
+  display:flex; gap:6px; z-index:100;
+  background:rgba(255,255,255,0.85); backdrop-filter:blur(10px);
+  border-radius:30px; padding:4px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+.lang-switch button {
+  border:none; background:transparent;
+  font-size:13px; font-weight:700;
+  padding:6px 12px; border-radius:24px;
+  cursor:pointer; color:#888;
+  transition:all 0.15s;
+}
+.lang-switch button:hover { background:rgba(194,24,91,0.08); color:#c2185b; }
+.lang-switch button.active { background:linear-gradient(135deg,#e91e8c,#9c27b0); color:#fff !important; }
+body.theme-boy .lang-switch button:hover { background:rgba(21,101,192,0.08); color:#1565c0; }
+body.theme-boy .lang-switch button.active { background:linear-gradient(135deg,#1565c0,#3949ab); }
+@media (max-width:480px) {
+  .lang-switch { top:12px; right:12px; }
+  .lang-switch button { padding:5px 10px; font-size:12px; }
+}
 </style>
+<script src="/lang-switch.js"></script>
 <script>
   if (localStorage.getItem('routine_gender') === 'boy') {
     document.addEventListener('DOMContentLoaded', function() {
@@ -76,6 +100,10 @@ body.theme-boy .cta-row a { background:linear-gradient(135deg,#1565c0,#3949ab); 
 </script>
 </head>
 <body>
+<div class="lang-switch">
+  <button data-target-lang="de" aria-label="Deutsch">🇩🇪 DE</button>
+  <button data-target-lang="en" aria-label="English">🇬🇧 EN</button>
+</div>
 <div class="wrap">
 <a href="/" class="back-btn">← Zur Startseite</a>
 <h1>Über uns</h1>

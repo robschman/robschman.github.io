@@ -277,6 +277,10 @@
 
       <!-- Legal Footer -->
       <div class="legal-footer" style="text-align:center;padding:8px 0 80px;font-size:11px;">
+        <a href="/about.html" id="footerAbout" style="color:#bbb;text-decoration:none;margin:0 10px;">Über uns</a>
+        <span style="color:#ddd;">·</span>
+        <a href="/blog/" id="footerBlog" style="color:#bbb;text-decoration:none;margin:0 10px;">Ratgeber</a>
+        <span style="color:#ddd;">·</span>
         <a href="/impressum.html" style="color:#bbb;text-decoration:none;margin:0 10px;">Impressum</a>
         <span style="color:#ddd;">·</span>
         <a href="/datenschutz.html" style="color:#bbb;text-decoration:none;margin:0 10px;">Datenschutz</a>
@@ -284,6 +288,21 @@
         <a href="/nutzungsbedingungen.html" style="color:#bbb;text-decoration:none;margin:0 10px;">Nutzungsbedingungen</a>
         <div style="margin-top:6px;color:#ccc;font-size:10px;letter-spacing:0.3px;">✨ <span data-tr="aiGenerated"></span></div>
       </div>
+      <script>
+        // Footer-Links 'Über uns' und 'Ratgeber' auf die Sprache der App
+        // abstimmen (App speichert routine_lang in localStorage).
+        (function(){
+          try {
+            var lang = localStorage.getItem('routine_lang') || 'de';
+            var about = document.getElementById('footerAbout');
+            var blog  = document.getElementById('footerBlog');
+            if (lang === 'en') {
+              if (about) { about.href = '/en/about.html'; about.textContent = 'About us'; }
+              if (blog)  { blog.href  = '/en/blog/';      blog.textContent  = 'Guides'; }
+            }
+          } catch(e) {}
+        })();
+      </script>
 
     </main>
 

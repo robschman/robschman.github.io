@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://beautyroutine.app/</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://beautyroutine.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/"/>
   </url>
   <url>
     <loc>https://beautyroutine.app/app.html</loc>
@@ -14,9 +17,23 @@
     <loc>https://beautyroutine.app/about.html</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://beautyroutine.app/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://beautyroutine.app/en/about.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beautyroutine.app/blog/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://beautyroutine.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/blog/"/>
+  </url>
+  <url>
+    <loc>https://beautyroutine.app/en/blog/</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.8</priority>
   </url>
@@ -24,9 +41,23 @@
     <loc>https://beautyroutine.app/blog/skincare-reihenfolge.html</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://beautyroutine.app/blog/skincare-reihenfolge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/blog/skincare-order.html"/>
+  </url>
+  <url>
+    <loc>https://beautyroutine.app/en/blog/skincare-order.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beautyroutine.app/blog/morgenroutine-abendroutine.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://beautyroutine.app/blog/morgenroutine-abendroutine.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/blog/morning-vs-evening.html"/>
+  </url>
+  <url>
+    <loc>https://beautyroutine.app/en/blog/morning-vs-evening.html</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
@@ -34,14 +65,35 @@
     <loc>https://beautyroutine.app/blog/sonnencreme-richtig.html</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://beautyroutine.app/blog/sonnencreme-richtig.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/blog/sunscreen-daily.html"/>
+  </url>
+  <url>
+    <loc>https://beautyroutine.app/en/blog/sunscreen-daily.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beautyroutine.app/blog/akne-was-hilft.html</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://beautyroutine.app/blog/akne-was-hilft.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/blog/acne-what-works.html"/>
+  </url>
+  <url>
+    <loc>https://beautyroutine.app/en/blog/acne-what-works.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beautyroutine.app/blog/anti-aging-grundlagen.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://beautyroutine.app/blog/anti-aging-grundlagen.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/blog/anti-aging-basics.html"/>
+  </url>
+  <url>
+    <loc>https://beautyroutine.app/en/blog/anti-aging-basics.html</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
