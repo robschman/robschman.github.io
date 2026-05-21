@@ -121,8 +121,8 @@
     }
     #bra-cookie-banner .bra-accept:hover { transform: translateY(-2px); }
     #bra-cookie-banner .bra-decline {
-      background: transparent; color: #999;
-      border: 1.5px solid #ddd; border-radius: 50px;
+      background: #f5f5f5; color: #555;
+      border: 1.5px solid #bbb; border-radius: 50px;
       padding: 11px 20px; font-size: 12px; font-weight: 600;
       cursor: pointer; font-family: inherit;
       transition: border-color 0.2s, color 0.2s;
