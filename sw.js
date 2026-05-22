@@ -1,11 +1,14 @@
 // Beauty Routine App – Service Worker
-const CACHE = 'beauty-routine-v4';
+const CACHE = 'beauty-routine-v5';
 const ASSETS = [
   '/app.html',
   '/style.css',
   '/app.js',
   '/manifest.json',
   '/fonts.css',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/apple-touch-icon.png',
   '/fonts/poppins-400.woff2',
   '/fonts/poppins-400-ext.woff2',
   '/fonts/poppins-600.woff2',
