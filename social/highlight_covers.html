@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Routine App – Instagram Highlight Covers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --text-dark: #3d2a55;
+      --text-soft: #7c5c92;
+      --bg:        #fdf0f7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdf0f7 0%, #ede7f6 50%, #fce4ec 100%);
+      min-height: 100vh;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── Wolken-Hintergrund ──────────────────────────── */
+    .page-clouds {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    /* ── Seiten-Wrapper ─────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    /* ── Header ─────────────────────────────────────── */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      background: linear-gradient(135deg, #c084fc, #f7a8c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+    .header p {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      margin-top: 8px;
+    }
+    .header .hint-box {
+      display: inline-block;
+      margin-top: 16px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(216,180,254,0.5);
+      border-radius: 16px;
+      padding: 14px 28px;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      max-width: 540px;
+    }
+    .header .hint-box strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: #7c3aed;
+    }
+
+    /* ── Grid ────────────────────────────────────────── */
+    .covers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 36px;
+      justify-items: center;
+    }
+
+    /* ── Cover-Wrapper ───────────────────────────────── */
+    .cover-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Äußerer Instagram-Ring */
+    .ig-ring {
+      width: 216px;
+      height: 216px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(180,100,200,0.2);
+    }
+
+    /* Weißer Zwischenring */
+    .ig-white {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Das eigentliche Cover-Quadrat, rund geclippt */
+    .cover {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    /* ── SVG-Wolken innen ─────────────────────────────── */
+    .cover svg.cloud-deco {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+
+    /* ── Glitzer-Punkte ───────────────────────────────── */
+    .cover .glitter {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    /* ── Emoji ────────────────────────────────────────── */
+    .cover .emoji {
+      font-size: 3.2rem;
+      line-height: 1;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
+    }
+
+    /* ── Label ────────────────────────────────────────── */
+    .cover .label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── Cover-Name unter dem Ring ──────────────────── */
+    .cover-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    /* ── Footer ─────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      margin-top: 56px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+    .footer a {
+      color: #7c3aed;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ── GRADIENTS ──────────────────────────────────── */
+    /* 1 Morgen  – gelb/rosa */
+    .grad-morgen  { background: linear-gradient(145deg, #ffe0b2 0%, #ffccbc 35%, #f8bbd0 70%, #fce4ec 100%); }
+    /* 2 Abend   – lila/dunkelblau */
+    .grad-abend   { background: linear-gradient(145deg, #ce93d8 0%, #9575cd 40%, #5c6bc0 75%, #3949ab 100%); }
+    /* 3 Woche   – pink/magenta */
+    .grad-woche   { background: linear-gradient(145deg, #f48fb1 0%, #f06292 40%, #e91e63 75%, #ad1457 100%); }
+    /* 4 Termine – mint/türkis */
+    .grad-termine { background: linear-gradient(145deg, #b2dfdb 0%, #80cbc4 35%, #4db6ac 65%, #00897b 100%); }
+    /* 5 Tipps   – gold/gelb */
+    .grad-tipps   { background: linear-gradient(145deg, #fff9c4 0%, #fff176 30%, #ffee58 60%, #fdd835 100%); }
+    /* 6 Routine – pink */
+    .grad-routine { background: linear-gradient(145deg, #fce4ec 0%, #f8bbd0 35%, #f48fb1 65%, #e91e63 100%); }
+    /* 7 Install – blau */
+    .grad-install { background: linear-gradient(145deg, #e3f2fd 0%, #90caf9 35%, #42a5f5 65%, #1565c0 100%); }
+    /* 8 About   – lila */
+    .grad-about   { background: linear-gradient(145deg, #f3e5f5 0%, #ce93d8 35%, #ab47bc 65%, #6a1b9a 100%); }
+
+    /* Print */
+    @media print {
+      .page-clouds { display: none; }
+      body { background: #fff !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hintergrund-Wolken -->
+<svg class="page-clouds" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="pg1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f7a8c4" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f7a8c4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pg2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d8b4fe" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#d8b4fe" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0,20)" opacity="0.8">
+    <ellipse cx="80" cy="50" rx="90" ry="48" fill="url(#pg1)"/>
+    <ellipse cx="150" cy="36" rx="70" ry="40" fill="url(#pg1)"/>
+    <ellipse cx="215" cy="50" rx="65" ry="38" fill="url(#pg1)"/>
+  </g>
+  <g transform="translate(850,30)" opacity="0.7">
+    <ellipse cx="80" cy="50" rx="100" ry="52" fill="url(#pg2)"/>
+    <ellipse cx="165" cy="34" rx="80" ry="44" fill="url(#pg2)"/>
+    <ellipse cx="238" cy="50" rx="70" ry="40" fill="url(#pg2)"/>
+  </g>
+  <g transform="translate(350,680)" opacity="0.6">
+    <ellipse cx="80" cy="50" rx="110" ry="56" fill="url(#pg1)"/>
+    <ellipse cx="175" cy="34" rx="85" ry="46" fill="url(#pg1)"/>
+    <ellipse cx="252" cy="50" rx="75" ry="42" fill="url(#pg1)"/>
+  </g>
+  <circle cx="300" cy="180" r="4" fill="#f7a8c4" opacity="0.7"/>
+  <circle cx="750" cy="120" r="3" fill="#d8b4fe" opacity="0.8"/>
+  <circle cx="1000" cy="350" r="4" fill="#f9c6d4" opacity="0.6"/>
+  <circle cx="120" cy="450" r="3" fill="#c084fc" opacity="0.7"/>
+  <circle cx="600" cy="650" r="4" fill="#f7a8c4" opacity="0.6"/>
+  <circle cx="450" cy="300" r="2" fill="#d8b4fe" opacity="0.9"/>
+</svg>
+
+<div class="page">
+
+  <!-- ── HEADER ─────────────────────────────────────── -->
+  <div class="header">
+    <h1>Instagram Highlight Covers</h1>
+    <p>Beauty Routine App · beautyroutine.app</p>
+    <div class="hint-box">
+      <strong>📸 So verwendest du die Cover:</strong>
+      Mache einen Screenshot von jedem Cover einzeln.<br/>
+      Lade es als Highlight-Cover in Instagram hoch.<br/>
+      Tipp: Auf iPhone → Screenshot → Zuschneiden auf das Cover.
+    </div>
+  </div>
+
+  <!-- ── COVERS GRID ────────────────────────────────── -->
+  <div class="covers-grid">
+
+    <!-- ① Morgen ──────────────────── -->
+    <div class="cover-wrap">
+      <div class="ig-ring">
+        <div class="ig-white">
+          <div class="cover grad-morgen">
+            <!-- Wolken-Deko -->
+            <svg class="cloud-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="40" cy="160" rx="55" ry="30" fill="#fff"/>
+              <ellipse cx="80" cy="148" rx="45" ry="26" fill="#fff"/>
+              <ellipse cx="170" cy="30" rx="40" ry="22" fill="#fff"/>
+              <ellipse cx="140" cy="22" rx="35" ry="20" fill="#fff"/>
+            </svg>
+            <!-- Glitzer -->
+            <svg class="glitter" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="40" r="2.5" fill="#fff" opacity="0.7"/>
+              <circle cx="165" cy="60" r="2" fill="#fff" opacity="0.6"/>
+              <circle cx="80" cy="170" r="2.5" fill="#fff" opacity="0.7"/>
+              <circle cx="150" cy="140" r="2" fill="#fff" opacity="0.5"/>
+              <circle cx="50" cy="110" r="1.5" fill="#fff" opacity="0.6"/>
+              <circle cx="130" cy="90" r="3" fill="#fff" opacity="0.4"/>
+            </svg>
+            <div class="emoji">☀️</div>
+            <div class="label" style="color: #b34a2a;">Morgen</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-name">☀️ Morgen</div>
+    </div>
+
+    <!-- ② Abend ───────────────────── -->
+    <div class="cover-wrap">
+      <div class="ig-ring">
+        <div class="ig-white">
+          <div class="cover grad-abend">
+            <svg class="cloud-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="30" cy="165" rx="55" ry="28" fill="#9575cd" opacity="0.5"/>
+              <ellipse cx="75" cy="152" rx="45" ry="24" fill="#9575cd" opacity="0.4"/>
+              <ellipse cx="175" cy="35" rx="38" ry="20" fill="#7986cb" opacity="0.4"/>
+            </svg>
+            <svg class="glitter" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="35" r="2" fill="#fff" opacity="0.8"/>
+              <circle cx="170" cy="55" r="2.5" fill="#fff" opacity="0.7"/>
+              <circle cx="90" cy="165" r="2" fill="#fff" opacity="0.8"/>
+              <circle cx="155" cy="135" r="3" fill="#fff" opacity="0.6"/>
+              <circle cx="45" cy="115" r="1.5" fill="#fff" opacity="0.7"/>
+              <circle cx="135" cy="80" r="2" fill="#e0c3fc" opacity="0.8"/>
+              <!-- Sterne -->
+              <polygon points="60,20 62,26 68,26 63,30 65,36 60,32 55,36 57,30 52,26 58,26" fill="#fff" opacity="0.5" transform="scale(0.6) translate(40,10)"/>
+              <polygon points="150,70 152,76 158,76 153,80 155,86 150,82 145,86 147,80 142,76 148,76" fill="#e0c3fc" opacity="0.6" transform="scale(0.5) translate(100,50)"/>
+            </svg>
+            <div class="emoji">🌙</div>
+            <div class="label">Abend</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-name">🌙 Abend</div>
+    </div>
+
+    <!-- ③ Woche ───────────────────── -->
+    <div class="cover-wrap">
+      <div class="ig-ring">
+        <div class="ig-white">
+          <div class="cover grad-woche">
+            <svg class="cloud-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="35" cy="160" rx="60" ry="30" fill="#f48fb1" opacity="0.5"/>
+              <ellipse cx="85" cy="148" rx="48" ry="26" fill="#f48fb1" opacity="0.4"/>
+              <ellipse cx="172" cy="32" rx="40" ry="22" fill="#fce4ec" opacity="0.5"/>
+            </svg>
+            <svg class="glitter" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="38" r="2.5" fill="#fff" opacity="0.8"/>
+              <circle cx="168" cy="58" r="2" fill="#fff" opacity="0.7"/>
+              <circle cx="85" cy="168" r="2.5" fill="#fff" opacity="0.8"/>
+              <circle cx="152" cy="138" r="2" fill="#fff" opacity="0.6"/>
+              <circle cx="48" cy="118" r="1.5" fill="#fff" opacity="0.7"/>
+              <circle cx="132" cy="82" r="3" fill="#fce4ec" opacity="0.7"/>
+            </svg>
+            <div class="emoji">💅</div>
+            <div class="label">Woche</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-name">💅 Woche</div>
+    </div>
+
+    <!-- ④ Termine ─────────────────── -->
+    <div class="cover-wrap">
+      <div class="ig-ring">
+        <div class="ig-white">
+          <div class="cover grad-termine">
+            <svg class="cloud-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="30" cy="162" rx="58" ry="30" fill="#b2dfdb" opacity="0.5"/>
+              <ellipse cx="78" cy="150" rx="46" ry="26" fill="#b2dfdb" opacity="0.4"/>
+              <ellipse cx="174" cy="30" rx="38" ry="20" fill="#e0f2f1" opacity="0.5"/>
+            </svg>
+            <svg class="glitter" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="36" r="2.5" fill="#fff" opacity="0.9"/>
+              <circle cx="166" cy="56" r="2" fill="#fff" opacity="0.8"/>
+              <circle cx="88" cy="166" r="2.5" fill="#fff" opacity="0.9"/>
+              <circle cx="148" cy="136" r="2" fill="#fff" opacity="0.7"/>
+              <circle cx="52" cy="116" r="1.5" fill="#fff" opacity="0.8"/>
+              <circle cx="128" cy="80" r="3" fill="#e0f2f1" opacity="0.8"/>
+            </svg>
+            <div class="emoji">📅</div>
+            <div class="label" style="color: rgba(255,255,255,0.95);">Termine</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-name">📅 Termine</div>
+    </div>
+
+    <!-- ⑤ Tipps ───────────────────── -->
+    <div class="cover-wrap">
+      <div class="ig-ring">
+        <div class="ig-white">
+          <div class="cover grad-tipps">
+            <svg class="cloud-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="35" cy="160" rx="60" ry="30" fill="#fff9c4" opacity="0.6"/>
+              <ellipse cx="85" cy="148" rx="48" ry="26" fill="#fff9c4" opacity="0.5"/>
+              <ellipse cx="170" cy="32" rx="40" ry="22" fill="#fffde7" opacity="0.6"/>
+            </svg>
+            <svg class="glitter" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="38" r="2.5" fill="#fff" opacity="0.8"/>
+              <circle cx="168" cy="60" r="2" fill="#fff" opacity="0.7"/>
+              <circle cx="85" cy="168" r="2.5" fill="#fff" opacity="0.8"/>
+              <circle cx="150" cy="138" r="2" fill="#fff" opacity="0.6"/>
+              <circle cx="50" cy="118" r="1.5" fill="#fff" opacity="0.7"/>
+              <circle cx="132" cy="84" r="3" fill="#fffde7" opacity="0.8"/>
+              <!-- Stern-Glitzer -->
+              <circle cx="100" cy="20" r="2" fill="#fdd835" opacity="0.8"/>
+              <circle cx="20" cy="100" r="2" fill="#fdd835" opacity="0.7"/>
+              <circle cx="180" cy="100" r="2" fill="#fdd835" opacity="0.7"/>
+            </svg>
+            <div class="emoji">💡</div>
+            <div class="label" style="color: #7a5900;">Tipps</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-name">💡 Tipps</div>
+    </div>
+
+    <!-- ⑥ Routine ─────────────────── -->
+    <div class="cover-wrap">
+      <div class="ig-ring">
+        <div class="ig-white">
+          <div class="cover grad-routine">
+            <svg class="cloud-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="30" cy="162" rx="62" ry="32" fill="#f8bbd0" opacity="0.5"/>
+              <ellipse cx="82" cy="150" rx="50" ry="28" fill="#f8bbd0" opacity="0.4"/>
+              <ellipse cx="173" cy="30" rx="40" ry="22" fill="#fce4ec" opacity="0.5"/>
+            </svg>
+            <svg class="glitter" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="36" r="2.5" fill="#fff" opacity="0.9"/>
+              <circle cx="170" cy="58" r="2" fill="#fff" opacity="0.8"/>
+              <circle cx="82" cy="170" r="2.5" fill="#fff" opacity="0.9"/>
+              <circle cx="155" cy="140" r="2" fill="#fff" opacity="0.7"/>
+              <circle cx="46" cy="114" r="1.5" fill="#fff" opacity="0.8"/>
+              <circle cx="130" cy="82" r="3" fill="#fce4ec" opacity="0.8"/>
+            </svg>
+            <div class="emoji">🌸</div>
+            <div class="label">Routine</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-name">🌸 Routine</div>
+    </div>
+
+    <!-- ⑦ Install ─────────────────── -->
+    <div class="cover-wrap">
+      <div class="ig-ring">
+        <div class="ig-white">
+          <div class="cover grad-install">
+            <svg class="cloud-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="32" cy="160" rx="58" ry="30" fill="#e3f2fd" opacity="0.6"/>
+              <ellipse cx="80" cy="148" rx="46" ry="26" fill="#e3f2fd" opacity="0.5"/>
+              <ellipse cx="172" cy="32" rx="38" ry="20" fill="#e1f5fe" opacity="0.6"/>
+            </svg>
+            <svg class="glitter" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="38" r="2.5" fill="#fff" opacity="0.9"/>
+              <circle cx="168" cy="60" r="2" fill="#fff" opacity="0.8"/>
+              <circle cx="84" cy="168" r="2.5" fill="#fff" opacity="0.9"/>
+              <circle cx="150" cy="138" r="2" fill="#fff" opacity="0.7"/>
+              <circle cx="50" cy="118" r="1.5" fill="#fff" opacity="0.8"/>
+              <circle cx="128" cy="82" r="3" fill="#e1f5fe" opacity="0.8"/>
+            </svg>
+            <div class="emoji">📱</div>
+            <div class="label">Install</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-name">📱 Install</div>
+    </div>
+
+    <!-- ⑧ About ───────────────────── -->
+    <div class="cover-wrap">
+      <div class="ig-ring">
+        <div class="ig-white">
+          <div class="cover grad-about">
+            <svg class="cloud-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="30" cy="162" rx="60" ry="30" fill="#f3e5f5" opacity="0.5"/>
+              <ellipse cx="78" cy="150" rx="48" ry="26" fill="#f3e5f5" opacity="0.4"/>
+              <ellipse cx="174" cy="30" rx="40" ry="22" fill="#f9f0ff" opacity="0.5"/>
+            </svg>
+            <svg class="glitter" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="26" cy="34" r="2.5" fill="#fff" opacity="0.9"/>
+              <circle cx="170" cy="56" r="2" fill="#fff" opacity="0.8"/>
+              <circle cx="82" cy="170" r="2.5" fill="#fff" opacity="0.9"/>
+              <circle cx="154" cy="138" r="2" fill="#fff" opacity="0.7"/>
+              <circle cx="46" cy="116" r="1.5" fill="#fff" opacity="0.8"/>
+              <circle cx="130" cy="84" r="3" fill="#f3e5f5" opacity="0.8"/>
+              <!-- Extra Sterne für About -->
+              <circle cx="100" cy="18" r="2.5" fill="#fff" opacity="0.7"/>
+              <circle cx="18" cy="100" r="2" fill="#e1bee7" opacity="0.8"/>
+              <circle cx="182" cy="100" r="2" fill="#e1bee7" opacity="0.8"/>
+              <circle cx="100" cy="182" r="2.5" fill="#fff" opacity="0.7"/>
+            </svg>
+            <div class="emoji">✨</div>
+            <div class="label">About</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-name">✨ About</div>
+    </div>
+
+  </div><!-- /covers-grid -->
+
+  <!-- ── Download-Hinweis ──────────────────────────── -->
+  <div style="text-align:center; margin-top: 52px;">
+    <div style="
+      display:inline-block;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(216,180,254,0.5);
+      border-radius: 20px;
+      padding: 24px 36px;
+      max-width: 560px;
+    ">
+      <div style="font-family:'Dancing Script',cursive; font-size:1.6rem; color:#7c3aed; margin-bottom:12px;">
+        📸 Screenshot-Anleitung
+      </div>
+      <p style="font-size:0.88rem; line-height:1.8; color:#4a3560;">
+        <strong>iPhone:</strong> Seitentaste + Lautstärke hoch gleichzeitig drücken.<br/>
+        Dann im Foto-Bereich zuschneiden, bis nur das runde Cover sichtbar ist.<br/>
+        <br/>
+        <strong>Mac:</strong> Cmd + Shift + 4 → Bereich um das Cover auswählen.<br/>
+        <br/>
+        <strong>In Instagram:</strong> Highlight öffnen → Cover bearbeiten → Foto auswählen → fertig! 🌸
+      </p>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <div style="text-align:center; margin-top:40px; font-size:0.78rem; color:#7c5c92;">
+    ✨ Beauty Routine App · <a href="https://beautyroutine.app" target="_blank" style="color:#7c3aed; font-weight:600; text-decoration:none;">beautyroutine.app</a> · Instagram Highlight Covers ✨
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Routine App – Social Media Kit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink:    #f7a8c4;
+      --rose:    #f9c6d4;
+      --lavender:#d8b4fe;
+      --purple:  #c084fc;
+      --soft-bg: #fdf0f7;
+      --glass:   rgba(255,255,255,0.55);
+      --border:  rgba(255,255,255,0.75);
+      --text:    #4a3560;
+      --subtext: #7c5c92;
+      --shadow:  0 8px 32px rgba(180,100,200,0.13);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdf0f7 0%, #ede7f6 50%, #fce4ec 100%);
+      min-height: 100vh;
+      color: var(--text);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ── Wolken SVG Hintergrund ─────────────────────────── */
+    .clouds-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.25;
+    }
+
+    /* ── Wrapper ───────────────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ── Print-Button ──────────────────────────────────── */
+    .print-btn {
+      position: fixed;
+      top: 20px; right: 20px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(192,132,252,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 100;
+    }
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(192,132,252,0.5);
+    }
+
+    /* ── Header ────────────────────────────────────────── */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .header .logo-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.2rem;
+      background: linear-gradient(135deg, #c084fc, #f7a8c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+    .header .subtitle {
+      font-size: 0.95rem;
+      color: var(--subtext);
+      margin-top: 8px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+    .header .pill {
+      display: inline-block;
+      margin-top: 14px;
+      background: linear-gradient(135deg, var(--rose), var(--lavender));
+      color: var(--text);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Divider ───────────────────────────────────────── */
+    .divider {
+      height: 3px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--pink), var(--purple), var(--pink));
+      margin: 36px 0;
+      opacity: 0.6;
+    }
+
+    /* ── Abschnitt-Heading ─────────────────────────────── */
+    .section-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: var(--purple);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .num {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── Glassmorphism Card ─────────────────────────────── */
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    /* ── Handle-Box ────────────────────────────────────── */
+    .handle-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .handle-pill {
+      background: linear-gradient(135deg, #f9c6d4, #d8b4fe);
+      border-radius: 50px;
+      padding: 10px 22px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+    .handle-pill.backup {
+      background: rgba(255,255,255,0.6);
+      border: 1.5px solid var(--lavender);
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+    .handle-label {
+      font-size: 0.75rem;
+      color: var(--subtext);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin-bottom: 10px;
+      margin-top: 14px;
+    }
+
+    /* ── Bio-Plattformen ───────────────────────────────── */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .platform-card {
+      background: rgba(255,255,255,0.5);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1.5px solid rgba(255,255,255,0.8);
+    }
+    .platform-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .platform-name .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .platform-card.ig .dot  { background: linear-gradient(135deg, #f09433, #bc1888); }
+    .platform-card.tt .dot  { background: #010101; }
+    .platform-card.yt .dot  { background: #ff0000; }
+    .platform-bio {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      white-space: pre-line;
+      color: var(--text);
+    }
+    .char-note {
+      margin-top: 10px;
+      font-size: 0.72rem;
+      color: var(--subtext);
+      font-style: italic;
+    }
+
+    /* ── Hashtag-Sets ──────────────────────────────────── */
+    .hashtag-set {
+      margin-bottom: 22px;
+    }
+    .hashtag-set-name {
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--purple);
+      margin-bottom: 10px;
+    }
+    .hashtag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hashtag-pill {
+      background: rgba(255,255,255,0.65);
+      border: 1px solid var(--lavender);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: 0.8rem;
+      color: var(--subtext);
+      font-weight: 500;
+    }
+
+    /* ── Kalender-Tabelle ──────────────────────────────── */
+    .cal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .cal-table th {
+      background: linear-gradient(135deg, var(--rose), var(--lavender));
+      color: var(--text);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cal-table th:first-child { border-radius: 12px 0 0 0; }
+    .cal-table th:last-child  { border-radius: 0 12px 0 0; }
+    .cal-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(216,180,254,0.2);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .cal-table tr:last-child td { border-bottom: none; }
+    .cal-table tr:nth-child(even) td { background: rgba(255,255,255,0.3); }
+    .cal-table tr:hover td { background: rgba(247,168,196,0.15); }
+    .woche-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border-radius: 50px;
+      padding: 2px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .kanal-pill {
+      display: inline-block;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid var(--lavender);
+      border-radius: 50px;
+      padding: 2px 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--subtext);
+    }
+
+    /* ── Story-Ideen ───────────────────────────────────── */
+    .story-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }
+    .story-list li {
+      background: rgba(255,255,255,0.5);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .story-list li::before {
+      content: "🌸";
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Profil-Bild Empfehlung ─────────────────────────── */
+    .profil-preview {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .profil-circle {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f9c6d4, #d8b4fe, #c084fc);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(192,132,252,0.3);
+      flex-shrink: 0;
+    }
+    .profil-circle .letter {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      color: #fff;
+      line-height: 1;
+    }
+    .profil-info { flex: 1; min-width: 200px; }
+    .profil-info p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--subtext);
+    }
+    .profil-info p strong { color: var(--text); }
+
+    /* ── Footer ────────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: var(--subtext);
+    }
+    .footer a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ── PRINT ─────────────────────────────────────────── */
+    @media print {
+      .print-btn, .clouds-bg { display: none !important; }
+      body { background: #fff !important; }
+      .page { padding: 10px; }
+      .card {
+        background: #fff !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        break-inside: avoid;
+      }
+      .section-title { color: #7c3aed !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Wolken SVG Hintergrund -->
+<svg class="clouds-bg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="cg1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f7a8c4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#f7a8c4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cg2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d8b4fe" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d8b4fe" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Wolke 1 -->
+  <g transform="translate(80,80)" opacity="0.7">
+    <ellipse cx="60" cy="40" rx="60" ry="35" fill="url(#cg1)"/>
+    <ellipse cx="110" cy="30" rx="50" ry="30" fill="url(#cg1)"/>
+    <ellipse cx="155" cy="40" rx="45" ry="28" fill="url(#cg1)"/>
+  </g>
+  <!-- Wolke 2 -->
+  <g transform="translate(800,50)" opacity="0.6">
+    <ellipse cx="60" cy="40" rx="70" ry="38" fill="url(#cg2)"/>
+    <ellipse cx="120" cy="28" rx="55" ry="32" fill="url(#cg2)"/>
+    <ellipse cx="170" cy="40" rx="50" ry="30" fill="url(#cg2)"/>
+  </g>
+  <!-- Wolke 3 -->
+  <g transform="translate(400,600)" opacity="0.5">
+    <ellipse cx="60" cy="40" rx="80" ry="42" fill="url(#cg1)"/>
+    <ellipse cx="130" cy="28" rx="60" ry="34" fill="url(#cg1)"/>
+    <ellipse cx="190" cy="40" rx="55" ry="32" fill="url(#cg1)"/>
+  </g>
+  <!-- Kleine Sterne -->
+  <circle cx="200" cy="200" r="3" fill="#f7a8c4" opacity="0.6"/>
+  <circle cx="700" cy="150" r="2" fill="#d8b4fe" opacity="0.7"/>
+  <circle cx="950" cy="400" r="3" fill="#f9c6d4" opacity="0.5"/>
+  <circle cx="150" cy="500" r="2" fill="#c084fc" opacity="0.6"/>
+  <circle cx="600" cy="700" r="3" fill="#f7a8c4" opacity="0.5"/>
+</svg>
+
+<!-- Print Button -->
+<button class="print-btn" onclick="window.print()">🖨️ Drucken / PDF</button>
+
+<div class="page">
+
+  <!-- ── HEADER ───────────────────────────────────── -->
+  <div class="header">
+    <div class="logo-text">Beauty Routine App</div>
+    <div class="subtitle">beautyroutine.app</div>
+    <div class="pill">✨ Social Media Kit 2025</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 1. Handle & Benutzernamen -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section-title">
+    <div class="num">1</div>
+    Handle &amp; Benutzernamen
+  </div>
+  <div class="card">
+    <div class="handle-label">Empfohlener Handle – auf allen Plattformen gleich:</div>
+    <div class="handle-box">
+      <div class="handle-pill">@beautyroutineapp</div>
+    </div>
+    <div class="handle-label">Backup-Optionen (falls vergeben):</div>
+    <div class="handle-box">
+      <div class="handle-pill backup">@beautyroutine.app</div>
+      <div class="handle-pill backup">@myroutineapp</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 2. Bio-Texte -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section-title">
+    <div class="num">2</div>
+    Bio-Texte je Plattform
+  </div>
+  <div class="card">
+    <div class="platform-grid">
+
+      <!-- Instagram -->
+      <div class="platform-card ig">
+        <div class="platform-name">
+          <span class="dot"></span> Instagram
+        </div>
+        <div class="platform-bio">🌸 Deine Beauty-Routine. Jeden Tag.
+✨ Morgen · Abend · Woche · Termine
+💜 Kostenlos &amp; kein Download nötig
+🔗 beautyroutine.app</div>
+        <div class="char-note">📏 max. 150 Zeichen</div>
+      </div>
+
+      <!-- TikTok -->
+      <div class="platform-card tt">
+        <div class="platform-name">
+          <span class="dot"></span> TikTok
+        </div>
+        <div class="platform-bio">🌸 Deine Beauty-Routine App
+✨ Gratis · beautyroutine.app</div>
+        <div class="char-note">📏 max. 80 Zeichen</div>
+      </div>
+
+      <!-- YouTube -->
+      <div class="platform-card yt" style="grid-column: 1 / -1;">
+        <div class="platform-name">
+          <span class="dot"></span> YouTube Kanalbeschreibung
+        </div>
+        <div class="platform-bio">Willkommen bei Beauty Routine – deiner kostenlosen Beauty-Begleiterin! 🌸✨
+
+Wir zeigen dir wie du mit der Beauty Routine App (beautyroutine.app) deine tägliche Pflege organisierst – von der Morgenroutine bis zum Friseurtermin.
+
+📱 Kein Download nötig – direkt im Browser nutzbar
+🌸 Morgen &amp; Abend Routine Checklisten
+💅 Wöchentliche Pflege (Haare, Nails, Body)
+📅 Termine verwalten (nie mehr den Friseur vergessen!)
+💡 Tägliche Beauty-Tipps vom Profi
+✏️ 100% personalisierbar – deine Routine, deine Regeln
+👦👧 Für Mädchen UND Buben
+
+🔗 Jetzt kostenlos starten: beautyroutine.app
+
+#BeautyRoutine #Skincare #SelfCare #GlowUp #BeautyApp</div>
+        <div class="char-note">📏 längerer Beschreibungstext – kein Zeichenlimit</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 3. Hashtag-Sets -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section-title">
+    <div class="num">3</div>
+    Hashtag-Sets
+  </div>
+  <div class="card">
+
+    <div class="hashtag-set">
+      <div class="hashtag-set-name">Set A – Allgemein / Routine</div>
+      <div class="hashtag-cloud">
+        <span class="hashtag-pill">#beautyroutine</span>
+        <span class="hashtag-pill">#skincareroutine</span>
+        <span class="hashtag-pill">#morningroutine</span>
+        <span class="hashtag-pill">#eveningroutine</span>
+        <span class="hashtag-pill">#selfcare</span>
+        <span class="hashtag-pill">#glowup</span>
+        <span class="hashtag-pill">#skincare</span>
+        <span class="hashtag-pill">#beautytips</span>
+        <span class="hashtag-pill">#beautyapp</span>
+        <span class="hashtag-pill">#routine</span>
+        <span class="hashtag-pill">#pflegeroutine</span>
+        <span class="hashtag-pill">#hautpflege</span>
+        <span class="hashtag-pill">#skincaredeutsch</span>
+      </div>
+    </div>
+
+    <div class="hashtag-set">
+      <div class="hashtag-set-name">Set B – Tipps / Tutorial</div>
+      <div class="hashtag-cloud">
+        <span class="hashtag-pill">#beautyhacks</span>
+        <span class="hashtag-pill">#skincaretips</span>
+        <span class="hashtag-pill">#beautygeheimnisse</span>
+        <span class="hashtag-pill">#hautroutine</span>
+        <span class="hashtag-pill">#glowskin</span>
+        <span class="hashtag-pill">#skincareobsessed</span>
+        <span class="hashtag-pill">#beautyinsider</span>
+        <span class="hashtag-pill">#selfcaretips</span>
+        <span class="hashtag-pill">#skincarecommunity</span>
+        <span class="hashtag-pill">#beautylifestyle</span>
+      </div>
+    </div>
+
+    <div class="hashtag-set">
+      <div class="hashtag-set-name">Set C – App / Tech</div>
+      <div class="hashtag-cloud">
+        <span class="hashtag-pill">#beautyapp</span>
+        <span class="hashtag-pill">#beautyroutineapp</span>
+        <span class="hashtag-pill">#kostenlos</span>
+        <span class="hashtag-pill">#gratis</span>
+        <span class="hashtag-pill">#nodownload</span>
+        <span class="hashtag-pill">#webapp</span>
+        <span class="hashtag-pill">#selbstpflege</span>
+        <span class="hashtag-pill">#digitalselfcare</span>
+        <span class="hashtag-pill">#skintracker</span>
+      </div>
+    </div>
+
+    <div class="hashtag-set" style="margin-bottom:0;">
+      <div class="hashtag-set-name">Set D – Viral / Trending</div>
+      <div class="hashtag-cloud">
+        <span class="hashtag-pill">#pov</span>
+        <span class="hashtag-pill">#fyp</span>
+        <span class="hashtag-pill">#foryou</span>
+        <span class="hashtag-pill">#viral</span>
+        <span class="hashtag-pill">#tiktokbeauty</span>
+        <span class="hashtag-pill">#beautytok</span>
+        <span class="hashtag-pill">#skintok</span>
+        <span class="hashtag-pill">#glowuptransformation</span>
+        <span class="hashtag-pill">#selfcaresunday</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 4. Content-Kalender -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section-title">
+    <div class="num">4</div>
+    Content-Kalender – Erste 4 Wochen
+  </div>
+  <div class="card" style="padding: 20px 16px;">
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th>Woche</th>
+          <th>Tag</th>
+          <th>Kanal</th>
+          <th>Content-Idee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="woche-badge">W1</span></td>
+          <td>Mo</td>
+          <td><span class="kanal-pill">TikTok / IG</span></td>
+          <td>"POV: Du hast endlich eine Routine 🌸" (Video 4)</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W1</span></td>
+          <td>Mi</td>
+          <td><span class="kanal-pill">IG Story</span></td>
+          <td>Screenshot der App + "Habt ihr sie schon?"</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W1</span></td>
+          <td>Fr</td>
+          <td><span class="kanal-pill">TikTok / IG</span></td>
+          <td>"So speicherst du die App am Homescreen 🤯" (Video 7)</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W2</span></td>
+          <td>Mo</td>
+          <td><span class="kanal-pill">TikTok / IG</span></td>
+          <td>"So vergisst du nie mehr deinen Friseur" (Video 5)</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W2</span></td>
+          <td>Mi</td>
+          <td><span class="kanal-pill">IG</span></td>
+          <td>Ästhetischer Screenshot der Morgen-Routine</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W2</span></td>
+          <td>Fr</td>
+          <td><span class="kanal-pill">TikTok / IG</span></td>
+          <td>"Deine Routine, deine Regeln ✏️" (Video 6)</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W3</span></td>
+          <td>Mo</td>
+          <td><span class="kanal-pill">YouTube</span></td>
+          <td>Längeres Tutorial: "So richtest du die App ein"</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W3</span></td>
+          <td>Mi</td>
+          <td><span class="kanal-pill">IG Story</span></td>
+          <td>"Welche Routine habt ihr morgens?" (Umfrage)</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W3</span></td>
+          <td>Fr</td>
+          <td><span class="kanal-pill">TikTok / IG</span></td>
+          <td>Behind the Scenes / App-Einblick</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W4</span></td>
+          <td>Mo</td>
+          <td><span class="kanal-pill">Alle</span></td>
+          <td>1-Wochen-Review + Community-Frage</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W4</span></td>
+          <td>Mi</td>
+          <td><span class="kanal-pill">IG</span></td>
+          <td>Highlight "Meine Routine" mit echtem Beispiel</td>
+        </tr>
+        <tr>
+          <td><span class="woche-badge">W4</span></td>
+          <td>Fr</td>
+          <td><span class="kanal-pill">Alle</span></td>
+          <td>"Danke für X Follower 💜" + Giveaway-Ankündigung</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 5. Story-Ideen -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section-title">
+    <div class="num">5</div>
+    Story-Ideen für Instagram
+  </div>
+  <div class="card">
+    <ul class="story-list">
+      <li>"Zeig mir deine Morgenroutine" (Umfrage)</li>
+      <li>"Wie viele Steps hat deine Routine?" (Quiz)</li>
+      <li>"Benutzt du schon die App?" (Ja / Nein)</li>
+      <li>"Welche Beauty-Kategorie fehlt noch?" (Frage-Sticker)</li>
+      <li>Countdown bis zum nächsten Post</li>
+      <li>"Rate mal: Wie viele Termine habe ich diese Woche?" (Slider)</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- 6. Profil-Bild Empfehlung -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section-title">
+    <div class="num">6</div>
+    Profil-Bild Empfehlung
+  </div>
+  <div class="card">
+    <div class="profil-preview">
+      <div class="profil-circle">
+        <span class="letter">B</span>
+      </div>
+      <div class="profil-info">
+        <p><strong>Logo-Stil:</strong> Das "B" der App in Dancing Script auf Gradient-Hintergrund.</p>
+        <p style="margin-top:8px;"><strong>Farben:</strong> Pinker / lila Gradient (wie oben) auf weißem oder sanft rosafarbenem Hintergrund.</p>
+        <p style="margin-top:8px;"><strong>Wichtig:</strong> Auf allen Plattformen <strong>identisch</strong> verwenden – Instagram, TikTok, YouTube – für maximale Wiedererkennbarkeit.</p>
+        <p style="margin-top:8px;"><strong>Format:</strong> Quadrat (mind. 400×400 px), JPEG oder PNG.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ────────────────────────────────────── -->
+  <div class="footer">
+    <p>✨ Beauty Routine App · <a href="https://beautyroutine.app" target="_blank">beautyroutine.app</a> · Social Media Kit 2025 ✨</p>
+    <p style="margin-top:6px; font-size:0.72rem;">Kostenlos & kein Download nötig · Direkt im Browser nutzen</p>
+  </div>
+
+</div>
+</body>
+</html>

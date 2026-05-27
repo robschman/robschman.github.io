@@ -2,69 +2,11 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <!-- Automatischer Redirect zur App wenn bereits eingerichtet -->
-  <script>
-    if (localStorage.getItem('routine_username')) {
-      window.location.replace('/app.html');
-    }
-  </script>
-  <!-- Cookie Consent + Analytics/AdSense (DSGVO-konform) -->
-  <script src="/cookie-consent.js?v=2.0"></script>
-  <!-- Sprach-Erkennung + Switcher -->
-  <script src="/lang-switch.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beauty Routine App – Kostenlose Skincare &amp; Beauty Routine</title>
-  <meta name="description" content="Die kostenlose Beauty Routine App für deine tägliche Skincare. Morgen- &amp; Abendroutine, Friseur-Termine, Pflege-Checklisten und Beauty-Tipps – gratis, kein Download nötig. Jetzt auf beautyroutine.app starten!" />
-  <meta name="keywords" content="beauty routine app, skincare routine app, beauty app kostenlos, morgenroutine app, beauty checkliste, pflege routine, skincare app deutsch, beautyroutine" />
-  <link rel="canonical" href="https://beautyroutine.app/" />
-  <link rel="manifest" href="/manifest.json" />
-
-  <!-- Open Graph (für Facebook, Instagram, WhatsApp Vorschau) -->
-  <meta property="og:title" content="Beauty Routine App – Kostenlose Skincare &amp; Beauty Routine" />
-  <meta property="og:description" content="Deine tägliche Beauty-Routine App. Morgen &amp; Abend Pflege, Termine, Wochenroutine &amp; Beauty-Tipps – kostenlos, ohne Anmeldung!" />
-  <meta property="og:url" content="https://beautyroutine.app/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="de_DE" />
-  <meta property="og:image" content="https://beautyroutine.app/og-image.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Beauty Routine App – Kostenlose Skincare App" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Beauty Routine App – Kostenlose Skincare App" />
-  <meta name="twitter:description" content="Deine tägliche Skincare Routine App. Morgen &amp; Abend, Termine, Tipps – gratis auf beautyroutine.app!" />
-  <meta name="twitter:image" content="https://beautyroutine.app/og-image.jpg" />
-
-  <!-- Strukturierte Daten für Google (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Beauty Routine App",
-    "url": "https://beautyroutine.app",
-    "description": "Kostenlose Beauty Routine App für tägliche Skincare, Morgenroutine, Abendroutine, Pflege-Checklisten, Termine und Beauty-Tipps",
-    "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "iOS, Android",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR"
-    },
-    "featureList": [
-      "Morgenroutine Checkliste",
-      "Abendroutine Checkliste",
-      "Wöchentliche Pflegeroutine",
-      "Termine verwalten",
-      "Tägliche Beauty-Tipps",
-      "Personalisierbare Routine"
-    ],
-    "inLanguage": "de",
-    "isAccessibleForFree": true
-  }
-  </script>
-  <link rel="stylesheet" href="/fonts.css" />
+  <title>Beauty Routine App – Deine tägliche Beauty-Routine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -542,17 +484,6 @@
 </head>
 <body>
 
-  <!-- Sprach-Switcher rechts oben -->
-  <div class="lang-switch" style="position:fixed;top:18px;right:18px;display:flex;gap:6px;z-index:100;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-radius:30px;padding:4px;box-shadow:0 2px 10px rgba(0,0,0,0.08);">
-    <button data-target-lang="de" aria-label="Deutsch" style="border:none;background:transparent;font-size:13px;font-weight:700;padding:6px 12px;border-radius:24px;cursor:pointer;color:#888;transition:all 0.15s;">🇩🇪 DE</button>
-    <button data-target-lang="en" aria-label="English" style="border:none;background:transparent;font-size:13px;font-weight:700;padding:6px 12px;border-radius:24px;cursor:pointer;color:#888;transition:all 0.15s;">🇬🇧 EN</button>
-  </div>
-  <style>
-    .lang-switch button:hover { background:rgba(194,24,91,0.08) !important; color:#c2185b !important; }
-    .lang-switch button.active { background:linear-gradient(135deg,#e91e8c,#9c27b0) !important; color:#fff !important; }
-    @media (max-width:480px) { .lang-switch { top:12px !important; right:12px !important; } .lang-switch button { padding:5px 10px !important; font-size:12px !important; } }
-  </style>
-
   <!-- BACKGROUND CLOUDS -->
   <div class="cloud-layer">
     <svg class="c1" viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -588,7 +519,7 @@
         <span class="b">Beauty</span>
         <span class="r">Routine App</span>
       </div>
-      <a href="/app.html" class="nav-cta">✨ Jetzt starten</a>
+      <a href="https://beautyroutine.app" class="nav-cta">✨ Jetzt starten</a>
     </div>
   </nav>
 
@@ -614,7 +545,7 @@
             <strong>Einfach. Schön. Gratis.</strong><br>
             Morgen &amp; Abend, Wochenroutinen, Termine und tägliche Tipps – alles an einem Ort.
           </p>
-          <a href="/app.html" class="hero-cta">
+          <a href="https://beautyroutine.app" class="hero-cta">
             Jetzt starten – beautyroutine.app
             <span class="arrow">→</span>
           </a>
@@ -958,7 +889,7 @@
       <div class="cta-card">
         <h2>Bereit für deine Traumroutine?</h2>
         <p>Kostenlos starten – kein Account, keine App-Store-Suche, kein Abo.</p>
-        <a href="/app.html" class="cta-main-btn">
+        <a href="https://beautyroutine.app" class="cta-main-btn">
           ✨ beautyroutine.app öffnen
         </a>
         <div class="cta-hashtags">
@@ -976,17 +907,6 @@
   <footer class="site-footer">
     <div class="wrapper">
       <p>© 2026 Beauty Routine App · <a href="https://beautyroutine.app">beautyroutine.app</a> · Made with 🌸 &amp; lots of love</p>
-      <p style="margin-top:8px;">
-        <a href="/about.html">Über uns</a>
-        &nbsp;·&nbsp;
-        <a href="/blog/">Ratgeber</a>
-        &nbsp;·&nbsp;
-        <a href="/impressum.html">Impressum</a>
-        &nbsp;·&nbsp;
-        <a href="/datenschutz.html">Datenschutz</a>
-        &nbsp;·&nbsp;
-        <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>
-      </p>
     </div>
   </footer>
 
