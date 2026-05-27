@@ -7,8 +7,14 @@
 node_modules/
 promo/node_modules/
 
-# Lokale Arbeitsdateien
+# Lokale Arbeitsdateien / Render-Scripts
 make-logo.js
 make-og-image.js
 logo-square.html
 og-image.html
+render-*.js
+
+# Promo Videos (zu groß für GitHub)
+promo/output/
+promo/frames/
+promo/recordings/
