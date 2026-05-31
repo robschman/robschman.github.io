@@ -537,6 +537,7 @@ body {
   letter-spacing: 0.2px;
   position: relative;
   overflow: hidden;
+  -webkit-tap-highlight-color: rgba(233,30,140,0.18);
 }
 
 .seasonal-banner::before {
@@ -581,15 +582,16 @@ body {
   transform: translateX(3px);
 }
 
-/* Boy-Theme: blau statt pink */
+/* Boy-Theme: blau statt pink — mit !important gegen iOS-Cache-Härte */
 body.theme-boy .seasonal-banner {
-  background: linear-gradient(135deg, #64b5f6 0%, #1e88e5 100%);
-  box-shadow: 0 3px 14px rgba(30,136,229,0.32);
+  background: linear-gradient(135deg, #64b5f6 0%, #1e88e5 100%) !important;
+  box-shadow: 0 3px 14px rgba(30,136,229,0.32) !important;
+  -webkit-tap-highlight-color: rgba(30,136,229,0.18) !important;
 }
 
 body.theme-boy .seasonal-banner:hover,
 body.theme-boy .seasonal-banner:active {
-  box-shadow: 0 5px 18px rgba(30,136,229,0.45);
+  box-shadow: 0 5px 18px rgba(30,136,229,0.45) !important;
 }
 
 /* ===== CozyVibe Pinterest Banner (unten, vor Footer) ===== */
@@ -604,6 +606,7 @@ body.theme-boy .seasonal-banner:active {
   border-radius: 16px;
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  -webkit-tap-highlight-color: rgba(233,30,140,0.18);
 }
 
 .cozyvibe-banner:hover,
@@ -646,27 +649,28 @@ body.theme-boy .seasonal-banner:active {
   flex-shrink: 0;
 }
 
-/* Boy-Theme: blau statt pink */
+/* Boy-Theme: blau statt pink — mit !important gegen iOS-Cache-Härte */
 body.theme-boy .cozyvibe-banner {
-  background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%);
-  border-color: rgba(30,136,229,0.22);
+  background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%) !important;
+  border-color: rgba(30,136,229,0.22) !important;
+  -webkit-tap-highlight-color: rgba(30,136,229,0.18) !important;
 }
 
 body.theme-boy .cozyvibe-banner:hover,
 body.theme-boy .cozyvibe-banner:active {
-  box-shadow: 0 4px 16px rgba(30,136,229,0.22);
+  box-shadow: 0 4px 16px rgba(30,136,229,0.22) !important;
 }
 
 body.theme-boy .cozyvibe-banner-title {
-  color: #1565c0;
+  color: #1565c0 !important;
 }
 
 body.theme-boy .cozyvibe-banner-sub {
-  color: #7a8fa6;
+  color: #7a8fa6 !important;
 }
 
 body.theme-boy .cozyvibe-banner-arrow {
-  color: #1565c0;
+  color: #1565c0 !important;
 }
 
 /* ===== Content ===== */
