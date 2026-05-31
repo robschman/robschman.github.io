@@ -592,6 +592,83 @@ body.theme-boy .seasonal-banner:active {
   box-shadow: 0 5px 18px rgba(30,136,229,0.45);
 }
 
+/* ===== CozyVibe Pinterest Banner (unten, vor Footer) ===== */
+.cozyvibe-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 16px 16px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+  border: 1.5px solid rgba(233,30,140,0.22);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cozyvibe-banner:hover,
+.cozyvibe-banner:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(233,30,140,0.2);
+}
+
+.cozyvibe-banner-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.cozyvibe-banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cozyvibe-banner-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #c2185b;
+  line-height: 1.2;
+}
+
+.cozyvibe-banner-sub {
+  font-size: 11px;
+  color: #9e8ea5;
+  line-height: 1.4;
+}
+
+.cozyvibe-banner-arrow {
+  font-size: 18px;
+  color: #c2185b;
+  flex-shrink: 0;
+}
+
+/* Boy-Theme: blau statt pink */
+body.theme-boy .cozyvibe-banner {
+  background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%);
+  border-color: rgba(30,136,229,0.22);
+}
+
+body.theme-boy .cozyvibe-banner:hover,
+body.theme-boy .cozyvibe-banner:active {
+  box-shadow: 0 4px 16px rgba(30,136,229,0.22);
+}
+
+body.theme-boy .cozyvibe-banner-title {
+  color: #1565c0;
+}
+
+body.theme-boy .cozyvibe-banner-sub {
+  color: #7a8fa6;
+}
+
+body.theme-boy .cozyvibe-banner-arrow {
+  color: #1565c0;
+}
+
 /* ===== Content ===== */
 .content {
   flex: 1;
