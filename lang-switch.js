@@ -24,6 +24,7 @@
     '/':                                             '/en/',
     '/index.html':                                   '/en/index.html',
     '/about.html':                                   '/en/about.html',
+    '/faq.html':                                     '/en/faq.html',
     '/blog/':                                        '/en/blog/',
     '/blog/index.html':                              '/en/blog/index.html',
     '/blog/skincare-reihenfolge.html':               '/en/blog/skincare-order.html',

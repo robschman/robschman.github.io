@@ -314,6 +314,8 @@
           <a href="/about.html" id="footerAbout" style="color:#bbb;text-decoration:none;margin:0 8px;">Über uns</a>
           <span style="color:#ddd;">·</span>
           <a href="/blog/" id="footerBlog" style="color:#bbb;text-decoration:none;margin:0 8px;">Ratgeber</a>
+          <span style="color:#ddd;">·</span>
+          <a href="/faq.html" id="footerFaq" style="color:#bbb;text-decoration:none;margin:0 8px;">FAQ</a>
         </div>
         <div style="margin-bottom:8px;">
           <a href="/impressum.html" style="color:#bbb;text-decoration:none;margin:0 8px;">Impressum</a>
@@ -325,16 +327,18 @@
         <div style="color:#ccc;font-size:10px;letter-spacing:0.3px;">✨ <span data-tr="aiGenerated"></span></div>
       </div>
       <script>
-        // Footer-Links 'Über uns' und 'Ratgeber' auf die Sprache der App
+        // Footer-Links 'Über uns', 'Ratgeber' und 'FAQ' auf die Sprache der App
         // abstimmen (App speichert routine_lang in localStorage).
         (function(){
           try {
             var lang = localStorage.getItem('routine_lang') || 'de';
             var about = document.getElementById('footerAbout');
             var blog  = document.getElementById('footerBlog');
+            var faq   = document.getElementById('footerFaq');
             if (lang === 'en') {
               if (about) { about.href = '/en/about.html'; about.textContent = 'About us'; }
               if (blog)  { blog.href  = '/en/blog/';      blog.textContent  = 'Guides'; }
+              if (faq)   { faq.href   = '/en/faq.html';   faq.textContent   = 'FAQ'; }
             }
           } catch(e) {}
         })();

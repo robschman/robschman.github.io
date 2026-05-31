@@ -18,3 +18,9 @@ render-*.js
 promo/output/
 promo/frames/
 promo/recordings/
+
+# Interne Recherche-Dokumente / Strategie-Notizen (nicht öffentlich)
+amazon-produktliste.md
+*-recherche.md
+*-strategie.md
+*-notes.md
