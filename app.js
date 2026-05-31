@@ -63,6 +63,10 @@ const TRANSLATIONS = {
     appointments: 'Meine Termine',
     manage: 'verwalten',
     aiGenerated: 'KI-generiert',
+    seasonal_spring: 'Frühlings-Tipps & Produkte',
+    seasonal_summer: 'Sommer-Tipps & Produkte',
+    seasonal_autumn: 'Herbst-Tipps & Produkte',
+    seasonal_winter: 'Winter-Tipps & Produkte',
     myAppointments: 'Meine Termine',
     addAppointment: 'Termin hinzufügen',
     date: 'Datum',
@@ -171,6 +175,10 @@ const TRANSLATIONS = {
     appointments: 'My Appointments',
     manage: 'manage',
     aiGenerated: 'AI-generated',
+    seasonal_spring: 'Spring Tips & Products',
+    seasonal_summer: 'Summer Tips & Products',
+    seasonal_autumn: 'Autumn Tips & Products',
+    seasonal_winter: 'Winter Tips & Products',
     myAppointments: 'My Appointments',
     addAppointment: 'Add appointment',
     date: 'Date',
@@ -708,8 +716,26 @@ function applyTranslations() {
   updateProgress();
   renderTips();
   applyGenderContent();
+  updateSeasonalBanner();
   const name = getUsername();
   if (name) showGreeting(name);
+}
+
+// ===== Saison-Banner: setzt Icon + Text je nach aktuellem Monat =====
+function updateSeasonalBanner() {
+  const iconEl = document.getElementById('seasonalIcon');
+  const textEl = document.getElementById('seasonalText');
+  if (!iconEl || !textEl) return;
+
+  const month = new Date().getMonth(); // 0-11 (Jan=0)
+  let season, icon;
+  if (month >= 2 && month <= 4)        { season = 'spring'; icon = '🌸'; } // März-Mai
+  else if (month >= 5 && month <= 7)   { season = 'summer'; icon = '🌞'; } // Juni-August
+  else if (month >= 8 && month <= 10)  { season = 'autumn'; icon = '🍂'; } // Sep-Nov
+  else                                  { season = 'winter'; icon = '❄️'; } // Dez-Feb
+
+  iconEl.textContent = icon;
+  textEl.textContent = t('seasonal_' + season);
 }
 
 // ===== Daily Tips =====
