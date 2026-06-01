@@ -2378,6 +2378,100 @@ body.theme-cozy .cozyvibe-banner-title { color: #BD6C0A !important; }
 body.theme-cozy .cozyvibe-banner-sub { color: #93847A !important; }
 body.theme-cozy .cozyvibe-banner-arrow { color: #BD6C0A !important; }
 
+/* ============================================================
+   THEME: WINTER / BEERE (Deep Berry + Lavender)
+   Dunkler, eleganter Look. Gespiegelt nach theme-cozy-Muster.
+   ============================================================ */
+body.theme-winter {
+  --pink:        #8A3354;   /* deep berry */
+  --pink-light:  #F6EBF0;   /* tint */
+  --pink-mid:    #6B2440;   /* darker berry */
+  --purple:      #BBADDD;   /* lavender accent */
+  --bg:          #FBF6F0;   /* cream canvas (Basis bleibt) */
+  --card:        #FFFFFF;
+  --text:        #3B302A;
+  --text-soft:   #93847A;
+  --border:      #EFE0E7;
+  --shadow:      rgba(107, 36, 64, 0.20);
+}
+body.theme-winter .header { background: linear-gradient(140deg, #A85478 0%, #8A3354 48%, #6B2440 100%); }
+body.theme-winter .tab.active { background: linear-gradient(135deg, #8A3354, #6B2440); box-shadow: 0 3px 12px rgba(107,36,64,0.36); }
+body.theme-winter .tab:not(.active) { background: linear-gradient(135deg, rgba(138,51,84,0.14), rgba(107,36,64,0.18)); color: #6B2440; }
+body.theme-winter #progressBar { background: linear-gradient(90deg, #BBADDD, #8A3354); }
+body.theme-winter .section-header { background: linear-gradient(135deg, #A85478, #8A3354); }
+body.theme-winter .checklist-item:hover { background: #F6EBF0; }
+body.theme-winter .item-check { border-color: #A85478; }
+body.theme-winter .checklist-item.done .item-check { background: linear-gradient(135deg, #8A3354, #6B2440); border-color: #6B2440; }
+body.theme-winter .reset-btn { background: linear-gradient(135deg, #A85478, #8A3354); box-shadow: 0 4px 16px rgba(107,36,64,0.34); }
+body.theme-winter .reset-all-btn { background: linear-gradient(135deg, #8A3354, #4E1A30); box-shadow: 0 4px 16px rgba(78,26,48,0.34); }
+body.theme-winter .termine-btn { background: linear-gradient(135deg, #A85478, #6B2440); box-shadow: 0 4px 16px rgba(107,36,64,0.34); }
+body.theme-winter .today-badge,
+body.theme-winter .date-today-badge { background: linear-gradient(135deg, #A85478, #8A3354); box-shadow: 0 2px 10px rgba(138,51,84,0.5); }
+body.theme-winter .tip-bubble { background: linear-gradient(145deg, #F6EBF0 0%, #F0DEE6 55%, #EBD0DA 100%); border-color: rgba(187,173,221,0.7); box-shadow: 0 6px 22px rgba(107,36,64,0.12), inset 0 1px 4px rgba(255,255,255,0.95); }
+body.theme-winter .tip-bubble:nth-child(2) { background: linear-gradient(145deg, #F0DEE6 0%, #F6EBF0 55%, #EBD0DA 100%); }
+body.theme-winter .tip-bubble:nth-child(3) { background: linear-gradient(145deg, #F9EFF4 0%, #F0DEE6 55%, #E7CED9 100%); }
+body.theme-winter .tip-bubble::before,
+body.theme-winter .tip-bubble::after { background: linear-gradient(145deg, #F6EBF0, #EBD0DA); border-color: rgba(187,173,221,0.7); box-shadow: 0 3px 8px rgba(107,36,64,0.1); }
+body.theme-winter .checklist-item { border-bottom-color: #EFE0E7; }
+body.theme-winter .gender-btn.selected { border-color: #6B2440; background: linear-gradient(135deg, #F6EBF0, #EBD0DA); color: #6B2440; box-shadow: 0 4px 16px rgba(107,36,64,0.26); }
+body.theme-winter .name-save-btn { background: linear-gradient(135deg, #8A3354, #6B2440); box-shadow: 0 4px 16px rgba(107,36,64,0.34); }
+body.theme-winter .ob-option.selected { border-color: #6B2440; background: linear-gradient(135deg, #F6EBF0, #EBD0DA); color: #6B2440; }
+body.theme-winter .onboarding { background: linear-gradient(160deg, #FBF6F0 0%, #EBD0DA 50%, #8A3354 100%); }
+body.theme-winter .termine-header { background: linear-gradient(140deg, #A85478 0%, #8A3354 45%, #6B2440 100%); }
+body.theme-winter .termin-soon { background: linear-gradient(135deg, #F6EBF0, #EBD0DA); border-color: #6B2440; }
+body.theme-winter .termin-soon .termin-datetime { color: #6B2440; }
+body.theme-winter .termin-past { background: #F7F3EE; border-color: #E6DDD0; }
+body.theme-winter .termin-emoji { background: linear-gradient(135deg, #F6EBF0, #F0DEE6); }
+body.theme-winter .termin-datetime { color: #6B2440; }
+body.theme-winter .termin-action-btn { background: #F6EBF0; }
+body.theme-winter .add-termin-fab { background: linear-gradient(135deg, #8A3354, #6B2440); box-shadow: 0 6px 20px rgba(107,36,64,0.4); }
+body.theme-winter .termin-preset-chip { background: linear-gradient(160deg, rgba(255,255,255,0.9), rgba(246,235,240,0.75)); border-color: #A85478; color: #6B2440; }
+body.theme-winter .termin-preset-chip:active { background: linear-gradient(135deg, #8A3354, #6B2440); }
+body.theme-winter .termin-card { border-color: #EFE0E7; box-shadow: 0 2px 10px rgba(107,36,64,0.1); }
+body.theme-winter .settings-lang-btn.active { background: linear-gradient(135deg, #F6EBF0, #EBD0DA); border-color: #6B2440; color: #6B2440; }
+body.theme-winter .settings-lang-btn { border-color: #EFE0E7; }
+body.theme-winter .settings-section { border-bottom-color: #EFE0E7; }
+body.theme-winter .settings-label { color: #93847A; }
+body.theme-winter .modal-save { background: linear-gradient(135deg, #8A3354, #6B2440); }
+body.theme-winter .settings-input,
+body.theme-winter .name-input { border-color: #EFE0E7; }
+body.theme-winter .settings-input:focus,
+body.theme-winter .name-input:focus { border-color: #8A3354; box-shadow: 0 0 0 3px rgba(138,51,84,0.15); }
+body.theme-winter .ob-option { border-color: #EFE0E7; box-shadow: 0 2px 8px rgba(107,36,64,0.07) !important; }
+body.theme-winter .ob-option:hover { border-color: #A85478; background: #F6EBF0; }
+body.theme-winter .gender-btn { border-color: #EFE0E7; color: #93847A; }
+body.theme-winter .modal-overlay.open > .modal { box-shadow: 0 8px 40px rgba(107,36,64,0.16); }
+body.theme-winter .tabs { background: linear-gradient(135deg, #F6EBF0 0%, #EBD0DA 100%); border-bottom-color: #A85478; }
+body.theme-winter .footer { background: linear-gradient(135deg, rgba(246,235,240,0.97) 0%, rgba(235,208,218,0.97) 100%); border-top-color: #A85478; }
+body.theme-winter .modal-overlay { background: rgba(78, 26, 48, 0.34); }
+body.theme-winter .settings-open-btn { box-shadow: 0 2px 12px rgba(107,36,64,0.13); border-color: #EFE0E7; }
+body.theme-winter .settings-open-btn:active { background: #F6EBF0; }
+body.theme-winter .preset-chip { background: linear-gradient(160deg, rgba(255,255,255,0.9) 0%, rgba(246,235,240,0.75) 100%); box-shadow: inset 0 1px 2px rgba(255,255,255,1), inset 0 -1px 2px rgba(107,36,64,0.1), 0 3px 8px rgba(107,36,64,0.16), 0 1px 2px rgba(0,0,0,0.06); }
+body.theme-winter .preset-chip:active { background: linear-gradient(135deg, #8A3354, #6B2440); }
+body.theme-winter .edit-toggle-btn { box-shadow: 0 1px 4px rgba(107,36,64,0.15); }
+body.theme-winter .app.edit-mode .edit-toggle-btn { background: linear-gradient(135deg, #8A3354, #6B2440); box-shadow: 0 3px 10px rgba(107,36,64,0.4); }
+body.theme-winter { background-color: #FBF6F0; }
+body.theme-winter .sticky-top { background: #A85478; }
+body.theme-winter .seasonal-banner { background: linear-gradient(135deg, #A85478 0%, #8A3354 100%) !important; box-shadow: 0 3px 14px rgba(107,36,64,0.3) !important; -webkit-tap-highlight-color: rgba(107,36,64,0.18) !important; }
+body.theme-winter .seasonal-banner:hover,
+body.theme-winter .seasonal-banner:active { box-shadow: 0 5px 18px rgba(107,36,64,0.42) !important; }
+body.theme-winter .cozyvibe-banner { background: linear-gradient(135deg, #F6EBF0 0%, #EBD0DA 100%) !important; border-color: rgba(107,36,64,0.22) !important; }
+body.theme-winter .cozyvibe-banner-title { color: #6B2440 !important; }
+body.theme-winter .cozyvibe-banner-sub { color: #93847A !important; }
+body.theme-winter .cozyvibe-banner-arrow { color: #6B2440 !important; }
+
+/* 4-Design-Variante (Pink / Cozy / Blau / Beere) — 2×2-Raster */
+.gender-options-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.gender-options-4 .gender-btn {
+  padding: 16px 12px;
+  width: 100%;
+}
+
 body.theme-boy .legal-footer a {
   color: #42a5f5 !important;
 }

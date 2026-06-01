@@ -61,6 +61,7 @@ const TRANSLATIONS = {
     vibePink: 'Pink',
     vibeCozy: 'Cozy',
     vibeBlue: 'Blau',
+    vibeWinter: 'Beere',
     beardCare: 'Bart & Rasur',
     boyGrooming: 'Grooming',
     my: 'Meine',
@@ -175,6 +176,7 @@ const TRANSLATIONS = {
     vibePink: 'Pink',
     vibeCozy: 'Cozy',
     vibeBlue: 'Blue',
+    vibeWinter: 'Berry',
     beardCare: 'Beard & Shaving',
     boyGrooming: 'Grooming',
     termsBtn: 'Terms & Privacy',
@@ -1338,8 +1340,9 @@ function setTheme(t) {
 function applyThemeClasses(theme) {
   if (theme === 'girl') theme = 'pink';
   if (theme === 'boy')  theme = 'blue';
-  document.body.classList.toggle('theme-boy',  theme === 'blue');  // blaues Design
-  document.body.classList.toggle('theme-cozy', theme === 'cozy');
+  document.body.classList.toggle('theme-boy',    theme === 'blue');   // blaues Design
+  document.body.classList.toggle('theme-cozy',   theme === 'cozy');
+  document.body.classList.toggle('theme-winter', theme === 'winter');
 }
 
 // Optik + Inhalt komplett anwenden (liest Geschlecht + Design aus dem Speicher)
