@@ -245,9 +245,12 @@ body {
   top: 0;
   z-index: 100;
   box-shadow: 0 4px 20px var(--shadow);
-  /* Hintergrundfarbe füllt den Status-Bar-Bereich (Dynamic Island / Notch) */
+  /* Hintergrundfarbe füllt den Status-Bar-Bereich (Dynamic Island / Notch)
+     UND die Ränder um den Saison-Banner. Muss je Design umfärben! */
   background: #f9a8c9;
 }
+body.theme-boy  .sticky-top { background: #90caf9; }  /* Blau */
+body.theme-cozy .sticky-top { background: #F8C76B; }  /* Gold (CozyVibe) */
 
 /* ===== Header ===== */
 .header {

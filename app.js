@@ -1401,6 +1401,7 @@ function applyGenderContent() {
   setFirstTextNode(document.getElementById('resetBtn'),      isBoy ? '🔄'  : '🌸');
   setFirstTextNode(document.getElementById('resetAllBtn'),   isBoy ? '🗑️' : '💫');
   setFirstTextNode(document.getElementById('termineOpenBtn'),isBoy ? '📅'  : '💜');
+  // (Tab-Emojis für Buben werden weiter unten gesetzt, siehe tabEmojis)
 
   // "Los geht's" Button im Onboarding
   const obFinish = document.getElementById('obFinish');
@@ -1647,10 +1648,21 @@ function initOnboarding() {
         document.querySelectorAll('#ob-step1b .gender-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
         selectedGender = btn.dataset.value;
+        const boy = selectedGender === 'boy';
         // Standard-Design passend zum Geschlecht vorschlagen (Bub → Blau, sonst Pink)
-        if (selectedGender === 'boy' && selectedTheme === 'pink') selectedTheme = 'blue';
+        if (boy && selectedTheme === 'pink') selectedTheme = 'blue';
         setGender(selectedGender);
         updateHairEmojisForGender(selectedGender);
+        // "Los geht's"-Button sofort anpassen (Bub ⚡ statt 🌸) – sonst sieht
+        // ein Bub im Onboarding noch die Blume.
+        TRANSLATIONS.de.letsGo = boy ? "Los geht's! ⚡" : "Los geht's! 🌸";
+        TRANSLATIONS.en.letsGo = boy ? "Let's go! ⚡"   : "Let's go! 🌸";
+        // Haar-Schritt-Emojis ebenfalls geschlechtsgerecht
+        const obStep2Emoji = document.querySelector('#ob-step2 .onboarding-emoji');
+        const obStep3Emoji = document.querySelector('#ob-step3 .onboarding-emoji');
+        if (obStep2Emoji) obStep2Emoji.textContent = boy ? '💇‍♂️' : '💇‍♀️';
+        if (obStep3Emoji) obStep3Emoji.textContent = boy ? '💈' : '✂️';
+        try { applyTranslations(); } catch (e) {}
       });
     });
     document.getElementById('obNext1b').addEventListener('click', () => {
