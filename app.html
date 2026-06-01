@@ -116,25 +116,44 @@
         </div>
 
         <!-- Schritt 1b: Geschlecht -->
+        <!-- Schritt 1b: Geschlecht (bestimmt die Routinen-Inhalte) -->
         <div class="ob-step" id="ob-step1b" style="display:none">
-          <div class="onboarding-emoji" id="genderEmoji">✨</div>
+          <div class="onboarding-emoji" id="genderEmoji">🪞</div>
+          <h2 class="onboarding-title" data-tr="genderTitle"></h2>
+          <p class="onboarding-text" data-tr="genderHint"></p>
+          <div class="gender-options">
+            <button class="gender-btn selected" data-value="girl">
+              <span class="gender-icon">👧</span>
+              <span data-tr="girl"></span>
+            </button>
+            <button class="gender-btn" data-value="boy">
+              <span class="gender-icon">👦</span>
+              <span data-tr="boy"></span>
+            </button>
+          </div>
+          <button class="name-save-btn" id="obNext1b" data-tr="next"></button>
+        </div>
+
+        <!-- Schritt 1c: Design / Vibe (nur Optik) -->
+        <div class="ob-step" id="ob-step1c" style="display:none">
+          <div class="onboarding-emoji">🎨</div>
           <h2 class="onboarding-title" data-tr="designTitle"></h2>
           <p class="onboarding-text" data-tr="designHint"></p>
           <div class="gender-options gender-options-3">
-            <button class="gender-btn selected" id="vibePink" data-value="pink">
+            <button class="gender-btn design-btn selected" data-value="pink">
               <span class="gender-icon">🌸</span>
               <span data-tr="vibePink"></span>
             </button>
-            <button class="gender-btn" id="vibeCozy" data-value="cozy">
+            <button class="gender-btn design-btn" data-value="cozy">
               <span class="gender-icon">🍑</span>
               <span data-tr="vibeCozy"></span>
             </button>
-            <button class="gender-btn" id="vibeBoy" data-value="boy">
+            <button class="gender-btn design-btn" data-value="blue">
               <span class="gender-icon">💙</span>
               <span data-tr="vibeBlue"></span>
             </button>
           </div>
-          <button class="name-save-btn" id="obNext1b" data-tr="next"></button>
+          <button class="name-save-btn" id="obNext1c" data-tr="next"></button>
         </div>
 
         <!-- Schritt 2: Haarfarbe -->
@@ -428,19 +447,34 @@
       <div class="modal settings-modal">
         <h3 class="modal-title">⚙️ <span data-tr="settings"></span></h3>
 
-        <!-- Design / Vibe -->
+        <!-- Geschlecht (bestimmt die Routinen) -->
+        <div class="settings-section">
+          <div class="settings-label">🪞 <span data-tr="genderTitle"></span></div>
+          <div class="gender-options settings-gender">
+            <button class="gender-btn" data-value="girl">
+              <span class="gender-icon">👧</span>
+              <span data-tr="girl"></span>
+            </button>
+            <button class="gender-btn" data-value="boy">
+              <span class="gender-icon">👦</span>
+              <span data-tr="boy"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Design / Vibe (nur Optik) -->
         <div class="settings-section">
           <div class="settings-label">🎨 <span data-tr="designTitle"></span></div>
-          <div class="gender-options gender-options-3 settings-gender">
-            <button class="gender-btn" id="settingsVibePink" data-value="pink">
+          <div class="gender-options gender-options-3 settings-design">
+            <button class="gender-btn design-btn" data-value="pink">
               <span class="gender-icon">🌸</span>
               <span data-tr="vibePink"></span>
             </button>
-            <button class="gender-btn" id="settingsVibeCozy" data-value="cozy">
+            <button class="gender-btn design-btn" data-value="cozy">
               <span class="gender-icon">🍑</span>
               <span data-tr="vibeCozy"></span>
             </button>
-            <button class="gender-btn" id="settingsVibeBoy" data-value="boy">
+            <button class="gender-btn design-btn" data-value="blue">
               <span class="gender-icon">💙</span>
               <span data-tr="vibeBlue"></span>
             </button>
