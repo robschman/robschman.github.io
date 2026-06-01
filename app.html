@@ -76,6 +76,23 @@
   </script>
 </head>
 <body>
+  <!-- Theme SOFORT setzen (vor dem ersten Rendern) — verhindert Rosa-Blitzen
+       beim Refresh, bevor app.js geladen ist. -->
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('routine_theme');
+        if (!t) { t = (localStorage.getItem('routine_gender') === 'boy') ? 'blue' : 'pink'; }
+        if (t === 'girl') t = 'pink';
+        if (t === 'boy')  t = 'blue';
+        var c = document.body.classList;
+        if (t === 'blue')        c.add('theme-boy');
+        else if (t === 'cozy')   c.add('theme-cozy');
+        else if (t === 'winter') c.add('theme-winter');
+      } catch (e) {}
+    })();
+  </script>
+
   <div class="app">
 
     <!-- Onboarding -->

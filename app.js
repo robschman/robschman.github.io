@@ -2272,16 +2272,20 @@ document.addEventListener('DOMContentLoaded', init);
   let indicator = null;
 
   function getPtr() {
-    const isBoy = getGender() === 'boy';
+    // Pull-to-Refresh-Optik je nach Design (nicht Geschlecht)
+    const theme = getTheme();  // 'pink' | 'cozy' | 'blue' | 'winter'
+    const V = {
+      pink:   { bg:'linear-gradient(135deg, rgba(255,182,214,0.95), rgba(255,255,255,0.95))', color:'#c2185b', shadow:'0 4px 20px rgba(233,30,140,0.25), 0 0 0 1.5px rgba(233,30,140,0.15)', emoji:'🌸' },
+      blue:   { bg:'linear-gradient(135deg, rgba(144,202,249,0.95), rgba(255,255,255,0.95))', color:'#1565c0', shadow:'0 4px 20px rgba(30,136,229,0.25), 0 0 0 1.5px rgba(30,136,229,0.15)', emoji:'⚡' },
+      cozy:   { bg:'linear-gradient(135deg, rgba(248,199,107,0.95), rgba(255,255,255,0.95))', color:'#BD6C0A', shadow:'0 4px 20px rgba(189,108,10,0.25), 0 0 0 1.5px rgba(189,108,10,0.15)', emoji:'🍑' },
+      winter: { bg:'linear-gradient(135deg, rgba(168,84,120,0.92), rgba(255,255,255,0.95))', color:'#6B2440', shadow:'0 4px 20px rgba(107,36,64,0.25), 0 0 0 1.5px rgba(107,36,64,0.15)', emoji:'🫐' },
+    };
+    const v = V[theme] || V.pink;
     return {
-      bg:     isBoy ? 'linear-gradient(135deg, rgba(144,202,249,0.95), rgba(255,255,255,0.95))'
-                    : 'linear-gradient(135deg, rgba(255,182,214,0.95), rgba(255,255,255,0.95))',
-      color:  isBoy ? '#1565c0' : '#c2185b',
-      shadow: isBoy ? '0 4px 20px rgba(30,136,229,0.25), 0 0 0 1.5px rgba(30,136,229,0.15)'
-                    : '0 4px 20px rgba(233,30,140,0.25), 0 0 0 1.5px rgba(233,30,140,0.15)',
-      pull:   isBoy ? '⚡ Zum Aktualisieren ziehen' : '🌸 Zum Aktualisieren ziehen',
-      ready:  isBoy ? '⚡ Loslassen zum Aktualisieren' : '💜 Loslassen zum Aktualisieren',
-      done:   isBoy ? '🔄 Wird aktualisiert…' : '✨ Wird aktualisiert…',
+      bg: v.bg, color: v.color, shadow: v.shadow,
+      pull:  `${v.emoji} Zum Aktualisieren ziehen`,
+      ready: `${v.emoji} Loslassen zum Aktualisieren`,
+      done:  '🔄 Wird aktualisiert…',
     };
   }
 
