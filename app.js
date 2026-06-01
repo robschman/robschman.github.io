@@ -56,6 +56,11 @@ const TRANSLATIONS = {
     genderHint: 'Das passt das Design an',
     girl: 'Mädchen',
     boy: 'Bub',
+    designTitle: 'Dein Style?',
+    designHint: 'Wähle dein Lieblings-Design – jederzeit änderbar',
+    vibePink: 'Pink',
+    vibeCozy: 'Cozy',
+    vibeBlue: 'Blau',
     beardCare: 'Bart & Rasur',
     boyGrooming: 'Grooming',
     my: 'Meine',
@@ -165,6 +170,11 @@ const TRANSLATIONS = {
     genderHint: 'This adapts the design',
     girl: 'Girl',
     boy: 'Boy',
+    designTitle: 'Your style?',
+    designHint: 'Pick your favourite look – changeable anytime',
+    vibePink: 'Pink',
+    vibeCozy: 'Cozy',
+    vibeBlue: 'Blue',
     beardCare: 'Beard & Shaving',
     boyGrooming: 'Grooming',
     termsBtn: 'Terms & Privacy',
@@ -1297,21 +1307,53 @@ function updateHairEmojisForGender(gender) {
   });
 }
 
-// ===== THEME =====
-function applyTheme(gender) {
+// ===== THEME / VIBE =====
+// 3 Vibes: 'pink' (Mädchen-Inhalt + pink), 'cozy' (Mädchen-Inhalt + Cream/Gold),
+//          'boy' (Buben-Inhalt + blau).
+// 'gender' (Haar-Emojis/Inhalt) wird aus dem Vibe abgeleitet: boy → boy, sonst girl.
+
+// Wandelt einen Vibe in das Inhalts-Geschlecht um
+function themeToGender(theme) {
+  return theme === 'boy' ? 'boy' : 'girl';
+}
+
+function applyTheme(theme) {
+  // Rückwärtskompatibel: alte Werte 'girl'/'boy' weiter akzeptieren
+  if (theme === 'girl') theme = 'pink';
+  const gender = themeToGender(theme);
   const isBoy = gender === 'boy';
   // Update letsGo translation dynamically
   TRANSLATIONS.de.letsGo = isBoy ? "Los geht's! ⚡" : "Los geht's! 🌸";
   TRANSLATIONS.en.letsGo = isBoy ? "Let's go! ⚡"   : "Let's go! 🌸";
-  document.body.classList.toggle('theme-boy', isBoy);
+  document.body.classList.toggle('theme-boy',  theme === 'boy');
+  document.body.classList.toggle('theme-cozy', theme === 'cozy');
   applyGenderContent();
   updateHairEmojisForGender(gender);
   renderAll();
   renderTips();
 }
 
+// Liefert den aktiven Vibe ('pink' | 'cozy' | 'boy').
+// Migriert sanft von altem routine_gender.
+function getTheme() {
+  let t = store.get('routine_theme');
+  if (!t) {
+    const g = store.get('routine_gender');
+    t = (g === 'boy') ? 'boy' : 'pink';
+  }
+  return t;
+}
+
+// Speichert den Vibe + schreibt routine_gender mit (für Unterseiten-Skripte,
+// die noch routine_gender==='boy' prüfen).
+function setTheme(theme) {
+  if (theme === 'girl') theme = 'pink';
+  store.set('routine_theme', theme);
+  store.set('routine_gender', themeToGender(theme));
+}
+
 function getGender() {
-  return store.get('routine_gender') || 'girl';
+  return themeToGender(getTheme());
 }
 
 function applyGenderContent() {
@@ -1473,9 +1515,9 @@ function showGreeting(name) {
 function openSettings() {
   document.getElementById('settingsName').value = getUsername();
 
-  const gender = getGender();
+  const theme = getTheme();
   document.querySelectorAll('.settings-gender .gender-btn').forEach(btn => {
-    btn.classList.toggle('selected', btn.dataset.value === gender);
+    btn.classList.toggle('selected', btn.dataset.value === theme);
   });
 
   const color = store.get('routine_haircolor') || '';
@@ -1510,10 +1552,10 @@ function saveSettings() {
   const selLength = document.querySelector('#settingsHairLength .ob-option.selected');
   const newLength = selLength ? selLength.dataset.value : '';
 
-  const selGender = document.querySelector('.settings-gender .gender-btn.selected');
-  const newGender = selGender ? selGender.dataset.value : getGender();
-  store.set('routine_gender', newGender);
-  applyTheme(newGender);
+  const selTheme = document.querySelector('.settings-gender .gender-btn.selected');
+  const newTheme = selTheme ? selTheme.dataset.value : getTheme();
+  setTheme(newTheme);
+  applyTheme(newTheme);
 
   if (name) saveUsername(name);
   store.set('routine_lang',       newLang);
@@ -1574,8 +1616,8 @@ function initOnboarding() {
       });
     });
 
-    // ---- Step 1 → 1b (Gender) ----
-    let selectedGender = 'girl';
+    // ---- Step 1 → 1b (Vibe-Auswahl) ----
+    let selectedTheme = 'pink';  // 'pink' | 'cozy' | 'boy'
     const goStep1b = () => {
       if (!document.getElementById('nameInput').value.trim()) {
         document.getElementById('nameInput').focus();
@@ -1589,14 +1631,14 @@ function initOnboarding() {
       if (e.key === 'Enter') goStep1b();
     });
 
-    // ---- Step 1b: Gender selection ----
+    // ---- Step 1b: Vibe-Auswahl (Pink / Cozy / Blau) ----
     document.querySelectorAll('#ob-step1b .gender-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('#ob-step1b .gender-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
-        selectedGender = btn.dataset.value;
-        applyTheme(selectedGender);
-        updateHairEmojisForGender(selectedGender);
+        selectedTheme = btn.dataset.value;
+        applyTheme(selectedTheme);
+        updateHairEmojisForGender(themeToGender(selectedTheme));
       });
     });
     document.getElementById('obNext1b').addEventListener('click', () => {
@@ -1635,10 +1677,10 @@ function initOnboarding() {
       saveUsername(val);
       store.set('routine_haircolor',  selectedColor);
       store.set('routine_hairlength', selectedLength);
-      store.set('routine_gender', selectedGender);
+      setTheme(selectedTheme);
       applyHairProfile();
       screen.classList.remove('show');
-      applyTheme(selectedGender);
+      applyTheme(selectedTheme);
       showGreeting(val);
       renderAll();
       updateProgress();
@@ -1655,8 +1697,11 @@ function initOnboarding() {
 function init() {
   loadPersisted();
   currentLang = store.get('routine_lang') || 'de';
-  // Theme sofort anwenden (vor allem anderen) – verhindert Boy-Modus Flackern nach Reload
-  document.body.classList.toggle('theme-boy', getGender() === 'boy');
+  // Theme sofort anwenden (vor allem anderen) – verhindert Theme-Flackern nach Reload
+  (function(){ const t = getTheme();
+    document.body.classList.toggle('theme-boy',  t === 'boy');
+    document.body.classList.toggle('theme-cozy', t === 'cozy');
+  })();
   try { applyTranslations(); } catch(e) { console.error('Translation init error:', e); updateDate(); }
   updateDate();
   initOnboarding();
@@ -1746,7 +1791,7 @@ function init() {
   // Termine
   loadTermine();
   updateTodayBadge();
-  applyTheme(getGender());
+  applyTheme(getTheme());
   setTimeout(() => { fitLogoText(); fitGreetingText(); }, 50);
   document.getElementById('termineOpenBtn').addEventListener('click', openTermineOverlay);
   document.getElementById('termineCloseBtn').addEventListener('click', closeTermineOverlay);

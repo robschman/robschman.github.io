@@ -1837,6 +1837,17 @@ body.theme-boy .cozyvibe-banner-arrow {
   margin: 16px 0;
 }
 
+/* 3-Vibe-Variante (Pink / Cozy / Blau) – schmaler, damit 3 nebeneinander passen */
+.gender-options-3 {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.gender-options-3 .gender-btn {
+  padding: 16px 12px;
+  flex: 1 1 0;
+  min-width: 84px;
+}
+
 .gender-btn {
   display: flex;
   flex-direction: column;
@@ -2151,6 +2162,218 @@ body.theme-boy body,
 body.theme-boy {
   background-color: #f0f8ff;
 }
+
+/* ============================================================
+   THEME: COZY (Cream + Gold — CozyVibe Sub-Brand)
+   Warmer, reifer Look für 25-44. Gespiegelt nach theme-boy-Muster.
+   ============================================================ */
+body.theme-cozy {
+  --pink:        #EF9320;   /* CozyVibe primary gold */
+  --pink-light:  #FEF5E0;   /* primary-tint */
+  --pink-mid:    #BD6C0A;   /* primary-strong */
+  --purple:      #E8A93C;   /* warm gold accent */
+  --bg:          #FBF6F0;   /* cream canvas */
+  --card:        #FFFFFF;
+  --text:        #3B302A;   /* warm espresso ink */
+  --text-soft:   #93847A;   /* muted */
+  --border:      #EBDDCD;   /* warm hairline */
+  --shadow:      rgba(189, 108, 10, 0.18);
+}
+
+body.theme-cozy .header {
+  background: linear-gradient(140deg, #F8C76B 0%, #EF9320 48%, #BD6C0A 100%);
+}
+body.theme-cozy .tab.active {
+  background: linear-gradient(135deg, #EF9320, #BD6C0A);
+  box-shadow: 0 3px 12px rgba(189,108,10,0.34);
+}
+body.theme-cozy .tab:not(.active) {
+  background: linear-gradient(135deg, rgba(239,147,32,0.14), rgba(189,108,10,0.18));
+  color: #BD6C0A;
+}
+body.theme-cozy #progressBar {
+  background: linear-gradient(90deg, #FBD274, #EF9320);
+}
+body.theme-cozy .section-header {
+  background: linear-gradient(135deg, #F8C76B, #EF9320);
+}
+body.theme-cozy .checklist-item:hover { background: #FEF5E0; }
+body.theme-cozy .item-check { border-color: #E8A93C; }
+body.theme-cozy .checklist-item.done .item-check {
+  background: linear-gradient(135deg, #EF9320, #BD6C0A);
+  border-color: #BD6C0A;
+}
+body.theme-cozy .reset-btn {
+  background: linear-gradient(135deg, #F8C76B, #EF9320);
+  box-shadow: 0 4px 16px rgba(189,108,10,0.34);
+}
+body.theme-cozy .reset-all-btn {
+  background: linear-gradient(135deg, #EF9320, #9C5408);
+  box-shadow: 0 4px 16px rgba(156,84,8,0.34);
+}
+body.theme-cozy .termine-btn {
+  background: linear-gradient(135deg, #E8A93C, #BD6C0A);
+  box-shadow: 0 4px 16px rgba(189,108,10,0.34);
+}
+body.theme-cozy .today-badge,
+body.theme-cozy .date-today-badge {
+  background: linear-gradient(135deg, #F8C76B, #EF9320);
+  box-shadow: 0 2px 10px rgba(239,147,32,0.5);
+}
+body.theme-cozy .tip-bubble {
+  background: linear-gradient(145deg, #FEF5E0 0%, #FCEFCC 55%, #FCE9C2 100%);
+  border-color: rgba(251,210,116,0.85);
+  box-shadow: 0 6px 22px rgba(189,108,10,0.12), inset 0 1px 4px rgba(255,255,255,0.95);
+}
+body.theme-cozy .tip-bubble:nth-child(2) {
+  background: linear-gradient(145deg, #FCEFCC 0%, #FEF5E0 55%, #FCE9C2 100%);
+}
+body.theme-cozy .tip-bubble:nth-child(3) {
+  background: linear-gradient(145deg, #FDF6E3 0%, #FCEFCC 55%, #F8E6BE 100%);
+}
+body.theme-cozy .tip-bubble::before,
+body.theme-cozy .tip-bubble::after {
+  background: linear-gradient(145deg, #FEF5E0, #FCE9C2);
+  border-color: rgba(251,210,116,0.85);
+  box-shadow: 0 3px 8px rgba(189,108,10,0.1);
+}
+body.theme-cozy .checklist-item { border-bottom-color: #F0E4D7; }
+body.theme-cozy .gender-btn.selected {
+  border-color: #BD6C0A;
+  background: linear-gradient(135deg, #FEF5E0, #FCE9C2);
+  color: #BD6C0A;
+  box-shadow: 0 4px 16px rgba(189,108,10,0.26);
+}
+body.theme-cozy .name-save-btn {
+  background: linear-gradient(135deg, #EF9320, #BD6C0A);
+  box-shadow: 0 4px 16px rgba(189,108,10,0.34);
+}
+body.theme-cozy .ob-option.selected {
+  border-color: #BD6C0A;
+  background: linear-gradient(135deg, #FEF5E0, #FCE9C2);
+  color: #BD6C0A;
+}
+body.theme-cozy .onboarding {
+  background: linear-gradient(160deg, #FBF6F0 0%, #FCE9C2 50%, #EF9320 100%);
+}
+body.theme-cozy .termine-header {
+  background: linear-gradient(140deg, #F8C76B 0%, #EF9320 45%, #BD6C0A 100%);
+}
+body.theme-cozy .termin-soon {
+  background: linear-gradient(135deg, #FEF5E0, #FCE9C2);
+  border-color: #BD6C0A;
+}
+body.theme-cozy .termin-soon .termin-datetime { color: #BD6C0A; }
+body.theme-cozy .termin-past { background: #F7F3EE; border-color: #E6DDD0; }
+body.theme-cozy .termin-emoji {
+  background: linear-gradient(135deg, #FEF5E0, #FCEFCC);
+}
+body.theme-cozy .termin-datetime { color: #BD6C0A; }
+body.theme-cozy .termin-action-btn { background: #FEF5E0; }
+body.theme-cozy .add-termin-fab {
+  background: linear-gradient(135deg, #EF9320, #BD6C0A);
+  box-shadow: 0 6px 20px rgba(189,108,10,0.4);
+}
+body.theme-cozy .termin-preset-chip {
+  background: linear-gradient(160deg, rgba(255,255,255,0.9), rgba(254,245,224,0.75));
+  border-color: #F8C76B;
+  color: #BD6C0A;
+}
+body.theme-cozy .termin-preset-chip:active {
+  background: linear-gradient(135deg, #EF9320, #BD6C0A);
+}
+body.theme-cozy .termin-card {
+  border-color: #EBDDCD;
+  box-shadow: 0 2px 10px rgba(189,108,10,0.1);
+}
+body.theme-cozy .settings-lang-btn.active {
+  background: linear-gradient(135deg, #FEF5E0, #FCE9C2);
+  border-color: #BD6C0A;
+  color: #BD6C0A;
+}
+body.theme-cozy .settings-lang-btn { border-color: #EBDDCD; }
+body.theme-cozy .settings-section { border-bottom-color: #EBDDCD; }
+body.theme-cozy .settings-label { color: #93847A; }
+body.theme-cozy .modal-save {
+  background: linear-gradient(135deg, #EF9320, #BD6C0A);
+}
+body.theme-cozy .settings-input,
+body.theme-cozy .name-input { border-color: #EBDDCD; }
+body.theme-cozy .settings-input:focus,
+body.theme-cozy .name-input:focus {
+  border-color: #EF9320;
+  box-shadow: 0 0 0 3px rgba(239,147,32,0.15);
+}
+body.theme-cozy .ob-option {
+  border-color: #EBDDCD;
+  box-shadow: 0 2px 8px rgba(189,108,10,0.07) !important;
+}
+body.theme-cozy .ob-option:hover {
+  border-color: #F8C76B;
+  background: #FEF5E0;
+}
+body.theme-cozy .gender-btn {
+  border-color: #EBDDCD;
+  color: #93847A;
+}
+body.theme-cozy .modal-overlay.open > .modal {
+  box-shadow: 0 8px 40px rgba(189,108,10,0.16);
+}
+body.theme-cozy .tabs {
+  background: linear-gradient(135deg, #FEF5E0 0%, #FCE9C2 100%);
+  border-bottom-color: #F8C76B;
+}
+body.theme-cozy .footer {
+  background: linear-gradient(135deg, rgba(254,245,224,0.97) 0%, rgba(252,233,194,0.97) 100%);
+  border-top-color: #F8C76B;
+}
+body.theme-cozy .modal-overlay {
+  background: rgba(94, 53, 8, 0.32);
+}
+body.theme-cozy .settings-open-btn {
+  box-shadow: 0 2px 12px rgba(189,108,10,0.13);
+  border-color: #EBDDCD;
+}
+body.theme-cozy .settings-open-btn:active { background: #FEF5E0; }
+body.theme-cozy .preset-chip {
+  background: linear-gradient(160deg, rgba(255,255,255,0.9) 0%, rgba(254,245,224,0.75) 100%);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,1),
+    inset 0 -1px 2px rgba(189,108,10,0.1),
+    0 3px 8px rgba(189,108,10,0.16),
+    0 1px 2px rgba(0,0,0,0.06);
+}
+body.theme-cozy .preset-chip:active {
+  background: linear-gradient(135deg, #EF9320, #BD6C0A);
+}
+body.theme-cozy .edit-toggle-btn {
+  box-shadow: 0 1px 4px rgba(189,108,10,0.15);
+}
+body.theme-cozy .app.edit-mode .edit-toggle-btn {
+  background: linear-gradient(135deg, #EF9320, #BD6C0A);
+  box-shadow: 0 3px 10px rgba(189,108,10,0.4);
+}
+body.theme-cozy {
+  background-color: #FBF6F0;
+}
+
+/* CozyVibe-Theme: Banner-Überschreibungen (gold) */
+body.theme-cozy .seasonal-banner {
+  background: linear-gradient(135deg, #F8C76B 0%, #EF9320 100%) !important;
+  box-shadow: 0 3px 14px rgba(189,108,10,0.3) !important;
+  -webkit-tap-highlight-color: rgba(189,108,10,0.18) !important;
+}
+body.theme-cozy .seasonal-banner:hover,
+body.theme-cozy .seasonal-banner:active {
+  box-shadow: 0 5px 18px rgba(189,108,10,0.42) !important;
+}
+body.theme-cozy .cozyvibe-banner {
+  background: linear-gradient(135deg, #FEF5E0 0%, #FCE9C2 100%) !important;
+  border-color: rgba(189,108,10,0.22) !important;
+}
+body.theme-cozy .cozyvibe-banner-title { color: #BD6C0A !important; }
+body.theme-cozy .cozyvibe-banner-sub { color: #93847A !important; }
+body.theme-cozy .cozyvibe-banner-arrow { color: #BD6C0A !important; }
 
 body.theme-boy .legal-footer a {
   color: #42a5f5 !important;
