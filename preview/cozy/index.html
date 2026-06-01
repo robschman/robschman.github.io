@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="de" data-season="summer">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CozyVibe Beauty — Ehrliche Skincare-Tipps · Alltagstauglich</title>
+<meta name="description" content="Ehrliche Skincare-Tipps für Alltag und Wohlbefinden. Sonnenschutz, Anti-Aging, Wirkstoffe einfach erklärt — kostenlos, ohne Marketing-Bla. Plus optionale Beauty-Routine App.">
+<meta name="robots" content="noindex,nofollow"> <!-- Preview only — nicht in Google -->
+
+<!-- CozyVibe Design Tokens -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Mulish:wght@300;400;500;600;700&family=Marcellus&display=swap');
+
+  :root {
+    --font-display: 'Dancing Script', cursive;
+    --font-body: 'Mulish', system-ui, sans-serif;
+    --font-accent: 'Marcellus', serif;
+
+    /* Neutral Cream Base */
+    --cream: #FBF6F0;
+    --surface: #FFFFFF;
+    --surface-2: #F6EDE3;
+    --surface-3: #F0E4D7;
+    --border: #EBDDCD;
+    --border-strong: #DBC7B2;
+    --ink: #3B302A;
+    --text: #574B43;
+    --text-muted: #93847A;
+    --text-faint: #B7A99D;
+
+    /* Summer Accents (Sommer-Gold, matched zu Pinterest-Logo) */
+    --primary: #EF9320;
+    --primary-strong: #BD6C0A;
+    --primary-soft: #FCE9C2;
+    --primary-tint: #FEF5E0;
+    --primary-glow: rgba(239, 147, 32, 0.4);
+    --accent: #FBD274;
+    --accent-soft: #FFF1D6;
+    --deep: #5E3508;
+
+    --shadow-ink: 64, 38, 24;
+    --shadow-subtle: 0 1px 2px rgba(var(--shadow-ink),0.06), 0 1px 1px rgba(var(--shadow-ink),0.04);
+    --shadow-soft: 0 6px 18px -8px rgba(var(--shadow-ink),0.14), 0 2px 6px -2px rgba(var(--shadow-ink),0.08);
+    --shadow-medium: 0 18px 40px -14px rgba(var(--shadow-ink),0.22), 0 4px 12px -4px rgba(var(--shadow-ink),0.10);
+    --shadow-glow: 0 10px 34px -8px var(--primary-glow);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--primary-strong); text-decoration: none; transition: color .15s ease; }
+  a:hover { color: var(--deep); }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .lbl { font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.78rem; }
+  .scr { font-family: var(--font-display); font-weight: 700; }
+
+  /* ───── NAV ───────────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(251, 246, 240, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+  }
+  .nav-inner {
+    max-width: 1180px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-logo-img { width: 40px; height: 40px; border-radius: 50%; box-shadow: var(--shadow-subtle); }
+  .nav-name { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--ink); line-height: 1; }
+  .nav-name + .nav-sub { font-family: var(--font-accent); font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .nav-pinterest {
+    font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--text-muted); padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px;
+    transition: all .15s ease;
+  }
+  .nav-pinterest:hover { color: var(--primary-strong); border-color: var(--primary); }
+
+  /* ───── HERO ──────────────────────────────────────────── */
+  .hero {
+    padding: 80px 0 100px;
+    background: radial-gradient(120% 100% at 50% 0%, var(--primary-tint), var(--cream) 70%);
+    position: relative; overflow: hidden;
+  }
+  .hero-inner { text-align: center; position: relative; z-index: 2; max-width: 820px; margin: 0 auto; }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--surface); border: 1px solid var(--primary);
+    color: var(--primary-strong);
+    padding: 8px 18px; border-radius: 999px;
+    font-family: var(--font-accent); font-size: 0.74rem; letter-spacing: 0.28em; text-transform: uppercase;
+    box-shadow: var(--shadow-subtle); margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(3rem, 7vw, 5.2rem); line-height: 0.96; color: var(--ink);
+    margin-bottom: 24px;
+    text-shadow: 0 2px 24px rgba(255,235,210,0.6);
+  }
+  .hero h1 em { font-style: normal; color: var(--primary-strong); }
+  .hero-lead {
+    font-size: 1.3rem; line-height: 1.5; color: var(--text); margin-bottom: 48px;
+    max-width: 640px; margin-left: auto; margin-right: auto;
+  }
+  .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 32px; border-radius: 999px;
+    font-family: var(--font-accent); font-size: 0.86rem; letter-spacing: 0.18em; text-transform: uppercase;
+    cursor: pointer; border: none; text-decoration: none;
+    transition: all .2s ease;
+  }
+  .btn-primary {
+    background: linear-gradient(155deg, var(--primary), var(--primary-strong));
+    color: #fff; box-shadow: var(--shadow-glow);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px -10px var(--primary-glow); color: #fff; }
+  .btn-ghost {
+    background: var(--surface); border: 1px solid var(--border-strong); color: var(--ink);
+    box-shadow: var(--shadow-subtle);
+  }
+  .btn-ghost:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+  .hero-deco {
+    position: absolute; pointer-events: none; font-size: 1.4rem;
+    color: var(--primary); opacity: 0.7;
+  }
+  .hero-deco-1 { top: 18%; left: 12%; }
+  .hero-deco-2 { top: 28%; right: 16%; font-size: 1.8rem; }
+  .hero-deco-3 { bottom: 18%; left: 22%; font-size: 1.2rem; }
+
+  /* ───── SECTION HEADER ───────────────────────────────── */
+  section { padding: 80px 0; position: relative; }
+  .sec-head { text-align: center; margin-bottom: 60px; }
+  .sec-eyebrow {
+    display: inline-block;
+    color: var(--primary-strong);
+    font-family: var(--font-accent); font-size: 0.78rem; letter-spacing: 0.32em; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .sec-head h2 {
+    font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.02; color: var(--ink); margin-bottom: 16px;
+  }
+  .sec-head p { font-size: 1.15rem; color: var(--text); max-width: 640px; margin: 0 auto; }
+
+  /* ───── CONTENT CARDS (Magazine) ─────────────────────── */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+  .article-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 36px 32px;
+    box-shadow: var(--shadow-soft);
+    transition: all .25s ease;
+    position: relative; overflow: hidden;
+  }
+  .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary);
+  }
+  .article-emoji { font-size: 2.2rem; line-height: 1; margin-bottom: 16px; }
+  .article-eyebrow {
+    font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--primary-strong); margin-bottom: 10px;
+  }
+  .article-card h3 {
+    font-family: var(--font-display); font-weight: 700; font-size: 2rem; color: var(--ink);
+    line-height: 1.04; margin-bottom: 14px;
+  }
+  .article-card p {
+    font-size: 1rem; color: var(--text); line-height: 1.55; margin-bottom: 18px;
+  }
+  .article-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-accent); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--primary-strong);
+  }
+  .article-card:hover .article-link { color: var(--deep); }
+
+  /* ───── COZY VIBE BRAND ──────────────────────────────── */
+  .cozy-brand {
+    background: linear-gradient(135deg, var(--surface-2), var(--surface-3));
+    border-radius: 32px;
+    padding: 64px 56px;
+    text-align: center;
+    margin: 60px 0;
+    position: relative; overflow: hidden;
+  }
+  .cozy-brand::before {
+    content: ''; position: absolute; inset: -50% -10% auto auto; width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--primary-soft) 0%, transparent 70%);
+    pointer-events: none; opacity: 0.6;
+  }
+  .cozy-brand-logo {
+    width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 24px;
+    box-shadow: var(--shadow-medium);
+    position: relative; z-index: 2;
+  }
+  .cozy-brand h2 {
+    font-family: var(--font-display); font-weight: 700; font-size: 3rem; color: var(--ink);
+    margin-bottom: 14px; position: relative; z-index: 2;
+  }
+  .cozy-brand p {
+    font-size: 1.15rem; color: var(--text); max-width: 580px; margin: 0 auto 36px;
+    position: relative; z-index: 2;
+  }
+  .cozy-brand-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 28px; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--primary);
+    color: var(--primary-strong);
+    font-family: var(--font-accent); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+    box-shadow: var(--shadow-soft); position: relative; z-index: 2;
+    transition: all .2s ease;
+  }
+  .cozy-brand-cta:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+
+  /* ───── APP IN 3 VIBES ───────────────────────────────── */
+  .vibes-section { background: linear-gradient(180deg, var(--cream), var(--surface-2)); }
+  .vibes-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 980px; margin: 0 auto;
+  }
+  @media (max-width: 768px) { .vibes-grid { grid-template-columns: 1fr; max-width: 360px; } }
+  .vibe-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 28px;
+    padding: 32px 24px; text-align: center; box-shadow: var(--shadow-soft);
+    transition: all .25s ease; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .vibe-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+  .phone-frame {
+    width: 180px; height: 360px; border-radius: 30px;
+    margin-bottom: 24px; position: relative; overflow: hidden;
+    border: 6px solid var(--ink); box-shadow: var(--shadow-medium);
+  }
+  .phone-screen { width: 100%; height: 100%; display: flex; flex-direction: column; }
+  .phone-pink { background: linear-gradient(180deg, #ff80ab 0%, #e91e8c 50%, #a30e5a 100%); }
+  .phone-cozy { background: linear-gradient(180deg, var(--primary-tint), var(--primary-soft) 60%, var(--primary) 100%); }
+  .phone-boy { background: linear-gradient(180deg, #64b5f6 0%, #1e88e5 60%, #0d47a1 100%); }
+  .phone-screen .ph-title {
+    color: #fff; font-family: var(--font-display); font-weight: 700;
+    font-size: 1.8rem; line-height: 1; padding: 32px 16px 4px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .phone-screen .ph-sub {
+    color: rgba(255,255,255,0.85);
+    font-family: var(--font-accent); font-size: 0.5rem; letter-spacing: 0.32em;
+    padding: 0 16px 18px; text-transform: uppercase;
+  }
+  .phone-screen .ph-tabs {
+    display: flex; gap: 6px; padding: 0 12px 12px;
+  }
+  .phone-screen .ph-tab {
+    flex: 1; height: 28px; border-radius: 8px;
+    background: rgba(255,255,255,0.25);
+  }
+  .phone-screen .ph-tab.active { background: rgba(255,255,255,0.7); }
+  .phone-screen .ph-card {
+    margin: 8px 12px; background: rgba(255,255,255,0.65);
+    border-radius: 10px; height: 24px;
+  }
+  .phone-cozy .ph-title { color: var(--ink); text-shadow: 0 2px 8px rgba(255,235,210,0.5); }
+  .phone-cozy .ph-sub { color: var(--deep); }
+  .phone-cozy .ph-tab { background: rgba(94,53,8,0.2); }
+  .phone-cozy .ph-tab.active { background: rgba(94,53,8,0.7); }
+  .phone-cozy .ph-card { background: rgba(255,255,255,0.75); }
+
+  .vibe-name {
+    font-family: var(--font-display); font-weight: 700; font-size: 1.8rem; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .vibe-tag {
+    font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 12px;
+  }
+  .vibe-desc { font-size: 0.95rem; color: var(--text); line-height: 1.45; }
+
+  .vibes-cta { text-align: center; margin-top: 48px; }
+
+  /* ───── FOOTER ───────────────────────────────────────── */
+  footer {
+    background: var(--surface-3);
+    padding: 60px 0 40px; text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .footer-brand {
+    font-family: var(--font-display); font-weight: 700; font-size: 2rem; color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .footer-tagline { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 28px; }
+  .footer-links {
+    display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+    font-family: var(--font-accent); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .footer-links a { color: var(--text-muted); }
+  .footer-links a:hover { color: var(--primary-strong); }
+  .footer-divider { width: 80px; height: 1px; background: var(--border-strong); margin: 0 auto 20px; }
+  .footer-ai { font-size: 0.78rem; color: var(--text-faint); }
+
+  /* ───── PREVIEW BANNER ───────────────────────────────── */
+  .preview-banner {
+    background: linear-gradient(135deg, #ff6b6b, #ee5253);
+    color: #fff; text-align: center; padding: 10px;
+    font-family: var(--font-accent); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 0 80px; }
+    section { padding: 60px 0; }
+    .cozy-brand { padding: 48px 28px; }
+    .nav-right .nav-pinterest { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TEMP Preview-Banner -->
+<div class="preview-banner">✦ Preview Version — CozyVibe Landing Design · noch nicht live ✦</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/cozyvibe-icon.png" alt="CozyVibe" class="nav-logo-img" />
+      <div>
+        <div class="nav-name">CozyVibe</div>
+        <div class="nav-sub">Beauty</div>
+      </div>
+    </a>
+    <div class="nav-right">
+      <a href="https://pinterest.com/cozyvibeapp" target="_blank" rel="noopener" class="nav-pinterest">Pinterest →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-deco hero-deco-1">✦</span>
+  <span class="hero-deco hero-deco-2">🌸</span>
+  <span class="hero-deco hero-deco-3">✧</span>
+
+  <div class="wrap hero-inner">
+    <span class="hero-eyebrow">Cozy Guide · Beauty</span>
+    <h1>Ehrliche Skincare-Tipps,<br>die <em>wirklich</em> passen.</h1>
+    <p class="hero-lead">
+      Skincare-Wissen für 25-44 Jahre — alltagstauglich, ehrlich erklärt, ohne Marketing-Bla. Plus eine kostenlose Beauty-Routine-App, wenn du magst.
+    </p>
+    <div class="hero-ctas">
+      <a href="#articles" class="btn btn-primary">Beauty-Tipps lesen →</a>
+      <a href="/faq.html" class="btn btn-ghost">FAQ entdecken</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT: BEAUTY-WISSEN -->
+<section id="articles">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Cozy Guide</div>
+      <h2>Beauty-Wissen,<br>das funktioniert</h2>
+      <p>Sechs ehrliche Ratgeber zu Skincare, Anti-Aging, Wirkstoffen und Sonnenschutz — kostenlos lesen, sofort umsetzen.</p>
+    </div>
+
+    <div class="articles-grid">
+
+      <a href="/blog/sonnencreme-richtig.html" class="article-card">
+        <div class="article-emoji">☀️</div>
+        <div class="article-eyebrow">Skincare · Grundlagen</div>
+        <h3>Sonnencreme im Alltag</h3>
+        <p>Warum LSF jeden Tag, wie viel Produkt, mineralisch vs. chemisch — und welche Mythen man ignorieren kann.</p>
+        <span class="article-link">Artikel lesen →</span>
+      </a>
+
+      <a href="/blog/skincare-reihenfolge.html" class="article-card">
+        <div class="article-emoji">🌸</div>
+        <div class="article-eyebrow">Skincare · Grundlagen</div>
+        <h3>Die richtige Reihenfolge</h3>
+        <p>Reinigung, Toner, Serum, Creme, SPF — die einzige Regel, die du dir merken musst. Schritt für Schritt erklärt.</p>
+        <span class="article-link">Artikel lesen →</span>
+      </a>
+
+      <a href="/blog/morgenroutine-abendroutine.html" class="article-card">
+        <div class="article-emoji">🌙</div>
+        <div class="article-eyebrow">Skincare · Routine</div>
+        <h3>Morgens oder abends?</h3>
+        <p>Beides — aber mit unterschiedlichem Job. Morgens schützen, abends regenerieren. Die klare Tag-/Nachtroutine.</p>
+        <span class="article-link">Artikel lesen →</span>
+      </a>
+
+      <a href="/blog/akne-was-hilft.html" class="article-card">
+        <div class="article-emoji">✦</div>
+        <div class="article-eyebrow">Wirkstoffe · Akne</div>
+        <h3>Akne — was wirklich hilft</h3>
+        <p>Salicylsäure, BHA, Adapalen, Niacinamid. Drei Wirkstoffe mit echten Studien — alles andere ist Marketing.</p>
+        <span class="article-link">Artikel lesen →</span>
+      </a>
+
+      <a href="/blog/anti-aging-grundlagen.html" class="article-card">
+        <div class="article-emoji">💧</div>
+        <div class="article-eyebrow">Wirkstoffe · Anti-Aging</div>
+        <h3>Anti-Aging Grundlagen</h3>
+        <p>Was wirklich hilft, was Marketing ist. Hyaluron, Vitamin C, Retinol — verständlich erklärt für Einsteiger.</p>
+        <span class="article-link">Artikel lesen →</span>
+      </a>
+
+      <a href="/faq.html" class="article-card">
+        <div class="article-emoji">🤍</div>
+        <div class="article-eyebrow">Cozy Guide · FAQ</div>
+        <h3>30+ Fragen beantwortet</h3>
+        <p>Alles was du dich schon immer getraut hast zu fragen: Reihenfolge, Anti-Aging, Wirkstoffe, Akne, Sonnenschutz.</p>
+        <span class="article-link">FAQ öffnen →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- COZY VIBE BRAND SECTION -->
+<section style="padding-top: 20px;">
+  <div class="wrap">
+    <div class="cozy-brand">
+      <img src="/cozyvibe-icon.png" alt="CozyVibe" class="cozy-brand-logo" />
+      <h2>Wer steckt dahinter?</h2>
+      <p>
+        CozyVibe ist eine Pinterest-Bühne für ehrliche Beauty-, Wellness- und Self-Care-Empfehlungen. Wir teilen, was wir wirklich getestet haben — ohne Influencer-Geschrei, ohne Fake-Urgency.
+      </p>
+      <a href="https://pinterest.com/cozyvibeapp" target="_blank" rel="noopener" class="cozy-brand-cta">
+        Auf Pinterest folgen →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- APP IN 3 VIBES -->
+<section class="vibes-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Bonus · Kostenlos</div>
+      <h2>Die App<br>in deinem Vibe</h2>
+      <p>Beauty Routine als deine tägliche Begleiterin — Morgenroutine, Abendroutine, Termine. Wähle den Stil, der zu dir passt.</p>
+    </div>
+
+    <div class="vibes-grid">
+
+      <div class="vibe-card" data-theme="cozy">
+        <div class="phone-frame">
+          <div class="phone-screen phone-cozy">
+            <div class="ph-title">Beauty<br>Routine</div>
+            <div class="ph-sub">cozy edition</div>
+            <div class="ph-tabs"><div class="ph-tab active"></div><div class="ph-tab"></div><div class="ph-tab"></div></div>
+            <div class="ph-card"></div>
+            <div class="ph-card"></div>
+            <div class="ph-card" style="width:60%"></div>
+          </div>
+        </div>
+        <div class="vibe-name">Cozy</div>
+        <div class="vibe-tag">Warm · Reif · Selfcare</div>
+        <div class="vibe-desc">Cream-Töne, warmes Gold, ruhig.<br>Für 25-44.</div>
+      </div>
+
+      <div class="vibe-card" data-theme="pink">
+        <div class="phone-frame">
+          <div class="phone-screen phone-pink">
+            <div class="ph-title">Beauty<br>Routine</div>
+            <div class="ph-sub">pink edition</div>
+            <div class="ph-tabs"><div class="ph-tab active"></div><div class="ph-tab"></div><div class="ph-tab"></div></div>
+            <div class="ph-card"></div>
+            <div class="ph-card"></div>
+            <div class="ph-card" style="width:60%"></div>
+          </div>
+        </div>
+        <div class="vibe-name">Pink</div>
+        <div class="vibe-tag">Verspielt · Süß · Glow</div>
+        <div class="vibe-desc">Lebhaftes Pink, Sparkle-Vibes.<br>Für 14-24.</div>
+      </div>
+
+      <div class="vibe-card" data-theme="boy">
+        <div class="phone-frame">
+          <div class="phone-screen phone-boy">
+            <div class="ph-title">Beauty<br>Routine</div>
+            <div class="ph-sub">blue edition</div>
+            <div class="ph-tabs"><div class="ph-tab active"></div><div class="ph-tab"></div><div class="ph-tab"></div></div>
+            <div class="ph-card"></div>
+            <div class="ph-card"></div>
+            <div class="ph-card" style="width:60%"></div>
+          </div>
+        </div>
+        <div class="vibe-name">Blue</div>
+        <div class="vibe-tag">Cool · Frisch · Klar</div>
+        <div class="vibe-desc">Sky-Blau, klar strukturiert.<br>Für ihn — Buben &amp; Männer.</div>
+      </div>
+
+    </div>
+
+    <div class="vibes-cta">
+      <a href="/app.html" class="btn btn-primary">App jetzt starten →</a>
+      <p style="margin-top:18px;font-size:0.9rem;color:var(--text-muted);">Kostenlos · Ohne Anmeldung · Funktioniert offline</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">CozyVibe</div>
+    <div class="footer-tagline">Beauty · Care · Selfcare — warm &amp; honest</div>
+    <div class="footer-links">
+      <a href="/about.html">Über uns</a>
+      <a href="/blog/">Ratgeber</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-ai">✨ Inhalte unterstützt durch KI · ehrlich getestet</div>
+  </div>
+</footer>
+
+</body>
+</html>
