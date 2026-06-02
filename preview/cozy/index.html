@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  CozyVibe Landing — Saison umschalten:
+  CozyVibe Landing — Saison umschalten:
   data-season="neutral" | "spring" | "summer" | "autumn" | "winter"
   Einfach unten im <html>-Tag ändern → alle Farben passen sich automatisch an.
   Für Herbst-Produktsaison später: data-season="autumn"
@@ -9,9 +9,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CozyVibe Beauty — Ehrliche Skincare-Tipps · Alltagstauglich</title>
-<meta name="description" content="Ehrliche Skincare-Tipps für Alltag und Wohlbefinden. Sonnenschutz, Anti-Aging, Wirkstoffe einfach erklärt — kostenlos, ohne Marketing-Bla. Plus optionale Beauty-Routine App.">
-<meta name="robots" content="noindex,nofollow"> <!-- Preview only — nicht in Google -->
+<title>CozyVibe Beauty — Ehrliche Skincare-Tipps · Alltagstauglich</title>
+<meta name="description" content="Ehrliche Skincare-Tipps für Alltag und Wohlbefinden. Sonnenschutz, Anti-Aging, Wirkstoffe einfach erklärt — kostenlos, ohne Marketing-Bla. Plus optionale Beauty-Routine App.">
+<meta name="robots" content="noindex,nofollow"> <!-- Preview only — nicht in Google -->
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Mulish:wght@300;400;500;600;700&family=Marcellus&display=swap');
@@ -21,7 +21,7 @@
     --font-body: 'Mulish', system-ui, sans-serif;
     --font-accent: 'Marcellus', serif;
 
-    /* Neutral Cream Base — konstant über alle Saisons */
+    /* Neutral Cream Base — konstant über alle Saisons */
     --cream: #FBF6F0;
     --surface: #FFFFFF;
     --surface-2: #F6EDE3;
@@ -64,6 +64,9 @@
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  /* Saubere Typografie: keine Auto-Silbentrennung, bessere Zeilenumbrüche */
+  body, p, .hero-lead, .article-card p, .sec-head p, .vibe-desc { hyphens: none; -webkit-hyphens: none; text-wrap: pretty; }
+  h1, h2, h3, .hero h1, .sec-head h2 { text-wrap: balance; }
   body {
     background: var(--cream);
     color: var(--text);
@@ -293,7 +296,7 @@
     border: 6px solid var(--ink); box-shadow: var(--shadow-medium);
   }
   .phone-screen { width: 100%; height: 100%; display: flex; flex-direction: column; }
-  /* Phone-Mockups zeigen die FESTEN App-Designs — sie dürfen sich NICHT
+  /* Phone-Mockups zeigen die FESTEN App-Designs — sie dürfen sich NICHT
      mit dem Saison-Schalter der Landing Page mitverändern. Daher feste Hex-Werte. */
   .phone-pink   { background: linear-gradient(180deg, #ff80ab 0%, #e91e8c 50%, #a30e5a 100%); }
   .phone-cozy   { background: linear-gradient(180deg, #FEF5E0, #FCE9C2 60%, #EF9320 100%); }
@@ -385,7 +388,7 @@
 <body>
 
 <!-- TEMP Preview-Banner + Saison-Tester -->
-<div class="preview-banner">✦ Preview Version — CozyVibe Landing Design · noch nicht live ✦</div>
+<div class="preview-banner">✦ Preview Version — CozyVibe Landing Design · noch nicht live ✦</div>
 <div class="season-switch" role="group" aria-label="Saison testen">
   <button data-season-btn="neutral">🍑 Neutral</button>
   <button data-season-btn="spring">🌸 Frühling</button>
@@ -422,12 +425,12 @@
 
   <div class="wrap hero-inner">
     <span class="hero-eyebrow">Cozy Guide · Beauty</span>
-    <h1>Ehrliche Skincare-Tipps,<br>die <em>wirklich</em> passen.</h1>
+    <h1>Ehrliche Skincare‑Tipps,<br>die <em>wirklich</em> passen.</h1>
     <p class="hero-lead">
-      Skincare-Wissen für 16 bis 44 — alltagstauglich, ehrlich erklärt, ohne Marketing-Bla. Plus eine kostenlose Beauty-Routine-App, wenn du magst.
+      Skincare‑Wissen für 16 bis 44 — alltagstauglich, ehrlich erklärt, ohne Marketing‑Bla. Plus eine kostenlose Beauty‑Routine‑App, wenn du magst.
     </p>
     <div class="hero-ctas">
-      <a href="#articles" class="btn btn-primary">Beauty-Tipps lesen →</a>
+      <a href="#articles" class="btn btn-primary">Beauty‑Tipps lesen →</a>
       <a href="/faq.html" class="btn btn-ghost">FAQ entdecken</a>
     </div>
   </div>
@@ -438,8 +441,8 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-eyebrow">Cozy Guide</div>
-      <h2>Beauty-Wissen,<br>das funktioniert</h2>
-      <p>Sechs ehrliche Ratgeber zu Skincare, Anti-Aging, Wirkstoffen und Sonnenschutz — kostenlos lesen, sofort umsetzen.</p>
+      <h2>Beauty‑Wissen,<br>das funktioniert</h2>
+      <p>Sechs ehrliche Ratgeber zu Skincare, Anti‑Aging, Wirkstoffen und Sonnenschutz — kostenlos lesen, sofort umsetzen.</p>
     </div>
 
     <div class="articles-grid">
@@ -448,7 +451,7 @@
         <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
         <div class="article-eyebrow">Skincare · Grundlagen</div>
         <h3>Sonnencreme im Alltag</h3>
-        <p>Warum LSF jeden Tag, wie viel Produkt, mineralisch vs. chemisch — und welche Mythen man ignorieren kann.</p>
+        <p>Warum LSF jeden Tag, wie viel Produkt, mineralisch vs. chemisch — und welche Mythen man ignorieren kann.</p>
         <span class="article-link">Artikel lesen →</span>
       </a>
 
@@ -456,7 +459,7 @@
         <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
         <div class="article-eyebrow">Skincare · Grundlagen</div>
         <h3>Die richtige Reihenfolge</h3>
-        <p>Reinigung, Toner, Serum, Creme, SPF — die einzige Regel, die du dir merken musst. Schritt für Schritt erklärt.</p>
+        <p>Reinigung, Toner, Serum, Creme, SPF — die einzige Regel, die du dir merken musst. Schritt für Schritt erklärt.</p>
         <span class="article-link">Artikel lesen →</span>
       </a>
 
@@ -464,23 +467,23 @@
         <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
         <div class="article-eyebrow">Skincare · Routine</div>
         <h3>Morgens oder abends?</h3>
-        <p>Beides — aber mit unterschiedlichem Job. Morgens schützen, abends regenerieren. Die klare Tag-/Nachtroutine.</p>
+        <p>Beides — aber mit unterschiedlichem Job. Morgens schützen, abends regenerieren. Die klare Tag-/Nachtroutine.</p>
         <span class="article-link">Artikel lesen →</span>
       </a>
 
       <a href="/blog/akne-was-hilft.html" class="article-card">
         <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.2L19 10l-5.1 1.8L12 17l-1.9-5.2L5 10l5.1-1.8L12 3Z"/><path d="M19 15l.7 2L22 17.7 19.7 18.4 19 21l-.7-2.6L16 17.7l2.3-.7z"/></svg></div>
         <div class="article-eyebrow">Wirkstoffe · Akne</div>
-        <h3>Akne — was wirklich hilft</h3>
-        <p>Salicylsäure, BHA, Adapalen, Niacinamid. Drei Wirkstoffe mit echten Studien — alles andere ist Marketing.</p>
+        <h3>Akne — was wirklich hilft</h3>
+        <p>Salicylsäure, BHA, Adapalen, Niacinamid. Drei Wirkstoffe mit echten Studien — alles andere ist Marketing.</p>
         <span class="article-link">Artikel lesen →</span>
       </a>
 
       <a href="/blog/anti-aging-grundlagen.html" class="article-card">
         <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/></svg></div>
-        <div class="article-eyebrow">Wirkstoffe · Anti-Aging</div>
-        <h3>Anti-Aging Grundlagen</h3>
-        <p>Was wirklich hilft, was Marketing ist. Hyaluron, Vitamin C, Retinol — verständlich erklärt für Einsteiger.</p>
+        <div class="article-eyebrow">Wirkstoffe · Anti‑Aging</div>
+        <h3>Anti‑Aging Grundlagen</h3>
+        <p>Was wirklich hilft, was Marketing ist. Hyaluron, Vitamin C, Retinol — verständlich erklärt für Einsteiger.</p>
         <span class="article-link">Artikel lesen →</span>
       </a>
 
@@ -488,7 +491,7 @@
         <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
         <div class="article-eyebrow">Cozy Guide · FAQ</div>
         <h3>30+ Fragen beantwortet</h3>
-        <p>Alles was du dich schon immer getraut hast zu fragen: Reihenfolge, Anti-Aging, Wirkstoffe, Akne, Sonnenschutz.</p>
+        <p>Alles was du dich schon immer getraut hast zu fragen: Reihenfolge, Anti‑Aging, Wirkstoffe, Akne, Sonnenschutz.</p>
         <span class="article-link">FAQ öffnen →</span>
       </a>
 
@@ -503,7 +506,7 @@
       <img src="/cozyvibe-icon.png" alt="CozyVibe" class="cozy-brand-logo" />
       <h2>Wer steckt dahinter?</h2>
       <p>
-        CozyVibe ist eine kleine, ehrliche Bühne für Beauty, Pflege &amp; Self-Care. Wir testen Produkte wirklich selbst, bevor wir sie empfehlen — kein Influencer-Geschrei, keine bezahlten Jubelreviews, keine Fake-Urgency. Nur das, was im Alltag tatsächlich funktioniert.
+        CozyVibe ist eine kleine, ehrliche Bühne für Beauty, Pflege &amp; Self‑Care. Wir testen Produkte wirklich selbst, bevor wir sie empfehlen — kein Influencer‑Geschrei, keine bezahlten Jubelreviews, keine Fake‑Urgency. Nur das, was im Alltag tatsächlich funktioniert.
       </p>
       <div class="cozy-values">
         <div class="cozy-value">
@@ -533,7 +536,7 @@
     <div class="sec-head">
       <div class="sec-eyebrow">Bonus · Kostenlos</div>
       <h2>Die App<br>in deinem Vibe</h2>
-      <p>Beauty Routine als deine tägliche Begleiterin — Morgenroutine, Abendroutine, Termine. Wähle den Stil, der zu dir passt.</p>
+      <p>Beauty Routine als deine tägliche Begleiterin — Morgenroutine, Abendroutine, Termine. Wähle den Stil, der zu dir passt.</p>
     </div>
 
     <div class="vibes-grid">
@@ -603,7 +606,7 @@
 <footer>
   <div class="wrap">
     <div class="footer-brand">CozyVibe</div>
-    <div class="footer-tagline">Beauty · Care · Selfcare — warm &amp; honest</div>
+    <div class="footer-tagline">Beauty · Care · Selfcare — warm &amp; honest</div>
     <div class="footer-links">
       <a href="/about.html">Über uns</a>
       <a href="/blog/">Ratgeber</a>
@@ -618,11 +621,11 @@
 </footer>
 
 <script>
-  // Saison-Tester (nur Preview): schaltet data-season live um
-  var btns = document.querySelectorAll('[data-season-btn]');
+  // Saison‑Tester (nur Preview): schaltet data‑season live um
+  var btns = document.querySelectorAll('[data‑season‑btn]');
   btns.forEach(function(b){
     b.addEventListener('click', function(){
-      document.documentElement.setAttribute('data-season', b.dataset.seasonBtn);
+      document.documentElement.setAttribute('data‑season', b.dataset.seasonBtn);
       btns.forEach(function(x){ x.classList.remove('active'); });
       b.classList.add('active');
     });
