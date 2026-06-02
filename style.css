@@ -2475,6 +2475,55 @@ body.theme-winter .cozyvibe-banner-arrow { color: #6B2440 !important; }
   width: 100%;
 }
 
+/* Icon-Info Link + Modal */
+.icon-info-btn {
+  display: block;
+  margin: 12px auto 0;
+  background: none;
+  border: none;
+  color: var(--pink-mid);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+}
+.icon-info-btn:active { opacity: 1; }
+.icon-info-content { font-size: 0.92rem; color: var(--text); line-height: 1.5; }
+.icon-info-steps { margin: 14px 0; padding-left: 0; list-style: none; counter-reset: ii; }
+.icon-info-steps li {
+  position: relative;
+  padding: 8px 0 8px 36px;
+  border-bottom: 1px dashed var(--border);
+}
+.icon-info-steps li::before {
+  counter-increment: ii;
+  content: counter(ii);
+  position: absolute; left: 0; top: 7px;
+  width: 24px; height: 24px;
+  background: linear-gradient(135deg, var(--pink), var(--pink-mid));
+  color: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 700;
+}
+.icon-info-url {
+  display: inline-block;
+  margin-top: 6px;
+  background: var(--pink-light);
+  color: var(--pink-mid);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: 'Menlo', monospace;
+  font-size: 0.9rem;
+}
+.icon-info-note {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  font-style: italic;
+  margin-top: 6px;
+}
+
 body.theme-boy .legal-footer a {
   color: #42a5f5 !important;
 }

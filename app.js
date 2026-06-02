@@ -62,6 +62,13 @@ const TRANSLATIONS = {
     vibeCozy: 'Cozy',
     vibeBlue: 'Blau',
     vibeWinter: 'Beere',
+    iconInfoLink: 'Passendes Home-Bildschirm-Icon?',
+    iconInfoTitle: 'Icon zu deinem Design',
+    iconInfoIntro: 'Dein App-Icon am Home-Bildschirm wird beim Installieren festgelegt. So holst du es dir in deiner Design-Farbe:',
+    iconInfoStep1: 'App vom Home-Bildschirm löschen (Symbol lang drücken → Entfernen)',
+    iconInfoStep2: 'Diese Adresse in Safari öffnen:',
+    iconInfoStep3: 'Teilen-Symbol → „Zum Home-Bildschirm"',
+    iconInfoNote: 'Nur nötig, wenn du das Icon farblich passend willst — die App funktioniert mit jedem Icon.',
     beardCare: 'Bart & Rasur',
     boyGrooming: 'Grooming',
     my: 'Meine',
@@ -177,6 +184,13 @@ const TRANSLATIONS = {
     vibeCozy: 'Cozy',
     vibeBlue: 'Blue',
     vibeWinter: 'Berry',
+    iconInfoLink: 'Matching home screen icon?',
+    iconInfoTitle: 'Icon for your design',
+    iconInfoIntro: 'Your home screen icon is set when you install. Here is how to get it in your design colour:',
+    iconInfoStep1: 'Remove the app from your home screen (long-press → Remove)',
+    iconInfoStep2: 'Open this address in Safari:',
+    iconInfoStep3: 'Share icon → "Add to Home Screen"',
+    iconInfoNote: 'Only needed if you want the matching colour — the app works with any icon.',
     beardCare: 'Beard & Shaving',
     boyGrooming: 'Grooming',
     termsBtn: 'Terms & Privacy',
@@ -1826,6 +1840,22 @@ function init() {
       setTheme(btn.dataset.value);
       applyThemeClasses(getTheme());
     });
+  });
+
+  // Icon-Info Modal (wie man das Home-Bildschirm-Icon zum Design holt)
+  const iconInfoBtn = document.getElementById('iconInfoBtn');
+  if (iconInfoBtn) iconInfoBtn.addEventListener('click', () => {
+    const sel = document.querySelector('.settings-design .design-btn.selected');
+    let theme = sel ? sel.dataset.value : getTheme();
+    if (theme === 'girl') theme = 'pink';
+    if (theme === 'boy')  theme = 'blue';
+    const urlEl = document.getElementById('iconInfoUrl');
+    if (urlEl) urlEl.textContent = 'beautyroutine.app/' + theme + '/';
+    document.getElementById('iconInfoOverlay').classList.add('open');
+  });
+  const iconInfoClose = document.getElementById('iconInfoClose');
+  if (iconInfoClose) iconInfoClose.addEventListener('click', () => {
+    document.getElementById('iconInfoOverlay').classList.remove('open');
   });
 
   // Settings: hair color selection
