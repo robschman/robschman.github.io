@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de" data-season="summer">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cozy Picks — Meine Beauty-Favoriten · CozyVibe</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Mulish:wght@300;400;500;600;700;800&family=Marcellus&display=swap');
+  :root{
+    --font-display:'Dancing Script',cursive; --font-body:'Mulish',sans-serif; --font-accent:'Marcellus',serif;
+    --cream:#FBF6F0; --surface:#fff; --surface-2:#F6EDE3; --surface-3:#F0E4D7; --border:#EBDDCD; --border-strong:#DBC7B2;
+    --ink:#3B302A; --text:#574B43; --text-muted:#93847A; --text-faint:#B7A99D;
+    --gold:#EF9320; --gold-strong:#BD6C0A; --gold-soft:#FCE9C2; --gold-tint:#FEF5E0;
+    --shadow-soft:0 6px 18px -8px rgba(64,38,24,.14),0 2px 6px -2px rgba(64,38,24,.08);
+    --shadow-medium:0 18px 40px -14px rgba(64,38,24,.22),0 4px 12px -4px rgba(64,38,24,.10);
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--cream);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;
+    hyphens:none;-webkit-hyphens:none;text-wrap:pretty;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{text-wrap:balance;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 22px;}
+  .lbl{font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.22em;}
+
+  /* Banner */
+  .preview-banner{background:linear-gradient(135deg,#ff6b6b,#ee5253);color:#fff;text-align:center;padding:9px;
+    font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.2em;font-size:.68rem;}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(251,246,240,.86);backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);padding:14px 0;}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:11px;text-decoration:none;}
+  .nav-logo{width:38px;height:38px;border-radius:50%;}
+  .nav-name{font-family:var(--font-display);font-weight:700;font-size:1.35rem;color:var(--ink);line-height:1;}
+  .nav-sub{font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.3em;font-size:.58rem;color:var(--text-muted);}
+  .nav-back{font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.2em;font-size:.68rem;color:var(--text-muted);text-decoration:none;}
+
+  /* Hero */
+  .hero{text-align:center;padding:60px 0 40px;background:radial-gradient(120% 100% at 50% 0%,var(--gold-tint),var(--cream) 70%);}
+  .hero .eyebrow{font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.3em;font-size:.74rem;color:var(--gold-strong);}
+  .hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(2.8rem,6vw,4.2rem);color:var(--ink);margin:12px 0 14px;}
+  .hero p{font-size:1.12rem;color:var(--text);max-width:620px;margin:0 auto;}
+
+  /* Section */
+  section{padding:44px 0;}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:26px;}
+  .sec-head .pill{font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;color:#fff;
+    background:linear-gradient(135deg,var(--gold),var(--gold-strong));padding:8px 18px;border-radius:999px;}
+  .sec-head .count{font-size:.9rem;color:var(--text-muted);}
+
+  /* Produkt-Grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
+  .product{display:flex;flex-direction:column;background:linear-gradient(160deg,#FEF5E0,#FCE9C2);
+    border:1px solid #F0DBB0;border-radius:20px;padding:14px 14px 18px;text-decoration:none;transition:transform .15s,box-shadow .15s;}
+  .product:hover{transform:translateY(-3px);box-shadow:var(--shadow-medium);}
+  .p-img{position:relative;width:100%;height:150px;border-radius:14px;overflow:hidden;margin-bottom:13px;
+    background:repeating-linear-gradient(45deg,#FBF3E2,#FBF3E2 12px,#F6EAD0 12px,#F6EAD0 24px);
+    border:1px dashed #DFC79C;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;}
+  .p-img .ic{font-size:1.8rem;opacity:.5;}
+  .p-img .tx{font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.16em;font-size:.55rem;color:#B79A6A;}
+  .badge{position:absolute;top:10px;left:10px;font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.12em;
+    font-size:.56rem;background:var(--gold-strong);color:#fff;padding:4px 10px;border-radius:999px;z-index:2;}
+  .p-name{font-size:1.04rem;font-weight:800;color:var(--ink);line-height:1.25;margin:0 3px 6px;}
+  .p-why{font-size:.88rem;color:var(--text);line-height:1.5;margin:0 3px 15px;flex:1;}
+  .p-btn{align-self:stretch;text-align:center;font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.12em;
+    font-size:.78rem;background:linear-gradient(135deg,var(--gold),var(--gold-strong));color:#fff;padding:12px;border-radius:999px;
+    margin:0 3px;box-shadow:0 6px 16px -6px rgba(189,108,10,.5);}
+
+  /* Disclaimer + Footer */
+  .disclaimer{font-size:.74rem;color:#A89B8E;line-height:1.6;padding:22px 0;border-top:1px solid var(--border);margin-top:30px;}
+  .disclaimer .lead{color:#8A7A6B;font-weight:600;}
+  footer{background:var(--surface-3);padding:40px 0;text-align:center;border-top:1px solid var(--border);}
+  .footer-brand{font-family:var(--font-display);font-weight:700;font-size:1.8rem;color:var(--ink);}
+  .footer-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:14px;
+    font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.18em;font-size:.66rem;}
+  .footer-links a{color:var(--text-muted);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="preview-banner">✦ Preview · Cozy Picks · noch nicht live · Bilder + Links folgen via SiteStripe ✦</div>
+
+<nav><div class="nav-inner">
+  <a href="/preview/cozy/" class="nav-brand">
+    <img src="/cozyvibe-icon.png" alt="CozyVibe" class="nav-logo">
+    <span><span class="nav-name">CozyVibe</span><br><span class="nav-sub">Beauty</span></span>
+  </a>
+  <a href="/preview/cozy/" class="nav-back">← zurück</a>
+</div></nav>
+
+<div class="hero"><div class="wrap">
+  <div class="eyebrow">Cozy Picks</div>
+  <h1>Meine Beauty‑Favoriten</h1>
+  <p>Produkte, die ich selbst gerne nutze. Ehrlich ausgewählt, ohne Schnickschnack. Hier findest du sie auf einen Blick.</p>
+</div></div>
+
+<div class="wrap">
+
+  <!-- GANZJAHR -->
+  <section>
+    <div class="sec-head"><span class="pill">☀ Ganzjahr</span><span class="count">läuft das ganze Jahr</span></div>
+    <div class="grid">
+
+      <a class="product" href="https://www.amazon.de/s?k=Hero+Cosmetics+Mighty+Patch&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Pickel‑SOS</span><span class="ic">🩹</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Hero Mighty Patch</div>
+        <div class="p-why">Über Nacht weg. Der Patch, der den Pickel sanft rauszieht. Funktioniert auch ohne Gesicht im Bild.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=Biodance+Bio-Collagen+Real+Deep+Mask&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Glow über Nacht</span><span class="ic">✨</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Biodance Bio‑Collagen Maske</div>
+        <div class="p-why">Zieht sich wie eine zweite Haut ab. Glass Skin am Morgen, günstig genug für jeden Abend.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=Medicube+Zero+Pore+Pad+2.0&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Poren‑Bestseller</span><span class="ic">🧴</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Medicube Zero Pore Pads</div>
+        <div class="p-why">Sichtbar feinere Poren, glattere Haut. Aktueller Bestseller bei den Toner‑Pads.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=VT+PDRN+Serum&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Trend 2026</span><span class="ic">💧</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">VT PDRN Pink Serum</div>
+        <div class="p-why">Der Wirkstoff, über den 2026 alle reden. Festigkeit und Glow, noch ohne große Konkurrenz.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=Beauty+of+Joseon+Glow+Serum&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">K‑Beauty</span><span class="ic">🌿</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Beauty of Joseon Glow Serum</div>
+        <div class="p-why">Propolis und Niacinamid für sofortigen Glow. Schöne Flasche, sanfte Formel, fairer Preis.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=CeraVe+Feuchtigkeitscreme&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Hautbarriere</span><span class="ic">🤍</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">CeraVe Barriere‑Pflege</div>
+        <div class="p-why">Dermatologen‑Liebling für trockene, gestresste Haut. Die Basis, auf die alles andere aufbaut.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SOMMER -->
+  <section>
+    <div class="sec-head"><span class="pill">🌞 Sommer</span><span class="count">Saison‑Favoriten</span></div>
+    <div class="grid">
+
+      <a class="product" href="https://www.amazon.de/s?k=Freck+OG+Freckle+Pen&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Sommersprossen</span><span class="ic">🌸</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Freck OG Freckle Pen</div>
+        <div class="p-why">Natürliche Sommersprossen zum Auftupfen. Der sonnengeküsste Look, den alle lieben.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=La+Roche-Posay+Anthelios+UVMune+400&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Derm‑Liebling</span><span class="ic">☀️</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">La Roche‑Posay Anthelios</div>
+        <div class="p-why">Täglicher UV‑Schutz ohne Weißeln. Über 31.000 Top‑Bewertungen, mein Allrounder fürs Gesicht.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=Beauty+of+Joseon+Relief+Sun&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Budget‑SPF</span><span class="ic">🌿</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Beauty of Joseon Relief Sun</div>
+        <div class="p-why">Sonnenschutz ohne White Cast, fühlt sich an wie leichte Pflege. Der günstige K‑Beauty‑Geheimtipp.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=Isle+of+Paradise+Self+Tanning+Drops&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Bräune ohne Sonne</span><span class="ic">🤎</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Isle of Paradise Self‑Tan Drops</div>
+        <div class="p-why">Tropfen für deine Lieblings‑Bräune, individuell dosierbar. Kein Sonnenschaden, kein Orange.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=Summer+Fridays+Lip+Butter+Balm&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">Glossy Lips</span><span class="ic">💄</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Getöntes Lip Oil</div>
+        <div class="p-why">Pflege und Schimmer in einem. Der sommerliche Glanz, der einfach gut tut.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+      <a class="product" href="https://www.amazon.de/s?k=Supergoop+Glowscreen&tag=beautyrout067-21">
+        <div class="p-img"><span class="badge">SPF + Glow</span><span class="ic">🌅</span><span class="tx">Produktbild via SiteStripe</span></div>
+        <div class="p-name">Supergoop Glowscreen</div>
+        <div class="p-why">Sonnenschutz, Primer und Glow in einem. Die strahlende Base für drunter oder pur.</div>
+        <span class="p-btn">Hier ansehen →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="disclaimer">
+    <span class="lead">✦ Ehrliche Empfehlungen aus eigener Erfahrung.</span> Produkte, die ich selbst gerne nutze.
+    Bei empfindlicher Haut, Allergien oder Unverträglichkeiten bitte vorab die Inhaltsstoffe prüfen. Diese Seite ist ein
+    persönlicher Pflege‑Tipp und ersetzt keine ärztliche oder dermatologische Beratung. Einige Links sind Affiliate‑Links:
+    Als Amazon‑Partner verdiene ich an qualifizierten Verkäufen, für dich entstehen keine Mehrkosten.
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">CozyVibe</div>
+  <div class="footer-links">
+    <a href="/preview/cozy/">Startseite</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/impressum.html">Impressum</a>
+    <a href="/datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+</body>
+</html>
