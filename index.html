@@ -127,6 +127,14 @@
   }
   .nav-pinterest svg { width: 15px; height: 15px; }
   .nav-pinterest:hover { color: #E60023; border-color: #E60023; }
+  .nav-favs {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #fff; background: var(--primary); padding: 8px 16px; border: 1px solid var(--primary); border-radius: 999px;
+    text-decoration: none; transition: all .15s ease;
+  }
+  .nav-favs svg { width: 14px; height: 14px; }
+  .nav-favs:hover { background: var(--primary-strong); border-color: var(--primary-strong); transform: translateY(-1px); }
 
   /* ───── HERO ──────────────────────────────────────────── */
   .hero {
@@ -288,6 +296,9 @@
   }
   .cozy-brand-cta svg { width: 16px; height: 16px; }
   .cozy-brand-cta:hover { background: #E60023; border-color: #E60023; color: #fff; transform: translateY(-2px); }
+  .cozy-brand-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 2; }
+  .cozy-brand-cta-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+  .cozy-brand-cta-primary:hover { background: var(--primary-strong); border-color: var(--primary-strong); color: #fff; }
 
   /* ───── APP IN 3 VIBES ───────────────────────────────── */
   .vibes-section { background: linear-gradient(180deg, var(--cream), var(--surface-2)); }
@@ -413,6 +424,7 @@
       </div>
     </a>
     <div class="nav-right">
+      <a href="/cozy-picks.html" class="nav-favs"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 8.9 1.7 5.4 5 4.6c2-.5 3.8.4 4.9 2 1.1-1.6 2.9-2.5 4.9-2 3.3.8 4.4 4.3 3 7.2C19.5 16.4 12 21 12 21z"/></svg> Favoriten</a>
       <a href="https://pinterest.com/cozyvibeapp" target="_blank" rel="noopener" class="nav-pinterest">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.137.893 2.738a.36.36 0 0 1 .083.345c-.091.378-.293 1.193-.333 1.36-.052.219-.173.265-.4.16-1.494-.696-2.428-2.879-2.428-4.633 0-3.773 2.741-7.239 7.902-7.239 4.148 0 7.372 2.957 7.372 6.909 0 4.123-2.6 7.441-6.208 7.441-1.212 0-2.353-.63-2.743-1.373l-.746 2.845c-.27 1.04-1 2.343-1.488 3.138C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
         Pinterest
@@ -523,10 +535,13 @@
           Alltagstauglich &amp; günstig
         </div>
       </div>
+      <div class="cozy-brand-ctas">
+      <a href="/cozy-picks.html" class="cozy-brand-cta cozy-brand-cta-primary"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 8.9 1.7 5.4 5 4.6c2-.5 3.8.4 4.9 2 1.1-1.6 2.9-2.5 4.9-2 3.3.8 4.4 4.3 3 7.2C19.5 16.4 12 21 12 21z"/></svg> Meine Favoriten ansehen</a>
       <a href="https://pinterest.com/cozyvibeapp" target="_blank" rel="noopener" class="cozy-brand-cta">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.137.893 2.738a.36.36 0 0 1 .083.345c-.091.378-.293 1.193-.333 1.36-.052.219-.173.265-.4.16-1.494-.696-2.428-2.879-2.428-4.633 0-3.773 2.741-7.239 7.902-7.239 4.148 0 7.372 2.957 7.372 6.909 0 4.123-2.6 7.441-6.208 7.441-1.212 0-2.353-.63-2.743-1.373l-.746 2.845c-.27 1.04-1 2.343-1.488 3.138C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
         Auf Pinterest folgen
       </a>
+      </div>
     </div>
   </div>
 </section>

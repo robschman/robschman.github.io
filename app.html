@@ -64,7 +64,7 @@
   </script>
 
   <link rel="stylesheet" href="/fonts.css" />
-  <link rel="stylesheet" href="style.css?v=1.5" />
+  <link rel="stylesheet" href="style.css?v=1.6" />
   <script>
     // AdSense nur auf echter Website laden, nicht beim lokalen Test
     if (location.protocol !== 'file:') {
@@ -86,9 +86,12 @@
         if (t === 'girl') t = 'pink';
         if (t === 'boy')  t = 'blue';
         var c = document.body.classList;
+        if (localStorage.getItem('routine_gender') === 'boy') c.add('gender-boy');
         if (t === 'blue')        c.add('theme-boy');
         else if (t === 'cozy')   c.add('theme-cozy');
         else if (t === 'winter') c.add('theme-winter');
+        else if (t === 'mono')    c.add('theme-mono');
+        else if (t === 'rainbow') c.add('theme-rainbow');
       } catch (e) {}
     })();
   </script>
@@ -173,6 +176,14 @@
               <span class="gender-icon">🫐</span>
               <span data-tr="vibeWinter"></span>
             </button>
+            <button class="gender-btn design-btn" data-value="mono">
+              <span class="gender-icon">🖤</span>
+              <span data-tr="vibeMono"></span>
+            </button>
+            <button class="gender-btn design-btn" data-value="rainbow">
+              <span class="gender-icon">🌈</span>
+              <span data-tr="vibeRainbow"></span>
+            </button>
           </div>
           <button class="name-save-btn" id="obNext1c" data-tr="next"></button>
         </div>
@@ -247,6 +258,14 @@
         <span class="seasonal-banner-icon" id="seasonalIcon">🌞</span>
         <span class="seasonal-banner-text" id="seasonalText">Sommer-Tipps &amp; Produkte</span>
         <span class="seasonal-banner-arrow">→</span>
+      </a>
+      <a href="/cozy-picks.html" class="fav-banner" id="favBanner">
+        <img src="/cozyvibe-icon.png" alt="CozyVibe" class="fav-banner-logo" />
+        <span class="fav-banner-text">
+          <strong>Meine Lieblingsprodukte</strong>
+          <small>Diese nutze ich selbst &amp; empfehle ich</small>
+        </span>
+        <span class="fav-banner-arrow">→</span>
       </a>
     </div>
 
@@ -503,6 +522,14 @@
               <span class="gender-icon">🫐</span>
               <span data-tr="vibeWinter"></span>
             </button>
+            <button class="gender-btn design-btn" data-value="mono">
+              <span class="gender-icon">🖤</span>
+              <span data-tr="vibeMono"></span>
+            </button>
+            <button class="gender-btn design-btn" data-value="rainbow">
+              <span class="gender-icon">🌈</span>
+              <span data-tr="vibeRainbow"></span>
+            </button>
           </div>
           <button class="icon-info-btn" id="iconInfoBtn" type="button">ℹ️ <span data-tr="iconInfoLink"></span></button>
         </div>
@@ -590,7 +617,7 @@
     <canvas id="confetti-canvas"></canvas>
   </div>
 
-  <script src="app.js?v=2.0"></script>
+  <script src="app.js?v=2.1"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');

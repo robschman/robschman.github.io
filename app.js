@@ -62,6 +62,8 @@ const TRANSLATIONS = {
     vibeCozy: 'Cozy',
     vibeBlue: 'Blau',
     vibeWinter: 'Beere',
+    vibeMono: 'Mono',
+    vibeRainbow: 'Regenbogen',
     iconInfoLink: 'Passendes Home-Bildschirm-Icon?',
     iconInfoTitle: 'Icon zu deinem Design',
     iconInfoIntro: 'Dein App-Icon am Home-Bildschirm wird beim Installieren festgelegt. So holst du es dir in deiner Design-Farbe:',
@@ -184,6 +186,8 @@ const TRANSLATIONS = {
     vibeCozy: 'Cozy',
     vibeBlue: 'Blue',
     vibeWinter: 'Berry',
+    vibeMono: 'Mono',
+    vibeRainbow: 'Rainbow',
     iconInfoLink: 'Matching home screen icon?',
     iconInfoTitle: 'Icon for your design',
     iconInfoIntro: 'Your home screen icon is set when you install. Here is how to get it in your design colour:',
@@ -1357,6 +1361,9 @@ function applyThemeClasses(theme) {
   document.body.classList.toggle('theme-boy',    theme === 'blue');   // blaues Design
   document.body.classList.toggle('theme-cozy',   theme === 'cozy');
   document.body.classList.toggle('theme-winter', theme === 'winter');
+  document.body.classList.toggle('theme-mono',    theme === 'mono');
+  document.body.classList.toggle('theme-rainbow', theme === 'rainbow');
+  document.body.classList.toggle('gender-boy', getGender() === 'boy');
 }
 
 // Optik + Inhalt komplett anwenden (liest Geschlecht + Design aus dem Speicher)
