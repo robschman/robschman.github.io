@@ -14,7 +14,7 @@
 <meta name="robots" content="noindex,nofollow"> <!-- Preview only — nicht in Google -->
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Mulish:wght@300;400;500;600;700&family=Marcellus&display=swap');
+  @import url(/fonts/cozy/cozy-fonts.css);
 
   :root {
     --font-display: 'Dancing Script', cursive;
@@ -617,11 +617,11 @@
 </footer>
 
 <script>
-  // Saison‑Tester (nur Preview): schaltet data‑season live um
-  var btns = document.querySelectorAll('[data‑season‑btn]');
+  // Saison-Tester (nur Preview): schaltet data-season live um
+  var btns = document.querySelectorAll('[data-season-btn]');
   btns.forEach(function(b){
     b.addEventListener('click', function(){
-      document.documentElement.setAttribute('data‑season', b.dataset.seasonBtn);
+      document.documentElement.setAttribute('data-season', b.dataset.seasonBtn);
       btns.forEach(function(x){ x.classList.remove('active'); });
       b.classList.add('active');
     });

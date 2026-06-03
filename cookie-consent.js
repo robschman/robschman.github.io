@@ -70,7 +70,6 @@
     if (val === 'accepted') {
       grantConsent();
       loadAnalytics();
-      loadAdSense();
     } else {
       denyConsent();
     }
@@ -80,13 +79,13 @@
   var css = `
     #bra-cookie-banner {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999;
-      background: rgba(255,255,255,0.97);
+      background: rgba(251,246,240,0.97);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid rgba(233,30,140,0.15);
-      box-shadow: 0 -8px 40px rgba(180,100,200,0.15);
+      border-top: 1px solid rgba(189,108,10,0.18);
+      box-shadow: 0 -8px 40px rgba(64,38,24,0.14);
       padding: 18px 20px;
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Mulish', system-ui, sans-serif;
       animation: braSlideUp 0.4s ease;
     }
     @keyframes braSlideUp {
@@ -100,23 +99,23 @@
     #bra-cookie-banner .bra-icon { font-size: 28px; flex-shrink: 0; }
     #bra-cookie-banner .bra-text { flex: 1; min-width: 200px; }
     #bra-cookie-banner .bra-text strong {
-      display: block; font-size: 13px; font-weight: 800; color: #333; margin-bottom: 3px;
+      display: block; font-size: 13px; font-weight: 800; color: #3B302A; margin-bottom: 3px;
     }
     #bra-cookie-banner .bra-text p {
-      font-size: 11.5px; color: #666; line-height: 1.5; margin: 0;
+      font-size: 11.5px; color: #574B43; line-height: 1.5; margin: 0;
     }
     #bra-cookie-banner .bra-text a {
-      color: #e91e8c; font-weight: 600; text-decoration: underline;
+      color: #BD6C0A; font-weight: 700; text-decoration: underline;
     }
     #bra-cookie-banner .bra-btns {
       display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap;
     }
     #bra-cookie-banner .bra-accept {
-      background: linear-gradient(135deg, #e91e8c, #9c27b0);
+      background: linear-gradient(135deg, #EF9320, #BD6C0A);
       color: white; border: none; border-radius: 50px;
       padding: 11px 24px; font-size: 12px; font-weight: 700;
       cursor: pointer; font-family: inherit;
-      box-shadow: 0 4px 16px rgba(233,30,140,0.3);
+      box-shadow: 0 4px 16px rgba(189,108,10,0.32);
       transition: transform 0.2s;
     }
     #bra-cookie-banner .bra-accept:hover { transform: translateY(-2px); }
@@ -156,8 +155,8 @@
         <div class="bra-icon">🍪</div>
         <div class="bra-text">
           <strong>Diese Website verwendet Cookies</strong>
-          <p>Wir nutzen Google Analytics (Besucherstatistiken) und Google AdSense (Werbung).
-          Diese Dienste setzen Cookies und können Daten in die USA übertragen (Google LLC, Data Privacy Framework).
+          <p>Wir nutzen Google Analytics für anonyme Besucherstatistiken.
+          Der Dienst kann Daten in die USA übertragen (Google LLC, EU-US Data Privacy Framework).
           Weitere Infos in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.
           Ablehnen ist jederzeit möglich.</p>
         </div>

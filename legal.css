@@ -1,0 +1,42 @@
+/* Gemeinsames CozyVibe-Design für Rechtsseiten (Impressum, Datenschutz, Nutzungsbedingungen) */
+@import url(/fonts/cozy/cozy-fonts.css);
+
+:root {
+  --font-display:'Dancing Script',cursive; --font-body:'Mulish',system-ui,sans-serif; --font-accent:'Marcellus',serif;
+  --cream:#FBF6F0; --surface:#fff; --surface-2:#F6EDE3; --surface-3:#F0E4D7; --border:#EBDDCD;
+  --ink:#3B302A; --text:#574B43; --text-muted:#93847A;
+  --primary:#EF9320; --primary-strong:#BD6C0A; --primary-tint:#FEF5E0; --deep:#5E3508;
+  --shadow-subtle:0 1px 2px rgba(64,38,24,.06),0 1px 1px rgba(64,38,24,.04);
+  --shadow-soft:0 6px 18px -8px rgba(64,38,24,.14),0 2px 6px -2px rgba(64,38,24,.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:var(--font-body); background:var(--cream); color:var(--text);
+  min-height:100vh; padding:30px 16px 40px; font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+body, p, li, address { hyphens:none; -webkit-hyphens:none; text-wrap:pretty; }
+h1, h2, h3 { text-wrap:balance; }
+.wrap { max-width:780px; margin:0 auto; }
+
+.back-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:var(--font-accent); text-transform:uppercase; letter-spacing:.2em; font-size:.7rem;
+  color:var(--text-muted); text-decoration:none; margin-bottom:20px;
+  background:var(--surface); border:1px solid var(--border); padding:9px 18px; border-radius:999px; box-shadow:var(--shadow-subtle);
+}
+.back-btn:hover { color:var(--primary-strong); border-color:var(--primary); }
+
+h1 { font-family:var(--font-display); font-weight:700; font-size:clamp(2.4rem,5.5vw,3.4rem); color:var(--ink); text-align:center; line-height:1.05; margin-bottom:8px; }
+.subtitle { text-align:center; font-family:var(--font-accent); text-transform:uppercase; letter-spacing:.22em; font-size:.72rem; color:var(--primary-strong); margin-bottom:26px; }
+
+.card { background:var(--surface); border:1px solid var(--border); border-radius:22px; padding:26px 28px; margin-bottom:16px; box-shadow:var(--shadow-soft); }
+.card h2 { font-family:var(--font-accent); text-transform:uppercase; letter-spacing:.14em; font-size:.92rem; color:var(--primary-strong);
+  margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.card p, .card address, .card li { font-size:.98rem; line-height:1.85; color:var(--text); font-style:normal; margin-bottom:10px; }
+.card p:last-child, .card address:last-child { margin-bottom:0; }
+.card ul, .card ol { margin:0 0 10px 22px; }
+.card strong { color:var(--ink); font-weight:700; }
+.card a { color:var(--primary-strong); text-decoration:none; font-weight:600; }
+.card a:hover { color:var(--deep); text-decoration:underline; }
+.info-label { display:block; font-family:var(--font-accent); text-transform:uppercase; letter-spacing:.12em; font-size:.68rem; color:var(--primary-strong); margin-bottom:3px; }
