@@ -1883,6 +1883,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
   justify-content: center;
   margin: 16px 0;
 }
+.gender-options:not(.gender-options-4) > .gender-btn { flex: 1 1 0; min-width: 0; }
 
 /* 3-Vibe-Variante (Pink / Cozy / Blau) – schmaler, damit 3 nebeneinander passen */
 .gender-options-3 {
@@ -2159,6 +2160,7 @@ body.theme-boy .footer {
   border-top-color: #90caf9;
 }
 
+body.gender-divers .logo-name { font-family: 'Poppins', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
 body.gender-boy .logo-name {
   font-family: 'Exo 2', sans-serif;
   font-weight: 700;
@@ -3218,3 +3220,11 @@ body.theme-boy .legal-footer a {
 body.theme-boy .legal-footer span {
   color: #90caf9 !important;
 }
+
+
+/* Pull-to-Refresh / Overscroll-Hintergrund pro Design (iOS) */
+html.theme-boy    { background-color: #90caf9; }
+html.theme-cozy   { background-color: #F8C76B; }
+html.theme-winter { background-color: #8A3354; }
+html.theme-mono   { background-color: #2b2b2b; }
+html.theme-rainbow{ background-color: #FF6F4A; }

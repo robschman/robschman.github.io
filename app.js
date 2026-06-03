@@ -56,6 +56,7 @@ const TRANSLATIONS = {
     genderHint: 'Das passt das Design an',
     girl: 'Mädchen',
     boy: 'Bub',
+    divers: 'Divers',
     designTitle: 'Dein Style?',
     designHint: 'Wähle dein Lieblings-Design – jederzeit änderbar',
     vibePink: 'Pink',
@@ -180,6 +181,7 @@ const TRANSLATIONS = {
     genderHint: 'This adapts the design',
     girl: 'Girl',
     boy: 'Boy',
+    divers: 'Diverse',
     designTitle: 'Your style?',
     designHint: 'Pick your favourite look – changeable anytime',
     vibePink: 'Pink',
@@ -1305,9 +1307,9 @@ function updateHairEmojisForGender(gender) {
   });
   // Haarlänge: kurz / mittel / lang
   const lengthMaps = {
-    kurz:  { girl: '💁‍♀️', boy: '💇‍♂️' },
-    mittel: { girl: '💇‍♀️', boy: '🧔' },
-    lang:  { girl: '👸',   boy: '🧑' },
+    kurz:  { girl: '💁‍♀️', boy: '💇‍♂️', divers: '💇' },
+    mittel: { girl: '💇‍♀️', boy: '🧔', divers: '🧑' },
+    lang:  { girl: '👸',   boy: '🧑', divers: '🧑' },
   };
   ['#hairLengthOptions', '#settingsHairLength'].forEach(sel => {
     document.querySelectorAll(`${sel} .ob-option`).forEach(el => {
@@ -1329,10 +1331,11 @@ function updateHairEmojisForGender(gender) {
 
 // ===== GESCHLECHT (Inhalt: Routinen, Haar, Bart) — UNABHÄNGIG vom Design =====
 function getGender() {
-  return store.get('routine_gender') === 'boy' ? 'boy' : 'girl';
+  var g = store.get('routine_gender');
+  return (g === 'boy' || g === 'divers') ? g : 'girl';
 }
 function setGender(g) {
-  store.set('routine_gender', g === 'boy' ? 'boy' : 'girl');
+  store.set('routine_gender', (g === 'boy' || g === 'divers') ? g : 'girl');
 }
 
 // ===== DESIGN / THEME (nur Optik: 'pink' | 'cozy' | 'blue') =====
@@ -1342,7 +1345,7 @@ function getTheme() {
   let t = store.get('routine_theme');
   if (!t) {
     // Migration für Alt-User: Buben-Geschlecht hatte früher das blaue Design
-    t = (store.get('routine_gender') === 'boy') ? 'blue' : 'pink';
+    var _gd = store.get('routine_gender'); t = _gd === 'boy' ? 'blue' : (_gd === 'divers' ? 'rainbow' : 'pink');
   }
   if (t === 'girl') t = 'pink';   // Legacy normalisieren
   if (t === 'boy')  t = 'blue';
@@ -1364,6 +1367,7 @@ function applyThemeClasses(theme) {
   document.body.classList.toggle('theme-mono',    theme === 'mono');
   document.body.classList.toggle('theme-rainbow', theme === 'rainbow');
   document.body.classList.toggle('gender-boy', getGender() === 'boy');
+  document.body.classList.toggle('gender-divers', getGender() === 'divers');
 }
 
 // Optik + Inhalt komplett anwenden (liest Geschlecht + Design aus dem Speicher)
