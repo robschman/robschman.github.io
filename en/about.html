@@ -1,175 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-season="summer">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About us – Beauty Routine App</title>
-<meta name="description" content="Who's behind the Beauty Routine App? The story, the idea and the promise: an honest, free, ad-supported beauty app without tracking madness.">
+<title>About us – CozyVibe Beauty &amp; the Beauty Routine App</title>
+<meta name="description" content="Who is behind the Beauty Routine App and CozyVibe? The story, the idea and the promise: honest, free, no tracking obsession. An indie project from Austria.">
 <link rel="canonical" href="https://beautyroutine.app/en/about.html">
 <link rel="alternate" hreflang="de" href="https://beautyroutine.app/about.html">
 <link rel="alternate" hreflang="en" href="https://beautyroutine.app/en/about.html">
 <link rel="alternate" hreflang="x-default" href="https://beautyroutine.app/about.html">
-<link rel="stylesheet" href="/fonts.css">
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#fce4ec,#f3e5f5,#ede7f6);
-  min-height:100vh; padding:24px 16px; color:#333;
-}
-.wrap { max-width:760px; margin:0 auto; }
-.back-btn {
-  display:inline-flex; align-items:center; gap:6px;
-  font-size:12px; font-weight:700; color:#c2185b;
-  text-decoration:none; margin-bottom:20px;
-  background:rgba(255,255,255,0.7); padding:8px 16px; border-radius:50px;
-}
-h1 {
-  font-family:'Dancing Script',cursive;
-  font-size:42px; color:#c2185b; text-align:center; margin-bottom:4px;
-}
-.subtitle { text-align:center; font-size:11px; color:#bbb; font-weight:600; letter-spacing:2px; margin-bottom:24px; }
-.card {
-  background:rgba(255,255,255,0.88);
-  backdrop-filter:blur(10px);
-  border-radius:20px; padding:24px;
-  margin-bottom:14px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);
-}
-.card h2 {
-  font-size:14px; font-weight:800; letter-spacing:1px;
-  text-transform:uppercase; color:#c2185b; margin-bottom:14px;
-  padding-bottom:8px; border-bottom:1px solid #fce4ec;
-}
-.card p {
-  font-size:14px; line-height:1.8; color:#444;
-  margin-bottom:12px;
-}
-.card a { color:#c2185b; font-weight:600; }
-.lead {
-  font-size:16px; line-height:1.7; color:#c2185b;
-  font-weight:600; margin-bottom:18px;
-}
-ul.values { list-style:none; padding:0; }
-ul.values li {
-  padding:10px 0 10px 28px; font-size:14px; line-height:1.6;
-  background:url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23c2185b' opacity='0.15'/%3E%3Cpath d='M5 9.5 L8 12.5 L13 6.5' stroke='%23c2185b' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat left 12px;
-}
-.cta-row { text-align:center; margin-top:20px; }
-.cta-row a {
-  display:inline-block; padding:12px 28px;
-  background:linear-gradient(135deg,#e91e8c,#9c27b0); color:#fff;
-  text-decoration:none; border-radius:50px; font-weight:700;
-  font-size:14px; letter-spacing:0.5px;
-}
-body.theme-boy { background:linear-gradient(135deg,#e3f2fd,#e8eaf6,#ede7f6); }
-body.theme-boy .back-btn { color:#1565c0; }
-body.theme-boy h1 { color:#1565c0; }
-body.theme-boy .card h2 { color:#1565c0; border-bottom-color:#bbdefb; }
-body.theme-boy .card a { color:#1565c0; }
-body.theme-boy .lead { color:#1565c0; }
-body.theme-boy .cta-row a { background:linear-gradient(135deg,#1565c0,#3949ab); }
-.lang-switch {
-  position:fixed; top:20px; right:20px;
-  display:flex; gap:6px; z-index:100;
-  background:rgba(255,255,255,0.85); backdrop-filter:blur(10px);
-  border-radius:30px; padding:4px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.08);
-}
-.lang-switch button {
-  border:none; background:transparent;
-  font-size:13px; font-weight:700;
-  padding:6px 12px; border-radius:24px;
-  cursor:pointer; color:#888;
-  transition:all 0.15s;
-}
-.lang-switch button:hover { background:rgba(194,24,91,0.08); color:#c2185b; }
-.lang-switch button.active { background:linear-gradient(135deg,#e91e8c,#9c27b0); color:#fff !important; }
-body.theme-boy .lang-switch button:hover { background:rgba(21,101,192,0.08); color:#1565c0; }
-body.theme-boy .lang-switch button.active { background:linear-gradient(135deg,#1565c0,#3949ab); }
-@media (max-width:480px) {
-  .lang-switch { top:12px; right:12px; }
-  .lang-switch button { padding:5px 10px; font-size:12px; }
-}
-</style>
-<script src="/lang-switch.js"></script>
-<script>
-  if (localStorage.getItem('routine_gender') === 'boy') {
-    document.addEventListener('DOMContentLoaded', function() {
-      document.body.classList.add('theme-boy');
-    });
+  @import url(/fonts/cozy/cozy-fonts.css);
+
+  :root {
+    --font-display:'Dancing Script',cursive; --font-body:'Mulish',system-ui,sans-serif; --font-accent:'Marcellus',serif;
+    --cream:#FBF6F0; --surface:#fff; --surface-2:#F6EDE3; --surface-3:#F0E4D7; --border:#EBDDCD; --border-strong:#DBC7B2;
+    --ink:#3B302A; --text:#574B43; --text-muted:#93847A; --text-faint:#B7A99D;
+    --shadow-subtle:0 1px 2px rgba(64,38,24,.06),0 1px 1px rgba(64,38,24,.04);
+    --shadow-soft:0 6px 18px -8px rgba(64,38,24,.14),0 2px 6px -2px rgba(64,38,24,.08);
+    --shadow-medium:0 18px 40px -14px rgba(64,38,24,.22),0 4px 12px -4px rgba(64,38,24,.10);
+    --shadow-glow:0 10px 34px -8px var(--primary-glow);
   }
-</script>
+  [data-season="summer"] {
+    --primary:#EF9320; --primary-strong:#BD6C0A; --primary-soft:#FCE9C2; --primary-tint:#FEF5E0;
+    --primary-glow:rgba(239,147,32,0.40); --accent:#FBD274; --accent-soft:#FCEFCC; --deep:#5E3508;
+  }
+  [data-season="spring"] { --primary:#EC9BB0; --primary-strong:#C8607E; --primary-soft:#FBE2E9; --primary-tint:#FDF0F3; --primary-glow:rgba(236,155,176,.48); --accent:#9BD0B4; --deep:#9A4A66; }
+  [data-season="winter"] { --primary:#8A3354; --primary-strong:#6B2440; --primary-soft:#EBD0DA; --primary-tint:#F6EBF0; --primary-glow:rgba(138,51,84,.40); --accent:#BBADDD; --deep:#5A2038; }
+
+  *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body, p, .lead, .card li { hyphens:none; -webkit-hyphens:none; text-wrap:pretty; }
+  h1, h2, h3 { text-wrap:balance; }
+  body {
+    background:var(--cream); color:var(--text); font-family:var(--font-body);
+    font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  a { color:var(--primary-strong); text-decoration:none; transition:color .15s ease; }
+  a:hover { color:var(--deep); }
+
+  /* NAV */
+  nav { position:sticky; top:0; z-index:100; background:rgba(251,246,240,.85); backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px); border-bottom:1px solid var(--border); padding:14px 0; }
+  .nav-inner { max-width:980px; margin:0 auto; padding:0 22px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .nav-brand { display:flex; align-items:center; gap:11px; }
+  .nav-logo { width:38px; height:38px; border-radius:50%; box-shadow:var(--shadow-subtle); }
+  .nav-name { font-family:var(--font-display); font-weight:700; font-size:1.35rem; color:var(--ink); line-height:1; }
+  .nav-sub { font-family:var(--font-accent); text-transform:uppercase; letter-spacing:.3em; font-size:.58rem; color:var(--text-muted); }
+  .nav-back { font-family:var(--font-accent); text-transform:uppercase; letter-spacing:.2em; font-size:.7rem; color:var(--text-muted); }
+  .nav-back:hover { color:var(--primary-strong); }
+
+  /* HERO */
+  .hero { text-align:center; padding:64px 0 36px; background:radial-gradient(120% 100% at 50% 0%,var(--primary-tint),var(--cream) 72%); }
+  .hero-inner { max-width:720px; margin:0 auto; padding:0 22px; }
+  .eyebrow { display:inline-block; background:var(--surface); border:1px solid var(--primary); color:var(--primary-strong);
+    padding:8px 18px; border-radius:999px; font-family:var(--font-accent); font-size:.74rem; letter-spacing:.28em; text-transform:uppercase;
+    box-shadow:var(--shadow-subtle); margin-bottom:22px; }
+  .hero h1 { font-family:var(--font-display); font-weight:700; font-size:clamp(2.8rem,6vw,4.4rem); line-height:.98; color:var(--ink); margin-bottom:16px; }
+  .hero .lead { font-size:1.2rem; line-height:1.55; color:var(--text); max-width:600px; margin:0 auto; }
+
+  /* CONTENT */
+  .wrap { max-width:780px; margin:0 auto; padding:30px 22px 0; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:24px; padding:30px 32px; margin-bottom:18px; box-shadow:var(--shadow-soft); }
+  .card h2 { font-family:var(--font-accent); text-transform:uppercase; letter-spacing:.16em; font-size:.92rem; color:var(--primary-strong);
+    margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+  .card p { font-size:1.02rem; line-height:1.72; color:var(--text); margin-bottom:14px; }
+  .card p:last-child { margin-bottom:0; }
+  .card .lead { font-family:var(--font-display); font-weight:600; font-size:1.5rem; line-height:1.3; color:var(--primary-strong); margin-bottom:18px; }
+  .card strong { color:var(--ink); font-weight:700; }
+  .card a { font-weight:600; }
+  ul.values { list-style:none; padding:0; }
+  ul.values li { position:relative; padding:11px 0 11px 34px; font-size:1.02rem; line-height:1.6; color:var(--text); border-bottom:1px solid var(--surface-2); }
+  ul.values li:last-child { border-bottom:none; }
+  ul.values li::before { content:''; position:absolute; left:2px; top:15px; width:18px; height:18px; border-radius:50%;
+    background:var(--primary-tint);
+    background-image:url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 9.5 L8 12.5 L13 6.5' stroke='%23BD6C0A' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+
+  /* CTA */
+  .cta-row { text-align:center; margin:28px 0 10px; }
+  .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:16px 32px; border-radius:999px;
+    font-family:var(--font-accent); font-size:.84rem; letter-spacing:.18em; text-transform:uppercase;
+    background:linear-gradient(155deg,var(--primary),var(--primary-strong)); color:#fff; box-shadow:var(--shadow-glow); transition:all .2s ease; }
+  .btn-primary:hover { transform:translateY(-2px); color:#fff; box-shadow:0 16px 40px -10px var(--primary-glow); }
+
+  /* FOOTER */
+  footer { background:var(--surface-3); padding:50px 0 36px; text-align:center; border-top:1px solid var(--border); margin-top:50px; }
+  .footer-brand { font-family:var(--font-display); font-weight:700; font-size:1.9rem; color:var(--ink); }
+  .footer-tagline { font-size:.92rem; color:var(--text-muted); margin:8px 0 22px; }
+  .footer-links { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; font-family:var(--font-accent);
+    text-transform:uppercase; letter-spacing:.18em; font-size:.68rem; margin-bottom:18px; }
+  .footer-links a { color:var(--text-muted); }
+  .footer-links a:hover { color:var(--primary-strong); }
+  .footer-ai { font-size:.76rem; color:var(--text-faint); }
+
+  /* LANG-SWITCH */
+  .lang-switch { position:fixed; top:74px; right:16px; display:flex; gap:5px; z-index:120;
+    background:var(--surface); border:1px solid var(--border); border-radius:30px; padding:4px; box-shadow:var(--shadow-soft); }
+  .lang-switch button { border:none; background:transparent; font-family:var(--font-accent); font-size:.66rem; letter-spacing:.08em;
+    font-weight:600; padding:6px 11px; border-radius:24px; cursor:pointer; color:var(--text-muted); transition:all .15s; }
+  .lang-switch button:hover { background:var(--primary-tint); color:var(--primary-strong); }
+  .lang-switch button.active { background:var(--primary); color:#fff; }
+
+  @media (max-width:520px) { .card { padding:24px 22px; } .lang-switch { top:70px; right:10px; } }
+</style>
+<script src="/cookie-consent.js?v=2.1"></script>
+<script src="/lang-switch.js"></script>
 </head>
 <body>
+
 <div class="lang-switch">
   <button data-target-lang="de" aria-label="Deutsch">🇩🇪 DE</button>
   <button data-target-lang="en" aria-label="English">🇬🇧 EN</button>
 </div>
+
+<nav><div class="nav-inner">
+  <a href="/en/" class="nav-brand">
+    <img src="/cozyvibe-icon.png" alt="CozyVibe" class="nav-logo">
+    <span><span class="nav-name">CozyVibe</span><br><span class="nav-sub">Beauty</span></span>
+  </a>
+  <a href="/en/" class="nav-back">← Home</a>
+</div></nav>
+
+<section class="hero"><div class="hero-inner">
+  <span class="eyebrow">The story behind the app</span>
+  <h1>About us</h1>
+  <p class="lead">No corporation, no investor pressure, no data-harvesting business model. Just an honest little project from Austria.</p>
+</div></section>
+
 <div class="wrap">
-<a href="/" class="back-btn">← Back to home</a>
-<h1>About us</h1>
-<div class="subtitle">THE STORY BEHIND THE APP</div>
 
 <div class="card">
-  <h2>Who's behind this?</h2>
-  <p class="lead">Beauty Routine App is an independent indie project from Austria. No corporation, no investor pressure, no data-harvesting business model — just an honest, free app.</p>
-  <p>My name is <strong>Robert Thalhammer</strong>. I'm building the Beauty Routine App as a <strong>small-business owner ("Kleinunternehmer") in Austria</strong>. The real inspiration for this app came from <strong>my daughter Zoe</strong>. She was the one who kept searching for routine apps — apps where she could actually <strong>create, customise and adjust things to her own needs</strong>. And of course: <strong>free</strong>. What she found on the market was either packed with ads, hidden behind a subscription, or so clunky that she'd give up after two days.</p>
-
-  <p>Zoe is a <strong>teenager</strong> and is just getting into the phase where you start paying attention to yourself — to health, to beauty, to your own well-being. What was important to us as a family: that she finds a <strong>healthy, balanced path</strong> with it. So <strong>not too much make-up</strong>, but rather taking good care of her skin from the start. Gentle cleansing, moisturising, sun protection. Looking after the hair regularly instead of over-styling. A few simple, healthy habits you pick up early and keep for life.</p>
-
-  <p>That's exactly what the app was supposed to be: a <strong>reliable little companion</strong> that reminds you of the good stuff — not one that keeps pushing the next expensive product on you.</p>
-
-  <p>So I started building one — initially just for Zoe. She helped from day one: what's missing, what's annoying, what she would actually use. From the many conversations with her, step by step, what you see today emerged. Today the app is for everyone who's looking for the same thing she was back then.</p>
+  <h2>Who's behind it?</h2>
+  <p class="lead">The Beauty Routine App is an independent indie project from Austria.</p>
+  <p>My name is <strong>Robert Thalhammer</strong>. I build the Beauty Routine App as a <strong>small-business owner in Austria</strong>. The real inspiration for this app came from <strong>my daughter Zoe</strong>. She was the one who kept looking for routine apps. Apps where she could actually <strong>create, customise and tailor things to her own needs</strong>. And of course: <strong>free</strong>. What she found on the market was either full of ads, hidden behind a subscription, or so clunky that she put it down again after two days.</p>
+  <p>Zoe is a <strong>teenager</strong> and is just reaching the age where you start looking after yourself. Health, beauty, your own well-being. What mattered to us as a family: that she takes a <strong>healthy, balanced path</strong> with it. So <strong>not too much make-up</strong>, but rather caring for the skin properly from the start. Gentle cleansing, moisture, sun protection. Looking after the hair regularly instead of over-styling it. A few simple, healthy habits you pick up early and then keep for life.</p>
+  <p>That is exactly what the app was meant for: a <strong>reliable little companion</strong> that reminds you of the good things. Not one that keeps pushing the next expensive product on you.</p>
+  <p>So I started building my own app, at first just for Zoe. She helped from the very beginning: what was missing, what was annoying, what she would actually use. Out of the many conversations with her, step by step, what you see today took shape. Today the app is there for everyone who is looking for the same thing she was back then.</p>
 </div>
 
 <div class="card">
   <h2>Why this app?</h2>
-  <p>Beauty isn't the point. <strong>Consistency</strong> is the point. A 5-step skincare routine doesn't do much if you do it twice a month. A 2-step routine that you actually pull off <em>every night</em> changes things.</p>
-  <p>That's what the Beauty Routine App is for: it's your <strong>little reminder companion</strong>. Morning check: "Did I do cleansing, serum, and sunscreen?" Evening the same, plus a mask once a week, plus a hair appointment in 6 weeks. All at a glance. All checkable. All yours.</p>
-  <p>The app doesn't replace a dermatologist or a beauty advisor. It's also not an AI telling you what to buy. It's a <strong>tool that helps you stick with it</strong> — no matter what products you use, no matter what skin type you have.</p>
+  <p>Beauty is not the point. <strong>Consistency</strong> is the point. A 5-step skincare routine does nothing if you do it twice a month. A 2-step routine that you actually go through <em>every evening</em> really does change something.</p>
+  <p>That is exactly what the Beauty Routine App is for: it is your <strong>little reminder companion</strong>. A quick check in the morning: "Did I do cleansing, serum and sunscreen?" The same in the evening, plus a mask once a week, plus a hair appointment in 6 weeks. All at a glance. All tickable. All yours.</p>
+  <p>The app does not replace a dermatologist or a beauty consultant. It is also not an AI that tells you what to buy. It is a <strong>tool that helps you stay on track</strong>. No matter which products you use, no matter what skin type you have.</p>
 </div>
 
 <div class="card">
   <h2>What matters to us</h2>
   <ul class="values">
-    <li><strong>Free stays free.</strong> The app is funded by discreet, GDPR-compliant ads (Google AdSense) — never by hidden purchases or premium walls in front of the core features.</li>
-    <li><strong>GDPR-compliant and transparent.</strong> We only set cookies after your explicit consent via the cookie banner. We don't sell data. Period.</li>
-    <li><strong>Stored locally.</strong> Your routine, your appointments, your checklists live in your browser's <em>Local Storage</em> — not on our servers. We don't see any of it.</li>
+    <li><strong>Free stays free.</strong> The app pays for itself through discreet ads and affiliate recommendations, never through hidden purchases or premium walls in front of the main feature.</li>
+    <li><strong>GDPR-compliant and transparent.</strong> We only set cookies with your explicit consent via the cookie banner. We do not sell your data on. Full stop.</li>
+    <li><strong>Stored locally.</strong> Your routine, your appointments, your checklists land in your browser's <em>local storage</em>, not on our servers. We see none of it.</li>
     <li><strong>No account, no email required.</strong> You can use the app without us ever knowing who you are.</li>
-    <li><strong>Made in Austria.</strong> Hosted in Europe, built with European privacy in mind.</li>
-    <li><strong>Indie and honest.</strong> If something doesn't work, write me directly — I read every email myself.</li>
+    <li><strong>Made in Austria.</strong> Hosted in Europe, with European data protection in mind.</li>
+    <li><strong>Indie and honest.</strong> If something does not work, write to me directly. I read every email myself.</li>
   </ul>
 </div>
 
 <div class="card">
   <h2>How is this funded?</h2>
   <p>Three simple answers:</p>
-  <p><strong>1. Ads via Google AdSense</strong> — small ads, clearly labelled, only after your cookie consent. That's the main source of revenue.</p>
-  <p><strong>2. Affiliate links</strong> to skincare products and beauty brands — if you buy through a link, I earn a small commission. You pay not a cent more. Affiliate links in the footer are always marked with an asterisk (*).</p>
-  <p><strong>3. My own money.</strong> The app has been running for months, long before it ever made any revenue. That's normal for an indie project — and a risk I gladly carry because I believe in the idea.</p>
+  <p><strong>1. Ads</strong>, clearly marked and only after your cookie consent.</p>
+  <p><strong>2. Affiliate links</strong> to skincare products and beauty brands. If you buy through a link, I get a small commission. You do not pay a cent more. Affiliate links are always clearly marked.</p>
+  <p><strong>3. My own money.</strong> The app has been running for months, long before it earned anything at all. That is normal for an indie project, and I am happy to carry that risk because I believe in the idea.</p>
 </div>
 
 <div class="card">
-  <h2>Who is the app for?</h2>
-  <p>Anyone who wants to take their skincare a bit more seriously but doesn't have time for complicated apps:</p>
-  <p>• <strong>Beginners</strong> who are building a proper skincare routine for the first time.<br>
-     • <strong>Routine hoppers</strong> who try a new system every three weeks — and need someone to remind them of the basics.<br>
-     • <strong>Skincare enthusiasts</strong> who additionally want to keep track of hair, beauty and waxing appointments.<br>
-     • <strong>Men and women alike.</strong> The app has a "Boy Mode" with blue-purple colours instead of pink — because skincare has no gender.</p>
+  <h2>Who does the app help?</h2>
+  <p>Anyone who wants to take their skincare a little more seriously, but has no time budget for complicated apps:</p>
+  <p>• <strong>Beginners</strong> building a proper skincare routine for the first time.<br>
+     • <strong>Routine hoppers</strong> who try a new system every three weeks and need someone to remind them of the basics.<br>
+     • <strong>Skincare enthusiasts</strong> who also want to keep an eye on hair, beauty and waxing appointments.<br>
+     • <strong>Men and women alike.</strong> The app has several designs, including a blue look, because care has no gender.</p>
 </div>
 
 <div class="card">
   <h2>Contact</h2>
-  <p>Got feedback, an idea, a bug to report, or just want to say hi?<br>
-  Write me directly: <a href="mailto:info@beautyroutine.app">info@beautyroutine.app</a></p>
-  <p>For legal matters see the <a href="/impressum.html">imprint</a>, the <a href="/datenschutz.html">privacy policy</a> and the <a href="/nutzungsbedingungen.html">terms of use</a>.</p>
+  <p>Got feedback, an idea, found a bug, or just want to say hello?<br>
+  Write to me directly: <a href="mailto:info@beautyroutine.app">info@beautyroutine.app</a></p>
+  <p>For legal enquiries see the <a href="/impressum.html">imprint</a> as well as the <a href="/datenschutz.html">privacy policy</a> and the <a href="/nutzungsbedingungen.html">terms of use</a>.</p>
 </div>
 
 <div class="cta-row">
-  <a href="/app.html">✨ Start the app</a>
+  <a href="/app.html" class="btn-primary">Start the app now →</a>
 </div>
 
 </div>
+
+<footer>
+  <div class="footer-brand">CozyVibe</div>
+  <div class="footer-tagline">Beauty · Care · Selfcare. Warm &amp; honest</div>
+  <div class="footer-links">
+    <a href="/en/">Home</a>
+    <a href="/en/blog/">Guides</a>
+    <a href="/en/faq.html">FAQ</a>
+    <a href="/impressum.html">Imprint</a>
+    <a href="/datenschutz.html">Privacy</a>
+    <a href="/nutzungsbedingungen.html">Terms of Use</a>
+  </div>
+  <div class="footer-ai">✨ Content supported by AI · honestly tested</div>
+</footer>
+
 </body>
 </html>

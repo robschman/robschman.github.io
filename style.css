@@ -316,7 +316,7 @@ body.theme-rainbow .tab.active{ opacity:1; box-shadow:0 4px 12px rgba(0,0,0,0.22
 
 .logo-beauty {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.8rem;
+  font-size: 2.05rem;
   font-weight: 700;
   color: white;
   text-shadow: 0 2px 14px rgba(0,0,0,0.18), 0 0 24px rgba(255,255,255,0.25);
@@ -336,12 +336,14 @@ body.theme-rainbow .tab.active{ opacity:1; box-shadow:0 4px 12px rgba(0,0,0,0.22
 .logo-top {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 7px;
 }
 
 .logo-name {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.75rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.92);
   letter-spacing: 0.3px;

@@ -64,7 +64,7 @@
   </script>
 
   <link rel="stylesheet" href="/fonts.css" />
-  <link rel="stylesheet" href="style.css?v=1.6" />
+  <link rel="stylesheet" href="style.css?v=1.7" />
   <script>
     // AdSense nur auf echter Website laden, nicht beim lokalen Test
     if (location.protocol !== 'file:') {
@@ -92,6 +92,8 @@
         else if (t === 'winter') c.add('theme-winter');
         else if (t === 'mono')    c.add('theme-mono');
         else if (t === 'rainbow') c.add('theme-rainbow');
+        var bgMap = { blue:'#90caf9', cozy:'#F8C76B', winter:'#8A3354', mono:'#2b2b2b', rainbow:'#FF5252' };
+        document.documentElement.style.backgroundColor = bgMap[t] || '#f9a8c9';
       } catch (e) {}
     })();
   </script>
@@ -253,12 +255,6 @@
         <button class="edit-toggle-btn" id="editToggleBtn">✏️</button>
       </nav>
 
-      <!-- Saison-Banner: dynamisch je nach Monat, immer sichtbar -->
-      <a href="/blog/" class="seasonal-banner" id="seasonalBanner">
-        <span class="seasonal-banner-icon" id="seasonalIcon">🌞</span>
-        <span class="seasonal-banner-text" id="seasonalText">Sommer-Tipps &amp; Produkte</span>
-        <span class="seasonal-banner-arrow">→</span>
-      </a>
       <a href="/cozy-picks.html" class="fav-banner" id="favBanner">
         <img src="/cozyvibe-icon.png" alt="CozyVibe" class="fav-banner-logo" />
         <span class="fav-banner-text">
@@ -348,12 +344,12 @@
         <div class="tips-bubbles" id="tipsBubbles"></div>
       </div>
 
-      <!-- Einstellungen Button (ersetzt Ad-Container) -->
-      <div class="settings-area">
-        <button class="settings-open-btn" id="settingsOpenBtn">
-          ⚙️ <span data-tr="settings"></span>
-        </button>
-      </div>
+      <!-- Saison-Banner: dynamisch je nach Monat, immer sichtbar -->
+      <a href="/blog/" class="seasonal-banner" id="seasonalBanner">
+        <span class="seasonal-banner-icon" id="seasonalIcon">🌞</span>
+        <span class="seasonal-banner-text" id="seasonalText">Sommer-Tipps &amp; Produkte</span>
+        <span class="seasonal-banner-arrow">→</span>
+      </a>
 
       <!-- CozyVibe Pinterest Banner -->
       <a href="https://pinterest.com/cozyvibeapp" target="_blank" rel="noopener" class="cozyvibe-banner">
@@ -364,6 +360,13 @@
         </span>
         <span class="cozyvibe-banner-arrow">→</span>
       </a>
+
+      <!-- Einstellungen Button (ersetzt Ad-Container) -->
+      <div class="settings-area">
+        <button class="settings-open-btn" id="settingsOpenBtn">
+          ⚙️ <span data-tr="settings"></span>
+        </button>
+      </div>
 
       <!-- Legal Footer -->
       <div class="legal-footer" style="text-align:center;padding:8px 0 80px;font-size:11px;">

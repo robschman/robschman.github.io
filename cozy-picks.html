@@ -82,7 +82,7 @@
   .product { scroll-margin-top: 90px; }
   .product:target { outline: none !important; border: 2px solid var(--gold) !important; box-shadow: 0 0 16px 1px rgba(239,147,32,0.38), 0 14px 34px rgba(189,108,10,0.26) !important; position: relative; z-index: 0; }
   a.product:focus, a.product:focus-visible { outline: none !important; }
-  .product:target::before { content: '\2726'; position: absolute; font-size: 40px; line-height: 1; color: #fff; text-shadow: 0 0 12px #FFF6DC, 0 0 26px #FFE082, 0 0 48px rgba(255,200,80,0.9), 0 0 76px rgba(255,190,70,0.6); top: 0; left: 0; z-index: 3; pointer-events: none; animation: beam-run 9.6s linear infinite, beam-twinkle 1.7s ease-in-out infinite; }
+  .product:target::before { content: '\2726'; position: absolute; font-size: 40px; line-height: 1; color: #fff; text-shadow: 0 0 12px #FFF6DC, 0 0 26px #FFE082, 0 0 48px rgba(255,200,80,0.9), 0 0 76px rgba(255,190,70,0.6); top: 0; left: 0; z-index: 3; pointer-events: none; animation: beam-run 6.4s linear infinite, beam-twinkle 1.5s ease-in-out infinite; }
   @keyframes beam-run { 0% { top: 0; left: 0; } 25% { top: 0; left: 100%; } 50% { top: 100%; left: 100%; } 75% { top: 100%; left: 0; } 100% { top: 0; left: 0; } }
   @keyframes beam-twinkle { 0%, 100% { transform: translate(-50%,-50%) scale(1) rotate(0deg); opacity: 0.88; } 50% { transform: translate(-50%,-50%) scale(1.45) rotate(45deg); opacity: 1; } }
   .product:target::after { content: 'Dein Tipp \2728'; position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #fff; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 4px 13px; border-radius: 999px; box-shadow: 0 2px 8px rgba(189,108,10,0.34); white-space: nowrap; z-index: 4; }
