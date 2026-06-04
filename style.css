@@ -3228,3 +3228,22 @@ html.theme-cozy   { background-color: #F8C76B; }
 html.theme-winter { background-color: #8A3354; }
 html.theme-mono   { background-color: #2b2b2b; }
 html.theme-rainbow{ background-color: #FF6F4A; }
+
+/* Pull-to-Refresh v3: Overscroll zeigt body-bg (Theme-Farbe), Content bleibt hell ueber .app */
+.app { background: var(--bg); min-height: 100vh; min-height: 100dvh; }
+body.theme-mono    { background-color: #2b2b2b !important; }
+body.theme-rainbow { background-color: #FF6F4A !important; }
+.icon-info-url { text-decoration: underline dotted; cursor: pointer; }
+
+/* Onboarding immer CozyVibe-Gold (Marken-Einfuehrung, egal welches Theme) */
+.onboarding { background: linear-gradient(160deg, #FBF6F0 0%, #FCE9C2 50%, #EF9320 100%) !important; }
+.onboarding .name-save-btn, .onboarding .ob-next-btn { background: linear-gradient(135deg, #EF9320, #BD6C0A) !important; box-shadow: 0 4px 16px rgba(189,108,10,0.34) !important; }
+.onboarding .name-input { border-color: #EBDDCD !important; }
+.onboarding .name-input:focus { border-color: #EF9320 !important; box-shadow: 0 0 0 3px rgba(239,147,32,0.15) !important; }
+.onboarding .ob-option { border-color: #EBDDCD !important; }
+.onboarding .ob-option:hover { border-color: #F8C76B !important; background: #FEF5E0 !important; }
+.onboarding .ob-option.selected, .onboarding .gender-btn.selected { border-color: #BD6C0A !important; background: linear-gradient(135deg, #FEF5E0, #FCE9C2) !important; color: #BD6C0A !important; }
+.onboarding .gender-btn { border-color: #EBDDCD !important; }
+.onboarding .agb-inline-btn { color: #BD6C0A !important; }
+.onboarding a { color: #BD6C0A !important; }
+.onboarding input[type="checkbox"] { accent-color: #EF9320 !important; }

@@ -1861,7 +1861,17 @@ function init() {
     if (theme === 'girl') theme = 'pink';
     if (theme === 'boy')  theme = 'blue';
     const urlEl = document.getElementById('iconInfoUrl');
-    if (urlEl) urlEl.textContent = 'beautyroutine.app/' + theme + '/';
+    if (urlEl) {
+      urlEl.textContent = 'beautyroutine.app/' + theme + '/';
+      urlEl.style.cursor = 'pointer';
+      urlEl.title = 'Antippen zum Kopieren';
+      urlEl.onclick = function() {
+        var full = 'https://beautyroutine.app/' + theme + '/';
+        var done = function() { var prev = urlEl.textContent; urlEl.textContent = '\u2713 Kopiert!'; setTimeout(function(){ urlEl.textContent = prev; }, 1500); };
+        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(full).then(done).catch(function(){}); }
+        else { var ta = document.createElement('textarea'); ta.value = full; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch(e){} document.body.removeChild(ta); }
+      };
+    }
     document.getElementById('iconInfoOverlay').classList.add('open');
   });
   const iconInfoClose = document.getElementById('iconInfoClose');
