@@ -1,5 +1,5 @@
 // Beauty Routine App – Service Worker
-const CACHE = 'beauty-routine-v16';
+const CACHE = 'beauty-routine-v17';
 const ASSETS = [
   '/app.html',
   '/style.css',
@@ -50,7 +50,7 @@ self.addEventListener('fetch', e => {
   // → Bei kein Internet: Fallback auf gecachte Version
   if (url.pathname.endsWith('.html') || url.pathname === '/') {
     e.respondWith(
-      fetch(e.request)
+      fetch(e.request, { cache: 'no-store' })
         .then(response => {
           const clone = response.clone();
           caches.open(CACHE).then(c => c.put(e.request, clone));
