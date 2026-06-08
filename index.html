@@ -17,13 +17,13 @@
 <meta property="og:url" content="https://beautyroutine.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://beautyroutine.app/og-image.png">
+<meta property="og:image" content="https://beautyroutine.app/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CozyVibe Beauty – Skincare-Tipps &amp; kostenlose App">
-<meta name="twitter:image" content="https://beautyroutine.app/og-image.png">
-<script>if (localStorage.getItem('routine_username') && location.search.indexOf('home') === -1) { window.location.replace('/app.html'); }</script>
+<meta name="twitter:image" content="https://beautyroutine.app/og-image.png?v=2">
+<!-- Kein Auto-Redirect mehr: Besucher sehen immer die Landingpage. Rueckkehrer bekommen unten den "Weiter zur App"-Banner. -->
 <script src="/cookie-consent.js?v=2.1"></script>
 <script src="/lang-switch.js"></script>
 
@@ -423,6 +423,17 @@
 </style>
 </head>
 <body>
+
+<style>
+.app-return-banner { display:none; align-items:center; justify-content:center; gap:9px; background:linear-gradient(135deg,#F0A93A 0%,#EF9320 50%,#BD6C0A 100%); color:#fff; text-decoration:none; font-weight:700; font-size:0.95rem; line-height:1.3; padding:12px 18px; text-align:center; box-shadow:0 2px 14px rgba(189,108,10,0.32); position:relative; z-index:300; }
+.app-return-banner.show { display:flex; }
+.app-return-banner .arb-arrow { font-size:1.15rem; transition:transform 0.2s; }
+.app-return-banner:hover .arb-arrow { transform:translateX(5px); }
+</style>
+<a href="/app.html" class="app-return-banner" id="appReturnBanner">
+  <span>👋 Willkommen zurück! Weiter zu deiner Beauty Routine</span><span class="arb-arrow">→</span>
+</a>
+<script>try{if(localStorage.getItem('routine_username')){document.getElementById('appReturnBanner').classList.add('show');}}catch(e){}</script>
 
 <!-- TEMP Preview-Banner + Saison-Tester -->
 <!-- NAV -->

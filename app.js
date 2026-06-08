@@ -2330,6 +2330,8 @@ document.addEventListener('DOMContentLoaded', init);
       blue:   { bg:'linear-gradient(135deg, rgba(144,202,249,0.95), rgba(255,255,255,0.95))', color:'#1565c0', shadow:'0 4px 20px rgba(30,136,229,0.25), 0 0 0 1.5px rgba(30,136,229,0.15)', emoji:'⚡' },
       cozy:   { bg:'linear-gradient(135deg, rgba(248,199,107,0.95), rgba(255,255,255,0.95))', color:'#BD6C0A', shadow:'0 4px 20px rgba(189,108,10,0.25), 0 0 0 1.5px rgba(189,108,10,0.15)', emoji:'🍑' },
       winter: { bg:'linear-gradient(135deg, rgba(168,84,120,0.92), rgba(255,255,255,0.95))', color:'#6B2440', shadow:'0 4px 20px rgba(107,36,64,0.25), 0 0 0 1.5px rgba(107,36,64,0.15)', emoji:'🫐' },
+      mono:    { bg:'linear-gradient(135deg, rgba(95,95,95,0.95), rgba(245,245,245,0.96))', color:'#2b2b2b', shadow:'0 4px 20px rgba(40,40,40,0.3), 0 0 0 1.5px rgba(40,40,40,0.18)', emoji:'🖤' },
+      rainbow: { bg:'linear-gradient(120deg, rgba(255,82,82,0.96), rgba(255,179,0,0.94), rgba(67,160,71,0.94), rgba(33,150,243,0.96))', color:'#ffffff', shadow:'0 4px 20px rgba(156,39,176,0.32), 0 0 0 1.5px rgba(255,255,255,0.35)', emoji:'🌈' },
     };
     const v = V[theme] || V.pink;
     return {
