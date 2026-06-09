@@ -17,12 +17,12 @@
 <meta property="og:url" content="https://beautyroutine.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://beautyroutine.app/og-image.jpg">
+<meta property="og:image" content="https://beautyroutine.app/og-image.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CozyVibe Beauty – Skincare-Tipps &amp; kostenlose App">
-<meta name="twitter:image" content="https://beautyroutine.app/og-image.jpg">
+<meta name="twitter:image" content="https://beautyroutine.app/og-image.jpg?v=2">
 <!-- Kein Auto-Redirect mehr: Besucher sehen immer die Landingpage. Rueckkehrer bekommen unten den "Weiter zur App"-Banner. -->
 <script src="/cookie-consent.js?v=2.1"></script>
 <script src="/lang-switch.js"></script>
@@ -143,9 +143,10 @@
   }
   .nav-app:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(154,84,9,0.42); }
   @media (max-width: 640px) {
-    nav .nav-inner { flex-wrap: wrap; justify-content: center; row-gap: 10px; }
-    .nav-right { width: 100%; justify-content: center; gap: 8px; flex-wrap: wrap; }
-    .nav-favs, .nav-app, .nav-pinterest { font-size: 0.66rem; padding: 8px 13px; letter-spacing: 0.1em; }
+    nav .nav-inner { flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: 14px; }
+    .nav-brand { flex-direction: column; align-items: flex-start; gap: 7px; flex-shrink: 0; }
+    .nav-right { flex-direction: column; align-items: flex-end; gap: 8px; width: auto; flex-wrap: nowrap; }
+    .nav-favs, .nav-app, .nav-pinterest { font-size: 0.66rem; padding: 8px 14px; letter-spacing: 0.1em; }
   }
 
   /* ───── HERO ──────────────────────────────────────────── */
@@ -443,7 +444,7 @@
 .app-return-banner:hover .arb-arrow { transform:translateX(5px); }
 </style>
 <a href="/app.html" class="app-return-banner" id="appReturnBanner">
-  <span>👋 Willkommen zurück! Weiter zu deiner Beauty Routine</span><span class="arb-arrow">→</span>
+  <span>👋 Willkommen zurück!<br>Weiter zu deiner Beauty Routine</span><span class="arb-arrow">→</span>
 </a>
 <script>try{if(localStorage.getItem('routine_username')){document.getElementById('appReturnBanner').classList.add('show');}}catch(e){}</script>
 
