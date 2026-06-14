@@ -93,12 +93,109 @@
     font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.18em;font-size:.66rem;}
   .footer-links a{color:var(--text-muted);text-decoration:none;}
   .ad-note{margin-top:12px;font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.13em;font-size:.64rem;color:var(--text-muted);}
+  /* === CozyVibe :target Goldfunkel-Ring (ersetzt den laufenden Stern) === */
   .product { scroll-margin-top: 90px; }
-  .product:target { outline: none !important; border: 2px solid var(--gold) !important; box-shadow: 0 0 16px 1px rgba(239,147,32,0.38), 0 14px 34px rgba(189,108,10,0.26) !important; position: relative; z-index: 0; }
+
+  /* Karte selbst: nur noch ein weiches Gold-Glühen, KEIN harter Rahmen mehr.
+     Der sichtbare Rahmen entsteht jetzt durch den Pixel-Funkel-Ring im ::before. */
+  .product:target {
+    outline: none !important;
+    border: 1px solid var(--gold-soft) !important;
+    box-shadow:
+      0 0 0 1px rgba(239,147,32,0.30),
+      0 0 22px 2px rgba(239,147,32,0.30),
+      0 16px 38px -12px rgba(189,108,10,0.34) !important;
+    position: relative;
+    z-index: 0;
+  }
   a.product:focus, a.product:focus-visible { outline: none !important; }
-  .product:target::before { content: '\2726'; position: absolute; font-size: 40px; line-height: 1; color: #fff; text-shadow: 0 0 12px #FFF6DC, 0 0 26px #FFE082, 0 0 48px rgba(255,200,80,0.9), 0 0 76px rgba(255,190,70,0.6); top: 0; left: 0; z-index: 3; pointer-events: none; animation: beam-run 6.4s linear infinite, beam-twinkle 1.5s ease-in-out infinite; }
-  @keyframes beam-run { 0% { top: 0; left: 0; } 25% { top: 0; left: 100%; } 50% { top: 100%; left: 100%; } 75% { top: 100%; left: 0; } 100% { top: 0; left: 0; } }
-  @keyframes beam-twinkle { 0%, 100% { transform: translate(-50%,-50%) scale(1) rotate(0deg); opacity: 0.88; } 50% { transform: translate(-50%,-50%) scale(1.45) rotate(45deg); opacity: 1; } }
+
+  /* Der Funkel-Rahmen: ein Ring aus winzigen goldenen Pixel-Quadraten (Dither-Look).
+     - zwei gekreuzte repeating-linear-gradient = Pixelraster
+     - darunter ein conic-gradient in Gold-Abstufungen = Glitzer/Funkeln
+     - obendrauf ein heller conic-Schimmer der langsam um den Rand wandert
+     - die Composite-Maske (exclude / xor) lässt NUR den abgerundeten Rand stehen */
+  .product:target::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 24px;            /* 20px Karte + 4px inset = saubere Rundung */
+    padding: 4px;                   /* Ringdicke = Maskenbreite */
+    z-index: 3;
+    pointer-events: none;
+
+    /* Hintergrund-Stapel (oberste Ebene zuerst):
+       1) wandernder heller Schimmer-Bogen (conic, dreht via Animation)
+       2) Glitzer-Tönung in Gold-Abstufungen (conic)
+       3+4) gekreuztes Pixelraster aus kleinen Gold-Quadraten */
+    background:
+      conic-gradient(from var(--shimmer, 0deg),
+        rgba(255,255,255,0)   0deg,
+        rgba(255,255,255,0)   30deg,
+        rgba(255,251,238,.95) 62deg,
+        #FFFFFF               72deg,
+        rgba(255,251,238,.95) 82deg,
+        rgba(255,255,255,0)  114deg,
+        rgba(255,255,255,0)  360deg),
+      conic-gradient(from 0deg,
+        var(--gold)        0deg,
+        var(--gold-strong) 70deg,
+        var(--gold)       140deg,
+        var(--gold-soft)  210deg,
+        var(--gold)       290deg,
+        var(--gold-strong) 360deg),
+      repeating-linear-gradient(0deg,
+        rgba(189,108,10,.55) 0 1px,
+        rgba(189,108,10,0)   1px 4px),
+      repeating-linear-gradient(90deg,
+        rgba(189,108,10,.55) 0 1px,
+        rgba(189,108,10,0)   1px 4px);
+    background-blend-mode: screen, normal, multiply, multiply;
+
+    /* Composite-Maske: voller Ring minus Innenfläche = nur der Rand bleibt sichtbar.
+       Erst die Standard-Eigenschaften, dann die -webkit-Varianten für Safari. */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;            /* Safari / WebKit */
+            mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+            mask-composite: exclude;        /* Standard / Firefox / Chrome */
+
+    animation:
+      cv-shimmer 3.4s linear infinite,
+      cv-twinkle 2s ease-in-out infinite;
+    will-change: filter, opacity;
+  }
+
+  /* Schimmer-Bogen wandert einmal komplett um den Rand */
+  @keyframes cv-shimmer {
+    to { --shimmer: 360deg; }
+  }
+  /* Sanftes, ruhiges Funkeln (Helligkeit/Sättigung leicht pulsierend) */
+  @keyframes cv-twinkle {
+    0%, 100% { opacity: .92; filter: brightness(1)    saturate(1)   drop-shadow(0 0 3px rgba(255,205,90,.55)); }
+    50%      { opacity: 1;   filter: brightness(1.18) saturate(1.2) drop-shadow(0 0 6px rgba(255,205,90,.8)); }
+  }
+
+  /* Damit der Schimmer-Winkel animierbar ist (Custom Property typisiert). */
+  @property --shimmer {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  /* Browser ohne @property (z. B. ältere Firefox): Schimmer-Ebene ruht,
+     das Pixelraster + Glitzer + Twinkle bleiben aber voll erhalten. */
+  @supports not (background: conic-gradient(from var(--shimmer))) {
+    .product:target::before { animation: cv-twinkle 2s ease-in-out infinite; }
+  }
+
+  /* Barrierefreiheit: bei reduzierter Bewegung steht der Ring ruhig (kein Funkeln). */
+  @media (prefers-reduced-motion: reduce) {
+    .product:target::before { animation: none; opacity: .96; }
+  }
   .product:target::after { content: 'Dein Tipp \2728'; position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #fff; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 4px 13px; border-radius: 999px; box-shadow: 0 2px 8px rgba(189,108,10,0.34); white-space: nowrap; z-index: 4; }
 </style>
 <script src="/cookie-consent.js?v=2.1"></script>
