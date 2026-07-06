@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <!-- Cookie Consent + Analytics/AdSense (DSGVO-konform) -->
-  <script src="/cookie-consent.js?v=2.0"></script>
+  <script src="/cookie-consent.js?v=2.2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ec407a" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -263,18 +263,20 @@
         <button class="edit-toggle-btn" id="editToggleBtn">✏️</button>
       </nav>
 
-      <a href="/cozy-picks.html" class="fav-banner" id="favBanner">
-        <img src="/cozyvibe-icon.png?v=2" alt="CozyVibe" class="fav-banner-logo" />
-        <span class="fav-banner-text">
-          <strong>Meine Lieblingsprodukte</strong>
-          <small>Diese nutze ich selbst &amp; empfehle ich</small>
-        </span>
-        <span class="fav-banner-arrow">→</span>
-      </a>
     </div>
 
     <!-- Main Content -->
     <main class="content">
+
+      <!-- Cozy Picks Banner (SCROLL-TEST: scrollt jetzt mit, statt fix zu bleiben) -->
+      <a href="/cozy-picks.html" class="fav-banner fav-banner-inline" id="favBanner">
+        <img src="/cozyvibe-icon.png?v=2" alt="CozyVibe" class="fav-banner-logo" />
+        <span class="fav-banner-text">
+          <strong data-tr="favTitle">Meine Lieblingsprodukte</strong>
+          <small data-tr="favSub">Diese nutze ich selbst &amp; empfehle ich</small>
+        </span>
+        <span class="fav-banner-arrow">→</span>
+      </a>
 
       <!-- MORNING TAB -->
       <section class="tab-content active" id="tab-morning">
@@ -363,8 +365,8 @@
       <a href="https://pinterest.com/cozyvibeapp" target="_blank" rel="noopener" class="cozyvibe-banner">
         <img src="/cozyvibe-icon.png?v=2" alt="CozyVibe" class="cozyvibe-banner-logo" />
         <span class="cozyvibe-banner-text">
-          <strong class="cozyvibe-banner-title">Neue Produkt-Tipps auf CozyVibe</strong>
-          <span class="cozyvibe-banner-sub">Beauty &amp; Skincare Trends · Amazon Finds jede Woche auf Pinterest</span>
+          <strong class="cozyvibe-banner-title" data-tr="cozyvibeTitle">Neue Produkt-Tipps auf CozyVibe</strong>
+          <span class="cozyvibe-banner-sub" data-tr="cozyvibeSub">Beauty &amp; Skincare Trends · Amazon Finds jede Woche auf Pinterest</span>
         </span>
         <span class="cozyvibe-banner-arrow">→</span>
       </a>
@@ -386,11 +388,11 @@
           <a href="/faq.html" id="footerFaq" style="color:#bbb;text-decoration:none;margin:0 8px;">FAQ</a>
         </div>
         <div style="margin-bottom:8px;">
-          <a href="/impressum.html" style="color:#bbb;text-decoration:none;margin:0 8px;">Impressum</a>
+          <a href="/impressum.html" data-tr="footerImprint" style="color:#bbb;text-decoration:none;margin:0 8px;">Impressum</a>
           <span style="color:#ddd;">·</span>
-          <a href="/datenschutz.html" style="color:#bbb;text-decoration:none;margin:0 8px;">Datenschutz</a>
+          <a href="/datenschutz.html" data-tr="footerPrivacy" style="color:#bbb;text-decoration:none;margin:0 8px;">Datenschutz</a>
           <span style="color:#ddd;">·</span>
-          <a href="/nutzungsbedingungen.html" style="color:#bbb;text-decoration:none;margin:0 8px;">Nutzungsbedingungen</a>
+          <a href="/nutzungsbedingungen.html" data-tr="footerTerms" style="color:#bbb;text-decoration:none;margin:0 8px;">Nutzungsbedingungen</a>
         </div>
         <div style="color:#ccc;font-size:10px;letter-spacing:0.3px;">✨ <span data-tr="aiGenerated"></span></div>
       </div>
@@ -409,6 +411,27 @@
               if (faq)   { faq.href   = '/en/faq.html';   faq.textContent   = 'FAQ'; }
             }
           } catch(e) {}
+        })();
+      </script>
+
+      <!-- ===== SCROLL-KOMPAKT-TEST (05.07.2026) — isoliert, leicht entfernbar ===== -->
+      <style>
+        .sticky-top .header, .sticky-top .greeting-row, .sticky-top .header .logo-beauty,
+        .sticky-top .header .logo-routine, .sticky-top .header-branding, .sticky-top .date-display { transition: all .22s ease; }
+        /* Kompakt beim Scrollen: Begrüßung weg + weniger Abstand oben → Kopf rutscht hoch */
+        .sticky-top.compact .greeting-row { max-height: 0; opacity: 0; margin: 0 !important; overflow: hidden; }
+        .sticky-top.compact .header { padding-top: calc(env(safe-area-inset-top, 0px) + 5px) !important; padding-bottom: 4px !important; }
+        .sticky-top.compact .header .logo-beauty { font-size: 1.85rem; }
+        .sticky-top.compact .header-branding { font-size: 0.62rem; }
+        .fav-banner-inline { margin-bottom: 14px; }
+      </style>
+      <script>
+        (function(){
+          var st = document.querySelector('.sticky-top');
+          if (!st) return;
+          var onScroll = function(){ st.classList.toggle('compact', (window.scrollY || document.documentElement.scrollTop) > 30); };
+          window.addEventListener('scroll', onScroll, { passive: true });
+          onScroll();
         })();
       </script>
 
@@ -632,7 +655,7 @@
     <canvas id="confetti-canvas"></canvas>
   </div>
 
-  <script src="app.js?v=2.4"></script>
+  <script src="app.js?v=2.5"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');

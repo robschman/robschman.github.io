@@ -1,5 +1,5 @@
 // Beauty Routine App – Service Worker
-const CACHE = 'beauty-routine-v23';
+const CACHE = 'beauty-routine-v24';
 const ASSETS = [
   '/app.html',
   '/style.css',

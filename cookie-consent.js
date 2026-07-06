@@ -142,27 +142,49 @@
     setTimeout(function () { banner.remove(); }, 300);
   }
 
+  // ── Sprache erkennen (App = routine_lang, statische Seiten = html lang / URL) ──
+  function braLang() {
+    if (location.pathname.indexOf('/app.html') !== -1 || location.pathname.endsWith('/app')) {
+      try { return localStorage.getItem('routine_lang') === 'en' ? 'en' : 'de'; } catch (e) { return 'de'; }
+    }
+    var hl = (document.documentElement.lang || '').toLowerCase();
+    if (hl.indexOf('en') === 0 || location.pathname.indexOf('/en/') === 0) return 'en';
+    return 'de';
+  }
+  var BRA_TXT = {
+    de: {
+      title: 'Diese Website verwendet Cookies',
+      body: 'Wir nutzen Google Analytics für anonyme Besucherstatistiken. Der Dienst kann Daten in die USA übertragen (Google LLC, EU-US Data Privacy Framework). Weitere Infos in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>. Ablehnen ist jederzeit möglich.',
+      accept: '✓ Alle akzeptieren',
+      decline: 'Nur notwendige'
+    },
+    en: {
+      title: 'This website uses cookies',
+      body: 'We use Google Analytics for anonymous visitor statistics. The service may transfer data to the USA (Google LLC, EU-US Data Privacy Framework). More info in our <a href="/datenschutz.html">privacy policy</a>. You can decline at any time.',
+      accept: '✓ Accept all',
+      decline: 'Only necessary'
+    }
+  };
+
   // ── Banner HTML ──
   function showBanner() {
     var style = document.createElement('style');
     style.textContent = css;
     document.head.appendChild(style);
 
+    var txt = BRA_TXT[braLang()];
     var banner = document.createElement('div');
     banner.id = 'bra-cookie-banner';
     banner.innerHTML = `
       <div class="bra-inner">
         <div class="bra-icon">🍪</div>
         <div class="bra-text">
-          <strong>Diese Website verwendet Cookies</strong>
-          <p>Wir nutzen Google Analytics für anonyme Besucherstatistiken.
-          Der Dienst kann Daten in die USA übertragen (Google LLC, EU-US Data Privacy Framework).
-          Weitere Infos in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.
-          Ablehnen ist jederzeit möglich.</p>
+          <strong>${txt.title}</strong>
+          <p>${txt.body}</p>
         </div>
         <div class="bra-btns">
-          <button class="bra-accept" id="bra-accept-btn">✓ Alle akzeptieren</button>
-          <button class="bra-decline" id="bra-decline-btn">Nur notwendige</button>
+          <button class="bra-accept" id="bra-accept-btn">${txt.accept}</button>
+          <button class="bra-decline" id="bra-decline-btn">${txt.decline}</button>
         </div>
       </div>
     `;
