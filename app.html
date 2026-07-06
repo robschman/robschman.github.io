@@ -409,6 +409,13 @@
               if (about) { about.href = '/en/about.html'; about.textContent = 'About us'; }
               if (blog)  { blog.href  = '/en/blog/';      blog.textContent  = 'Guides'; }
               if (faq)   { faq.href   = '/en/faq.html';   faq.textContent   = 'FAQ'; }
+              // Rechtsseiten im EN-Modus auf die englischen Fassungen umbiegen
+              var _imp = document.querySelector('a[href="/impressum.html"]');
+              var _pri = document.querySelector('a[href="/datenschutz.html"]');
+              var _ter = document.querySelector('a[href="/nutzungsbedingungen.html"]');
+              if (_imp) _imp.href = '/en/imprint.html';
+              if (_pri) _pri.href = '/en/privacy.html';
+              if (_ter) _ter.href = '/en/terms.html';
             }
           } catch(e) {}
         })();
