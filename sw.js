@@ -1,5 +1,5 @@
 // Beauty Routine App – Service Worker
-const CACHE = 'beauty-routine-v24';
+const CACHE = 'beauty-routine-v25';
 const ASSETS = [
   '/app.html',
   '/style.css',
@@ -48,7 +48,7 @@ self.addEventListener('fetch', e => {
   // HTML-Dateien: immer zuerst vom Netzwerk laden (network-first)
   // → Nutzer sehen sofort Updates, ohne Cache löschen zu müssen
   // → Bei kein Internet: Fallback auf gecachte Version
-  if (url.pathname.endsWith('.html') || url.pathname === '/') {
+  if (url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname.endsWith('/produkt-der-woche.js')) {
     e.respondWith(
       fetch(e.request, { cache: 'no-store' })
         .then(response => {

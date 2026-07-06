@@ -268,6 +268,22 @@
     <!-- Main Content -->
     <main class="content">
 
+      <!-- Produkt der Woche (scrollt mit, verschwindet beim Scrollen wie der Rest; steuerbar in produkt-der-woche.js) -->
+      <a class="pdw-card" id="pdwCard" href="#" target="_blank" rel="sponsored nofollow noopener" style="display:none">
+        <span class="pdw-glow"></span>
+        <span class="pdw-ad" data-tr="pdwAd">Anzeige</span>
+        <span class="pdw-inner">
+          <img class="pdw-photo" id="pdwPhoto" src="" alt="">
+          <span class="pdw-body">
+            <span class="pdw-eyebrow">✦ <span data-tr="pdwTitle">Produkt der Woche</span></span>
+            <span class="pdw-name" id="pdwName"></span>
+            <span class="pdw-desc" id="pdwDesc"></span>
+            <span class="pdw-countdown" id="pdwCountdown"></span>
+          </span>
+          <span class="pdw-arrow">→</span>
+        </span>
+      </a>
+
       <!-- Cozy Picks Banner (SCROLL-TEST: scrollt jetzt mit, statt fix zu bleiben) -->
       <a href="/cozy-picks.html" class="fav-banner fav-banner-inline" id="favBanner">
         <img src="/cozyvibe-icon.png?v=2" alt="CozyVibe" class="fav-banner-logo" />
@@ -440,6 +456,61 @@
           window.addEventListener('scroll', onScroll, { passive: true });
           onScroll();
         })();
+      </script>
+
+      <!-- ===== PRODUKT DER WOCHE (Design 3: Regenbogen-Glitzer + Live-Countdown) ===== -->
+      <style>
+        @property --pdw-a { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+        .pdw-card { position: relative; display: block; text-decoration: none; color: inherit; border-radius: 20px; margin-bottom: 14px; }
+        .pdw-glow { position: absolute; inset: 0; z-index: 0; border-radius: 20px;
+          background: conic-gradient(from var(--pdw-a), #FF5252, #FF9800, #FFD600, #43A047, #1E88E5, #8E24AA, #FF5252);
+          animation: pdwrot 5s linear infinite; }
+        @keyframes pdwrot { to { --pdw-a: 360deg; } }
+        .pdw-inner { position: relative; z-index: 1; margin: 3px; border-radius: 17px; background: #fff;
+          padding: 13px 14px; display: flex; align-items: center; gap: 13px; }
+        .pdw-photo { width: 62px; height: 62px; border-radius: 14px; object-fit: cover; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+        .pdw-body { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.2; }
+        .pdw-eyebrow { font-family: 'Dancing Script', cursive; font-weight: 700; font-size: 1.5rem; line-height: 1;
+          background: linear-gradient(90deg, #FF5252, #FF9800, #43A047, #1E88E5, #8E24AA);
+          -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .pdw-name { font-weight: 800; font-size: 15px; margin-top: 2px; color: #2a2018; }
+        .pdw-desc { font-size: 12px; color: #6b5a4c; margin-top: 1px; }
+        .pdw-countdown { font-size: 11.5px; font-weight: 700; color: #E64A19; margin-top: 5px; font-variant-numeric: tabular-nums; }
+        .pdw-ad { position: absolute; top: 8px; right: 11px; z-index: 2; font-size: 9px; font-weight: 700; letter-spacing: .05em;
+          color: #fff; background: rgba(0,0,0,.34); padding: 2px 7px; border-radius: 20px; }
+        .pdw-arrow { font-size: 1.2rem; opacity: .55; align-self: center; z-index: 1; color: #2a2018; }
+      </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var P = window.PRODUKT_DER_WOCHE;
+          var card = document.getElementById('pdwCard');
+          if (!card || !P || !P.aktiv || !P.asin) return;               // aus / kein Produkt -> Button bleibt weg
+          var ende = new Date(P.endetAm).getTime();
+          if (isNaN(ende) || (ende - Date.now()) <= 0) return;          // abgelaufen -> Button bleibt weg
+          function lang(){ try { return localStorage.getItem('routine_lang') === 'en' ? 'en' : 'de'; } catch(e){ return 'de'; } }
+          function pad(n){ return (n < 10 ? '0' : '') + n; }
+          var cdEl = document.getElementById('pdwCountdown');
+          var L = lang();
+          document.getElementById('pdwName').textContent = P.name || '';
+          document.getElementById('pdwDesc').textContent = (P.text && (P.text[L] || P.text.de)) || '';
+          var img = document.getElementById('pdwPhoto');
+          if (P.foto) { img.src = P.foto; img.alt = P.name || ''; }
+          card.href = 'https://www.amazon.de/dp/' + P.asin + '?tag=beautyrout067-21';
+          var timer = null;
+          function tick(){
+            var diff = ende - Date.now();
+            if (diff <= 0) { card.style.display = 'none'; if (timer) clearInterval(timer); return; }
+            var l = lang();
+            var d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000),
+                m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+            var tage = d > 0 ? (l==='en' ? (d===1?'1 day · ':d+' days · ') : (d===1?'1 Tag · ':d+' Tage · ')) : '';
+            var clock = pad(h)+':'+pad(m)+':'+pad(s);
+            cdEl.textContent = l==='en' ? ('⏳ '+tage+clock+' left') : ('⏳ noch '+tage+clock);
+          }
+          tick();
+          card.style.display = 'block';
+          timer = setInterval(tick, 1000);
+        });
       </script>
 
     </main>
@@ -662,7 +733,8 @@
     <canvas id="confetti-canvas"></canvas>
   </div>
 
-  <script src="app.js?v=2.5"></script>
+  <script src="produkt-der-woche.js?v=1"></script>
+  <script src="app.js?v=2.6"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
