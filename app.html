@@ -432,6 +432,9 @@
               if (_imp) _imp.href = '/en/imprint.html';
               if (_pri) _pri.href = '/en/privacy.html';
               if (_ter) _ter.href = '/en/terms.html';
+              // Favoriten-Banner (Cozy Picks) im EN-Modus auf die englische Seite
+              var _fav = document.getElementById('favBanner');
+              if (_fav) _fav.href = '/en/cozy-picks.html';
             }
           } catch(e) {}
         })();
@@ -460,15 +463,21 @@
 
       <!-- ===== PRODUKT DER WOCHE (Design 3: Regenbogen-Glitzer + Live-Countdown) ===== -->
       <style>
+        @property --pdw-a { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
         .pdw-card { position: relative; display: block; text-decoration: none; color: inherit; border-radius: 20px; margin-bottom: 14px; }
-        /* Regenbogen-Rahmen: läuft horizontal durch -> an ALLEN 4 Kanten gleich sichtbar (oben, unten, links, rechts) */
-        .pdw-glow { position: absolute; inset: 0; z-index: 0; border-radius: 20px;
-          background: linear-gradient(90deg, #FF5252, #FF9800, #FFD600, #43A047, #1E88E5, #8E24AA, #FF5252);
-          background-size: 200% 100%;
-          animation: pdwslide 4s linear infinite; }
-        @keyframes pdwslide { from { background-position: 0% 50%; } to { background-position: 200% 50%; } }
-        @media (prefers-reduced-motion: reduce) { .pdw-glow { animation: none; } }
-        .pdw-inner { position: relative; z-index: 1; margin: 3px; border-radius: 17px; background: #fff;
+        /* Regenbogen laeuft im Kreis RUNDHERUM (oben -> rechts -> unten -> links).
+           2 Farbzyklen -> auch die langen Ober-/Unterkanten wandern sichtbar; heller Glanz laeuft zusaetzlich rundherum. */
+        .pdw-glow { position: absolute; inset: 0; z-index: 0; border-radius: 20px; overflow: hidden;
+          background: conic-gradient(from var(--pdw-a),
+            #FF5252, #FF9800, #FFD600, #43A047, #1E88E5, #8E24AA,
+            #FF5252, #FF9800, #FFD600, #43A047, #1E88E5, #8E24AA, #FF5252);
+          animation: pdwspin 5s linear infinite; }
+        .pdw-glow::after { content: ''; position: absolute; inset: 0; border-radius: 20px;
+          background: conic-gradient(from var(--pdw-a), transparent 0deg, rgba(255,255,255,.98) 22deg, transparent 70deg, transparent 360deg);
+          animation: pdwspin 2.6s linear infinite; }
+        @keyframes pdwspin { to { --pdw-a: 360deg; } }
+        @media (prefers-reduced-motion: reduce) { .pdw-glow, .pdw-glow::after { animation: none; } }
+        .pdw-inner { position: relative; z-index: 1; margin: 4px; border-radius: 16px; background: #fff;
           padding: 13px 14px; display: flex; align-items: center; gap: 13px; }
         .pdw-photo { width: 62px; height: 62px; border-radius: 14px; object-fit: cover; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
         .pdw-body { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.2; }

@@ -28,6 +28,7 @@
     '/impressum.html':                               '/en/imprint.html',
     '/datenschutz.html':                             '/en/privacy.html',
     '/nutzungsbedingungen.html':                     '/en/terms.html',
+    '/cozy-picks.html':                              '/en/cozy-picks.html',
     '/blog/':                                        '/en/blog/',
     '/blog/index.html':                              '/en/blog/index.html',
     '/blog/skincare-reihenfolge.html':               '/en/blog/skincare-order.html',
