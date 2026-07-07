@@ -1501,14 +1501,35 @@ function fitLogoText() {
 function fitGreetingText() {
   const row = document.getElementById('greetingRow');
   if (!row) return;
+  const track = row.querySelector('.greet-track');
+  const part  = row.querySelector('.greet-part');
+  if (!track || !part) return;
+
+  // Zurück in den statischen Zustand (Laufschrift-Reste entfernen)
+  row.classList.remove('marquee');
+  track.style.removeProperty('--greet-dur');
+  const oldDup = track.querySelector('.greet-part.greet-dup');
+  if (oldDup) oldDup.remove();
+
   const maxSize = 0.92;
-  const minSize = 0.58;
-  row.style.fontSize = maxSize + 'rem';
-  row.style.whiteSpace = 'nowrap';
+  const minSize = 0.74;   // nur leicht verkleinern; passt es dann nicht -> Laufschrift statt winzig/abgeschnitten
   let size = maxSize;
-  while (row.scrollWidth > row.offsetWidth && size > minSize) {
+  row.style.fontSize = maxSize + 'rem';
+  while (part.scrollWidth > row.clientWidth && size > minSize) {
     size -= 0.02;
     row.style.fontSize = size + 'rem';
+  }
+
+  // Immer noch zu breit für eine Zeile -> Laufschrift (rechts nach links, nahtlos)
+  if (part.scrollWidth > row.clientWidth + 1) {
+    const w = part.scrollWidth;
+    const dup = part.cloneNode(true);
+    dup.classList.add('greet-dup');
+    dup.setAttribute('aria-hidden', 'true');
+    track.appendChild(dup);
+    row.classList.add('marquee');
+    const dur = Math.max(12, Math.round(w / 46));   // ~46 px/s, gut lesbares Tempo
+    track.style.setProperty('--greet-dur', dur + 's');
   }
 }
 
@@ -1554,7 +1575,8 @@ function showGreeting(name) {
   const msg = motivations[Math.floor(Math.random() * motivations.length)];
   const row = document.getElementById('greetingRow');
   if (row) {
-    row.innerHTML = `${emoji} ${text}, <strong>${escHtml(name)}</strong>! — <em>${msg}</em>`;
+    const inner = `${emoji} ${text}, <strong>${escHtml(name)}</strong>! — <em>${msg}</em>`;
+    row.innerHTML = `<span class="greet-track"><span class="greet-part">${inner}</span></span>`;
     setTimeout(fitGreetingText, 0);
   }
 }

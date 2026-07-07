@@ -238,6 +238,19 @@ body {
 
 .greeting-row:empty { margin-bottom: 0; }
 
+/* Begrüßung: bei zu langem Text als Laufschrift von rechts nach links (nahtlos) */
+.greeting-row .greet-track { display: inline-block; white-space: nowrap; }
+.greeting-row .greet-part { display: inline-block; }
+.greeting-row.marquee { text-align: left; }
+.greeting-row.marquee .greet-track {
+  display: inline-flex;
+  animation: greetmarquee var(--greet-dur, 18s) linear infinite;
+  will-change: transform;
+}
+.greeting-row.marquee .greet-part { padding-right: 3rem; }
+@keyframes greetmarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .greeting-row.marquee .greet-track { animation: none; } }
+
 /* ===== STICKY TOP (Header + Tabs zusammen sticky) ===== */
 .sticky-top {
   position: -webkit-sticky;

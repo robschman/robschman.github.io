@@ -460,12 +460,14 @@
 
       <!-- ===== PRODUKT DER WOCHE (Design 3: Regenbogen-Glitzer + Live-Countdown) ===== -->
       <style>
-        @property --pdw-a { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
         .pdw-card { position: relative; display: block; text-decoration: none; color: inherit; border-radius: 20px; margin-bottom: 14px; }
+        /* Regenbogen-Rahmen: läuft horizontal durch -> an ALLEN 4 Kanten gleich sichtbar (oben, unten, links, rechts) */
         .pdw-glow { position: absolute; inset: 0; z-index: 0; border-radius: 20px;
-          background: conic-gradient(from var(--pdw-a), #FF5252, #FF9800, #FFD600, #43A047, #1E88E5, #8E24AA, #FF5252);
-          animation: pdwrot 5s linear infinite; }
-        @keyframes pdwrot { to { --pdw-a: 360deg; } }
+          background: linear-gradient(90deg, #FF5252, #FF9800, #FFD600, #43A047, #1E88E5, #8E24AA, #FF5252);
+          background-size: 200% 100%;
+          animation: pdwslide 4s linear infinite; }
+        @keyframes pdwslide { from { background-position: 0% 50%; } to { background-position: 200% 50%; } }
+        @media (prefers-reduced-motion: reduce) { .pdw-glow { animation: none; } }
         .pdw-inner { position: relative; z-index: 1; margin: 3px; border-radius: 17px; background: #fff;
           padding: 13px 14px; display: flex; align-items: center; gap: 13px; }
         .pdw-photo { width: 62px; height: 62px; border-radius: 14px; object-fit: cover; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
@@ -489,18 +491,26 @@
           if (isNaN(ende) || (ende - Date.now()) <= 0) return;          // abgelaufen -> Button bleibt weg
           function lang(){ try { return localStorage.getItem('routine_lang') === 'en' ? 'en' : 'de'; } catch(e){ return 'de'; } }
           function pad(n){ return (n < 10 ? '0' : '') + n; }
-          var cdEl = document.getElementById('pdwCountdown');
-          var L = lang();
-          document.getElementById('pdwName').textContent = P.name || '';
-          document.getElementById('pdwDesc').textContent = (P.text && (P.text[L] || P.text.de)) || '';
-          var img = document.getElementById('pdwPhoto');
+          // bindet das letzte Wort/Emoji per geschütztem Leerzeichen an -> Herz bricht nie allein um
+          function bindLast(s){ return String(s).replace(/\s+(\S+)\s*$/, ' $1'); }
+          var nameEl = document.getElementById('pdwName');
+          var descEl = document.getElementById('pdwDesc');
+          var cdEl   = document.getElementById('pdwCountdown');
+          var img    = document.getElementById('pdwPhoto');
+          nameEl.textContent = P.name || '';
           if (P.foto) { img.src = P.foto; img.alt = P.name || ''; }
+          else { img.style.display = 'none'; }                          // kein Foto -> Bildplatz weg
           card.href = 'https://www.amazon.de/dp/' + P.asin + '?tag=beautyrout067-21';
+          var lastLang = '';
           var timer = null;
           function tick(){
             var diff = ende - Date.now();
             if (diff <= 0) { card.style.display = 'none'; if (timer) clearInterval(timer); return; }
             var l = lang();
+            if (l !== lastLang) {                                       // Sprache gewechselt -> Beschreibung neu (DE/EN)
+              descEl.textContent = bindLast((P.text && (P.text[l] || P.text.de)) || '');
+              lastLang = l;
+            }
             var d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000),
                 m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
             var tage = d > 0 ? (l==='en' ? (d===1?'1 day · ':d+' days · ') : (d===1?'1 Tag · ':d+' Tage · ')) : '';
@@ -734,7 +744,7 @@
   </div>
 
   <script src="produkt-der-woche.js?v=1"></script>
-  <script src="app.js?v=2.6"></script>
+  <script src="app.js?v=2.7"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
