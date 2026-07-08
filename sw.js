@@ -1,5 +1,5 @@
 // Beauty Routine App – Service Worker
-const CACHE = 'beauty-routine-v27';
+const CACHE = 'beauty-routine-v28';
 const ASSETS = [
   '/app.html',
   '/style.css',
@@ -44,11 +44,17 @@ self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
 
   const url = new URL(e.request.url);
+  const isNavigation = e.request.mode === 'navigate';
+  // Auch Verzeichnis-URLs wie /blog/ und /en/ zählen als HTML-Navigation
+  const isHTML = isNavigation
+    || url.pathname.endsWith('.html')
+    || url.pathname.endsWith('/')
+    || url.pathname.endsWith('/produkt-der-woche.js');
 
-  // HTML-Dateien: immer zuerst vom Netzwerk laden (network-first)
+  // HTML/Navigationen: immer zuerst vom Netzwerk (network-first)
   // → Nutzer sehen sofort Updates, ohne Cache löschen zu müssen
   // → Bei kein Internet: Fallback auf gecachte Version
-  if (url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname.endsWith('/produkt-der-woche.js')) {
+  if (isHTML) {
     e.respondWith(
       fetch(e.request, { cache: 'no-store' })
         .then(response => {
@@ -57,16 +63,19 @@ self.addEventListener('fetch', e => {
           return response;
         })
         .catch(() =>
-          caches.match(e.request).then(cached => cached || caches.match('/app.html'))
+          caches.match(e.request, { ignoreSearch: true })
+            .then(cached => cached || caches.match('/app.html'))
         )
     );
     return;
   }
 
-  // Fonts, CSS, JS: aus Cache laden (schnell) – cache-first
+  // Fonts, CSS, JS: aus Cache laden (schnell) – cache-first.
+  // ignoreSearch:true → gecachtes /style.css trifft die Anfrage /style.css?v=2.2 usw.
+  // KEIN app.html-Fallback für Assets (sonst käme HTML statt CSS/JS zurück).
   e.respondWith(
-    caches.match(e.request).then(cached => {
-      return cached || fetch(e.request).catch(() => caches.match('/app.html'));
+    caches.match(e.request, { ignoreSearch: true }).then(cached => {
+      return cached || fetch(e.request);
     })
   );
 });

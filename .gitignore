@@ -37,3 +37,11 @@ ScreenRecording*.MP4
 ScreenRecording*.mov
 *.MP4
 Kampagne Sommer 2026*.pdf
+
+# Amazon PA-API Schlüssel (geheim, nie committen)
+.amazon-paapi.env
+
+# Interne Doku / Prüfberichte (nur lokal, nicht ins öffentliche Repo)
+00_Memo.md
+PRUEFBERICHT_*.html
+PRUEF-PROMPT_*.md

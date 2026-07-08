@@ -1,6 +1,6 @@
 #!/bin/bash
 # Baut 3 CozyVibe-Promo-Varianten (A/B/C): Intro + 4 Szenen (App im Handy) + Outro.
-cd "/Users/robschmansimac/Claude Projekte/Routine/promo" || exit 1
+cd "$(dirname "$0")" || exit 1
 V_REC="../ScreenRecording_06-17-2026 Beauty routine.MP4"
 INTRO="output/test/test1_pink_routine.mp4"
 SX=313; SY=425; SW=454; SH=1014   # App-Screen-Bereich im iPhone-Mockup

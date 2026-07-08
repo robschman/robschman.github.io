@@ -14,23 +14,23 @@
   <!-- Pinterest Domain-Verifikation (CozyVibe / @cozyvibeapp) -->
   <meta name="p:domain_verify" content="ba7290bf63a0c1145fa97221c86f04aa"/>
 
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="/icon-152.png" />
-  <link rel="apple-touch-icon" sizes="167x167" href="/icon-167.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+  <!-- CozyVibe-Siegel-Icons (identisch zu index.html) — sorgt dafür, dass die
+       auf dem iPhone installierte App das neue CozyVibe-Logo als Home-Icon zeigt. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/cozyvibe-favicon-32.png?v=2" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/cozyvibe-favicon-16.png?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/cozyvibe-apple-touch.png?v=2" />
+  <link rel="shortcut icon" href="/favicon.ico?v=2" />
   <title>Beauty Routine App – Deine kostenlose Skincare & Beauty Routine</title>
 
   <!-- SEO Meta Tags -->
   <meta name="description" content="Beauty Routine App – Deine persönliche Skincare-Begleiterin. Morgen & Abend Routine, wöchentliche Pflege, Termine und tägliche Beauty-Tipps. Kostenlos, kein Download nötig." />
   <meta name="keywords" content="beauty routine, skincare routine, beauty app, morgenroutine, abendroutine, hautpflege, selfcare, kostenlos, beautyroutine.app" />
   <meta name="author" content="Beauty Routine App" />
-  <link rel="canonical" href="https://beautyroutine.app/" />
+  <link rel="canonical" href="https://beautyroutine.app/app.html" />
 
   <!-- Open Graph (für Facebook, Instagram, WhatsApp Vorschau) -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://beautyroutine.app/" />
+  <meta property="og:url" content="https://beautyroutine.app/app.html" />
   <meta property="og:title" content="Beauty Routine App – Kostenlose Skincare Routine" />
   <meta property="og:description" content="Deine persönliche Beauty-Begleiterin. Morgen & Abend Routine, Termine, tägliche Tipps – gratis & kein Download nötig." />
   <meta property="og:image" content="https://beautyroutine.app/og-image.jpg?v=2" />
@@ -65,15 +65,10 @@
 
   <link rel="stylesheet" href="/fonts.css" />
   <link rel="stylesheet" href="style.css?v=2.2" />
-  <script>
-    // AdSense nur auf echter Website laden, nicht beim lokalen Test
-    if (location.protocol !== 'file:') {
-      var _a = document.createElement('script');
-      _a.async = true; _a.crossOrigin = 'anonymous';
-      _a.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4308220666561084';
-      document.head.appendChild(_a);
-    }
-  </script>
+  <!-- Kein AdSense: Die App zeigt keine Anzeigen (Konto nicht aktiv). Es wird bewusst
+       KEIN Google-Werbe-Script geladen, damit vor der Cookie-Einwilligung keine
+       Verbindung zu Google entsteht. Falls AdSense später kommt: ausschließlich NACH
+       Einwilligung über cookie-consent.js (Google Consent Mode v2) nachladen. -->
 </head>
 <body>
   <!-- Theme SOFORT setzen (vor dem ersten Rendern) — verhindert Rosa-Blitzen
@@ -752,7 +747,7 @@
   </div>
 
   <script src="produkt-der-woche.js?v=1"></script>
-  <script src="app.js?v=2.7"></script>
+  <script src="app.js?v=2.8"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');

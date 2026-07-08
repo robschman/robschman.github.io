@@ -686,7 +686,7 @@ const KEY_TO_LIST = {
 // ===== localStorage Wrapper =====
 const store = {
   get(key)      { try { return localStorage.getItem(key); }    catch(e) { return null; } },
-  set(key, val) { try { localStorage.setItem(key, val); }      catch(e) {} },
+  set(key, val) { try { localStorage.setItem(key, val); return true; } catch(e) { return false; } },
   remove(key)   { try { localStorage.removeItem(key); }        catch(e) {} },
 };
 
@@ -695,29 +695,59 @@ let checkState  = {};
 let hiddenItems = new Set();
 let customItems = {};
 
-function getTodayKey() { return new Date().toISOString().split('T')[0]; }
+// Lokales Datum als YYYY-MM-DD (NICHT UTC – sonst "springt" der Tages-Schlüssel
+// im 1-2h-Fenster nach Mitternacht und gesetzte Haken verschwinden).
+function localDateStr(d) {
+  const y  = d.getFullYear();
+  const m  = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${dd}`;
+}
+function getTodayKey() { return localDateStr(new Date()); }
+
+// Wochen-Schlüssel = Montags-Datum der aktuellen Woche (lokal), mit "week-"-Präfix,
+// damit Wochen-Haken die ganze Woche halten und nicht mit Tages-Schlüsseln kollidieren.
+function getWeekKey() {
+  const d = new Date();
+  d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); // zurück auf Montag (Mo=0 … So=6)
+  return 'week-' + localDateStr(d);
+}
+
+// Gehört die Item-ID zu einer Wochen-Routine? (inkl. eigener Custom-Items)
+function isWeeklyItem(id) {
+  return TAB_KEYS.weekly.flatMap(k => getItems(k)).some(i => i.id === id);
+}
+
+// Der richtige Speicher-Schlüssel je Item: Wochen-Items → Wochen-Schlüssel, sonst Tag.
+function stateKey(id) {
+  return isWeeklyItem(id) ? getWeekKey() : getTodayKey();
+}
 
 function loadPersisted() {
+  // Jeder Schlüssel bekommt sein eigenes try/catch – ein kaputter Eintrag
+  // darf die anderen beiden nicht mitreißen.
   try {
     const cs = store.get('routine_check');
     checkState = cs ? JSON.parse(cs) : {};
+  } catch(e) { checkState = {}; }
+  try {
     const hi = store.get('routine_hidden');
     hiddenItems = new Set(hi ? JSON.parse(hi) : []);
+  } catch(e) { hiddenItems = new Set(); }
+  try {
     const ci = store.get('routine_custom');
     customItems = ci ? JSON.parse(ci) : {};
-  } catch(e) {
-    checkState = {}; hiddenItems = new Set(); customItems = {};
-  }
+  } catch(e) { customItems = {}; }
 }
 
 function saveCheck()  { store.set('routine_check',  JSON.stringify(checkState)); }
 function saveHidden() { store.set('routine_hidden', JSON.stringify([...hiddenItems])); }
 function saveCustom() { store.set('routine_custom', JSON.stringify(customItems)); }
 
-function isChecked(id) { return checkState[getTodayKey()]?.[id] || false; }
+function isChecked(id) { return checkState[stateKey(id)]?.[id] || false; }
 
 function toggleCheck(id) {
-  const day = getTodayKey();
+  const day = stateKey(id);
   if (!checkState[day]) checkState[day] = {};
   checkState[day][id] = !checkState[day][id];
   saveCheck();
@@ -873,7 +903,7 @@ function buildList(catKey) {
           <polyline points="1,5 4.5,9 11,1"/>
         </svg>
       </span>
-      <span class="item-emoji">${item.emoji || '📌'}</span>
+      <span class="item-emoji">${escHtml(item.emoji || '📌')}</span>
       <span class="item-label">
         <span class="item-name">${escHtml(displayName)}</span>
         ${displayHint ? `<span class="item-hint">${escHtml(displayHint)}</span>` : ''}
@@ -911,6 +941,24 @@ function escHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// Kleiner, unaufdringlicher Hinweis unten am Bildschirm (z. B. bei Speicher-Fehler).
+function showToast(msg) {
+  let el = document.getElementById('appToast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'appToast';
+    el.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);'
+      + 'background:#5a3d52;color:#fff;padding:12px 18px;border-radius:14px;font-size:14px;'
+      + 'max-width:86%;text-align:center;line-height:1.35;z-index:99999;'
+      + 'box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transition:opacity .25s;pointer-events:none;';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  requestAnimationFrame(() => { el.style.opacity = '1'; });
+  clearTimeout(el._hideTimer);
+  el._hideTimer = setTimeout(() => { el.style.opacity = '0'; }, 3500);
+}
+
 // ===== Toggle Hidden =====
 function toggleHidden(id) {
   if (hiddenItems.has(id)) hiddenItems.delete(id);
@@ -925,7 +973,7 @@ function deleteCustomItem(catKey, id) {
   if (!confirm(t('confirmDelete'))) return;
   customItems[catKey] = (customItems[catKey] || []).filter(i => i.id !== id);
   hiddenItems.delete(id);
-  delete checkState[getTodayKey()]?.[id];
+  delete checkState[stateKey(id)]?.[id];
   saveCustom(); saveHidden(); saveCheck();
   renderAll(); updateProgress();
 }
@@ -1239,7 +1287,7 @@ function resetToday() {
 }
 
 function resetWeekly() {
-  const day = getTodayKey();
+  const day = getWeekKey();
   if (checkState[day]) {
     TAB_KEYS.weekly.flatMap(k => getItems(k)).forEach(i => delete checkState[day][i.id]);
   }
@@ -1998,7 +2046,11 @@ function loadTermine() {
 }
 
 function saveTermine() {
-  store.set('routine_termine', JSON.stringify(termine));
+  if (!store.set('routine_termine', JSON.stringify(termine))) {
+    showToast(currentLang === 'en'
+      ? 'Could not save. Your device storage may be full.'
+      : 'Speichern fehlgeschlagen. Der Gerätespeicher ist möglicherweise voll.');
+  }
 }
 
 function formatTerminDate(dateStr, timeStr) {
@@ -2039,8 +2091,7 @@ function updateFabPosition() {
 }
 
 function updateTodayBadge() {
-  const today = new Date();
-  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  const todayStr = getTodayKey(); // lokales YYYY-MM-DD (DRY)
   const todayCount = termine.filter(t => t.date === todayStr).length;
 
   // Badge auf dem Termine-Footer-Button
@@ -2105,7 +2156,7 @@ function renderTermine() {
       : '';
 
     card.innerHTML = `
-      <div class="termin-emoji">${termin.emoji || '📅'}</div>
+      <div class="termin-emoji">${escHtml(termin.emoji || '📅')}</div>
       <div class="termin-info">
         <div class="termin-name">${escHtml(termin.name)}</div>
         ${pastBadge}
