@@ -1,0 +1,13 @@
+{
+  "name": "Beauty Routine",
+  "short_name": "Beauty Routine",
+  "start_url": "/en/pink/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FBF6F0",
+  "theme_color": "#e91e8c",
+  "icons": [
+    { "src": "/icons/icon-pink-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-pink-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Beauty Routine — Black Icon</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Beauty Routine">
+  <link rel="manifest" href="/en/mono/manifest.json">
+  <link rel="apple-touch-icon" href="/icons/icon-mono-180.png">
+  <script>
+    /* Vom Homescreen geoeffnet (App-Modus) -> direkt in die App.
+       Im Browser -> Anleitung zeigen, damit man das Schwarz-Icon zum Homescreen hinzufuegen kann. */
+    (function(){
+      try { if (!localStorage.getItem('routine_theme')) localStorage.setItem('routine_theme','mono'); } catch(e){}
+      try { localStorage.setItem('routine_lang','en'); } catch(e){}
+      var standalone = (window.navigator.standalone === true) || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+      if (standalone) { location.replace('/app.html'); }
+    })();
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;min-height:100dvh;background:linear-gradient(160deg,#3a3a3a 0%,#1c1c1c 100%);color:#f0f0f0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:34px 24px calc(34px + env(safe-area-inset-bottom));}
+    .icon-big{width:128px;height:128px;border-radius:29px;box-shadow:0 14px 40px rgba(0,0,0,0.45);margin-bottom:22px;}
+    h1{font-size:1.5rem;margin-bottom:7px;font-weight:800;}
+    .sub{font-size:1rem;opacity:0.85;margin-bottom:28px;max-width:330px;line-height:1.45;}
+    .steps{list-style:none;text-align:left;max-width:330px;margin-bottom:30px;display:flex;flex-direction:column;gap:15px;}
+    .steps li{display:flex;align-items:flex-start;gap:13px;font-size:1rem;line-height:1.4;}
+    .num{flex-shrink:0;width:27px;height:27px;border-radius:50%;background:linear-gradient(135deg,#6a6a6a,#2b2b2b);color:#fff;font-weight:800;font-size:0.9rem;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,0.45);}
+    .to-app{display:inline-block;background:linear-gradient(135deg,#6a6a6a,#2b2b2b);color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;padding:14px 30px;border-radius:30px;box-shadow:0 6px 20px rgba(0,0,0,0.45);}
+    .to-app:active{transform:translateY(1px);}
+  </style>
+</head>
+<body>
+  <img src="/icons/icon-mono-180.png" alt="Beauty Routine Black Icon" class="icon-big">
+  <h1>Your Black Icon</h1>
+  <p class="sub">How to add Beauty Routine with the black icon to your home screen:</p>
+  <ol class="steps">
+    <li><span class="num">1</span><span>In <strong>Safari</strong>, tap <strong>Share</strong> at the bottom (the square with an up arrow).</span></li>
+    <li><span class="num">2</span><span>Scroll down a little and choose <strong>&ldquo;Add to Home Screen&rdquo;</strong>.</span></li>
+    <li><span class="num">3</span><span>Tap <strong>&ldquo;Add&rdquo;</strong> in the top right. Done! Your black icon appears.</span></li>
+  </ol>
+  <p style="font-size:1rem;color:#e53935;font-weight:800;margin:0 0 12px;line-height:1.4;">Do the 3 steps above first!</p><a href="/app.html" class="to-app">Then back to the app here →</a>
+</body>
+</html>

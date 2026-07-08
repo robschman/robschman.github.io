@@ -1,0 +1,23 @@
+{
+  "name": "Beauty Routine",
+  "short_name": "Beauty Routine",
+  "start_url": "/en/rainbow/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#E5208A",
+  "theme_color": "#FF6F4A",
+  "icons": [
+    {
+      "src": "/icons/icon-rainbow-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-rainbow-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
