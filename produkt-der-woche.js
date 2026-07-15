@@ -1,24 +1,54 @@
 // ════════════════════════════════════════════════════════════════════════
-//  PRODUKT DER WOCHE  —  hier wöchentlich (Dienstag) das neue Produkt eintragen
+//  PRODUKT DER WOCHE  —  jetzt als 2-WOCHEN-LISTE
+//  (alle 2 Wochen am Dienstag beide Produkte für die nächsten 2 Wochen setzen)
 // ════════════════════════════════════════════════════════════════════════
-//  So wechselst du (dauert ~1 Minute):
-//    name    = Produktname (Marke), z.B. "Sommersprossen-Stift"
-//    asin    = die Amazon-Nummer (aus SiteStripe / deinem Storefront-Bauplan), z.B. "B09PRQRNLP"
-//    foto    = Bilddatei im Ordner /picks/  (z.B. "/picks/foto-sommersprossen.jpg")
-//    text    = ein kurzer Satz, deutsch (de) + englisch (en). KEIN Heilversprechen.
-//    endetAm = wann die Uhr abläuft = Sonntag 22:00. Format: "JAHR-MONAT-TAGT22:00:00"
-//              (immer der KOMMENDE Sonntag, z.B. "2026-07-12T22:00:00")
-//    aktiv   = true  → Button wird angezeigt
-//              false → Button komplett aus (z.B. in der Pause Mo/Di, bis du das neue setzt)
+//  Jeder Eintrag:
+//    name       = Produktname (Marke)
+//    asin       = Amazon-Nummer (aus SiteStripe / Storefront-Bauplan)
+//    foto       = Bilddatei im Ordner /picks/  (z.B. "/picks/foto-fusspeeling.jpg")
+//    text       = kurzer Satz, deutsch (de) + englisch (en). KEIN Heilversprechen.
+//    startetAm  = ab wann das Produkt läuft = Dienstag 22:00  "JAHR-MONAT-TAGT22:00:00"
+//    endetAm    = bis wann = Sonntag 22:00 derselben Woche
 //
-//  Läuft die Uhr ab (Sonntag 22:00) ODER aktiv=false, verschwindet der Button
-//  automatisch von selbst — kein abgelaufenes Produkt bleibt stehen.
+//  Die App zeigt automatisch das Produkt, dessen Zeitfenster GERADE läuft.
+//  Zwischen Sonntag 22:00 und dem nächsten Dienstag 22:00 (Mo/Di-Pause) sowie
+//  nach Ablauf beider Wochen ist der Button von selbst aus — nichts zu tun.
+//
+//  ▸ Reihenfolge egal. ▸ Für die nächste Runde einfach beide Blöcke updaten.
 // ════════════════════════════════════════════════════════════════════════
-window.PRODUKT_DER_WOCHE = {
-  aktiv:   true,
-  name:    "Sommersprossen-Stift",
-  asin:    "B09PRQRNLP",
-  foto:    "/picks/foto-sommersprossen.jpg",
-  text:    { de: "Natürliche Sommersprossen in Sekunden 🤎", en: "Natural freckles in seconds 🤎" },
-  endetAm: "2026-07-12T22:00:00"   // Sonntag 22:00 Uhr (Wiener Zeit)
-};
+window.PRODUKTE_DER_WOCHE = [
+  // ── Woche 1 ──────────────────────────────────────────────
+  {
+    name:      "Fußpeeling-Maske",
+    asin:      "B07G75DJTC",
+    foto:      "/picks/foto-fusspeeling.jpg",
+    text:      { de: "Weiche Füße für die Sandalen-Saison 🩴", en: "Soft feet for sandal season 🩴" },
+    startetAm: "2026-07-14T22:00:00",   // Di 22:00 (Wiener Zeit)
+    endetAm:   "2026-07-19T22:00:00"    // So 22:00
+  },
+  // ── Woche 2 ──────────────────────────────────────────────
+  {
+    name:      "Goldwell Sun Reflects (Haar-UV)",
+    asin:      "B06WWHCM94",
+    foto:      "/picks/foto-haaruv.jpg",
+    text:      { de: "Sonnenschutz fürs Haar im Sommer ☀️", en: "Sun protection for your hair ☀️" },
+    startetAm: "2026-07-21T22:00:00",   // Di 22:00
+    endetAm:   "2026-07-26T22:00:00"    // So 22:00
+  }
+];
+
+// ── Auswahl-Logik: nimmt das Produkt, dessen Zeitfenster gerade läuft ─────
+// (setzt window.PRODUKT_DER_WOCHE genau in der Form, die app.html erwartet —
+//  App-Code bleibt unverändert.)
+(function () {
+  var now = Date.now(), active = null;
+  for (var i = 0; i < window.PRODUKTE_DER_WOCHE.length; i++) {
+    var p = window.PRODUKTE_DER_WOCHE[i];
+    var s = new Date(p.startetAm).getTime();
+    var e = new Date(p.endetAm).getTime();
+    if (now >= s && now < e) { active = p; break; }
+  }
+  window.PRODUKT_DER_WOCHE = active
+    ? { aktiv: true, name: active.name, asin: active.asin, foto: active.foto, text: active.text, endetAm: active.endetAm }
+    : { aktiv: false };
+})();
