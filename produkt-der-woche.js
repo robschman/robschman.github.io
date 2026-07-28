@@ -19,21 +19,21 @@
 window.PRODUKTE_DER_WOCHE = [
   // ── Woche 1 ──────────────────────────────────────────────
   {
-    name:      "Fußpeeling-Maske",
-    asin:      "B07G75DJTC",
-    foto:      "/picks/foto-fusspeeling.jpg",
-    text:      { de: "Weiche Füße für die Sandalen-Saison 🩴", en: "Soft feet for sandal season 🩴" },
-    startetAm: "2026-07-14T22:00:00",   // Di 22:00 (Wiener Zeit)
-    endetAm:   "2026-07-19T22:00:00"    // So 22:00
+    name:      "Mighty Patch Original",
+    asin:      "B0C81Z1SQH",
+    foto:      "/picks/foto-patch.jpg",
+    text:      { de: "Über Nacht auf die Stelle kleben 🩹", en: "Just stick it on overnight 🩹" },
+    startetAm: "2026-07-28T22:00:00",   // Di 22:00 (Wiener Zeit)
+    endetAm:   "2026-08-02T22:00:00"    // So 22:00
   },
   // ── Woche 2 ──────────────────────────────────────────────
   {
-    name:      "Goldwell Sun Reflects (Haar-UV)",
-    asin:      "B06WWHCM94",
-    foto:      "/picks/foto-haaruv.jpg",
-    text:      { de: "Sonnenschutz fürs Haar im Sommer ☀️", en: "Sun protection for your hair ☀️" },
-    startetAm: "2026-07-21T22:00:00",   // Di 22:00
-    endetAm:   "2026-07-26T22:00:00"    // So 22:00
+    name:      "Sol de Janeiro Bum Bum Jet Set",
+    asin:      "B089R5T26N",
+    foto:      "/picks/foto-bodymist.jpg",
+    text:      { de: "Sommerduft für unterwegs 🌴", en: "Summer scent to go 🌴" },
+    startetAm: "2026-08-04T22:00:00",   // Di 22:00
+    endetAm:   "2026-08-09T22:00:00"    // So 22:00
   }
 ];
 
