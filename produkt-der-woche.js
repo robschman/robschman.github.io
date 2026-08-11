@@ -19,21 +19,21 @@
 window.PRODUKTE_DER_WOCHE = [
   // ── Woche 1 ──────────────────────────────────────────────
   {
-    name:      "Mighty Patch Original",
-    asin:      "B0C81Z1SQH",
-    foto:      "/picks/foto-patch.jpg",
-    text:      { de: "Über Nacht auf die Stelle kleben 🩹", en: "Just stick it on overnight 🩹" },
-    startetAm: "2026-07-28T22:00:00",   // Di 22:00 (Wiener Zeit)
-    endetAm:   "2026-08-02T22:00:00"    // So 22:00
+    name:      "COSRX Snail 96 Essence",
+    asin:      "B00PBX3L7K",
+    foto:      "/picks/foto-snailmucin.jpg",
+    text:      { de: "Der K-Beauty-Klassiker für zarte Haut 🐌", en: "The K-beauty classic for soft skin 🐌" },
+    startetAm: "2026-08-12T22:00:00",   // Di 22:00 (Wiener Zeit)
+    endetAm:   "2026-08-16T22:00:00"    // So 22:00
   },
   // ── Woche 2 ──────────────────────────────────────────────
   {
-    name:      "Sol de Janeiro Bum Bum Jet Set",
-    asin:      "B089R5T26N",
-    foto:      "/picks/foto-bodymist.jpg",
-    text:      { de: "Sommerduft für unterwegs 🌴", en: "Summer scent to go 🌴" },
-    startetAm: "2026-08-04T22:00:00",   // Di 22:00
-    endetAm:   "2026-08-09T22:00:00"    // So 22:00
+    name:      "Laneige Lip Sleeping Mask",
+    asin:      "B09HN5CMBX",
+    foto:      "/picks/foto-laneige.jpg",
+    text:      { de: "Abends auftragen, morgens weiche Lippen 💋", en: "Apply at night, soft lips by morning 💋" },
+    startetAm: "2026-08-18T22:00:00",   // Di 22:00
+    endetAm:   "2026-08-23T22:00:00"    // So 22:00
   }
 ];
 
