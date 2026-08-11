@@ -23,7 +23,7 @@ window.PRODUKTE_DER_WOCHE = [
     asin:      "B00PBX3L7K",
     foto:      "/picks/foto-snailmucin.jpg",
     text:      { de: "Der K-Beauty-Klassiker für zarte Haut 🐌", en: "The K-beauty classic for soft skin 🐌" },
-    startetAm: "2026-08-12T22:00:00",   // Di 22:00 (Wiener Zeit)
+    startetAm: "2026-08-11T22:00:00",   // Di 22:00 (Wiener Zeit)
     endetAm:   "2026-08-16T22:00:00"    // So 22:00
   },
   // ── Woche 2 ──────────────────────────────────────────────
