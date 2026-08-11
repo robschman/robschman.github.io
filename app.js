@@ -67,6 +67,10 @@ const TRANSLATIONS = {
     boy: 'Bub',
     divers: 'Divers',
     designTitle: 'Dein Style?',
+    appearanceTitle: 'Erscheinungsbild',
+    appearanceAuto: 'Automatisch',
+    appearanceLight: 'Hell',
+    appearanceDark: 'Dunkel',
     designHint: 'Wähle dein Lieblings-Design – jederzeit änderbar',
     vibePink: 'Pink',
     vibeCozy: 'Cozy',
@@ -201,6 +205,10 @@ const TRANSLATIONS = {
     boy: 'Boy',
     divers: 'Diverse',
     designTitle: 'Your style?',
+    appearanceTitle: 'Appearance',
+    appearanceAuto: 'Automatic',
+    appearanceLight: 'Light',
+    appearanceDark: 'Dark',
     designHint: 'Pick your favourite look – changeable anytime',
     vibePink: 'Pink',
     vibeCozy: 'Cozy',
@@ -1451,6 +1459,34 @@ function applyLook() {
 // Rückwärtskompatibilität: alte applyTheme(...)-Aufrufe → applyLook()
 function applyTheme() { applyLook(); }
 
+// ===== ERSCHEINUNGSBILD (Hell / Dunkel / Automatisch) — unabhängig vom Farb-Design =====
+function getAppearance() {
+  return store.get('routine_appearance') || 'auto';   // 'auto' | 'light' | 'dark'
+}
+function systemPrefersDark() {
+  return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+}
+function effectiveDark(appearance) {
+  if (appearance === 'dark')  return true;
+  if (appearance === 'light') return false;
+  return systemPrefersDark();                          // 'auto' -> System entscheidet
+}
+function applyAppearance() {
+  document.documentElement.setAttribute('data-mode', effectiveDark(getAppearance()) ? 'dark' : 'light');
+}
+function setAppearance(mode) {
+  store.set('routine_appearance', mode);
+  applyAppearance();
+}
+// Im Auto-Modus dem System live folgen (z.B. wenn das iPhone abends auf Dunkel schaltet)
+if (window.matchMedia) {
+  try {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+      if (getAppearance() === 'auto') applyAppearance();
+    });
+  } catch (e) {}
+}
+
 function applyGenderContent() {
   const isBoy = getGender() === 'boy';
 
@@ -1642,6 +1678,11 @@ function openSettings() {
   const theme = getTheme();
   document.querySelectorAll('.settings-design .design-btn').forEach(btn => {
     btn.classList.toggle('selected', btn.dataset.value === theme);
+  });
+  // Erscheinungsbild markieren (Hell/Dunkel/Automatisch)
+  const appearance = getAppearance();
+  document.querySelectorAll('.settings-appearance .appearance-btn').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.value === appearance);
   });
 
   const color = store.get('routine_haircolor') || '';
@@ -1938,6 +1979,15 @@ function init() {
       btn.classList.add('selected');
       setTheme(btn.dataset.value);
       applyThemeClasses(getTheme());
+    });
+  });
+
+  // Settings: Erscheinungsbild (Hell/Dunkel/Automatisch) — sofort anwenden
+  document.querySelectorAll('.settings-appearance .appearance-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.settings-appearance .appearance-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setAppearance(btn.dataset.value);
     });
   });
 

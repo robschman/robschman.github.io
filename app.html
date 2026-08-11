@@ -64,7 +64,7 @@
   </script>
 
   <link rel="stylesheet" href="/fonts.css" />
-  <link rel="stylesheet" href="style.css?v=2.2" />
+  <link rel="stylesheet" href="style.css?v=2.3" />
   <!-- Kein AdSense: Die App zeigt keine Anzeigen (Konto nicht aktiv). Es wird bewusst
        KEIN Google-Werbe-Script geladen, damit vor der Cookie-Einwilligung keine
        Verbindung zu Google entsteht. Falls AdSense später kommt: ausschließlich NACH
@@ -76,6 +76,10 @@
   <script>
     (function(){
       try {
+        // Erscheinungsbild (Hell/Dunkel/Automatisch) SOFORT setzen — verhindert helles Blitzen
+        var _ap = localStorage.getItem('routine_appearance') || 'auto';
+        var _dark = _ap === 'dark' || (_ap === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.setAttribute('data-mode', _dark ? 'dark' : 'light');
         var t = localStorage.getItem('routine_theme');
         if (!t) { var _gt = localStorage.getItem('routine_gender'); t = _gt === 'boy' ? 'blue' : (_gt === 'divers' ? 'rainbow' : 'pink'); }
         if (t === 'girl') t = 'pink';
@@ -90,7 +94,7 @@
         else if (t === 'mono')    c.add('theme-mono');
         else if (t === 'rainbow') c.add('theme-rainbow');
         var bgMap = { blue:'#90caf9', cozy:'#F8C76B', winter:'#8A3354', mono:'#2b2b2b', rainbow:'#FF5252' };
-        document.documentElement.style.backgroundColor = bgMap[t] || '#f9a8c9';
+        document.documentElement.style.backgroundColor = _dark ? '#15121b' : (bgMap[t] || '#f9a8c9');
         var htmlCls = { blue:'theme-boy', cozy:'theme-cozy', winter:'theme-winter', mono:'theme-mono', rainbow:'theme-rainbow' }[t];
         if (htmlCls) document.documentElement.classList.add(htmlCls);
       } catch (e) {}
@@ -631,6 +635,25 @@
           </div>
         </div>
 
+        <!-- Erscheinungsbild (Hell / Dunkel / Automatisch) -->
+        <div class="settings-section">
+          <div class="settings-label">🌗 <span data-tr="appearanceTitle"></span></div>
+          <div class="gender-options settings-appearance">
+            <button class="gender-btn appearance-btn" data-value="auto">
+              <span class="gender-icon">🌗</span>
+              <span data-tr="appearanceAuto"></span>
+            </button>
+            <button class="gender-btn appearance-btn" data-value="light">
+              <span class="gender-icon">☀️</span>
+              <span data-tr="appearanceLight"></span>
+            </button>
+            <button class="gender-btn appearance-btn" data-value="dark">
+              <span class="gender-icon">🌙</span>
+              <span data-tr="appearanceDark"></span>
+            </button>
+          </div>
+        </div>
+
         <!-- Design / Vibe (nur Optik) -->
         <div class="settings-section">
           <div class="settings-label">🎨 <span data-tr="designTitle"></span></div>
@@ -747,7 +770,7 @@
   </div>
 
   <script src="produkt-der-woche.js?v=2"></script>
-  <script src="app.js?v=2.9"></script>
+  <script src="app.js?v=2.10"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
