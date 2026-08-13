@@ -518,11 +518,20 @@
               descEl.textContent = bindLast((P.text && (P.text[l] || P.text.de)) || '');
               lastLang = l;
             }
-            var d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000),
-                m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-            var tage = d > 0 ? (l==='en' ? (d===1?'1 day · ':d+' days · ') : (d===1?'1 Tag · ':d+' Tage · ')) : '';
-            var clock = pad(h)+':'+pad(m)+':'+pad(s);
-            cdEl.textContent = l==='en' ? ('⏳ '+tage+clock+' left') : ('⏳ noch '+tage+clock);
+            // Ab 24 Stunden Restzeit nur die vollen Tage zeigen ("noch 3 Tage").
+            // Erst im letzten Tag tickt die Uhr sekundengenau ("noch 05:12:33").
+            if (diff >= 86400000) {
+              var d = Math.floor(diff/86400000);
+              cdEl.textContent = l==='en'
+                ? ('⏳ '+(d===1?'1 day':d+' days')+' left')
+                : ('⏳ noch '+(d===1?'1 Tag':d+' Tage'));
+            } else {
+              var h = Math.floor(diff/3600000),
+                  m = Math.floor((diff%3600000)/60000),
+                  s = Math.floor((diff%60000)/1000);
+              var clock = pad(h)+':'+pad(m)+':'+pad(s);
+              cdEl.textContent = l==='en' ? ('⏳ '+clock+' left') : ('⏳ noch '+clock);
+            }
           }
           tick();
           card.style.display = 'block';
