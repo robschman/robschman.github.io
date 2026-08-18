@@ -18,27 +18,6 @@
   --radius-sm:   10px;
 }
 
-/* ===== DUNKELMODUS =====
-   data-mode="dark" wird per JS auf <html> gesetzt (manuell „Dunkel" ODER „Automatisch" + System dunkel).
-   Es werden nur die Basis-Farben umdefiniert -> alles, was var(--bg/--card/--text/...) nutzt, wird dunkel.
-   Die farbigen Themes/Akzente bleiben als Farbtupfer erhalten. */
-:root[data-mode="dark"] {
-  --bg:          #15121b;
-  --card:        #241f2e;
-  --text:        #f1e9f3;
-  --text-soft:   #b8a7bd;
-  --border:      #3b3348;
-  --shadow:      rgba(0,0,0,0.55);
-}
-/* Elemente mit EIGENEN festen Farben (Cookie-Banner, Produkt der Woche) im Dunkelmodus mitziehen */
-:root[data-mode="dark"] #bra-cookie-banner { background: rgba(28,24,36,0.98); border-top-color: #3b3348; }
-:root[data-mode="dark"] #bra-cookie-banner .bra-text strong { color: #f1e9f3; }
-:root[data-mode="dark"] #bra-cookie-banner .bra-text p { color: #c4b6c9; }
-:root[data-mode="dark"] #bra-cookie-banner .bra-decline { background: #322b3d; color: #d8cadd; border-color: #4a4159; }
-:root[data-mode="dark"] .pdw-inner { background: #241f2e; }
-:root[data-mode="dark"] .pdw-name, :root[data-mode="dark"] .pdw-arrow { color: #f1e9f3; }
-:root[data-mode="dark"] .pdw-desc { color: #b8a7bd; }
-
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   background: var(--bg);
@@ -74,7 +53,7 @@ body {
 .onboarding.show { display: flex; }
 
 .onboarding-card {
-  background: var(--card);
+  background: white;
   border-radius: 28px;
   padding: 40px 30px 36px;
   width: 100%;
@@ -163,7 +142,7 @@ body {
   padding: 10px 16px;
   border: 2px solid var(--border);
   border-radius: 20px;
-  background: var(--card);
+  background: white;
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--text);
@@ -468,7 +447,7 @@ body.theme-rainbow .tab.active{ opacity:1; box-shadow:0 4px 12px rgba(0,0,0,0.22
 
 .progress-bar {
   height: 100%;
-  background: var(--card);
+  background: white;
   border-radius: 4px;
   width: 0%;
   transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
@@ -558,7 +537,7 @@ body.theme-rainbow .tab.active{ opacity:1; box-shadow:0 4px 12px rgba(0,0,0,0.22
   box-shadow: 0 1px 4px rgba(240,98,146,0.15);
 }
 
-.edit-toggle-btn:hover { background: var(--card); }
+.edit-toggle-btn:hover { background: white; }
 
 .app.edit-mode .edit-toggle-btn {
   background: linear-gradient(135deg, #f06292, #ab47bc);
@@ -856,7 +835,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
   align-items: center;
   justify-content: center;
   transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
-  background: var(--card);
+  background: white;
   pointer-events: none;
 }
 .checklist-item.done .checkbox {
@@ -1081,7 +1060,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
 
 /* Termin-Karte */
 .termin-card {
-  background: var(--card);
+  background: white;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: 0 2px 10px var(--shadow);
@@ -1336,7 +1315,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
 .modal-overlay.open { display: flex; }
 
 .modal {
-  background: var(--card);
+  background: white;
   border-radius: var(--radius);
   padding: 24px 22px;
   width: 100%;
@@ -1477,7 +1456,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
   height: 34px;
   border: 2px solid transparent;
   border-radius: 8px;
-  background: var(--card);
+  background: white;
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
@@ -1495,7 +1474,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
 
 .emoji-btn.selected {
   border-color: var(--pink-mid);
-  background: var(--card);
+  background: white;
   box-shadow: 0 0 0 3px rgba(240, 98, 146, 0.2);
   transform: scale(1.15);
 }
@@ -1595,7 +1574,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
   padding: 18px 12px;
   border: 2.5px solid var(--border);
   border-radius: var(--radius);
-  background: var(--card);
+  background: white;
   font-size: 1.6rem;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
@@ -1642,7 +1621,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
   padding: 11px 26px;
   border: 2px solid var(--border);
   border-radius: 24px;
-  background: var(--card);
+  background: white;
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-soft);
@@ -1663,7 +1642,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
 
 /* ===== Tips Card ===== */
 .tips-card {
-  background: var(--card);
+  background: white;
   border-radius: var(--radius);
   padding: 16px 16px 28px;
   margin-bottom: 16px;
@@ -1828,7 +1807,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
   font-family: inherit;
   transition: border-color 0.2s;
   -webkit-appearance: none;
-  background: var(--card);
+  background: white;
 }
 
 .settings-input:focus { border-color: var(--pink-mid); }
@@ -1843,7 +1822,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
   padding: 10px 8px;
   border: 2px solid var(--border);
   border-radius: var(--radius-sm);
-  background: var(--card);
+  background: white;
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-soft);
@@ -1938,7 +1917,7 @@ body.theme-winter .completion-banner { background: linear-gradient(135deg, #A854
   padding: 18px 28px;
   border: 2.5px solid #f8bbd0;
   border-radius: 20px;
-  background: var(--card);
+  background: white;
   color: #9e6b8a;
   font-size: 0.9rem;
   font-weight: 700;
