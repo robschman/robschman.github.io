@@ -42,3 +42,31 @@ Kampagne Sommer 2026*.pdf
 00_Memo.md
 PRUEFBERICHT_*.html
 PRUEF-PROMPT_*.md
+
+# ── Ergänzt 21.08.2026 ──────────────────────────────────────────────
+# ACHTUNG: Dieser Ordner IST die Live-Seite (robschman.github.io →
+# beautyroutine.app). Alles was hier eingecheckt wird, ist danach
+# öffentlich abrufbar. Deshalb: niemals "git add ." verwenden,
+# sondern immer einzelne Dateien gezielt hinzufügen.
+
+# Promo-Rohmaterial (zusammen rund 1,2 GB, gehört nicht auf eine Website)
+promo/KI-Presenterin/
+promo/Themen/
+promo/musik/
+Promotion/
+
+# HINWEIS zu kampagne-sommer-2026/: NICHT ausgeschlossen, weil dort bereits
+# zwei Dateien eingecheckt sind (Postplan-und-Texte.html und .pdf). Sie sind
+# damit oeffentlich unter beautyroutine.app abrufbar. Falls das nicht gewollt
+# ist: erst "git rm --cached" auf die beiden, dann hier ausschliessen.
+
+# Medien in Kleinschreibung (oben stand nur *.MP4 gross)
+*.mp4
+*.mov
+*.m4a
+*.wav
+*.avi
+
+# Lose Arbeitsdateien
+fetch-amazon-images.js
+CozyVibe-Profilbild.png
