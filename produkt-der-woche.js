@@ -19,21 +19,21 @@
 window.PRODUKTE_DER_WOCHE = [
   // ── Woche 1 ──────────────────────────────────────────────
   {
-    name:      "COSRX Snail 96 Essence",
-    asin:      "B00PBX3L7K",
-    foto:      "/picks/foto-snailmucin.jpg",
-    text:      { de: "Der K-Beauty-Klassiker für zarte Haut 🐌", en: "The K-beauty classic for soft skin 🐌" },
-    startetAm: "2026-08-11T22:00:00",   // Di 22:00 (Wiener Zeit)
-    endetAm:   "2026-08-16T22:00:00"    // So 22:00
+    name:      "Bioré UV Aqua Rich Watery Essence SPF50",
+    asin:      "B01MTDFFQ5",
+    foto:      "/picks/foto-biore.jpg",
+    text:      { de: "Sonnenschutz ohne Weißfilm \u2013 auch im Herbst \u2600\ufe0f", en: "Sunscreen with no white cast \u2013 in autumn too \u2600\ufe0f" },
+    startetAm: "2026-08-25T22:00:00",   // Di 22:00 (Wiener Zeit)
+    endetAm:   "2026-08-30T22:00:00"    // So 22:00
   },
   // ── Woche 2 ──────────────────────────────────────────────
   {
-    name:      "Laneige Lip Sleeping Mask",
-    asin:      "B09HN5CMBX",
-    foto:      "/picks/foto-laneige.jpg",
-    text:      { de: "Abends auftragen, morgens weiche Lippen 💋", en: "Apply at night, soft lips by morning 💋" },
-    startetAm: "2026-08-18T22:00:00",   // Di 22:00
-    endetAm:   "2026-08-23T22:00:00"    // So 22:00
+    name:      "Beauty of Joseon Glow Deep Serum",
+    asin:      "B09DLFCB69",
+    foto:      "/picks/foto-glow.jpg",
+    text:      { de: "Reisextrakt f\u00fcr den Glow nach dem Sommer \u2728", en: "Rice extract for that after-summer glow \u2728" },
+    startetAm: "2026-09-01T22:00:00",   // Di 22:00
+    endetAm:   "2026-09-06T22:00:00"    // So 22:00
   }
 ];
 
