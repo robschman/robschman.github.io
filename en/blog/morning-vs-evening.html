@@ -116,8 +116,13 @@
 /* Unten Luft lassen: auf der Zahnarztseite klebte der Block sonst am unteren
    Bildschirmrand. env(safe-area-inset-bottom) beruecksichtigt zusaetzlich die
    Leiste am iPhone ohne Home-Knopf. */
-.hkn{margin:26px 0 0;border-top:1px solid rgba(128,128,128,.22);
-  padding:22px 16px calc(26px + env(safe-area-inset-bottom,0px))}
+/* Der Block hat IMMER denselben dunklen Grund - auch auf hellen Seiten.
+   Grund: Das Terminal-Gruen der Marke (#4ADE80) kommt auf Weiss nur auf
+   1,74:1 und ist damit unlesbar. Auf #0B0B0B sind es 10,8:1. So steht
+   jede Marke ueberall in ihrer echten Farbe, und der Block sieht auf
+   allen Seiten gleich aus - wie eine Signatur unter dem Brief. */
+.hkn{margin:26px 0 0;background:#0B0B0B;border-top:1px solid rgba(255,255,255,.10);
+  padding:26px 16px calc(30px + env(safe-area-inset-bottom,0px))}
 .hkn-innen{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
   gap:18px 44px;max-width:900px;margin:0 auto;padding:0;list-style:none}
 .hkn-block{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
@@ -129,7 +134,7 @@
    ungueltig - inherit ist an dieser Stelle kein erlaubter Wert, und die ganze
    Zeile wird verworfen. Die Beschriftung kam dadurch mit 18px statt 10,5px. */
 .hkn-label{font-size:10.5px;font-weight:600;line-height:1.35;letter-spacing:.15em;
-  text-transform:uppercase;color:#6b7280;-webkit-text-fill-color:#6b7280;margin:0}
+  text-transform:uppercase;color:#9a9aa2;-webkit-text-fill-color:#9a9aa2;margin:0}
 .hkn-bild{height:72px;display:flex;align-items:center;justify-content:center}
 /* Feste Hoehe, nicht auto: sonst ist der Kasten vor dem Laden 0x0 hoch,
    das Layout springt und das verzoegerte Laden greift nicht zuverlaessig. */
@@ -169,10 +174,10 @@
   }
 }
 @media (prefers-reduced-motion:reduce){ .hkn-block{transition:none} .hkn-block:hover{transform:none} }
-.hkn-robschman .hkn-name{color:#15803D;-webkit-text-fill-color:#15803D}
-.hkn-robschman:hover .hkn-name,.hkn-robschman:focus-visible .hkn-name{color:#166534;-webkit-text-fill-color:#166534}
-.hkn-webwerkstube .hkn-name{color:#6D4AFF;-webkit-text-fill-color:#6D4AFF}
-.hkn-webwerkstube:hover .hkn-name,.hkn-webwerkstube:focus-visible .hkn-name{color:#5535E8;-webkit-text-fill-color:#5535E8}</style>
+.hkn-robschman .hkn-name{color:#4ADE80;-webkit-text-fill-color:#4ADE80}
+.hkn-robschman:hover .hkn-name,.hkn-robschman:focus-visible .hkn-name{color:#86EFAC;-webkit-text-fill-color:#86EFAC}
+.hkn-webwerkstube .hkn-name{color:#A78BFA;-webkit-text-fill-color:#A78BFA}
+.hkn-webwerkstube:hover .hkn-name,.hkn-webwerkstube:focus-visible .hkn-name{color:#C4B5FD;-webkit-text-fill-color:#C4B5FD}</style>
 <section class="hkn" aria-label="Herkunft dieser Website">
   <div class="hkn-innen">
     <a class="hkn-block hkn-robschman" href="https://robschman.at/?von=beauty-web" target="_blank" rel="noopener">
