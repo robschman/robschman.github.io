@@ -652,7 +652,11 @@
 <style id="hkn-stil">
 /* Herkunftsnachweis - einheitlich auf allen Seiten seit 30.08.2026.
    Alle Klassen beginnen mit hkn-, damit sie mit keinem Seitengeruest kollidieren. */
-.hkn{margin:26px 0 0;padding:22px 16px 4px;border-top:1px solid rgba(128,128,128,.22)}
+/* Unten Luft lassen: auf der Zahnarztseite klebte der Block sonst am unteren
+   Bildschirmrand. env(safe-area-inset-bottom) beruecksichtigt zusaetzlich die
+   Leiste am iPhone ohne Home-Knopf. */
+.hkn{margin:26px 0 0;border-top:1px solid rgba(128,128,128,.22);
+  padding:22px 16px calc(26px + env(safe-area-inset-bottom,0px))}
 .hkn-innen{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
   gap:18px 44px;max-width:900px;margin:0 auto;padding:0;list-style:none}
 .hkn-block{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
@@ -671,10 +675,37 @@
 .hkn-bild img{height:72px;width:auto;max-width:132px;object-fit:contain;display:block}
 .hkn-name{font-size:13px;font-weight:600;line-height:1.35;text-decoration:underline;
   text-underline-offset:3px;text-decoration-thickness:1px;white-space:nowrap;margin:0}
-/* Am Handy untereinander - und dabei jeder Block mittig, nicht linksbuendig. */
+/* Am Handy: ZWEI Nennungen bleiben nebeneinander, erst DREI stehen untereinander.
+   Geloest ohne Sonderklasse - :has() prueft, wie viele Bloecke drin sind.
+   Fuer aeltere Browser ohne :has() gibt es darunter den Ersatzweg. */
 @media (max-width:640px){
-  .hkn-innen{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:26px}
-  .hkn-block{width:100%;min-width:0}
+  /* zwei Bloecke: nebeneinander, nur enger und mit kleineren Logos */
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))){
+    flex-direction:row;flex-wrap:nowrap;align-items:flex-start;gap:12px;justify-content:center}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-block{
+    min-width:0;flex:1 1 0;max-width:50%}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-bild{height:56px}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-bild img{
+    height:56px;max-width:100%}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-name{
+    font-size:12px;white-space:normal;overflow-wrap:anywhere}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-label{
+    font-size:9.5px;letter-spacing:.1em}
+
+  /* drei oder mehr: untereinander, jeder Block mittig */
+  .hkn-innen:has(> .hkn-block:nth-child(3)),
+  .hkn-innen:has(> .hkn-block:only-child){
+    flex-direction:column;flex-wrap:nowrap;align-items:center;gap:26px}
+  .hkn-innen:has(> .hkn-block:nth-child(3)) .hkn-block,
+  .hkn-innen:has(> .hkn-block:only-child) .hkn-block{width:100%;min-width:0}
+}
+/* Ersatzweg fuer Browser ohne :has() (Safari vor 15.4, Firefox vor 121):
+   dort bleibt es beim alten Verhalten - alles untereinander und mittig. */
+@supports not selector(:has(*)){
+  @media (max-width:640px){
+    .hkn-innen{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:26px}
+    .hkn-block{width:100%;min-width:0}
+  }
 }
 @media (prefers-reduced-motion:reduce){ .hkn-block{transition:none} .hkn-block:hover{transform:none} }
 .hkn-robschman .hkn-name{color:#15803D;-webkit-text-fill-color:#15803D}
