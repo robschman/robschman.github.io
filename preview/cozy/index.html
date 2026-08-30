@@ -615,7 +615,52 @@
     <div class="footer-ai">✨ Inhalte unterstützt durch KI · ehrlich getestet</div>
   </div>
 
-<p class="herkunft" style="margin:20px 0 0;padding-top:14px;border-top:1px solid rgba(128,128,128,.22);font-size:12.5px;line-height:1.7;text-align:center;color:#8a8a8a">Die App wurde erstellt von <a href="https://robschman.at/?von=beauty-web" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">robschman.at</a><br>Website von <a href="https://webwerkstube.at/?von=beauty-web" target="_blank" rel="noopener" style="color:#A78BFA;text-decoration:underline;font-weight:600;white-space:nowrap">webwerkstube.at</a></p>
+<style id="hkn-stil">
+/* Herkunftsnachweis - einheitlich auf allen Seiten seit 30.08.2026.
+   Alle Klassen beginnen mit hkn-, damit sie mit keinem Seitengeruest kollidieren. */
+.hkn{margin:26px 0 0;padding:22px 16px 4px;border-top:1px solid rgba(128,128,128,.22)}
+.hkn-innen{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
+  gap:18px 44px;max-width:900px;margin:0 auto;padding:0;list-style:none}
+.hkn-block{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  text-align:center;text-decoration:none;gap:9px;min-width:132px;padding:4px 2px;
+  border-radius:10px;transition:transform .18s ease}
+.hkn-block:hover,.hkn-block:focus-visible{transform:translateY(-2px)}
+.hkn-block:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+/* Einzelangaben statt der Kurzschreibweise: "font: 600 10.5px/1.35 inherit" ist
+   ungueltig - inherit ist an dieser Stelle kein erlaubter Wert, und die ganze
+   Zeile wird verworfen. Die Beschriftung kam dadurch mit 18px statt 10,5px. */
+.hkn-label{font-size:10.5px;font-weight:600;line-height:1.35;letter-spacing:.15em;
+  text-transform:uppercase;color:#6b7280;-webkit-text-fill-color:#6b7280;margin:0}
+.hkn-bild{height:72px;display:flex;align-items:center;justify-content:center}
+/* Feste Hoehe, nicht auto: sonst ist der Kasten vor dem Laden 0x0 hoch,
+   das Layout springt und das verzoegerte Laden greift nicht zuverlaessig. */
+.hkn-bild img{height:72px;width:auto;max-width:132px;object-fit:contain;display:block}
+.hkn-name{font-size:13px;font-weight:600;line-height:1.35;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px;white-space:nowrap;margin:0}
+/* Am Handy untereinander - und dabei jeder Block mittig, nicht linksbuendig. */
+@media (max-width:640px){
+  .hkn-innen{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:26px}
+  .hkn-block{width:100%;min-width:0}
+}
+@media (prefers-reduced-motion:reduce){ .hkn-block{transition:none} .hkn-block:hover{transform:none} }
+.hkn-robschman .hkn-name{color:#15803D;-webkit-text-fill-color:#15803D}
+.hkn-robschman:hover .hkn-name,.hkn-robschman:focus-visible .hkn-name{color:#166534;-webkit-text-fill-color:#166534}
+.hkn-webwerkstube .hkn-name{color:#6D4AFF;-webkit-text-fill-color:#6D4AFF}
+.hkn-webwerkstube:hover .hkn-name,.hkn-webwerkstube:focus-visible .hkn-name{color:#5535E8;-webkit-text-fill-color:#5535E8}</style>
+<section class="hkn" aria-label="Herkunft dieser Website">
+  <div class="hkn-innen">
+    <a class="hkn-block hkn-robschman" href="https://robschman.at/?von=beauty-web" target="_blank" rel="noopener">
+      <span class="hkn-label">App von</span>
+      <span class="hkn-bild"><img src="../../assets/hkn-robschman.png" alt="robschman programming" height="72" loading="lazy"></span>
+      <span class="hkn-name">robschman.at</span>
+    </a>
+    <a class="hkn-block hkn-webwerkstube" href="https://webwerkstube.at/?von=beauty-web" target="_blank" rel="noopener">
+      <span class="hkn-label">Website von</span>
+      <span class="hkn-bild"><img src="../../assets/hkn-webwerkstube.png" alt="Web Werkstube" height="72" loading="lazy"></span>
+      <span class="hkn-name">webwerkstube.at</span>
+    </a>
+  </div>
+</section>
 </footer>
 
 <script>

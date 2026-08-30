@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kampagne Sommer 2026 — Beauty Routine App × CozyVibe</title>
+<style>
+  :root{
+    /* Variante A — Beauty Routine App */
+    --a-primary:#f06292; --a-deep:#e91e8c; --a-purple:#ab47bc; --a-bg:#fff5f8; --a-soft:#fce4ec; --a-text:#4a2040;
+    /* Variante B — CozyVibe */
+    --b-gold:#EF9320; --b-gold-strong:#BD6C0A; --b-cream:#FBF6F0; --b-surface:#F6EDE3; --b-soft:#FCE9C2; --b-ink:#3B302A; --b-border:#EBDDCD;
+    --ink:#2a2530; --muted:#6b6473; --line:#e6e1ea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;color:var(--ink);background:#faf8fb;line-height:1.6;margin:0;padding:0 0 80px}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  header.hero{background:linear-gradient(135deg,#f06292 0%,#ab47bc 50%,#EF9320 100%);color:#fff;padding:48px 22px 40px;text-align:center}
+  header.hero h1{margin:0 0 6px;font-size:2rem;letter-spacing:-.5px}
+  header.hero p{margin:4px 0;opacity:.95}
+  .badge{display:inline-block;background:rgba(255,255,255,.2);padding:4px 12px;border-radius:999px;font-size:.78rem;margin:8px 4px 0}
+  nav.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:26px 0;box-shadow:0 4px 18px rgba(80,40,90,.06)}
+  nav.toc h2{margin:0 0 10px;font-size:1rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px}
+  nav.toc a{color:var(--a-deep);text-decoration:none}
+  nav.toc a:hover{text-decoration:underline}
+  section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 30px;margin:22px 0;box-shadow:0 4px 18px rgba(80,40,90,.05)}
+  section>h2{margin-top:0;font-size:1.5rem;border-bottom:3px solid var(--a-soft);padding-bottom:10px}
+  h3{margin:26px 0 8px;font-size:1.15rem}
+  h4{margin:18px 0 6px;font-size:1rem}
+  p,li{font-size:.96rem}
+  code,pre{font-family:'SF Mono',Menlo,monospace;font-size:.82rem}
+  pre{background:#2a2530;color:#f5eefb;padding:14px 16px;border-radius:10px;overflow-x:auto;line-height:1.5}
+  pre.light{background:#f6f3f8;color:#2a2530;border:1px solid var(--line)}
+  .copy-hint{font-size:.78rem;color:var(--muted);margin:2px 0 4px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f6f3f8}
+  /* Varianten-Karten */
+  .variants{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0}
+  @media(max-width:720px){.variants{grid-template-columns:1fr}nav.toc ol{columns:1}}
+  .vcard{border-radius:14px;padding:18px 20px}
+  .va{background:var(--a-bg);border:2px solid var(--a-primary)}
+  .vb{background:var(--b-cream);border:2px solid var(--b-gold)}
+  .vtag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+  .va .vtag{background:var(--a-primary);color:#fff}
+  .vb .vtag{background:var(--b-gold);color:#fff}
+  .va h4{color:var(--a-deep)} .vb h4{color:var(--b-gold-strong)}
+  .swatch{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;margin:2px 8px 2px 0}
+  .dot{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.1)}
+  .pill{display:inline-block;background:var(--a-soft);color:var(--a-text);padding:2px 10px;border-radius:999px;font-size:.8rem;margin:2px}
+  .pill.b{background:var(--b-soft);color:var(--b-gold-strong)}
+  .note{background:#fff8e6;border-left:4px solid var(--b-gold);padding:12px 16px;border-radius:8px;margin:14px 0;font-size:.9rem}
+  .warn{background:#fdecef;border-left:4px solid var(--a-deep)}
+  .ok{background:#eafaf0;border-left:4px solid #2faf6a}
+  .btn-print{position:fixed;bottom:20px;right:20px;background:var(--a-deep);color:#fff;border:none;padding:12px 18px;border-radius:999px;font-size:.9rem;cursor:pointer;box-shadow:0 6px 20px rgba(233,30,140,.4);z-index:99}
+  .kpi{display:inline-block;background:#f6f3f8;border-radius:10px;padding:8px 14px;margin:4px 6px 4px 0;font-size:.85rem}
+  .kpi b{color:var(--a-deep)}
+  ul.tight li{margin:3px 0}
+  @media print{.btn-print{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<button class="btn-print" onclick="window.print()">🖨️ Als PDF speichern</button>
+
+<header class="hero">
+  <h1>Kampagne Sommer 2026</h1>
+  <p><strong>Beauty Routine App</strong> &nbsp;×&nbsp; <strong>CozyVibe</strong></p>
+  <p>Mehr App-Nutzer · mehr Amazon-Affiliate-Klicks · mehr Reichweite</p>
+  <div>
+    <span class="badge">Variante A — App-Design (Pink/Bunt)</span>
+    <span class="badge">Variante B — CozyVibe (Gold/Creme)</span>
+    <span class="badge">Stand: 18.06.2026</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>Inhalt</h2>
+  <ol>
+    <li><a href="#design">Die zwei Design-Varianten</a></li>
+    <li><a href="#seo">1 · SEO + GEO Optimierung</a></li>
+    <li><a href="#higgs">2 · Higgsfield Content Factory</a></li>
+    <li><a href="#pinterest">3 · Pinterest-Strategie (CozyVibe)</a></li>
+    <li><a href="#amazon">4 · Amazon Affiliate Integration</a></li>
+    <li><a href="#trend">5 · Trend-Daten Strategie</a></li>
+    <li><a href="#plan">6 · Kampagnen-Zeitplan (4 Wochen)</a></li>
+    <li><a href="#saison">7 · Saison-Rotation (ganzjährig)</a></li>
+    <li><a href="#start">Was du als Nächstes tust</a></li>
+  </ol>
+</nav>
+
+<!-- ============ DESIGN ============ -->
+<section id="design">
+  <h2>🎨 Die zwei Design-Varianten</h2>
+  <p>Jedes Kampagnen-Element gibt es in <strong>zwei klar unterscheidbaren Looks</strong>. So erkennt jeder sofort, ob ein Post zur App oder zur Marke CozyVibe gehört.</p>
+  <div class="variants">
+    <div class="vcard va">
+      <span class="vtag">Variante A</span>
+      <h4>Beauty Routine App</h4>
+      <p><strong>Look:</strong> verspielt, bunt, jung, „App-Feeling".</p>
+      <div>
+        <span class="swatch"><span class="dot" style="background:#f06292"></span>#f06292 Pink</span>
+        <span class="swatch"><span class="dot" style="background:#e91e8c"></span>#e91e8c Magenta</span>
+        <span class="swatch"><span class="dot" style="background:#ab47bc"></span>#ab47bc Lila</span>
+        <span class="swatch"><span class="dot" style="background:#fff5f8;border:1px solid #ddd"></span>#fff5f8 BG</span>
+      </div>
+      <p style="margin-top:8px"><strong>Fonts:</strong> Poppins + Dancing Script · <strong>Ton:</strong> herzlich, motivierend, per Du.</p>
+      <p><strong>Kanäle:</strong> TikTok &amp; YouTube Shorts (jung, verspielt) — läuft aber auch überall mit.</p>
+    </div>
+    <div class="vcard vb">
+      <span class="vtag">Variante B</span>
+      <h4>CozyVibe</h4>
+      <p><strong>Look:</strong> warm, gemütlich, edel-minimalistisch.</p>
+      <div>
+        <span class="swatch"><span class="dot" style="background:#EF9320"></span>#EF9320 Gold</span>
+        <span class="swatch"><span class="dot" style="background:#BD6C0A"></span>#BD6C0A Honig</span>
+        <span class="swatch"><span class="dot" style="background:#FBF6F0;border:1px solid #ddd"></span>#FBF6F0 Creme</span>
+        <span class="swatch"><span class="dot" style="background:#3B302A"></span>#3B302A Braun</span>
+      </div>
+      <p style="margin-top:8px"><strong>Fonts:</strong> Dancing Script + Marcellus + Mulish · <strong>Ton:</strong> ruhig, ehrlich, „ohne Marketing-Bla".</p>
+      <p><strong>Kanäle:</strong> Pinterest (Hauptkanal) &amp; Instagram — läuft aber auch überall mit.</p>
+    </div>
+  </div>
+  <div class="note">Deine Entscheidung: <strong>beide Varianten auf allen Kanälen</strong>, im Wechsel. Faustregel zum Sortieren: <em>App-Demo / Tutorial → Variante A · Produkt-Tipp / Stimmung / Pinterest → Variante B.</em></div>
+</section>
+
+<!-- ============ 1 SEO + GEO ============ -->
+<section id="seo">
+  <h2>1 · SEO + GEO Optimierung</h2>
+  <p>Ziel-Seite: <strong>beautyroutine.app</strong> (deine Live-Domain; <code>robschman.github.io/beauty-routine</code> leitet dorthin). Aktuell hat deine <code>index.html</code> <strong>kein Schema.org-Markup</strong> — das ist der größte schnelle Hebel für Google AI Overviews, ChatGPT &amp; Perplexity.</p>
+
+  <h3>🔑 Keywords (DACH, Sommer-Fokus)</h3>
+  <h4>Haupt-Keywords (hohes Volumen)</h4>
+  <p>
+    <span class="pill">beauty routine app</span><span class="pill">skincare routine</span><span class="pill">hautpflege routine</span>
+    <span class="pill">morgenroutine haut</span><span class="pill">abendroutine pflege</span><span class="pill">self care app</span>
+    <span class="pill">gesichtspflege reihenfolge</span>
+  </p>
+  <h4>Long-Tail (leichter zu ranken, Sommer)</h4>
+  <p>
+    <span class="pill">sonnenschutz routine sommer</span><span class="pill">hautpflege bei hitze</span><span class="pill">leichtes sommer make-up</span>
+    <span class="pill">minimal beauty routine</span><span class="pill">skincare app kostenlos deutsch</span><span class="pill">routine tracker beauty</span>
+    <span class="pill">lsf jeden tag</span><span class="pill">sommersprossen schminken</span>
+  </p>
+
+  <h3>📝 Meta-Title &amp; Description — beide Varianten</h3>
+  <div class="variants">
+    <div class="vcard va">
+      <span class="vtag">Variante A</span>
+      <p class="copy-hint">Title (≤60 Zeichen)</p>
+      <pre class="light">Beauty Routine App – Hautpflege tracken, gratis</pre>
+      <p class="copy-hint">Description (≤155 Zeichen)</p>
+      <pre class="light">Deine Morgen- &amp; Abendroutine zum Abhaken, Beauty-Termine planen, 7 Designs. Kostenlose Beauty Routine App – ohne Anmeldung starten.</pre>
+    </div>
+    <div class="vcard vb">
+      <span class="vtag">Variante B</span>
+      <p class="copy-hint">Title (≤60 Zeichen)</p>
+      <pre class="light">CozyVibe – Ehrliche Skincare-Tipps &amp; gratis App</pre>
+      <p class="copy-hint">Description (≤155 Zeichen)</p>
+      <pre class="light">Ehrliche Hautpflege-Tipps für den Alltag: Sonnenschutz, Wirkstoffe &amp; Sommer-Routine einfach erklärt. Plus kostenlose Beauty Routine App.</pre>
+    </div>
+  </div>
+  <div class="note">Deine aktuelle Live-Description nutzt schon Variante B („Ehrliche Skincare-Tipps…") — gut. Für Sommer kannst du das Wort <em>„Sonnenschutz"</em> nach vorne ziehen (siehe oben).</div>
+
+  <h3>🤖 GEO — damit ChatGPT, Perplexity &amp; Google AI dich empfehlen</h3>
+  <p>KI-Suchmaschinen lieben <strong>klare Frage-Antwort-Blöcke mit FAQ-Schema</strong>. Deine <code>faq.html</code> hat 24 super Fragen — aber ohne maschinenlesbares Markup zählen sie für die KI kaum. Lösung: <strong>FAQPage-Schema</strong> einbauen (fertig im Anhang <a href="#snippets">Code-Snippets</a>). 3 zusätzliche „App-Empfehlungs"-Fragen, die KIs gezielt aufgreifen:</p>
+  <table>
+    <tr><th>Frage (so suchen Leute bei ChatGPT)</th><th>Kurz-Antwort für die KI</th></tr>
+    <tr><td>„Gibt es eine kostenlose App für meine Hautpflege-Routine?"</td><td>Ja — die <strong>Beauty Routine App</strong> (beautyroutine.app) ist gratis, ohne Anmeldung, mit Morgen-/Abendroutine zum Abhaken und Termin-Planer.</td></tr>
+    <tr><td>„Wie baue ich eine einfache Sommer-Skincare-Routine auf?"</td><td>Reinigung → Serum → leichte Feuchtigkeit → <strong>LSF 50</strong>. Abends ohne LSF, dafür mit Pflege. Die kostenlose Beauty Routine App hakt jeden Schritt für dich ab.</td></tr>
+    <tr><td>„Beste App um Beauty-Termine &amp; Pflege zu organisieren?"</td><td>Die Beauty Routine App kombiniert Routine-Tracker + Beauty-Termin-Kalender (Kosmetik, Friseur, Zahnarzt) an einem Ort — kostenlos.</td></tr>
+  </table>
+  <p>👉 Die kompletten, einbau-fertigen Code-Bausteine (Schema, Meta) findest du unten unter <a href="#snippets">Code-Snippets</a>. Auf dein „Go" baue ich sie direkt in deine Live-Dateien ein.</p>
+</section>
+
+<!-- ============ 2 HIGGSFIELD ============ -->
+<section id="higgs">
+  <h2>2 · Higgsfield Content Factory (2 Varianten)</h2>
+  <div class="ok note">Du hast heute Vormittag schon <strong>3 fertige Promo-Clips</strong> gebaut: <code>promo/output/styles/</code> → <strong>A_premium</strong>, <strong>B_viral</strong>, <strong>C_cozy</strong> (9:16, mit „✦ KI-generiert"-Wasserzeichen ✓). Wir bauen darauf auf, statt neu anzufangen.</p></div>
+
+  <h3>Zwei Content-Spuren (budget-bewusst)</h3>
+  <table>
+    <tr><th>Spur</th><th>Was</th><th>Tool</th><th>Kosten</th></tr>
+    <tr><td><strong>Spur 1 — App-Demo</strong></td><td>Screen-Recording-Ausschnitte mit Overlays (Routine abhaken, Termine, Theme-Wechsel)</td><td>Dein <code>render-promo-overlays.js</code> (lokal)</td><td><strong>0 € / 0 Credits</strong> — daraus mehr Schnitte ziehen</td></tr>
+    <tr><td><strong>Spur 2 — UGC</strong></td><td>KI-Creator-Videos (Person zeigt App + Sommer-Produkte) über die 5 viralen Formate</td><td>Higgsfield Content Factory Skill</td><td>kostet Credits → nur auf dein „Go"</td></tr>
+  </table>
+
+  <h3>Die 5 Formate × deine 2 Varianten</h3>
+  <p>Der Higgsfield-Skill teilt jede Kampagne gleichmäßig auf 5 Formate. So sieht das Mapping für dich aus (Quelle: <code>ScreenRecording_06-17-2026 Beauty routine.MP4</code>, 7 Min Material):</p>
+  <table>
+    <tr><th>Format</th><th>Variante A — App (Pink/Bunt)</th><th>Variante B — CozyVibe (Gold/Creme)</th></tr>
+    <tr><td><strong>1. UGC Entertainment</strong> (Challenge/Hook)</td><td>„30-Tage-Routine-Challenge" — Screen zeigt Häkchen-Streak, schneller Schnitt, Pink-Glow</td><td>„Mein ehrlicher Sommer-Glow ohne Filter" — warmer Creme-Look, ruhige Stimme</td></tr>
+    <tr><td><strong>2. Street Interview</strong></td><td>„Was ist deine Beauty-Routine?" — junge Stimmen, bunte Cuts, App-Einblendung</td><td>„Welches eine Produkt nutzt du jeden Tag?" — sanft, edel, Gold-Untertitel</td></tr>
+    <tr><td><strong>3. Unboxing</strong></td><td>Sommer-Produkte auspacken, in App als „Lieblingsprodukt" eintragen</td><td>Cozy-Picks auspacken: La Roche-Posay, Body Mist, Sommersprossen-Stift</td></tr>
+    <tr><td><strong>4. Product Review</strong></td><td>„LSF 50 getestet" — Demo + App-Reminder-Funktion</td><td>„Hält der Sommersprossen-Stift, was er verspricht?" — ehrliches Fazit</td></tr>
+    <tr><td><strong>5. ASMR</strong></td><td>Tipp-Geräusche beim Abhaken, Produkt-Sounds, Pink-Ästhetik</td><td>Cremes, Spritzer Thermalwasser, Papier-Rascheln — Creme-Töne, langsam</td></tr>
+  </table>
+
+  <h3>Beispiel-Prompts (fertig für den Skill)</h3>
+  <div class="variants">
+    <div class="vcard va">
+      <span class="vtag">Variante A · Format 1</span>
+      <pre class="light">Junge Frau, sonniges Bad, Handy in der Hand,
+zeigt strahlend die Beauty-Routine-App,
+hakt Morgenroutine ab, Konfetti-Häkchen,
+verspielt, pink-magenta Töne, 9:16, 5 Sek,
+Text-Hook: „Tag 7 meiner Routine 🌸"</pre>
+    </div>
+    <div class="vcard vb">
+      <span class="vtag">Variante B · Format 4</span>
+      <pre class="light">Frau, warmes Tageslicht, Creme-Beige Setting,
+hält Sommersprossen-Stift, tupft sanft auf Wange,
+ruhig, ehrlich, edel-minimalistisch, Gold-Akzente,
+9:16, 5 Sek, Untertitel Marcellus:
+„Sommersprossen in 2 Minuten ✨"</pre>
+    </div>
+  </div>
+  <p><strong>Zielplattformen:</strong> Pinterest, Instagram Reels, TikTok, YouTube Shorts · <strong>Format:</strong> 9:16 · <strong>Saison:</strong> Sommer 2026.</p>
+  <div class="note">Wenn du <em>„Higgsfield starten"</em> sagst, rufe ich den <strong>higgsfield-content-factory</strong>-Skill auf, recherchiere aktuelle Trends in der Beauty-Nische, baue den Content-Plan und du legst die genaue Anzahl Videos fest (du bestimmst das Credit-Budget). Ich generiere <strong>nichts ohne deine Freigabe</strong>.</div>
+</section>
+
+<!-- ============ 3 PINTEREST ============ -->
+<section id="pinterest">
+  <h2>3 · Pinterest-Strategie (CozyVibe Hauptkanal)</h2>
+  <p><strong>Traffic-Flow bleibt:</strong> Pin → Landing Page (beautyroutine.app/cozy-picks.html) → Amazon-Affiliate-Link. Account <strong>@cozyvibeapp</strong>. Baseline 10.06.: 216 Impressions / 7 Klicks / 30 Tage — Ziel Sommer: <span class="kpi"><b>×3 Impressions</b></span> <span class="kpi"><b>20+ Klicks</b></span>.</p>
+
+  <h3>Pin-Formate (alle in CozyVibe-Look)</h3>
+  <table>
+    <tr><th>Format</th><th>Wofür</th><th>Frequenz</th></tr>
+    <tr><td><strong>Statischer Produkt-Pin</strong></td><td>Einzelnes Sommer-Produkt → Cozy-Picks-Karte</td><td>2–3× / Woche</td></tr>
+    <tr><td><strong>Video-Pin</strong></td><td>Higgsfield-UGC oder App-Demo (Spur 1)</td><td>1–2× / Woche</td></tr>
+    <tr><td><strong>Idea Pin (Multi-Page)</strong></td><td>„5-Schritt-Sommer-Routine" als Karussell, letzte Seite = App-CTA</td><td>1× / Woche</td></tr>
+  </table>
+
+  <h3>10 keyword-optimierte Pin-Beschreibungen (fertig zum Kopieren)</h3>
+  <p class="copy-hint">CozyVibe-Ton · Keyword vorne · klarer CTA · Hashtags hinten. Hänge ans Ende immer den Link zu <code>beautyroutine.app/cozy-picks.html</code>.</p>
+  <table>
+    <tr><th>#</th><th>Pin-Beschreibung</th></tr>
+    <tr><td>1</td><td><strong>Sonnenschutz-Routine für den Sommer ☀️</strong> Leichte Sonnencreme ohne Weißeleffekt — so schützt du deine Haut jeden Tag. Meine Cozy-Picks + kostenlose Routine-App. #sonnenschutz #skincaresommer #hautpflege</td></tr>
+    <tr><td>2</td><td><strong>Hautpflege bei Hitze 🌡️</strong> Wenn die Haut glänzt &amp; spannt: diese 4 Produkte retten deinen Sommer-Teint. Ehrlich getestet. #sommerhaut #skincareroutine #beautytipps</td></tr>
+    <tr><td>3</td><td><strong>Sommersprossen schminken in 2 Minuten ✨</strong> Der Sommersprossen-Stift für den natürlichen Sun-Kissed-Look. So einfach geht's. #sommersprossen #sommermakeup #cozyvibe</td></tr>
+    <tr><td>4</td><td><strong>Leichtes Sommer-Make-up 💛</strong> Getönte Pflege statt schwerer Foundation — frisch, natürlich, hitzefest. Meine Favoriten. #sommermakeup #tintedmoisturizer #minimalbeauty</td></tr>
+    <tr><td>5</td><td><strong>Minimal Beauty Routine 🤍</strong> Weniger ist mehr: 3 Schritte, die wirklich reichen. Plus gratis App zum Abhaken. #minimalbeauty #skincareroutine #selfcare</td></tr>
+    <tr><td>6</td><td><strong>After-Sun Pflege nach dem Sonnenbad 🌿</strong> So beruhigst du deine Haut nach einem Tag in der Sonne. Cozy-Picks für den Abend. #aftersun #sommerpflege #hautberuhigen</td></tr>
+    <tr><td>7</td><td><strong>SPF jeden Tag — warum eigentlich? ☀️</strong> Der wichtigste Anti-Aging-Schritt, auch im Büro. Einfach erklärt. #lsf #antiaging #sonnencreme</td></tr>
+    <tr><td>8</td><td><strong>Urlaubs-Glow ohne Sonne 🌅</strong> Selbstbräuner-Tropfen für ein natürliches Strahlen — streifenfrei. So geht's. #selbstbräuner #glow #sommerbeauty</td></tr>
+    <tr><td>9</td><td><strong>Deine Sommer-Routine zum Abhaken 📲</strong> Morgens &amp; abends nie wieder einen Schritt vergessen — mit der kostenlosen Beauty Routine App. #beautyapp #routine #selfcare</td></tr>
+    <tr><td>10</td><td><strong>Beauty-Termine clever planen 💆‍♀️</strong> Kosmetik, Friseur &amp; Co. an einem Ort — die gratis App erinnert dich rechtzeitig. #beautyplaner #selfcare #organisation</td></tr>
+  </table>
+</section>
+
+<!-- ============ 4 AMAZON ============ -->
+<section id="amazon">
+  <h2>4 · Amazon Affiliate Integration</h2>
+  <p>Partner-Tag <strong><code>beautyrout067-21</code></strong> (amazon.de = DE + AT). Da deine konkreten Produkt-Links/ASINs noch leer sind (<code>amazon-affiliate-notes.md</code>), nutze ich <strong>sichere Amazon-Such-Links mit deinem Tag</strong> — keine erfundenen ASINs. Sobald du echte <code>/dp/</code>-Links per SiteStripe holst, tausche ich sie 1:1 aus.</p>
+
+  <h3>Sommer-Produktkategorien für die Videos &amp; Pins</h3>
+  <table>
+    <tr><th>Priorität</th><th>Kategorie</th><th>Warum Sommer</th></tr>
+    <tr><td>🥇</td><td><strong>Sonnenschutz LSF 50</strong> (Gesicht, Körper, Lippen)</td><td>Höchste Conversion, Pinterest-Magnet</td></tr>
+    <tr><td>🥈</td><td><strong>Leichtes Make-up</strong> (getönte Pflege, Sommersprossen-Stift)</td><td>Dein aktueller Push, schon als Pin vorhanden</td></tr>
+    <tr><td>🥉</td><td><strong>After-Sun &amp; Beruhigung</strong> (Aloe, Thermalwasser)</td><td>Folgekauf nach Sonne</td></tr>
+    <tr><td>+</td><td><strong>Selbstbräuner</strong> &amp; <strong>Body Mist</strong> (Glow, Duft)</td><td>„Urlaubs-Gefühl", hoher Warenkorb</td></tr>
+  </table>
+
+  <h3>Such-Link-Format (sofort nutzbar)</h3>
+  <p class="copy-hint">Schema — Produktname einsetzen, Tag bleibt:</p>
+  <pre>https://www.amazon.de/s?k=PRODUKT+NAME&amp;tag=beautyrout067-21</pre>
+  <p class="copy-hint">Beispiele für deine Sommer-Top-Produkte:</p>
+  <pre>Eucerin Oil Control Sun:
+https://www.amazon.de/s?k=Eucerin+Oil+Control+Sun+Gel+LSF+50&amp;tag=beautyrout067-21
+
+Sommersprossen-Stift:
+https://www.amazon.de/s?k=Sommersprossen+Stift+Freckle+Pen&amp;tag=beautyrout067-21
+
+La Roche-Posay Anthelios LSF 50:
+https://www.amazon.de/s?k=La+Roche+Posay+Anthelios+UVMune+400&amp;tag=beautyrout067-21
+
+Sol de Janeiro Body Mist:
+https://www.amazon.de/s?k=Sol+de+Janeiro+Brazilian+Crush+Body+Mist&amp;tag=beautyrout067-21</pre>
+
+  <h3>Call-to-Action-Texte — beide Varianten</h3>
+  <div class="variants">
+    <div class="vcard va">
+      <span class="vtag">Variante A · App</span>
+      <ul class="tight">
+        <li>„🌸 Jetzt kostenlos starten — Link in Bio!"</li>
+        <li>„Speichere dir die Produkte in der gratis App ✨"</li>
+        <li>„Tag 1 deiner Sommer-Routine — los geht's 💕"</li>
+      </ul>
+    </div>
+    <div class="vcard vb">
+      <span class="vtag">Variante B · CozyVibe</span>
+      <ul class="tight">
+        <li>„Meine Cozy-Picks für den Sommer findest du hier 🤍"</li>
+        <li>„Alle Produkte verlinkt auf beautyroutine.app/cozy-picks"</li>
+        <li>„Ehrlich getestet — schau dir die Favoriten an ☀️"</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Pflicht: Werbe-Hinweis (Compliance)</h3>
+  <div class="note warn">
+    <strong>In JEDER Variante sichtbar</strong> — gesetzlich Pflicht (UWG/DSGVO):
+    <ul class="tight" style="margin-top:6px">
+      <li><strong>Pin/Video:</strong> „Werbung" oder „Anzeige" sichtbar einblenden (nicht versteckt).</li>
+      <li><strong>Landing Page:</strong> „💚 Affiliate-Links: Wir erhalten ggf. eine kleine Provision — für dich keine Mehrkosten." (steht schon im Cozy-Picks-Disclaimer ✓)</li>
+      <li><strong>KI-Hinweis:</strong> „✦ KI-generiert" bleibt in allen Videos (deine Regel ✓).</li>
+    </ul>
+  </div>
+  <div class="note">📋 <strong>Steuer-Notiz:</strong> Amazon-Affiliate = EU-Einnahme → relevant für deine <strong>ZM-Meldung</strong> (Quartal). Das ist schon in deinem Bürokram-Kalender erfasst — hier nur zur Erinnerung.</div>
+</section>
+
+<!-- ============ 5 TREND ============ -->
+<section id="trend">
+  <h2>5 · Trend-Daten Strategie</h2>
+  <p>Wöchentlicher Radar — <strong>kostenlos</strong>, dockt an deinen bestehenden CozyVibe-Recherche-Task an (Task <code>pinterest-pin-sonntag-cozyvibe</code>, alle 2 Wochen So 11:00).</p>
+  <table>
+    <tr><th>Quelle</th><th>Was checken</th><th>Kostenlos?</th></tr>
+    <tr><td><strong>Pinterest Trends</strong> (trends.pinterest.com)</td><td>Saison-Keywords DE: „Sommer Make-up", „Sonnenschutz", „Glow"</td><td>✅ gratis</td></tr>
+    <tr><td><strong>TikTok Creative Center</strong></td><td>Trend-Sounds &amp; Hashtags in Beauty, virale Hooks</td><td>✅ gratis</td></tr>
+    <tr><td><strong>Google Trends</strong></td><td>Suchverlauf „skincare routine", regionale Spitzen AT/DE</td><td>✅ gratis</td></tr>
+  </table>
+  <p><strong>Ablauf:</strong> Dein Sonntags-Task recherchiert die 4 Produkte + Such-Links und schickt dir die Auswertung als Nachricht. <strong>Neu:</strong> Ich erweitere ihn so, dass er zusätzlich <em>1 Pinterest-Trend + 1 TikTok-Hook der Woche</em> mitliefert — daraus baust du gemeinsam mit mir die Pins. Kein Tool hängt an Freigaben (nur WebSearch).</p>
+  <div class="note"><strong>Wann ein bezahltes Tool (DataForSEO / Data365) lohnt?</strong> Siehe Zeitplan unten — Kurzform: <em>erst wenn Pinterest stabil &gt; 50 Klicks/Tag</em> oder du &gt; 30 Pins/Monat skalierst. Vorher reichen die Gratis-Quellen locker.</div>
+</section>
+
+<!-- ============ 6 ZEITPLAN ============ -->
+<section id="plan">
+  <h2>6 · Kampagnen-Zeitplan Sommer 2026 (4 Wochen)</h2>
+  <p>Frequenz: <strong>1–2 Posts/Tag</strong>. Start mit <strong>Pinterest + TikTok</strong>, ab Woche 3 kommen <strong>YouTube Shorts + Instagram</strong> dazu. <span style="color:var(--a-deep)">●</span> = Variante A (App) · <span style="color:var(--b-gold-strong)">●</span> = Variante B (CozyVibe).</p>
+  <table>
+    <tr><th>Woche</th><th>Pinterest (B)</th><th>TikTok (A)</th><th>YouTube Shorts</th><th>Instagram</th></tr>
+    <tr><td><strong>1 · Fundament</strong></td><td>● 3 Produkt-Pins (SPF, Sommersprossen-Stift, getönte Pflege) + 1 Idea-Pin „5-Schritt-Sommer-Routine"</td><td>● Clip C_cozy + B_viral posten, App-Demo „Routine abhaken"</td><td>— (vorbereiten)</td><td>— (Profil optimieren)</td></tr>
+    <tr><td><strong>2 · Schwung</strong></td><td>● 3 Pins (After-Sun, Body Mist, LSF-Lippen) + 1 Video-Pin</td><td>● „LSF 50 getestet" Review + ASMR-Abhaken</td><td>—</td><td>—</td></tr>
+    <tr><td><strong>3 · Skalieren</strong></td><td>● 3 Pins + 1 Higgsfield-UGC-Video-Pin</td><td>● UGC „30-Tage-Challenge"</td><td>● A_premium + Cozy-Clip cross-posten</td><td>● Reels = TikTok-Recycling</td></tr>
+    <tr><td><strong>4 · Ernten</strong></td><td>● 3 Pins + Best-Performer wiederholen</td><td>● Street-Interview-Format</td><td>● 2 Shorts</td><td>● 3 Reels + Story-CTA „Link in Bio"</td></tr>
+  </table>
+  <h3>Wann lohnt sich ein bezahltes Daten-Upgrade?</h3>
+  <table>
+    <tr><th>Tool</th><th>Wofür</th><th>Trigger zum Upgrade</th></tr>
+    <tr><td><strong>DataForSEO</strong></td><td>Echte Keyword-Volumen DACH, SERP-Tracking (SEO/GEO)</td><td>Wenn du &gt; 30 Pins/Monat baust ODER eine größere Blog-Offensive startest. Pay-per-Use, günstig (Cent pro Abfrage).</td></tr>
+    <tr><td><strong>Data365</strong></td><td>Social-Media-Analytics (Pinterest/TikTok/IG-Daten über API)</td><td>Erst wenn ein Kanal stabil <strong>&gt; 50 Klicks/Tag</strong> bringt und du A/B-Performance messen willst. Bis dahin reichen die nativen Statistiken + Gratis-Radar.</td></tr>
+  </table>
+  <div class="note ok"><strong>Empfehlung:</strong> Die ersten 4 Wochen <strong>komplett mit Gratis-Tools</strong> fahren. Erst Daten sammeln, dann zahlen — passt zu deinem Budget-schonenden Ansatz.</div>
+</section>
+
+<!-- ============ 7 SAISON ============ -->
+<section id="saison">
+  <h2>7 · Saison-Rotation (ganzjährig)</h2>
+  <p>Wie besprochen: jetzt <strong>Sommer</strong>, dann automatisch weiter Herbst → Winter → Frühling. Praktisch: deine App hat passende <strong>umschaltbare Designs</strong>, die du je Saison featuren kannst.</p>
+  <table>
+    <tr><th>Saison (2026/27)</th><th>App-Theme im Fokus</th><th>CozyVibe-Akzent</th><th>Produkt-Fokus</th><th>Top-Themen</th></tr>
+    <tr><td><strong>☀️ Sommer</strong><br>(jetzt – Sept.)</td><td>Cozy (Gold) + Pink</td><td>Honig-Gold, Creme</td><td>LSF, After-Sun, Selbstbräuner, Sommersprossen-Stift, Body Mist</td><td>Sonnenschutz, Hitze-Pflege, leichtes Make-up, Minimal Beauty</td></tr>
+    <tr><td><strong>🍂 Herbst</strong><br>(Sept. – Nov.)</td><td>Beere</td><td>Warmes Beere/Terracotta</td><td>Feuchtigkeit, Barriere-Pflege, sanfter Retinol-Einstieg</td><td>Hautbarriere stärken, Übergangspflege, „Glow zurückholen"</td></tr>
+    <tr><td><strong>❄️ Winter</strong><br>(Dez. – Feb.)</td><td>Winter (Plum #A85478)</td><td>Tiefes Beere/Plum</td><td>Reichhaltige Cremes, Lippenpflege, Hand-/Trockenheitspflege</td><td>Trockene Heizungsluft, Lippen, Self-Care-Abende</td></tr>
+    <tr><td><strong>🌸 Frühling</strong><br>(März – Mai)</td><td>Pink / Regenbogen</td><td>Frisches Rosa/Pastell</td><td>Vitamin C, sanftes Peeling, Glow, Neustart-Routine</td><td>„Frühlings-Detox", Glow-up, frische Routine, erster LSF</td></tr>
+  </table>
+  <div class="note">🔁 Ich kann dir das als <strong>wiederkehrende Saison-Erinnerung</strong> einrichten (z.B. „1. Sept.: auf Herbst umstellen") — sag Bescheid, dann lege ich den Task an.</div>
+</section>
+
+<!-- ============ SNIPPETS ============ -->
+<section id="snippets">
+  <h2>📦 Anhang · Einbau-fertige Code-Snippets</h2>
+  <p>Diese Bausteine baue ich auf dein „Go" direkt in deine Live-Dateien ein (oder du kopierst sie selbst). <strong>Nichts wird ohne deine Freigabe geändert.</strong></p>
+
+  <h3>A) Schema.org — SoftwareApplication (in <code>index.html</code> in den <code>&lt;head&gt;</code>)</h3>
+  <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Beauty Routine App",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "description": "Kostenlose Beauty Routine App: Morgen- und Abendroutine zum Abhaken, Beauty-Termine planen, 7 Designs.",
+  "url": "https://beautyroutine.app",
+  "inLanguage": ["de","en"],
+  "publisher": { "@type": "Organization", "name": "CozyVibe", "url": "https://beautyroutine.app" }
+}
+&lt;/script&gt;</pre>
+
+  <h3>B) Schema.org — FAQPage (in <code>faq.html</code> in den <code>&lt;head&gt;</code>)</h3>
+  <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Gibt es eine kostenlose App fuer meine Hautpflege-Routine?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "Ja, die Beauty Routine App auf beautyroutine.app ist kostenlos und ohne Anmeldung nutzbar - mit Morgen- und Abendroutine zum Abhaken und einem Beauty-Termin-Planer." }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie baue ich eine einfache Sommer-Skincare-Routine auf?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "Reinigung, dann Serum, dann leichte Feuchtigkeit und morgens LSF 50. Abends ohne LSF, dafuer mit Pflege. Die kostenlose Beauty Routine App hakt jeden Schritt fuer dich ab." }
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+  <p class="copy-hint">→ Pro echter FAQ-Frage einen weiteren <code>Question</code>-Block — ich generiere dir auf Wunsch alle 24 aus deiner faq.html automatisch.</p>
+
+  <h3>C) Open-Graph Sommer-Feinschliff (optional)</h3>
+  <pre class="light">&lt;meta property="og:title" content="CozyVibe – Sommer-Skincare &amp; gratis Routine App"&gt;
+&lt;meta property="og:description" content="Sonnenschutz, leichtes Make-up &amp; Sommer-Routine ehrlich erklaert. Plus kostenlose Beauty Routine App."&gt;</pre>
+</section>
+
+<!-- ============ START ============ -->
+<section id="start">
+  <h2>✅ Was du als Nächstes tust</h2>
+  <ol>
+    <li><strong>Diese Datei anschauen</strong> — oben rechts „🖨️ Als PDF speichern", falls du sie ablegen willst.</li>
+    <li><strong>SEO/GEO einbauen?</strong> Sag „<em>Schema einbauen</em>" → ich setze Snippet A + B in deine Live-Dateien (kostenlos, sofort wirksam).</li>
+    <li><strong>Higgsfield-Videos?</strong> Sag „<em>Higgsfield starten</em>" → ich starte den Skill, recherchiere Trends, du legst die Anzahl &amp; das Credit-Budget fest.</li>
+    <li><strong>Erste Pins bauen?</strong> Sag „<em>Pins für Woche 1</em>" → ich baue die Cozy-Picks-Karten + Pin-Bilder gemeinsam mit dir.</li>
+    <li><strong>Saison-Erinnerung?</strong> Sag „<em>Saison-Task anlegen</em>" → ich richte die automatische Umstellung Sommer→Herbst→Winter→Frühling ein.</li>
+  </ol>
+  <div class="note ok"><strong>Mein Tipp für den Start:</strong> Zuerst <em>Schema einbauen</em> (gratis, dauerhafter SEO/GEO-Effekt), dann <em>Pins für Woche 1</em>. Higgsfield-Credits erst, wenn die ersten Pins Daten liefern.</div>
+</section>
+
+<p style="text-align:center;color:var(--muted);font-size:.82rem;margin:30px 0">
+  CozyVibe · Robert Thalhammer · beautyroutine.app · Erstellt 18.06.2026 · ✦ Strategie mit KI-Unterstützung
+</p>
+
+</div>
+</body>
+</html>
