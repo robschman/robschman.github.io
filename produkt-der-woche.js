@@ -14,19 +14,12 @@
 //  Zwischen Sonntag 22:00 und dem nächsten Dienstag 22:00 (Mo/Di-Pause) sowie
 //  nach Ablauf beider Wochen ist der Button von selbst aus — nichts zu tun.
 //
-//  ▸ Reihenfolge egal. ▸ Für die nächste Runde einfach beide Blöcke updaten.
+//  ▸ Reihenfolge egal. ▸ Für die nächste Runde die abgelaufenen Blöcke
+//    überschreiben. Das gerade laufende Produkt NICHT anfassen, sonst
+//    verschwindet der Knopf mitten in der Woche.
 // ════════════════════════════════════════════════════════════════════════
 window.PRODUKTE_DER_WOCHE = [
-  // ── Woche 1 ──────────────────────────────────────────────
-  {
-    name:      "Bioré UV Aqua Rich Watery Essence SPF50",
-    asin:      "B01MTDFFQ5",
-    foto:      "/picks/foto-biore.jpg",
-    text:      { de: "Sonnenschutz ohne Weißfilm \u2013 auch im Herbst \u2600\ufe0f", en: "Sunscreen with no white cast \u2013 in autumn too \u2600\ufe0f" },
-    startetAm: "2026-08-25T22:00:00",   // Di 22:00 (Wiener Zeit)
-    endetAm:   "2026-08-30T22:00:00"    // So 22:00
-  },
-  // ── Woche 2 ──────────────────────────────────────────────
+  // ── laeuft gerade: bis So 06.09. 22:00 ───────────────────────
   {
     name:      "Beauty of Joseon Glow Deep Serum",
     asin:      "B09DLFCB69",
@@ -34,6 +27,24 @@ window.PRODUKTE_DER_WOCHE = [
     text:      { de: "Reisextrakt f\u00fcr den Glow nach dem Sommer \u2728", en: "Rice extract for that after-summer glow \u2728" },
     startetAm: "2026-09-01T22:00:00",   // Di 22:00
     endetAm:   "2026-09-06T22:00:00"    // So 22:00
+  },
+  // ── Woche 3 ──────────────────────────────────────────────
+  {
+    name:      "Weleda Mandel Reinigungsmilch",
+    asin:      "B003CYUS26",
+    foto:      "/picks/foto-reinigungsmilch.jpg",
+    text:      { de: "Sanfter reinigen, wenn es k\u00fchler wird \ud83c\udf42", en: "Gentler cleansing as it gets cooler \ud83c\udf42" },
+    startetAm: "2026-09-08T22:00:00",   // Di 22:00
+    endetAm:   "2026-09-13T22:00:00"    // So 22:00
+  },
+  // ── Woche 4 ──────────────────────────────────────────────
+  {
+    name:      "Neutrogena Retinol Nachtcreme",
+    asin:      "B09V95T26W",
+    foto:      "/picks/foto-nachtcreme.jpg",
+    text:      { de: "Reichhaltiger f\u00fcr k\u00fchlere N\u00e4chte \ud83c\udf19", en: "Richer care for cooler nights \ud83c\udf19" },
+    startetAm: "2026-09-15T22:00:00",   // Di 22:00
+    endetAm:   "2026-09-20T22:00:00"    // So 22:00
   }
 ];
 
