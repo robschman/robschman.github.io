@@ -1,6 +1,8 @@
 // ══════════════════════════════════════════════════════════════
 //  DSGVO Cookie Consent – Beauty Routine App
 //  Google Consent Mode v2 (Pflicht für EWR-Publisher seit März 2024)
+//  Seit 02.09.2026: Basic-Modus — gtag.js wird ERST nach Zustimmung geladen, kein AdSense,
+//  Werbe-Signale bleiben dauerhaft auf 'denied'. Nur Reichweitenmessung (GA4).
 // ══════════════════════════════════════════════════════════════
 
 (function () {
@@ -31,25 +33,17 @@
     document.head.appendChild(s);
     s.onload = function () {
       gtag('js', new Date());
-      gtag('config', 'G-L1FZJXJSP5', { 'anonymize_ip': true });
+      gtag('config', 'G-L1FZJXJSP5');
     };
-  }
-
-  function loadAdSense() {
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4308220666561084';
-    s.setAttribute('crossorigin', 'anonymous');
-    document.head.appendChild(s);
   }
 
   // ── Consent Mode v2: Zustimmung updaten ──
   function grantConsent() {
     gtag('consent', 'update', {
-      'ad_storage':              'granted',
+      'ad_storage':              'denied',
       'analytics_storage':       'granted',
-      'ad_user_data':            'granted',
-      'ad_personalization':      'granted',
+      'ad_user_data':            'denied',
+      'ad_personalization':      'denied',
       'functionality_storage':   'granted',
       'personalization_storage': 'granted'
     });
@@ -120,13 +114,13 @@
     }
     #bra-cookie-banner .bra-accept:hover { transform: translateY(-2px); }
     #bra-cookie-banner .bra-decline {
-      background: #f5f5f5; color: #555;
-      border: 1.5px solid #bbb; border-radius: 50px;
-      padding: 11px 20px; font-size: 12px; font-weight: 600;
+      background: #FFFFFF; color: #3B302A;
+      border: 1.5px solid #BD6C0A; border-radius: 50px;
+      padding: 11px 24px; font-size: 12px; font-weight: 700;
       cursor: pointer; font-family: inherit;
       transition: border-color 0.2s, color 0.2s;
     }
-    #bra-cookie-banner .bra-decline:hover { border-color: #aaa; color: #555; }
+    #bra-cookie-banner .bra-decline:hover { border-color: #3B302A; color: #3B302A; }
     @media (max-width: 600px) {
       #bra-cookie-banner .bra-btns { width: 100%; }
       #bra-cookie-banner .bra-accept,
@@ -154,14 +148,14 @@
   var BRA_TXT = {
     de: {
       title: 'Diese Website verwendet Cookies',
-      body: 'Wir nutzen Google Analytics für anonyme Besucherstatistiken. Der Dienst kann Daten in die USA übertragen (Google LLC, EU-US Data Privacy Framework). Weitere Infos in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>. Ablehnen ist jederzeit möglich.',
-      accept: '✓ Alle akzeptieren',
+      body: 'Nur wenn du zustimmst, laden wir Google Analytics für anonyme Besucherstatistiken – vorher wird keine Verbindung zu Google aufgebaut. Der Dienst kann Daten in die USA übertragen (Google LLC, EU-US Data Privacy Framework). Werbe-Cookies gibt es nicht. Weitere Infos in der <a href="/datenschutz.html">Datenschutzerklärung</a>; die Auswahl lässt sich dort jederzeit ändern.',
+      accept: 'Statistik zulassen',
       decline: 'Nur notwendige'
     },
     en: {
       title: 'This website uses cookies',
-      body: 'We use Google Analytics for anonymous visitor statistics. The service may transfer data to the USA (Google LLC, EU-US Data Privacy Framework). More info in our <a href="/datenschutz.html">privacy policy</a>. You can decline at any time.',
-      accept: '✓ Accept all',
+      body: 'Only if you agree do we load Google Analytics for anonymous visitor statistics – no connection to Google is made before that. The service may transfer data to the USA (Google LLC, EU-US Data Privacy Framework). There are no advertising cookies. More in the <a href="/en/privacy.html">privacy policy</a>; you can change your choice there at any time.',
+      accept: 'Allow statistics',
       decline: 'Only necessary'
     }
   };
