@@ -107,6 +107,21 @@
   .lang-switch button.active { background:var(--primary); color:#fff; }
 
   @media (max-width:520px) { .card { padding:24px 22px; } .lang-switch { top:70px; right:10px; } }
+
+/* Kontaktformular (Weg 1): öffnet das Mailprogramm, schickt nichts an einen Server */
+.kf-card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:26px 28px;margin:26px 0 16px;box-shadow:var(--shadow-soft)}
+.kf-card h2{font-family:var(--font-accent);text-transform:uppercase;letter-spacing:.14em;font-size:.92rem;color:var(--primary-strong,var(--gold-strong));margin:0 0 12px}
+.kf-card p{font-size:.98rem;line-height:1.85;color:var(--text);margin:0 0 12px}
+.kf-feld{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.kf-feld label{font-size:.88rem;font-weight:700;color:var(--ink)}
+.kf-feld input,.kf-feld textarea{font-family:var(--font-body);font-size:1rem;color:var(--ink);background:var(--cream);border:1px solid var(--border-strong);border-radius:12px;padding:11px 13px;width:100%;box-sizing:border-box}
+.kf-feld textarea{min-height:130px;resize:vertical}
+.kf-feld input:focus,.kf-feld textarea:focus{outline:2px solid var(--primary,var(--gold));outline-offset:1px;border-color:var(--primary,var(--gold))}
+.kf-btn{display:inline-block;font-family:var(--font-body);font-weight:700;font-size:1rem;color:#fff;background:var(--primary-strong,var(--gold-strong));border:0;border-radius:999px;padding:12px 26px;cursor:pointer}
+.kf-btn:hover,.kf-btn:focus-visible{background:var(--deep,#5E3508)}
+.kf-hinweis{font-size:.9rem;line-height:1.6;margin:12px 0 0;color:var(--ink)}
+.kf-fehler{color:#9B1C1C;font-weight:700}
+.kf-ok{color:var(--primary-strong,var(--gold-strong));font-weight:700}
 </style>
 <script src="/cookie-consent.js?v=2.3"></script>
 <script src="/lang-switch.js"></script>
@@ -181,8 +196,15 @@
 
 <div class="card">
   <h2>Kontakt</h2>
-  <p>Du hast Feedback, eine Idee, einen Bug entdeckt oder willst einfach Hallo sagen?<br>
-  Schreib mir direkt: <a href="mailto:info@beautyroutine.app">info@beautyroutine.app</a></p>
+  <p>Du hast Feedback, eine Idee, einen Bug entdeckt oder willst einfach Hallo sagen? Schreib mir über das Formular:</p>
+  <form id="kontakt-form" class="kf-form" novalidate>
+    <div class="kf-feld"><label for="kf-name">Dein Name</label><input id="kf-name" name="name" type="text" required autocomplete="name"></div>
+    <div class="kf-feld"><label for="kf-mail">Deine E-Mail-Adresse</label><input id="kf-mail" name="email" type="email" required autocomplete="email"></div>
+    <div class="kf-feld"><label for="kf-text">Deine Nachricht</label><textarea id="kf-text" name="nachricht" required></textarea></div>
+    <p class="kf-hinweis">Das Formular öffnet dein E-Mail-Programm mit der fertigen Nachricht; es schickt nichts an einen Server. Antwort in der Regel innerhalb weniger Werktage. Wie mit deiner Anfrage umgegangen wird, steht in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+    <button type="submit" class="kf-btn">Nachricht absenden</button>
+    <p class="kf-hinweis" id="kontakt-hinweis" role="status" aria-live="polite"></p>
+  </form>
   <p>Für rechtliche Anfragen siehe das <a href="/impressum.html">Impressum</a> sowie die <a href="/datenschutz.html">Datenschutzerklärung</a> und die <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>.</p>
 </div>
 
@@ -290,5 +312,23 @@
 </footer>
 
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af15814ccc2541fd844836f3ef6fce5f"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+(function(){
+  var f=document.getElementById('kontakt-form'); if(!f) return;
+  var ADR=['hello','beautyroutine.app'].join('@');
+  var h=document.getElementById('kontakt-hinweis');
+  function melden(t,art){h.textContent=t;h.className='kf-hinweis '+art;}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=f.elements.name.value.trim(), mail=f.elements.email.value.trim(), text=f.elements.nachricht.value.trim();
+    if(!name||!mail||!text){melden('Bitte füll noch alle Felder aus.','kf-fehler');return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){f.elements.email.focus();melden('Die E-Mail-Adresse sieht nicht richtig aus. Bitte noch einmal prüfen.','kf-fehler');return;}
+    var betreff='Anfrage über beautyroutine.app — '+name;
+    var body=text+'\n\n-- \nAbgeschickt über beautyroutine.app\nName: '+name+'\nE-Mail: '+mail+'\n';
+    melden('Dein E-Mail-Programm sollte sich jetzt öffnen — die Nachricht ist fertig vorbereitet, du musst sie nur noch abschicken. Passiert nichts? Dann schreib mir bitte direkt an '+ADR+'.','kf-ok');
+    window.location.href='mailto:'+ADR+'?subject='+encodeURIComponent(betreff)+'&body='+encodeURIComponent(body.slice(0,1500));
+  });
+})();
+</script>
 </body>
 </html>
