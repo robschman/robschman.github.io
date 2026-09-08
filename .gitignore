@@ -27,7 +27,6 @@ amazon-produktliste.md
 
 # CozyVibe Live-Gang: Arbeitsdateien, Build-Skripte, Test-Screenshots (nicht fürs Live-Repo)
 _*
-preview/cozy-picks/
 
 # Große Bildschirmaufnahmen + Original-Kampagne-PDF (lokal)
 ScreenRecording*.MP4
@@ -55,10 +54,16 @@ promo/Themen/
 promo/musik/
 Promotion/
 
-# HINWEIS zu kampagne-sommer-2026/: NICHT ausgeschlossen, weil dort bereits
-# zwei Dateien eingecheckt sind (Postplan-und-Texte.html und .pdf). Sie sind
-# damit oeffentlich unter beautyroutine.app abrufbar. Falls das nicht gewollt
-# ist: erst "git rm --cached" auf die beiden, dann hier ausschliessen.
+# ── Erledigt 08.09.2026: Arbeitsdateien vom Server genommen ─────────
+# Postplan, Social-Kit, Kampagnenplanung und die Vorschauen waren eingecheckt
+# und damit oeffentlich unter beautyroutine.app abrufbar. Robert wollte sie
+# ganz weg. Sie liegen jetzt in Claude-Projekte unter
+# CozyVibe/marketing-material/ (dort auch eine 00_LIESMICH.md dazu).
+# Wer diese Zeilen entfernt, stellt die Dateien wieder oeffentlich ins Netz.
+kampagne-sommer-2026/
+social/
+promo/landing_preview.html
+preview/
 
 # Medien in Kleinschreibung (oben stand nur *.MP4 gross)
 *.mp4
