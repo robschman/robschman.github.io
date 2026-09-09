@@ -1,6 +1,7 @@
 // ════════════════════════════════════════════════════════════════════════
-//  PRODUKT DER WOCHE  —  jetzt als 2-WOCHEN-LISTE
-//  (alle 2 Wochen am Dienstag beide Produkte für die nächsten 2 Wochen setzen)
+//  PRODUKT DER WOCHE  —  laeuft nur noch JEDE ZWEITE WOCHE
+//  (Regel ab 09.09.2026: nicht mehr jede Woche ein Produkt, sondern nur in
+//   Woche 1 und Woche 3 eines Blocks. In Woche 2 und 4 ist der Knopf bewusst aus.)
 // ════════════════════════════════════════════════════════════════════════
 //  Jeder Eintrag:
 //    name       = Produktname (Marke)
@@ -37,15 +38,21 @@ window.PRODUKTE_DER_WOCHE = [
     startetAm: "2026-09-08T22:00:00",   // Di 22:00
     endetAm:   "2026-09-13T22:00:00"    // So 22:00
   },
-  // ── Woche 4 ──────────────────────────────────────────────
+  // ── Woche 2 (15.-20.09.): bewusst KEIN Produkt ────────────
+  //    Neue Regel ab 09.09.2026. Die Nachtcreme stand hier und wurde
+  //    entfernt; sie bleibt als Karte in cozy-picks.html erreichbar,
+  //    worauf auch der Pinterest-Pin vom 16.09. zeigt.
+  // ── Woche 3 des Blocks (22.-27.09.) ───────────────────────
   {
-    name:      "Neutrogena Retinol Nachtcreme",
-    asin:      "B09V95T26W",
-    foto:      "/picks/foto-nachtcreme.jpg",
-    text:      { de: "Reichhaltiger f\u00fcr k\u00fchlere N\u00e4chte \ud83c\udf19", en: "Richer care for cooler nights \ud83c\udf19" },
-    startetAm: "2026-09-15T22:00:00",   // Di 22:00
-    endetAm:   "2026-09-20T22:00:00"    // So 22:00
+    name:      "Eucerin UreaRepair Plus Handcreme",
+    asin:      "B06WWRSFSJ",
+    foto:      "/picks/foto-handcreme.jpg",
+    text:      { de: "Heizung an, H\u00e4nde rau? 5 % Urea halten die Feuchtigkeit \ud83e\udd0d", en: "Heating on, hands rough? 5% urea locks the moisture in \ud83e\udd0d" },
+    startetAm: "2026-09-22T22:00:00",   // Di 22:00
+    endetAm:   "2026-09-27T22:00:00"    // So 22:00
   }
+  // ── Woche 4 (29.09.-04.10.): bewusst KEIN Produkt ─────────
+  //    Neue Regel: nur jede zweite Woche. Knopf ist von selbst aus.
 ];
 
 // ── Auswahl-Logik: nimmt das Produkt, dessen Zeitfenster gerade läuft ─────
