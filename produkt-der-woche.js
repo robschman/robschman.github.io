@@ -20,34 +20,37 @@
 //    verschwindet der Knopf mitten in der Woche.
 // ════════════════════════════════════════════════════════════════════════
 window.PRODUKTE_DER_WOCHE = [
-  // Geplant am 29.09.2026 (Robert: Cicaplast, dann weiter jede zweite Woche).
+  // Geplant am 29.09.2026 (Robert: jede zweite Woche; Cicaplast nach hinten, weil Amazon
+  // am 29.09. nicht selbst verkaufte und „Hoher Preis“ anzeigte).
   // ── Woche 4 (29.09.-04.10.): bewusst KEIN Produkt (jede zweite Woche) ──
   // ── Woche 1 (06.-11.10.) ──────────────────────────────
   {
-    name:      "La Roche-Posay Cicaplast Baume B5+",
-    asin:      "B00ST2GSRK",
-    foto:      "/picks/foto-cicaplast.jpg",
-    text:      { de: "Herbstwind und Heizungsluft? Panthenol-Balsam f\u00fcr gestresste Haut \ud83c\udf42", en: "Autumn wind and dry heating air? Panthenol balm for stressed skin \ud83c\udf42" },
+    name:      "Jean & Len Body Butter",
+    asin:      "B0DS2V2N7B",
+    foto:      "/picks/foto-koerperbutter.jpg",
+    text:      { de: "Kalt drau\u00dfen? Reichhaltige K\u00f6rperbutter f\u00fcr Beine und Arme \ud83e\udde1", en: "Cold outside? Rich body butter for legs and arms \ud83e\udde1" },
     startetAm: "2026-10-06T22:00:00",   // Di 22:00
     endetAm:   "2026-10-11T22:00:00"    // So 22:00
   },
   // ── Woche 2 (13.-18.10.): bewusst KEIN Produkt ────────────
   // ── Woche 3 (20.-25.10.) ──────────────────────────────
   {
-    name:      "Jean & Len Body Butter",
-    asin:      "B0DS2V2N7B",
-    foto:      "/picks/foto-koerperbutter.jpg",
-    text:      { de: "Kalt drau\u00dfen? Reichhaltige K\u00f6rperbutter f\u00fcr Beine und Arme \ud83e\udde1", en: "Cold outside? Rich body butter for legs and arms \ud83e\udde1" },
+    name:      "Mixa Ceramide Moisture Creme",
+    asin:      "B0BCLKDL4S",
+    foto:      "/picks/foto-ceramid.jpg",
+    text:      { de: "K\u00e4ltere Tage? Ceramide f\u00fcr die Hautbarriere \ud83e\udd0d", en: "Colder days? Ceramides for your skin barrier \ud83e\udd0d" },
     startetAm: "2026-10-20T22:00:00",   // Di 22:00
     endetAm:   "2026-10-25T22:00:00"    // So 22:00
   },
   // ── Woche 4 (27.10.-01.11.): bewusst KEIN Produkt ─────────
   // ── Woche 1 des nächsten Blocks (03.-08.11.) ──────────
+  //    Am Mo 02.11. bei Amazon neu prüfen: am 29.09. keine Buy Box und „Hoher Preis“.
+  //    Ist das noch so, diesen Eintrag durch ein anderes Produkt ersetzen.
   {
-    name:      "Mixa Ceramide Moisture Creme",
-    asin:      "B0BCLKDL4S",
-    foto:      "/picks/foto-ceramid.jpg",
-    text:      { de: "Frostige Tage? Ceramide f\u00fcr die Hautbarriere \u2744\ufe0f", en: "Frosty days? Ceramides for your skin barrier \u2744\ufe0f" },
+    name:      "La Roche-Posay Cicaplast Baume B5+",
+    asin:      "B00ST2GSRK",
+    foto:      "/picks/foto-cicaplast.jpg",
+    text:      { de: "Herbstwind und Heizungsluft? Panthenol-Balsam f\u00fcr gestresste Haut \ud83c\udf42", en: "Autumn wind and dry heating air? Panthenol balm for stressed skin \ud83c\udf42" },
     startetAm: "2026-11-03T22:00:00",   // Di 22:00
     endetAm:   "2026-11-08T22:00:00"    // So 22:00
   }
