@@ -216,6 +216,16 @@
 </style>
 <script src="/cookie-consent.js?v=2.3"></script>
 <script src="/lang-switch.js"></script>
+<style id="amz-bilder">
+  /* Amazon-Produktbilder erst nach Antippen (seit 14.10.2026, Datenschutz: Einwilligung Art. 6 Abs. 1 lit. a DSGVO).
+     Neue Karten: <img data-amazon-src="https://m.media-amazon.com/..."> statt src, dazu <span class="tx amz-ph">…</span>. */
+  .p-img img[data-amazon-src]:not([src]){display:none;}
+  .amz-an .amz-ph{display:none;}
+  .amz-ph{text-align:center;line-height:1.5;}
+  .hero p.amz-hinweis{margin:18px auto 0;max-width:640px;font-size:.92rem;line-height:1.55;color:#1f1712;opacity:1;}
+  .amz-knopf{font:inherit;font-weight:700;color:#fff;background:var(--gold-strong,#B07D2B);border:0;border-radius:999px;padding:3px 12px;margin:0 2px;cursor:pointer;}
+  .amz-an .amz-knopf{opacity:.55;cursor:default;}
+</style>
 </head>
 <body>
 <nav><div class="nav-inner">
@@ -231,6 +241,7 @@
   <h1>Meine Beauty‑Favoriten</h1>
   <p>Produkte, die ich selbst gerne nutze. Ehrlich ausgewählt, ohne Schnickschnack. Hier findest du sie auf einen Blick.</p>
   <p class="ad-note">Werbung · Diese Seite enthält Affiliate‑Links. Als Amazon‑Partner verdiene ich an qualifizierten Verkäufen.</p>
+  <p class="amz-hinweis"><strong>Produktbilder:</strong> Die Bilder kommen direkt von Amazon. Erst wenn du auf ein Bildfeld oder auf <button type="button" id="amz-an" class="amz-knopf">Produktbilder anzeigen</button> tippst, lädt dein Browser die Bilder dieser Seite von Amazon. Dabei erfährt Amazon deine IP-Adresse. Ohne Tippen wird nichts übertragen. <a href="cozy-picks/datenschutz.html#amazon-bilder">Mehr dazu im Datenschutz</a>.</p>
 </div></div>
 
 <div class="wrap">
@@ -241,56 +252,56 @@
     <div class="grid">
 
       <a id="reinigungsmilch" class="product" href="https://www.amazon.de/dp/B003CYUS26?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Reinigung</span><img src="https://m.media-amazon.com/images/I/614wnJuaXTL._SL500_.jpg" alt="Weleda Mandel Reinigungsmilch" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Reinigung</span><img data-amazon-src="https://m.media-amazon.com/images/I/614wnJuaXTL._SL500_.jpg" alt="Weleda Mandel Reinigungsmilch" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Weleda Mandel Reinigungsmilch</div>
         <div class="p-why">Milde Reinigungsmilch für den Wechsel vom Sommergel auf etwas Sanfteres.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="koerperbutter" class="product" href="https://www.amazon.de/dp/B0DS2V2N7B?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Bodycare</span><img src="https://m.media-amazon.com/images/I/710tvvJJ-DL._SL500_.jpg" alt="Jean &amp; Len Body Butter" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Bodycare</span><img data-amazon-src="https://m.media-amazon.com/images/I/710tvvJJ-DL._SL500_.jpg" alt="Jean &amp; Len Body Butter" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Jean &amp; Len Body Butter</div>
         <div class="p-why">Reichhaltige Körperbutter für Beine und Arme, wenn die Heizung wieder läuft.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="peptid" class="product" href="https://www.amazon.de/dp/B0CCJ3SRB9?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Wirkstoffe</span><img src="https://m.media-amazon.com/images/I/61ZNyaBF0CL._SL500_.jpg" alt="COSRX 6 Peptide Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Wirkstoffe</span><img data-amazon-src="https://m.media-amazon.com/images/I/61ZNyaBF0CL._SL500_.jpg" alt="COSRX 6 Peptide Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">COSRX 6 Peptide Serum</div>
         <div class="p-why">Peptid-Serum als sanftere Alternative, wenn Retinol zu kräftig ist.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="nachtcreme" class="product" href="https://www.amazon.de/dp/B09V95T26W?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Nachtpflege</span><img src="https://m.media-amazon.com/images/I/719zFagjV2L._SL500_.jpg" alt="Neutrogena Retinol Nachtcreme" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Nachtpflege</span><img data-amazon-src="https://m.media-amazon.com/images/I/719zFagjV2L._SL500_.jpg" alt="Neutrogena Retinol Nachtcreme" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Neutrogena Retinol Nachtcreme</div>
         <div class="p-why">Nachtcreme für alle, die abends mehr wollen als die Tagescreme.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="haaroel" class="product" href="https://www.amazon.de/dp/B07RB9GXGR?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Haarpflege</span><img src="https://m.media-amazon.com/images/I/81GxS872IRL._SL500_.jpg" alt="BIONOBLE Jojobaöl Bio" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Haarpflege</span><img data-amazon-src="https://m.media-amazon.com/images/I/81GxS872IRL._SL500_.jpg" alt="BIONOBLE Jojobaöl Bio" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">BIONOBLE Jojobaöl Bio</div>
         <div class="p-why">Kaltgepresstes Jojobaöl für die Längen, über Nacht einwirken lassen.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="handcreme" class="product" href="https://www.amazon.de/dp/B06WWRSFSJ?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Handpflege</span><img src="https://m.media-amazon.com/images/I/51ClitYz2oL._SL500_.jpg" alt="Eucerin UreaRepair Plus Handcreme 5 % Urea" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Handpflege</span><img data-amazon-src="https://m.media-amazon.com/images/I/51ClitYz2oL._SL500_.jpg" alt="Eucerin UreaRepair Plus Handcreme 5 % Urea" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Eucerin UreaRepair Plus Handcreme</div>
         <div class="p-why">5 % Urea für die Hände, sobald die Heizung wieder läuft und die Haut rau wird.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="cicaplast" class="product" href="https://www.amazon.de/dp/B00ST2GSRK?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Beruhigung</span><img src="https://m.media-amazon.com/images/I/51rQSTeH-rL._SL500_.jpg" alt="La Roche-Posay Cicaplast Baume B5+" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Beruhigung</span><img data-amazon-src="https://m.media-amazon.com/images/I/51rQSTeH-rL._SL500_.jpg" alt="La Roche-Posay Cicaplast Baume B5+" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">La Roche-Posay Cicaplast Baume B5+</div>
         <div class="p-why">Panthenol-Balsam für gereizte Haut — beruhigen, bevor die Wirkstoffe wieder dran sind.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="bohnenessenz" class="product" href="https://www.amazon.de/dp/B08ZXVVY8M?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">K-Beauty</span><img src="https://m.media-amazon.com/images/I/51HeCyjIvWL._SL500_.jpg" alt="mixsoon Bean Essence" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">K-Beauty</span><img data-amazon-src="https://m.media-amazon.com/images/I/51HeCyjIvWL._SL500_.jpg" alt="mixsoon Bean Essence" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">mixsoon Bean Essence</div>
         <div class="p-why">Eine fermentierte Essenz statt vieler einzelner Schritte.</div>
         <span class="p-btn">Hier ansehen →</span>
@@ -304,42 +315,42 @@
     <div class="grid">
 
       <a id="vitaminc" class="product" href="https://www.amazon.de/dp/B09BD7L35V?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Glow-Serum</span><img src="https://m.media-amazon.com/images/I/41V18FJzIPL._SL500_.jpg" alt="Garnier Vitamin C Glow Booster Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Glow-Serum</span><img data-amazon-src="https://m.media-amazon.com/images/I/41V18FJzIPL._SL500_.jpg" alt="Garnier Vitamin C Glow Booster Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Garnier Vitamin C Glow Booster Serum</div>
         <div class="p-why">Vitamin C für einen frischeren, gleichmäßigeren Teint nach dem Sommer.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="hydramaske" class="product" href="https://www.amazon.de/dp/B0B2RM68G2?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Feuchtigkeit</span><img src="https://m.media-amazon.com/images/I/41tWrXK7Z8L._SL500_.jpg" alt="Biodance Collagen Real Deep Mask" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Feuchtigkeit</span><img data-amazon-src="https://m.media-amazon.com/images/I/41tWrXK7Z8L._SL500_.jpg" alt="Biodance Collagen Real Deep Mask" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Biodance Collagen Real Deep Mask</div>
         <div class="p-why">Feuchtigkeitsmaske, die über Nacht spürbar etwas zurückbringt.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="ceramid" class="product" href="https://www.amazon.de/dp/B0BCLKDL4S?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Hautbarriere</span><img src="https://m.media-amazon.com/images/I/51UWmMyKWDL._SL500_.jpg" alt="Mixa Ceramide Moisture Creme" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Hautbarriere</span><img data-amazon-src="https://m.media-amazon.com/images/I/51UWmMyKWDL._SL500_.jpg" alt="Mixa Ceramide Moisture Creme" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Mixa Ceramide Moisture Creme</div>
         <div class="p-why">Ceramide stärken die Hautbarriere bei empfindlicher, gereizter Haut.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="ahabha" class="product" href="https://www.amazon.de/dp/B07PQSRXR6?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Sanftes Peeling</span><img src="https://m.media-amazon.com/images/I/41E-+u5VMiL._SL500_.jpg" alt="Paula's Choice Skin Perfecting 2% BHA" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Sanftes Peeling</span><img data-amazon-src="https://m.media-amazon.com/images/I/41E-+u5VMiL._SL500_.jpg" alt="Paula's Choice Skin Perfecting 2% BHA" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Paula's Choice Skin Perfecting 2% BHA</div>
         <div class="p-why">Chemische Exfoliation für ein feineres Hautbild, ohne Schrubben.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="spicule" class="product" href="https://www.amazon.de/dp/B0C2TQ24VY?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Trend 2026</span><img src="https://m.media-amazon.com/images/I/31t7FNKQmUL._SL500_.jpg" alt="VT Cosmetics Reedle Shot 100" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Trend 2026</span><img data-amazon-src="https://m.media-amazon.com/images/I/31t7FNKQmUL._SL500_.jpg" alt="VT Cosmetics Reedle Shot 100" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">VT Cosmetics Reedle Shot 100</div>
         <div class="p-why">Der Spicule-Trend aus Korea für Textur und Poren.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="cica" class="product" href="https://www.amazon.de/dp/B07LGCGG6R?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">K-Beauty</span><img src="https://m.media-amazon.com/images/I/31ieQK3OyDL._SL500_.jpg" alt="Erborian Red Correct" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">K-Beauty</span><img data-amazon-src="https://m.media-amazon.com/images/I/31ieQK3OyDL._SL500_.jpg" alt="Erborian Red Correct" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Erborian Red Correct</div>
         <div class="p-why">Centella beruhigt gestresste Haut nach Sonne oder starken Wirkstoffen.</div>
         <span class="p-btn">Hier ansehen →</span>
@@ -354,112 +365,112 @@
     <div class="grid">
 
       <a id="byrokko-braeunungsbeschleuniger" class="product" href="https://www.amazon.de/dp/B08CNJ5BG7?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Sommerbräune</span><img src="https://m.media-amazon.com/images/I/41UKBXmiSpL._SL500_.jpg" alt="BYROKKO Bräunungscreme" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Sommerbräune</span><img data-amazon-src="https://m.media-amazon.com/images/I/41UKBXmiSpL._SL500_.jpg" alt="BYROKKO Bräunungscreme" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">BYROKKO Bräunungscreme</div>
         <div class="p-why">Die virale Bräunungscreme für eine schnelle, goldene Sommerbräune in der Sonne.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="garnier-aftersun-selbstbraeuner" class="product" href="https://www.amazon.de/dp/B06X9QFFJH?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">After Sun + Bräune</span><img src="https://m.media-amazon.com/images/I/41IABROrF2L._SL500_.jpg" alt="Garnier After-Sun + Selbstbräuner" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">After Sun + Bräune</span><img data-amazon-src="https://m.media-amazon.com/images/I/41IABROrF2L._SL500_.jpg" alt="Garnier After-Sun + Selbstbräuner" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Garnier After-Sun + Selbstbräuner</div>
         <div class="p-why">Pflegt die Haut nach der Sonne und gibt ihr sanft einen schönen Bräune-Boost.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="isdin-fusion-water-color" class="product" href="https://www.amazon.de/dp/B07B9KD2JF?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Getönt + LSF 50</span><img src="https://m.media-amazon.com/images/I/31Ek7-sbHJL._SL500_.jpg" alt="ISDIN Fusion Water Color" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Getönt + LSF 50</span><img data-amazon-src="https://m.media-amazon.com/images/I/31Ek7-sbHJL._SL500_.jpg" alt="ISDIN Fusion Water Color" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">ISDIN Fusion Water Color</div>
         <div class="p-why">Getönter Sonnenschutz, der den Teint ausgleicht, Glow gibt und leicht schützt.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="numbuzin-glutathion-serum" class="product" href="https://www.amazon.de/dp/B0C61FD7P9?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Glow Serum</span><img src="https://m.media-amazon.com/images/I/410IkfR+ZiL._SL500_.jpg" alt="numbuzin No.5 Glutathion-Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Glow Serum</span><img data-amazon-src="https://m.media-amazon.com/images/I/410IkfR+ZiL._SL500_.jpg" alt="numbuzin No.5 Glutathion-Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">numbuzin No.5 Glutathion-Serum</div>
         <div class="p-why">Das virale Glutathion-Serum für einen ebenmäßigen, strahlenden Teint.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="kuehlendes-minz-gesichtsspray" class="product" href="https://www.amazon.de/dp/B0BHF4R827?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Sommer‑Frische</span><img src="https://m.media-amazon.com/images/I/21cxOaa7lIL._SL500_.jpg" alt="Kühlendes Gesichtsspray" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Sommer‑Frische</span><img data-amazon-src="https://m.media-amazon.com/images/I/21cxOaa7lIL._SL500_.jpg" alt="Kühlendes Gesichtsspray" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Kühlendes Gesichtsspray</div>
         <div class="p-why">Ein feiner Nebel kühlt die Haut in Sekunden. Mein Frische‑Kick, wenn das Gesicht im Sommer glüht.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="kuehlender-skin-tint-lsf50" class="product" href="https://www.amazon.de/dp/B0CNQ11ZYH?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Getönt + LSF 50</span><img src="https://m.media-amazon.com/images/I/41lI5lEiYjL._SL500_.jpg" alt="Getönte Pflege mit LSF 50" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Getönt + LSF 50</span><img data-amazon-src="https://m.media-amazon.com/images/I/41lI5lEiYjL._SL500_.jpg" alt="Getönte Pflege mit LSF 50" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Getönte Pflege mit LSF 50</div>
         <div class="p-why">Leichte Tönung statt schwerer Foundation, gleicht den Teint aus und schützt mit hohem Sonnenschutz.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="biore-watery-essence-sonnencreme" class="product" href="https://www.amazon.de/dp/B01MTDFFQ5?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Japan‑Liebling</span><img src="https://m.media-amazon.com/images/I/417lBi18iaL._SL500_.jpg" alt="Bioré Watery Essence" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Japan‑Liebling</span><img data-amazon-src="https://m.media-amazon.com/images/I/417lBi18iaL._SL500_.jpg" alt="Bioré Watery Essence" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Bioré Watery Essence</div>
         <div class="p-why">Die wasserleichte Sonnencreme aus Japan, die sofort einzieht. Kein Kleben, kein weißer Film.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="brasilianischer-body-mist-sommerduft" class="product" href="https://www.amazon.de/dp/B089R5T26N?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Viraler Duft</span><img src="https://m.media-amazon.com/images/I/41UAv3gBViL._SL500_.jpg" alt="Sol de Janeiro Body Mist" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Viraler Duft</span><img data-amazon-src="https://m.media-amazon.com/images/I/41UAv3gBViL._SL500_.jpg" alt="Sol de Janeiro Body Mist" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Sol de Janeiro Body Mist</div>
         <div class="p-why">Der warme Pistazien‑Karamell‑Duft, dem im Sommer alle hinterherschnuppern. Der virale Sommer‑Bodymist.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="sommersprossen-stift" class="product" href="https://www.amazon.de/dp/B09PRQRNLP?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Sommersprossen</span><img src="https://m.media-amazon.com/images/I/41XpGT6-FlL._SL500_.jpg" alt="Sommersprossen‑Stift" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Sommersprossen</span><img data-amazon-src="https://m.media-amazon.com/images/I/41XpGT6-FlL._SL500_.jpg" alt="Sommersprossen‑Stift" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Sommersprossen‑Stift</div>
         <div class="p-why">Natürliche Sommersprossen zum Auftupfen. Der sonnengeküsste Look, den alle lieben.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="la-roche-posay-anthelios" class="product" href="https://www.amazon.de/dp/B01N9GJVM3?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Derm‑Liebling</span><img src="https://m.media-amazon.com/images/I/31Epz6fy3mL._SL500_.jpg" alt="La Roche‑Posay Anthelios" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Derm‑Liebling</span><img data-amazon-src="https://m.media-amazon.com/images/I/31Epz6fy3mL._SL500_.jpg" alt="La Roche‑Posay Anthelios" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">La Roche‑Posay Anthelios</div>
         <div class="p-why">Täglicher UV‑Schutz ohne Weißeln. Der Dermatologen‑Liebling und mein Allrounder fürs Gesicht.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="isle-of-paradise-self-tan-drops" class="product" href="https://www.amazon.de/dp/B0FDTFZSJ1?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Bräune ohne Sonne</span><img src="https://m.media-amazon.com/images/I/21MrNkDjjIL._SL500_.jpg" alt="Isle of Paradise Self‑Tan Drops" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Bräune ohne Sonne</span><img data-amazon-src="https://m.media-amazon.com/images/I/21MrNkDjjIL._SL500_.jpg" alt="Isle of Paradise Self‑Tan Drops" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Isle of Paradise Self‑Tan Drops</div>
         <div class="p-why">Tropfen für deine Lieblings‑Bräune, individuell dosierbar. Kein Sonnenschaden, kein Orange.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="e-l-f-lippenbalsam" class="product" href="https://www.amazon.de/dp/B0C7W6GW8P?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Lippenpflege</span><img src="https://m.media-amazon.com/images/I/31NrN9FjNFL._SL500_.jpg" alt="e.l.f. Lippenbalsam" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Lippenpflege</span><img data-amazon-src="https://m.media-amazon.com/images/I/31NrN9FjNFL._SL500_.jpg" alt="e.l.f. Lippenbalsam" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">e.l.f. Lippenbalsam</div>
         <div class="p-why">Feuchtigkeitsspendender Lippenbalsam mit Hyaluron. Leicht, sanft, für weiche Lippen den ganzen Tag.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="supergoop-glow-stick" class="product" href="https://www.amazon.de/dp/B0883DRT32?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">SPF + Glow</span><img src="https://m.media-amazon.com/images/I/31qdVFcLKIL._SL500_.jpg" alt="Supergoop Glow Stick" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">SPF + Glow</span><img data-amazon-src="https://m.media-amazon.com/images/I/31qdVFcLKIL._SL500_.jpg" alt="Supergoop Glow Stick" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Supergoop Glow Stick</div>
         <div class="p-why">Sonnenschutz zum Aufrollen mit Glow. LSF 50 für unterwegs, einfach übers Make‑up nachlegen.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="la-roche-posay-thermalwasser" class="product" href="https://www.amazon.de/dp/B000V3O732?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Erfrischung</span><img src="https://m.media-amazon.com/images/I/314NrDViASL._SL500_.jpg" alt="La Roche‑Posay Thermalwasser" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Erfrischung</span><img data-amazon-src="https://m.media-amazon.com/images/I/314NrDViASL._SL500_.jpg" alt="La Roche‑Posay Thermalwasser" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">La Roche‑Posay Thermalwasser</div>
         <div class="p-why">Der kühle Sprühnebel für heiße Tage. Beruhigt gereizte Haut und fixiert sanft das Make‑up.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="aloe-vera-gel" class="product" href="https://www.amazon.de/dp/B0796TBL1F?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">After Sun</span><img src="https://m.media-amazon.com/images/I/41pV3LcLIXL._SL500_.jpg" alt="Aloe Vera Gel" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">After Sun</span><img data-amazon-src="https://m.media-amazon.com/images/I/41pV3LcLIXL._SL500_.jpg" alt="Aloe Vera Gel" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Aloe Vera Gel</div>
         <div class="p-why">99% Aloe für die Haut nach der Sonne. Kühlt, beruhigt, zieht schnell ein. Vielfach gelobt für schnelle Beruhigung.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="hydrogel-augenpatches" class="product" href="https://www.amazon.de/dp/B014E2D6BY?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Augen‑Boost</span><img src="https://m.media-amazon.com/images/I/41nL-79dn4L._SL500_.jpg" alt="Hydrogel Augenpatches" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Augen‑Boost</span><img data-amazon-src="https://m.media-amazon.com/images/I/41nL-79dn4L._SL500_.jpg" alt="Hydrogel Augenpatches" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Hydrogel Augenpatches</div>
         <div class="p-why">Kühlende Patches gegen müde Augen und Schwellungen. Der schnelle Frische‑Kick für den Blick.</div>
         <span class="p-btn">Hier ansehen →</span>
@@ -467,14 +478,14 @@
 
 
       <a id="haar-uv-schutz" class="product" href="https://www.amazon.de/dp/B06WWHCM94?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Haar-UV-Schutz</span><img src="https://m.media-amazon.com/images/I/31Habtww8jL._SL500_.jpg" alt="Goldwell Sun Reflects" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Haar-UV-Schutz</span><img data-amazon-src="https://m.media-amazon.com/images/I/31Habtww8jL._SL500_.jpg" alt="Goldwell Sun Reflects" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Goldwell Sun Reflects</div>
         <div class="p-why">Leichtes UV-Schutzspray, damit Farbe und Glanz im Sommer länger halten.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="fusspeeling-maske" class="product" href="https://www.amazon.de/dp/B07G75DJTC?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Fußpflege</span><img src="https://m.media-amazon.com/images/I/41rONwhiNgL._SL500_.jpg" alt="Fußpeeling-Maske" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Fußpflege</span><img data-amazon-src="https://m.media-amazon.com/images/I/41rONwhiNgL._SL500_.jpg" alt="Fußpeeling-Maske" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Fußpeeling-Maske</div>
         <div class="p-why">Sanfte Fußmaske für weiche, gepflegte Füße zur Sandalen-Saison.</div>
         <span class="p-btn">Hier ansehen →</span>
@@ -489,56 +500,56 @@
     <div class="grid">
 
       <a id="hero-mighty-patch" class="product" href="https://www.amazon.de/dp/B0C81Z1SQH?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Pickel‑SOS</span><img src="https://m.media-amazon.com/images/I/41zCFCD8U4L._SL500_.jpg" alt="Hero Mighty Patch" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Pickel‑SOS</span><img data-amazon-src="https://m.media-amazon.com/images/I/41zCFCD8U4L._SL500_.jpg" alt="Hero Mighty Patch" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Hero Mighty Patch</div>
         <div class="p-why">Über Nacht weg. Der Patch, der den Pickel sanft rauszieht. Funktioniert auch ohne Gesicht im Bild.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="biodance-bio-collagen-maske" class="product" href="https://www.amazon.de/dp/B0B2RM68G2?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Glow über Nacht</span><img src="https://m.media-amazon.com/images/I/41tWrXK7Z8L._SL500_.jpg" alt="Biodance Bio‑Collagen Maske" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Glow über Nacht</span><img data-amazon-src="https://m.media-amazon.com/images/I/41tWrXK7Z8L._SL500_.jpg" alt="Biodance Bio‑Collagen Maske" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Biodance Bio‑Collagen Maske</div>
         <div class="p-why">Zieht sich wie eine zweite Haut ab. Glass Skin am Morgen, sanft genug für jeden Abend.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="medicube-zero-pore-pads" class="product" href="https://www.amazon.de/dp/B09V7Z4TJG?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Poren‑Liebling</span><img src="https://m.media-amazon.com/images/I/41QbIzhK+TL._SL500_.jpg" alt="Medicube Zero Pore Pads" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Poren‑Liebling</span><img data-amazon-src="https://m.media-amazon.com/images/I/41QbIzhK+TL._SL500_.jpg" alt="Medicube Zero Pore Pads" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Medicube Zero Pore Pads</div>
         <div class="p-why">Sichtbar feinere Poren, glattere Haut. Sehr beliebt bei den Toner‑Pads.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="vt-pdrn-100-essence" class="product" href="https://www.amazon.de/dp/B0CRKPZ9PQ?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Trend 2026</span><img src="https://m.media-amazon.com/images/I/31P3NvnzvTL._SL500_.jpg" alt="VT PDRN 100 Essence" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Trend 2026</span><img data-amazon-src="https://m.media-amazon.com/images/I/31P3NvnzvTL._SL500_.jpg" alt="VT PDRN 100 Essence" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">VT PDRN 100 Essence</div>
         <div class="p-why">Der Wirkstoff, über den 2026 alle reden. Festigkeit und Glow, noch ohne große Konkurrenz.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="beauty-of-joseon-glow-serum" class="product" href="https://www.amazon.de/dp/B09DLFCB69?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">K‑Beauty</span><img src="https://m.media-amazon.com/images/I/31e7UAcVZoL._SL500_.jpg" alt="Beauty of Joseon Glow Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">K‑Beauty</span><img data-amazon-src="https://m.media-amazon.com/images/I/31e7UAcVZoL._SL500_.jpg" alt="Beauty of Joseon Glow Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Beauty of Joseon Glow Serum</div>
         <div class="p-why">Propolis und Niacinamid für sofortigen Glow. Schöne Flasche, sanfte Formel, treue Fangemeinde.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="cerave-barriere-pflege" class="product" href="https://www.amazon.de/dp/B07C5VMJPW?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Hautbarriere</span><img src="https://m.media-amazon.com/images/I/31m6SFZwdSL._SL500_.jpg" alt="CeraVe Barriere‑Pflege" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Hautbarriere</span><img data-amazon-src="https://m.media-amazon.com/images/I/31m6SFZwdSL._SL500_.jpg" alt="CeraVe Barriere‑Pflege" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">CeraVe Barriere‑Pflege</div>
         <div class="p-why">Dermatologen‑Liebling für trockene, gestresste Haut. Die Basis, auf die alles andere aufbaut.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="laneige-lip-sleeping-mask" class="product" href="https://www.amazon.de/dp/B09HN5CMBX?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Lippen‑Pflege</span><img src="https://m.media-amazon.com/images/I/21YzIcvl2jL._SL500_.jpg" alt="Laneige Lip Sleeping Mask" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Lippen‑Pflege</span><img data-amazon-src="https://m.media-amazon.com/images/I/21YzIcvl2jL._SL500_.jpg" alt="Laneige Lip Sleeping Mask" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Laneige Lip Sleeping Mask</div>
         <div class="p-why">Die virale Lippenmaske für die Nacht. Morgens butterweiche Lippen, ein Tiegel hält ewig.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="the-ordinary-niacinamide" class="product" href="https://www.amazon.de/dp/B01MDTVZTZ?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Kult‑Serum</span><img src="https://m.media-amazon.com/images/I/21NInkeWEnL._SL500_.jpg" alt="The Ordinary Niacinamide" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Kult‑Serum</span><img data-amazon-src="https://m.media-amazon.com/images/I/21NInkeWEnL._SL500_.jpg" alt="The Ordinary Niacinamide" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">The Ordinary Niacinamide</div>
         <div class="p-why">Das Kult‑Serum gegen große Poren und Glanz. 10% Niacinamid, sanfte Formel, riesige Fangemeinde.</div>
         <span class="p-btn">Hier ansehen →</span>
@@ -546,28 +557,28 @@
 
 
       <a id="liquid-blush" class="product" href="https://www.amazon.de/dp/B08JKTGRGT?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Liquid Blush</span><img src="https://m.media-amazon.com/images/I/21hSpzkWEdL._SL500_.jpg" alt="Rare Beauty Soft Pinch" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Liquid Blush</span><img data-amazon-src="https://m.media-amazon.com/images/I/21hSpzkWEdL._SL500_.jpg" alt="Rare Beauty Soft Pinch" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Rare Beauty Soft Pinch</div>
         <div class="p-why">Der virale Liquid Blush für frische, natürlich rosige Wangen.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="cleansing-balm" class="product" href="https://www.amazon.de/dp/B07D5C86RX?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Reinigung</span><img src="https://m.media-amazon.com/images/I/312P2RMq3hL._SL500_.jpg" alt="Clinique Take The Day Off" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Reinigung</span><img data-amazon-src="https://m.media-amazon.com/images/I/312P2RMq3hL._SL500_.jpg" alt="Clinique Take The Day Off" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">Clinique Take The Day Off</div>
         <div class="p-why">Cleansing Balm, der Make-up und Sonnencreme sanft löst.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="retinol-serum" class="product" href="https://www.amazon.de/dp/B0B913JC2W?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">Anti-Aging</span><img src="https://m.media-amazon.com/images/I/31XDgVpol5L._SL500_.jpg" alt="CeraVe Retinol-Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">Anti-Aging</span><img data-amazon-src="https://m.media-amazon.com/images/I/31XDgVpol5L._SL500_.jpg" alt="CeraVe Retinol-Serum" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">CeraVe Retinol-Serum</div>
         <div class="p-why">Sanftes Retinol-Serum als guter Einstieg für die Abendpflege.</div>
         <span class="p-btn">Hier ansehen →</span>
       </a>
 
       <a id="snail-mucin-essenz" class="product" href="https://www.amazon.de/dp/B00PBX3L7K?tag=beautyrout067-21" target="_blank" rel="sponsored nofollow noopener">
-        <div class="p-img"><span class="badge">K-Beauty</span><img src="https://m.media-amazon.com/images/I/310Qckf2ZtL._SL500_.jpg" alt="COSRX Snail 96 Essence" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"></div>
+        <div class="p-img"><span class="badge">K-Beauty</span><img data-amazon-src="https://m.media-amazon.com/images/I/310Qckf2ZtL._SL500_.jpg" alt="COSRX Snail 96 Essence" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:#fff"><span class="tx amz-ph">Produktbild von Amazon<br>antippen zum Laden</span></div>
         <div class="p-name">COSRX Snail 96 Essence</div>
         <div class="p-why">Snail-Mucin-Essenz für Feuchtigkeit und einen frischen Glow.</div>
         <span class="p-btn">Hier ansehen →</span>
@@ -710,6 +721,19 @@
     melden('Dein E-Mail-Programm sollte sich jetzt öffnen — die Nachricht ist fertig vorbereitet, du musst sie nur noch abschicken. Passiert nichts? Dann schreib mir bitte direkt an '+ADR+'.','kf-ok');
     window.location.href='mailto:'+ADR+'?subject='+encodeURIComponent(betreff)+'&body='+encodeURIComponent(body.slice(0,1500));
   });
+})();
+</script>
+<script>
+/* Amazon-Produktbilder erst nach Antippen (14.10.2026): erstes Tippen auf ein Bildfeld lädt alle Bilder, erst das nächste führt zu Amazon */
+(function(){
+  var an=false;
+  function laden(){ if(an) return; an=true; document.body.classList.add('amz-an');
+    var b=document.querySelectorAll('img[data-amazon-src]'); for(var i=0;i<b.length;i++){ b[i].src=b[i].getAttribute('data-amazon-src'); }
+    var k=document.getElementById('amz-an'); if(k){ k.disabled=true; } }
+  var f=document.querySelectorAll('.p-img');
+  for(var i=0;i<f.length;i++){ if(!f[i].querySelector('img[data-amazon-src]')) continue;
+    f[i].addEventListener('click', function(e){ if(!an){ e.preventDefault(); laden(); } }); }
+  var k=document.getElementById('amz-an'); if(k){ k.addEventListener('click', laden); }
 })();
 </script>
 </body>
