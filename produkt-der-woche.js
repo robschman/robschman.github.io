@@ -44,17 +44,29 @@ window.PRODUKTE_DER_WOCHE = [
   },
   // ── Woche 4 (27.10.-01.11.): bewusst KEIN Produkt ─────────
   // ── Woche 1 des nächsten Blocks (03.-08.11.) ──────────
-  //    Am Mo 02.11. bei Amazon neu prüfen: am 29.09. keine Buy Box und „Hoher Preis“.
-  //    Ist das noch so, diesen Eintrag durch ein anderes Produkt ersetzen.
+  //    Am 26.10.2026 neu geplant: Cicaplast hatte bei Amazon weiter keinen Warenkorb-Knopf,
+  //    deshalb das Hyaluron-Serum aus der Pinterest-Runde (Pin Mo 02.11.). Amazon am 26.10.: Warenkorb ja, kein „Hoher Preis“.
   {
-    name:      "La Roche-Posay Cicaplast Baume B5+",
-    asin:      "B00ST2GSRK",
-    foto:      "/picks/foto-cicaplast.jpg",
-    text:      { de: "Herbstwind und Heizungsluft? Panthenol-Balsam f\u00fcr gestresste Haut \ud83c\udf42", en: "Autumn wind and dry heating air? Panthenol balm for stressed skin \ud83c\udf42" },
+    name:      "The Ordinary Hyaluronic Acid 2% + B5",
+    asin:      "B01MYEZPC8",
+    foto:      "/picks/foto-hyaluron.jpg",
+    text:      { de: "Heizung an, Haut spannt? Hyaluron-Serum unter die Creme \ud83d\udca7", en: "Heating on, skin feels tight? Hyaluronic serum under your cream \ud83d\udca7" },
     startetAm: "2026-11-03T22:00:00",   // Di 22:00
     endetAm:   "2026-11-08T22:00:00"    // So 22:00
+  },
+  // ── Woche 2 (10.-15.11.): bewusst KEIN Produkt ────────────
+  // ── Woche 3 (17.-22.11.) ──────────────────────────────
+  //    PDRN-Spray aus der Pinterest-Runde (Pin Mo 16.11.). Amazon am 26.10.: Warenkorb ja, kein „Hoher Preis“.
+  {
+    name:      "Anua PDRN Collagen Glow Serum Spray",
+    asin:      "B0FVT77ZLL",
+    foto:      "/picks/foto-pdrn.jpg",
+    text:      { de: "Schon von PDRN geh\u00f6rt? Der Korea-Trend als Serum zum Aufspr\u00fchen \u2728", en: "Heard of PDRN? The Korean trend as a spray-on serum \u2728" },
+    startetAm: "2026-11-17T22:00:00",   // Di 22:00
+    endetAm:   "2026-11-22T22:00:00"    // So 22:00
   }
-  // ── danach (ab 10.11.): nächsten Block planen – die Aufgaben-Tafel erinnert ──
+  // ── Woche 4 (24.-29.11.): bewusst KEIN Produkt ─────────
+  // ── danach (ab 01.12.): nächsten Block planen – die Aufgaben-Tafel erinnert ──
 ];
 
 // ── Auswahl-Logik: nimmt das Produkt, dessen Zeitfenster gerade läuft ─────
