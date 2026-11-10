@@ -289,6 +289,23 @@
         <span class="fav-banner-arrow">→</span>
       </a>
 
+      <!-- Kostenlose Beratung (CozyVibe-Terminbuch, seit 10.11.2026) – nur Deutsch, im EN-Modus ausgeblendet -->
+      <a href="https://termin.cozyvibe.at/?von=app" class="fav-banner fav-banner-inline beratung-banner" id="beratungBanner" rel="nofollow">
+        <span class="beratung-banner-symbol" aria-hidden="true">💬</span>
+        <span class="fav-banner-text">
+          <strong>Kostenlose Beratung</strong>
+          <small>Online-Termin aussuchen · unverbindlich</small>
+        </span>
+        <span class="fav-banner-arrow">→</span>
+      </a>
+      <style>
+        .beratung-banner { margin-top: 0; background: linear-gradient(135deg, #C46F12 0%, #8A4A06 100%); box-shadow: 0 4px 16px rgba(138,74,6,0.34); }
+        .beratung-banner:hover, .beratung-banner:active { box-shadow: 0 6px 20px rgba(138,74,6,0.48); }
+        .beratung-banner .beratung-banner-symbol { width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; background: #fff; display: flex;
+          align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.22); }
+        .beratung-banner .fav-banner-text small { opacity: 1; }
+      </style>
+
       <!-- MORNING TAB -->
       <section class="tab-content active" id="tab-morning">
         <div class="completion-banner" id="banner-morning" data-tr="morningDone"></div>
@@ -430,6 +447,9 @@
               // Favoriten-Banner (Cozy Picks) im EN-Modus auf die englische Seite
               var _fav = document.getElementById('favBanner');
               if (_fav) _fav.href = '/en/cozy-picks.html';
+              // Beratung gibt es nur auf Deutsch → im EN-Modus ausblenden
+              var _ber = document.getElementById('beratungBanner');
+              if (_ber) _ber.style.display = 'none';
             }
           } catch(e) {}
         })();
