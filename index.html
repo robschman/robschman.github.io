@@ -457,6 +457,7 @@
   "publisher": { "@type": "Organization", "name": "CozyVibe", "url": "https://beautyroutine.app" }
 }
 </script>
+<link rel="stylesheet" href="/cozyvibe.css?v=2">
 </head>
 <body>
 
@@ -472,26 +473,15 @@
 <script>try{if(localStorage.getItem('routine_username')){document.getElementById('appReturnBanner').classList.add('show');}}catch(e){}</script>
 
 <!-- TEMP Preview-Banner + Saison-Tester -->
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-brand">
-      <img src="/cozyvibe-icon.png?v=2" alt="CozyVibe" class="nav-logo-img" />
-      <div>
-        <div class="nav-name">CozyVibe</div>
-        <div class="nav-sub">Beauty</div>
-      </div>
-    </a>
-    <div class="nav-right">
-      <a href="/cozy-picks.html" class="nav-favs"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 8.9 1.7 5.4 5 4.6c2-.5 3.8.4 4.9 2 1.1-1.6 2.9-2.5 4.9-2 3.3.8 4.4 4.3 3 7.2C19.5 16.4 12 21 12 21z"/></svg> Meine Produkte</a>
-      <a href="https://pinterest.com/cozyvibeapp" target="_blank" rel="noopener" class="nav-pinterest">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.137.893 2.738a.36.36 0 0 1 .083.345c-.091.378-.293 1.193-.333 1.36-.052.219-.173.265-.4.16-1.494-.696-2.428-2.879-2.428-4.633 0-3.773 2.741-7.239 7.902-7.239 4.148 0 7.372 2.957 7.372 6.909 0 4.123-2.6 7.441-6.208 7.441-1.212 0-2.353-.63-2.743-1.373l-.746 2.845c-.27 1.04-1 2.343-1.488 3.138C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-        Pinterest
-      </a>
-      <a href="/app.html" class="nav-app">Zur App →</a>
-    </div>
+<!-- cv-kopf · gebaut von CozyVibe/kopf/kopf.py – nicht von Hand ändern -->
+<div class="cv-kopf" role="banner">
+  <div class="cv-innen">
+    <a class="cv-marke" href="/" aria-label="CozyVibe – Startseite"><img src="/cozyvibe-icon.png?v=2" alt="" width="54" height="54"><span class="cv-name">CozyVibe<small>Beauty</small></span></a>
+    <div class="cv-reiter" role="navigation" aria-label="Bereiche"><a href="/cozy-picks.html">Cozy Picks</a><a class="cv-blau" href="/pflege/" rel="nofollow"><span class=cv-lang>Meine </span>Pflege-Linie</a><a href="/blog/">Beauty-Tipps</a></div>
+    <div class="cv-rechts"><a class="cv-rund" href="https://pinterest.com/cozyvibeapp" target="_blank" rel="noopener" aria-label="CozyVibe auf Pinterest"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.43 7.63 11.17-.11-.95-.2-2.4.04-3.44.22-.94 1.41-5.97 1.41-5.97s-.36-.72-.36-1.78c0-1.67.97-2.91 2.17-2.91 1.02 0 1.52.77 1.52 1.69 0 1.03-.66 2.57-.99 3.99-.28 1.2.6 2.17 1.78 2.17 2.13 0 3.77-2.25 3.77-5.5 0-2.87-2.06-4.88-5.01-4.88-3.41 0-5.42 2.56-5.42 5.21 0 1.03.4 2.14.89 2.74.1.12.11.22.08.34l-.33 1.36c-.05.22-.17.27-.4.16-1.49-.7-2.43-2.88-2.43-4.63 0-3.77 2.74-7.24 7.9-7.24 4.15 0 7.37 2.96 7.37 6.91 0 4.12-2.6 7.44-6.21 7.44-1.21 0-2.35-.63-2.74-1.37l-.75 2.84c-.27 1.04-1 2.34-1.49 3.14 1.12.35 2.31.53 3.55.53 6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg></a><a class="cv-knopf" href="/app.html"><span>Zur App</span><span class="cv-pfeil" aria-hidden="true">→</span></a></div>
   </div>
-</nav>
+</div>
+<!-- /cv-kopf -->
 
 <!-- HERO -->
 <section class="hero">
@@ -502,7 +492,7 @@
 
   <div class="wrap hero-inner">
     <span class="hero-eyebrow">Cozy Guide · Beauty</span>
-    <h1>Ehrliche Skincare‑Tipps,<br>die <em>wirklich</em> passen.</h1>
+    <h1>Ehrliche Skincare‑Tipps,<br>die <em>wirklich</em>&nbsp;passen.</h1>
     <p class="hero-lead">Für jede Haut und jeden Tag.<br>Alltagstauglich, ehrlich erklärt, ohne Marketing&#8209;Blabla.<br>Plus eine kostenlose App, wenn du magst.</p>
     <div class="hero-ctas">
       <a href="#articles" class="btn btn-primary">Beauty‑Tipps lesen →</a>
@@ -510,6 +500,54 @@
     </div>
   </div>
 </section>
+
+<!-- cv-beratung · gebaut von CozyVibe/beratung/beratung.py – nicht von Hand ändern -->
+<style id="cv-beratung-stil">
+.cv-beratung{position:relative;display:flex;align-items:center;gap:20px;max-width:1040px;margin:30px auto;padding:22px 26px;border-radius:26px;
+  color:#2B211C;border:2px solid transparent;box-sizing:border-box;
+  background:radial-gradient(120% 90% at 0% 0%,#FFF3DF,rgba(255,243,223,0) 60%) padding-box,linear-gradient(#fff,#FFFBF5) padding-box,
+    linear-gradient(115deg,#B5620A 0%,#E9B872 22%,#F7D9A6 40%,#FFF4DE 50%,#F7D9A6 60%,#E9B872 78%,#B5620A 100%) border-box;
+  background-size:100% 100%,100% 100%,320% 100%;box-shadow:0 18px 40px -24px rgba(143,78,7,.6),0 0 0 6px rgba(233,184,114,.12);
+  animation:cvb-rand 3.6s ease-in-out infinite alternate}
+@keyframes cvb-rand{from{background-position:0 0,0 0,0% 0}to{background-position:0 0,0 0,100% 0}}
+.cvb-symbol{flex-shrink:0;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px;
+  background:radial-gradient(circle at 50% 35%,#fff,#FCE9C2);box-shadow:0 0 0 3px #fff,0 0 0 4px #F1DDBE,0 0 24px 3px rgba(233,184,114,.65)}
+.cvb-text{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.cvb-oben{font-family:'Marcellus',Georgia,serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#8A4A06}
+.cv-beratung strong{font-family:'Dancing Script',cursive;font-weight:700;font-size:2rem;line-height:1.05;color:#2B211C}
+.cvb-satz{font-size:.98rem;line-height:1.5;color:#2B211C;text-wrap:pretty}
+.cv-beratung a.cvb-knopf{position:relative;overflow:hidden;flex-shrink:0;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-family:'Marcellus',Georgia,serif;text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700;line-height:1.2;color:#fff;
+  white-space:nowrap;background:linear-gradient(135deg,#C46F12,#8A4A06);border-radius:999px;padding:15px 24px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 10px 24px -8px rgba(181,98,10,.85);animation:cvb-leuchten 2.8s ease-in-out infinite}
+.cv-beratung a.cvb-knopf:hover{color:#fff;filter:brightness(1.07)}
+.cv-beratung a.cvb-knopf::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);
+  animation:cvb-glanz 3.8s ease-in-out infinite}
+.cvb-pfeil{transition:transform .2s ease}
+.cv-beratung a.cvb-knopf:hover .cvb-pfeil{transform:translateX(3px)}
+@keyframes cvb-leuchten{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 10px 24px -8px rgba(181,98,10,.85),0 0 0 0 rgba(233,184,114,0)}
+  50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 12px 28px -8px rgba(181,98,10,.9),0 0 26px 6px rgba(233,184,114,.6)}}
+@keyframes cvb-glanz{0%,55%{left:-60%}100%{left:135%}}
+@media (max-width:760px){
+  .cv-beratung{flex-direction:column;text-align:center;gap:12px;margin:22px 14px;padding:22px 18px 20px}
+  .cvb-text{align-items:center}
+  .cv-beratung strong{font-size:1.85rem}
+  .cv-beratung a.cvb-knopf{width:100%;justify-content:center;box-sizing:border-box}
+}
+@media (prefers-reduced-motion:reduce){.cv-beratung,.cv-beratung a.cvb-knopf,.cv-beratung a.cvb-knopf::before{animation:none}.cvb-pfeil{transition:none}}
+</style>
+<aside class="cv-beratung" aria-label="Kostenlose Beratung">
+  <span class="cvb-symbol" aria-hidden="true">💬</span>
+  <span class="cvb-text">
+    <span class="cvb-oben">Online · 30 oder 60 Minuten</span>
+    <strong>Kostenlose Beratung</strong>
+    <span class="cvb-satz">Wir sprechen online – über Zoom, WhatsApp oder FaceTime. Ich schau mir deine Routine mit dir an und beantworte deine Fragen zu Pflege- und Vital-Produkten. Kostenlos und unverbindlich: du musst nichts kaufen.</span>
+  </span>
+  <a class="cvb-knopf" href="https://termin.cozyvibe.at/?von=website" rel="nofollow"><span>Termin aussuchen</span><span class="cvb-pfeil" aria-hidden="true">→</span></a>
+</aside>
+<!-- /cv-beratung -->
 
 <!-- CONTENT: BEAUTY-WISSEN -->
 <section id="articles">

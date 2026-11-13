@@ -1,0 +1,184 @@
+/* CozyVibe – gemeinsamer Kopf + Farben für beautyroutine.app. Gebaut von CozyVibe/kopf/anwenden.py, nicht von Hand ändern. */
+
+/* ===== CozyVibe-Kopf (CozyVibe/kopf/kopf.py) ===== */
+.cv-kopf{position:sticky;top:0;z-index:400;background:rgba(251,246,240,.9);-webkit-backdrop-filter:blur(16px) saturate(1.25);
+  backdrop-filter:blur(16px) saturate(1.25);border-bottom:1px solid #EBDDCD;box-shadow:0 12px 30px -24px rgba(143,78,7,.55)}
+.cv-kopf::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(233,184,114,0),#E9B872 25%,#F7D9A6 50%,#E9B872 75%,rgba(233,184,114,0))}
+.cv-innen{max-width:1180px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:22px}
+.cv-kopf a{text-decoration:none}
+.cv-marke{display:flex;align-items:center;gap:12px;color:#2B211C;flex-shrink:0}
+.cv-kopf .cv-marke:hover{color:#2B211C}
+.cv-marke img{width:54px;height:54px;border-radius:50%;display:block;box-shadow:0 0 0 3px #fff,0 0 22px 3px rgba(233,184,114,.7)}
+.cv-name{display:flex;flex-direction:column;font-family:'Dancing Script',cursive;font-weight:700;font-size:32px;line-height:1;color:#2B211C}
+.cv-name small{font-family:'Marcellus',serif;font-weight:400;font-size:10px;letter-spacing:.34em;text-transform:uppercase;margin-top:5px;color:#2B211C}
+.cv-reiter{display:flex;gap:8px;flex-wrap:nowrap}
+.cv-reiter a{font-family:'Marcellus',serif;text-transform:uppercase;letter-spacing:.07em;font-size:12.5px;font-weight:600;line-height:1.2;
+  color:#2B211C;background:#fff;border:1.5px solid #2B211C;border-radius:999px;padding:8px 15px;white-space:nowrap;
+  transition:transform .15s ease,box-shadow .15s ease}
+.cv-kopf .cv-reiter a:hover{color:#2B211C;transform:translateY(-1px);box-shadow:0 0 0 3px rgba(233,184,114,.35),0 8px 18px -10px rgba(143,78,7,.6)}
+.cv-kopf .cv-reiter a.aktiv,.cv-kopf .cv-reiter a.aktiv:hover{background:linear-gradient(135deg,#2B211C,#4A3426);color:#fff;
+  box-shadow:0 0 0 3px rgba(233,184,114,.45),0 8px 20px -10px rgba(43,33,28,.7)}
+/* „Meine Pflege-Linie“: blauer Rahmen wie auf der Pflege-Seite, der schimmert (Robert, 09.11.2026) */
+.cv-kopf .cv-reiter a.cv-blau{position:relative;overflow:hidden;color:#0B214A;border:2px solid transparent;
+  background:linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(115deg,#0B214A 0%,#173F7E 24%,#4F86F0 42%,#D6E6FF 50%,#4F86F0 58%,#173F7E 76%,#0B214A 100%) border-box;
+  background-size:100% 100%,320% 100%;box-shadow:0 0 16px -4px rgba(47,95,184,.6);
+  animation:cv-blau 3.4s ease-in-out infinite alternate}
+.cv-kopf .cv-reiter a.cv-blau::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(79,134,240,0),rgba(79,134,240,.2),rgba(79,134,240,0));transform:skewX(-20deg);
+  animation:cv-glanz 4.6s ease-in-out infinite}
+.cv-kopf .cv-reiter a.cv-blau:hover{color:#0B214A;box-shadow:0 0 0 3px rgba(79,134,240,.28),0 8px 22px -8px rgba(23,63,126,.65)}
+.cv-kopf .cv-reiter a.cv-blau.aktiv,.cv-kopf .cv-reiter a.cv-blau.aktiv:hover{color:#fff;
+  background:linear-gradient(135deg,#0B214A,#173F7E) padding-box,
+    linear-gradient(115deg,#4F86F0 0%,#D6E6FF 25%,#4F86F0 50%,#D6E6FF 75%,#4F86F0 100%) border-box;
+  background-size:100% 100%,320% 100%;box-shadow:0 0 0 3px rgba(79,134,240,.3),0 0 24px -2px rgba(59,111,216,.75)}
+.cv-kopf .cv-reiter a.cv-blau.aktiv::after{background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.4),rgba(255,255,255,0))}
+@keyframes cv-blau{from{background-position:0 0,0% 0}to{background-position:0 0,100% 0}}
+.cv-rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
+.cv-knopf{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:7px;font-family:'Marcellus',serif;
+  text-transform:uppercase;letter-spacing:.12em;font-size:12.5px;font-weight:700;line-height:1.2;color:#fff;white-space:nowrap;
+  background:linear-gradient(135deg,#C46F12,#8A4A06);border-radius:999px;padding:12px 20px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 8px 22px -8px rgba(181,98,10,.8);animation:cv-leuchten 2.8s ease-in-out infinite}
+.cv-kopf .cv-knopf:hover{color:#fff;filter:brightness(1.07)}
+.cv-knopf::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);
+  animation:cv-glanz 3.8s ease-in-out infinite}
+.cv-pfeil{transition:transform .2s ease}
+.cv-knopf:hover .cv-pfeil{transform:translateX(3px)}
+@keyframes cv-leuchten{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 8px 22px -8px rgba(181,98,10,.8),0 0 0 0 rgba(233,184,114,0)}
+  50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 10px 26px -8px rgba(181,98,10,.9),0 0 24px 5px rgba(233,184,114,.6)}}
+@keyframes cv-glanz{0%,55%{left:-60%}100%{left:135%}}
+.cv-rund{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;
+  border:1.5px solid #2B211C;color:#2B211C}
+.cv-kopf .cv-rund:hover{color:#E60023;border-color:#E60023}
+/* Sprach-Schalter (Blog, FAQ, Über uns) sitzt im Kopf statt frei schwebend */
+.cv-kopf .lang-switch{position:static;top:auto;right:auto;box-shadow:none;background:#fff;border:1.5px solid #EBDDCD;padding:3px;z-index:auto}
+.cv-kopf .lang-switch button{color:#2B211C}
+.cv-kopf .lang-switch button.active{background:#2B211C;color:#fff!important}
+html{scroll-padding-top:96px}
+@media (prefers-reduced-motion:reduce){.cv-knopf,.cv-knopf::before,.cv-kopf .cv-reiter a.cv-blau,.cv-kopf .cv-reiter a.cv-blau::after{animation:none}
+  .cv-reiter a,.cv-pfeil{transition:none}}
+/* Tablet und Handy: Reiter-Pillen in die zweite Zeile, Kopf bleibt fixiert */
+@media (max-width:920px){
+  .cv-innen{flex-wrap:wrap;row-gap:9px;padding:9px 16px 11px}
+  .cv-reiter{order:3;width:100%}
+  html{scroll-padding-top:128px}
+}
+@media (max-width:520px){
+  .cv-innen{gap:10px}
+  .cv-marke{gap:9px}
+  .cv-marke img{width:42px;height:42px;box-shadow:0 0 0 2px #fff,0 0 16px 2px rgba(233,184,114,.7)}
+  .cv-name{font-size:26px}
+  .cv-name small{font-size:8.5px;letter-spacing:.3em;margin-top:3px}
+  .cv-reiter{gap:6px;justify-content:space-between}
+  .cv-reiter a{font-size:11px;letter-spacing:.04em;padding:7px 10px}
+  .cv-reiter .cv-lang{display:none}
+  .cv-knopf{font-size:11px;letter-spacing:.08em;padding:10px 14px}
+  .cv-rund{width:36px;height:36px}
+  .cv-rechts{gap:7px}
+  .cv-rechts:has(.lang-switch) .cv-knopf{display:none}
+  .cv-kopf .lang-switch button{padding:5px 8px}
+  html{scroll-padding-top:118px}
+}
+
+/* ===== CozyVibe-Farben wie „Meine Pflege-Linie“ + mehr Glow (CozyVibe/kopf/kopf.py) =====
+   Überschreibt die alten Orange-Töne der einzelnen Seiten. Schrift nie grau. */
+:root,:root[data-season]{
+  --ink:#2B211C;--text:#2B211C;--text-muted:#2B211C;--text-faint:#2B211C;
+  --primary:#B5620A;--primary-strong:#8F4E07;--primary-soft:#FCE9C2;--primary-tint:#FEF5E0;--primary-glow:rgba(181,98,10,.4);
+  --accent:#E9B872;--accent-soft:#FCEFCC;--deep:#5E3508;
+  --gold:#B5620A;--gold-strong:#8F4E07;--gold-soft:#FCE9C2;--gold-tint:#FEF5E0;
+  --shadow-glow:0 12px 34px -10px rgba(181,98,10,.5);
+}
+body{background:radial-gradient(1200px 560px at 50% -160px,rgba(247,217,166,.55),rgba(247,217,166,0) 72%) no-repeat,var(--cream)}
+h1{text-shadow:0 0 34px rgba(240,190,110,.5)}
+.hero{background:radial-gradient(70% 90% at 15% 0%,rgba(247,217,166,.55),rgba(247,217,166,0) 70%),
+  radial-gradient(60% 80% at 90% 10%,rgba(252,233,194,.75),rgba(252,233,194,0) 70%),var(--cream)}
+/* Karten mit warmem Schein */
+.product,.post-link,.article-card,.vibe-card,.card,.kf-card{box-shadow:0 12px 30px -20px rgba(143,78,7,.4),0 2px 6px -3px rgba(64,38,24,.12)}
+.product:hover,.post-link:hover,.article-card:hover,.vibe-card:hover{box-shadow:0 0 0 1px #EFCB8E,0 22px 46px -18px rgba(181,98,10,.5),0 0 28px -6px rgba(247,201,128,.6)}
+/* Knöpfe in Braun-Gold mit Schein */
+.btn-primary,.p-btn,.cta-row a,.kf-btn,.sec-head .pill{background:linear-gradient(135deg,#C46F12,#8A4A06);color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 10px 26px -10px rgba(181,98,10,.7)}
+.btn-primary:hover,.cta-row a:hover,.kf-btn:hover{filter:brightness(1.07)}
+.picks-cta,body .app-return-banner{background:linear-gradient(135deg,#C46F12,#8A4A06)}
+/* früher graue Schrift → dunkel */
+.p-img .tx,.disclaimer,.disclaimer .lead,.affiliate-note,.footer-links a,.legal-footer-blog a,.product-label,.back-btn,.meta{color:#2B211C}
+.hero .ad-note{opacity:1}
+.product{scroll-margin-top:136px}
+/* ===== Karten im Stil der Beauty-Tipps: weiß, Goldkante oben, warmer Schein (Robert, 09.11.2026: „Cozy Picks … altes Gelb …
+   mehr Glow und Schein … pimp die Seite auf“). Gilt für Cozy Picks (.product) und die Produktkarten in den Artikeln (.product-card). */
+body .product,body .product-card{border:1px solid #EBDDCD;border-radius:24px;
+  background:linear-gradient(90deg,rgba(233,184,114,0),#E9B872 28%,#F7D9A6 50%,#E9B872 72%,rgba(233,184,114,0)) top/100% 3px no-repeat,
+    linear-gradient(180deg,#fff 60%,#FFF8EF);
+  box-shadow:0 14px 34px -22px rgba(143,78,7,.5),0 2px 8px -4px rgba(64,38,24,.12);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+body .product:hover,body .product-card:hover{transform:translateY(-5px);border-color:#EFCB8E;
+  box-shadow:0 0 0 1px #EFCB8E,0 24px 48px -20px rgba(181,98,10,.55),0 0 30px -6px rgba(247,201,128,.7)}
+body .product:target::before{border-radius:28px}
+/* Bildfeld: hell und klar statt Streifen + gestrichelter Rand, mit kleinem Funkeln */
+body .product .p-img{border:1px solid #F1E3D1;border-radius:18px;
+  background:radial-gradient(90% 70% at 50% 0%,#fff,rgba(255,255,255,0) 70%),radial-gradient(130% 120% at 50% 100%,#FBEBD3,#FFF7EC 55%,#FFFDF9);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.75),inset 0 -22px 36px -28px rgba(181,98,10,.45)}
+body .product .p-img.split{border:0;box-shadow:none;background:none}
+body .product .p-img.split .p-photo{box-shadow:inset 0 0 0 1px #F1E3D1}
+body .product .p-img.pik,body .product .p-img.split .p-pik-half{background:radial-gradient(120% 120% at 50% 20%,#fff,#FCEBD0 96%)}
+body .product .p-img::after{content:"✦";position:absolute;top:9px;right:12px;z-index:1;font-size:15px;line-height:1;color:#E9B872;
+  text-shadow:0 0 10px rgba(233,184,114,.95);pointer-events:none;animation:cv-funkeln 2.8s ease-in-out infinite}
+body .product:nth-child(3n+2) .p-img::after{animation-delay:.9s}
+body .product:nth-child(3n) .p-img::after{animation-delay:1.8s}
+@keyframes cv-funkeln{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(20deg)}}
+body .product .p-img .amz-ph{background:rgba(255,255,255,.9);border:1px solid #EBDDCD;border-radius:14px;padding:7px 12px;color:#2B211C;
+  box-shadow:0 8px 18px -12px rgba(143,78,7,.6)}
+body .product .badge{background:linear-gradient(135deg,#2B211C,#4A3426);color:#fff;
+  box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 14px -2px rgba(233,184,114,.95)}
+body .product .p-name{text-align:center;margin:2px 3px 6px;text-wrap:balance}
+body .product .p-why,body .product-card .product-name,body .product-card .product-label{text-wrap:pretty}
+/* Knöpfe in den Karten: Glanz läuft beim Drüberfahren durch */
+body .product .p-btn,body .product-card .product-btn{position:relative;overflow:hidden;background:linear-gradient(135deg,#C46F12,#8A4A06);color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 10px 24px -10px rgba(181,98,10,.75)}
+body .product .p-btn::after,body .product-card .product-btn::after{content:"";position:absolute;top:0;bottom:0;left:-70%;width:50%;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);transition:left .7s ease}
+body .product:hover .p-btn::after,body .product-card:hover .product-btn::after{left:130%}
+body .product:hover .p-btn,body .product-card:hover .product-btn{box-shadow:inset 0 0 0 1px rgba(255,255,255,.3),0 12px 28px -8px rgba(181,98,10,.85),0 0 18px -2px rgba(233,184,114,.75)}
+/* Abschnitts-Köpfe in Cozy Picks: Pille mit Schein + goldene Linie */
+body .sec-head:has(> .pill) .pill{box-shadow:0 0 0 3px rgba(233,184,114,.35),0 10px 24px -10px rgba(181,98,10,.7)}
+body .sec-head:has(> .pill)::after{content:"";flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,#E9B872,rgba(233,184,114,0))}
+/* Produktkarten in den Artikeln: Symbol in einem leuchtenden Kreis */
+body .product-card{padding:18px 12px 16px;border-radius:22px}
+body .product-card .product-emoji{display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;font-size:26px;
+  background:radial-gradient(circle at 50% 35%,#fff,#FCE9C2);box-shadow:0 0 0 3px #fff,0 0 0 4px #F1DDBE,0 0 22px 2px rgba(233,184,114,.6)}
+body .product-card .product-label{color:#2B211C}
+/* genau vier Karten: 2 × 2 statt 3 + 1 */
+body .product-grid:has(> .product-card:nth-child(4):last-child){display:grid;grid-template-columns:repeat(2,minmax(0,230px));justify-content:center}
+body .product-grid:has(> .product-card:nth-child(4):last-child) .product-card{max-width:none}
+/* CozyVibe-Kasten (Pinterest) in den Artikeln: hell mit Schein statt Beige */
+body .cozyvibe-banner{background:linear-gradient(90deg,rgba(233,184,114,0),#E9B872 30%,#F7D9A6 50%,#E9B872 70%,rgba(233,184,114,0)) top/100% 3px no-repeat,
+  linear-gradient(135deg,#fff,#FFF6EA);box-shadow:0 14px 34px -22px rgba(143,78,7,.5)}
+body .cozyvibe-banner-text span{color:#2B211C}
+/* Hinweis „Meine Morgen- und Abendroutine“ im Morgenroutine-Artikel → Pflege-Seite (blau schimmernder Rand wie die Pille) */
+.routine-hinweis{display:flex;align-items:center;gap:16px;margin:26px 0;padding:18px 22px;border-radius:24px;text-decoration:none;color:#2B211C;
+  border:2px solid transparent;
+  background:radial-gradient(120% 90% at 0% 0%,#EEF3FD,rgba(238,243,253,0) 60%) padding-box,linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(115deg,#0B214A 0%,#173F7E 24%,#4F86F0 42%,#D6E6FF 50%,#4F86F0 58%,#173F7E 76%,#0B214A 100%) border-box;
+  background-size:100% 100%,100% 100%,320% 100%;box-shadow:0 14px 34px -20px rgba(23,63,126,.55);
+  animation:cv-blau-hinweis 3.4s ease-in-out infinite alternate;transition:transform .2s ease,box-shadow .2s ease}
+@keyframes cv-blau-hinweis{from{background-position:0 0,0 0,0% 0}to{background-position:0 0,0 0,100% 0}}
+.routine-hinweis:hover{transform:translateY(-3px);box-shadow:0 0 0 3px rgba(79,134,240,.22),0 20px 40px -18px rgba(23,63,126,.6)}
+.routine-hinweis-symbol{flex-shrink:0;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;
+  font-size:15px;line-height:1.05;color:#fff;background:linear-gradient(135deg,#0B214A,#173F7E);box-shadow:0 0 0 3px #fff,0 0 0 4px #BFD3F7,0 0 18px 2px rgba(79,134,240,.45)}
+.routine-hinweis-text{flex:1;display:flex;flex-direction:column;gap:3px}
+.routine-hinweis-text strong{font-family:'Dancing Script',cursive;font-weight:700;font-size:1.55rem;line-height:1.1;color:#2B211C}
+.routine-hinweis-text span{font-size:.95rem;line-height:1.45;color:#2B211C;text-wrap:pretty}
+.routine-hinweis-pfeil{flex-shrink:0;font-size:1.4rem;font-weight:800;color:#173F7E;transition:transform .2s ease}
+.routine-hinweis:hover .routine-hinweis-pfeil{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){.routine-hinweis{animation:none;transition:none}}
+@media (prefers-reduced-motion:reduce){body .product .p-img::after{animation:none;opacity:.8}
+  body .product,body .product-card,body .product .p-btn::after,body .product-card .product-btn::after{transition:none}}
+/* Cookie-Hinweis (cookie-consent.js, gilt auch für die App) auf diesen Seiten in CozyVibe-Farben */
+body #bra-cookie-banner .bra-accept{background:linear-gradient(135deg,#C46F12,#8A4A06)}
+body #bra-cookie-banner .bra-decline{border-color:#8F4E07;color:#2B211C}
+body #bra-cookie-banner p{color:#2B211C}
+body #bra-cookie-banner a{color:#8F4E07}

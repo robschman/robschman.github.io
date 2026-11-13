@@ -226,15 +226,18 @@
   .amz-knopf{font:inherit;font-weight:700;color:#fff;background:var(--gold-strong,#B07D2B);border:0;border-radius:999px;padding:3px 12px;margin:0 2px;cursor:pointer;}
   .amz-an .amz-knopf{opacity:.55;cursor:default;}
 </style>
+<link rel="stylesheet" href="/cozyvibe.css?v=2">
 </head>
 <body>
-<nav><div class="nav-inner">
-  <a href="/" class="nav-brand">
-    <img src="/cozyvibe-icon.png?v=2" alt="CozyVibe" class="nav-logo">
-    <span><span class="nav-name">CozyVibe</span><br><span class="nav-sub">Beauty</span></span>
-  </a>
-  <a href="/" class="nav-back">← zurück</a>
-</div></nav>
+<!-- cv-kopf · gebaut von CozyVibe/kopf/kopf.py – nicht von Hand ändern -->
+<div class="cv-kopf" role="banner">
+  <div class="cv-innen">
+    <a class="cv-marke" href="/" aria-label="CozyVibe – Startseite"><img src="/cozyvibe-icon.png?v=2" alt="" width="54" height="54"><span class="cv-name">CozyVibe<small>Beauty</small></span></a>
+    <div class="cv-reiter" role="navigation" aria-label="Bereiche"><a class="aktiv" aria-current="page" href="/cozy-picks.html">Cozy Picks</a><a class="cv-blau" href="/pflege/" rel="nofollow"><span class=cv-lang>Meine </span>Pflege-Linie</a><a href="/blog/">Beauty-Tipps</a></div>
+    <div class="cv-rechts"><a class="cv-knopf" href="/app.html"><span>Zur App</span><span class="cv-pfeil" aria-hidden="true">→</span></a></div>
+  </div>
+</div>
+<!-- /cv-kopf -->
 
 <div class="hero"><div class="wrap">
   <div class="eyebrow">Cozy Picks</div>
@@ -243,6 +246,54 @@
   <p class="ad-note">Werbung · Diese Seite enthält Affiliate‑Links. Als Amazon‑Partner verdiene ich an qualifizierten Verkäufen.</p>
   <p class="amz-hinweis"><strong>Produktbilder:</strong> Die Bilder kommen direkt von Amazon. Erst wenn du auf ein Bildfeld oder auf <button type="button" id="amz-an" class="amz-knopf">Produktbilder anzeigen</button> tippst, lädt dein Browser die Bilder dieser Seite von Amazon. Dabei erfährt Amazon deine IP-Adresse. Ohne Tippen wird nichts übertragen. <a href="cozy-picks/datenschutz.html#amazon-bilder">Mehr dazu im Datenschutz</a>.</p>
 </div></div>
+
+<!-- cv-beratung · gebaut von CozyVibe/beratung/beratung.py – nicht von Hand ändern -->
+<style id="cv-beratung-stil">
+.cv-beratung{position:relative;display:flex;align-items:center;gap:20px;max-width:1040px;margin:30px auto;padding:22px 26px;border-radius:26px;
+  color:#2B211C;border:2px solid transparent;box-sizing:border-box;
+  background:radial-gradient(120% 90% at 0% 0%,#FFF3DF,rgba(255,243,223,0) 60%) padding-box,linear-gradient(#fff,#FFFBF5) padding-box,
+    linear-gradient(115deg,#B5620A 0%,#E9B872 22%,#F7D9A6 40%,#FFF4DE 50%,#F7D9A6 60%,#E9B872 78%,#B5620A 100%) border-box;
+  background-size:100% 100%,100% 100%,320% 100%;box-shadow:0 18px 40px -24px rgba(143,78,7,.6),0 0 0 6px rgba(233,184,114,.12);
+  animation:cvb-rand 3.6s ease-in-out infinite alternate}
+@keyframes cvb-rand{from{background-position:0 0,0 0,0% 0}to{background-position:0 0,0 0,100% 0}}
+.cvb-symbol{flex-shrink:0;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px;
+  background:radial-gradient(circle at 50% 35%,#fff,#FCE9C2);box-shadow:0 0 0 3px #fff,0 0 0 4px #F1DDBE,0 0 24px 3px rgba(233,184,114,.65)}
+.cvb-text{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.cvb-oben{font-family:'Marcellus',Georgia,serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#8A4A06}
+.cv-beratung strong{font-family:'Dancing Script',cursive;font-weight:700;font-size:2rem;line-height:1.05;color:#2B211C}
+.cvb-satz{font-size:.98rem;line-height:1.5;color:#2B211C;text-wrap:pretty}
+.cv-beratung a.cvb-knopf{position:relative;overflow:hidden;flex-shrink:0;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-family:'Marcellus',Georgia,serif;text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700;line-height:1.2;color:#fff;
+  white-space:nowrap;background:linear-gradient(135deg,#C46F12,#8A4A06);border-radius:999px;padding:15px 24px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 10px 24px -8px rgba(181,98,10,.85);animation:cvb-leuchten 2.8s ease-in-out infinite}
+.cv-beratung a.cvb-knopf:hover{color:#fff;filter:brightness(1.07)}
+.cv-beratung a.cvb-knopf::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);
+  animation:cvb-glanz 3.8s ease-in-out infinite}
+.cvb-pfeil{transition:transform .2s ease}
+.cv-beratung a.cvb-knopf:hover .cvb-pfeil{transform:translateX(3px)}
+@keyframes cvb-leuchten{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 10px 24px -8px rgba(181,98,10,.85),0 0 0 0 rgba(233,184,114,0)}
+  50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 12px 28px -8px rgba(181,98,10,.9),0 0 26px 6px rgba(233,184,114,.6)}}
+@keyframes cvb-glanz{0%,55%{left:-60%}100%{left:135%}}
+@media (max-width:760px){
+  .cv-beratung{flex-direction:column;text-align:center;gap:12px;margin:22px 14px;padding:22px 18px 20px}
+  .cvb-text{align-items:center}
+  .cv-beratung strong{font-size:1.85rem}
+  .cv-beratung a.cvb-knopf{width:100%;justify-content:center;box-sizing:border-box}
+}
+@media (prefers-reduced-motion:reduce){.cv-beratung,.cv-beratung a.cvb-knopf,.cv-beratung a.cvb-knopf::before{animation:none}.cvb-pfeil{transition:none}}
+</style>
+<aside class="cv-beratung" aria-label="Kostenlose Beratung">
+  <span class="cvb-symbol" aria-hidden="true">💬</span>
+  <span class="cvb-text">
+    <span class="cvb-oben">Online · 30 oder 60 Minuten</span>
+    <strong>Kostenlose Beratung</strong>
+    <span class="cvb-satz">Wir sprechen online – über Zoom, WhatsApp oder FaceTime. Ich schau mir deine Routine mit dir an und beantworte deine Fragen zu Pflege- und Vital-Produkten. Kostenlos und unverbindlich: du musst nichts kaufen.</span>
+  </span>
+  <a class="cvb-knopf" href="https://termin.cozyvibe.at/?von=cozypicks" rel="nofollow"><span>Termin aussuchen</span><span class="cvb-pfeil" aria-hidden="true">→</span></a>
+</aside>
+<!-- /cv-beratung -->
 
 <div class="wrap">
 
