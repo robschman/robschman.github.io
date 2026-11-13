@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="de" data-phase="vorher">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Meine Pflege-Linie · CozyVibe</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/cozyvibe-favicon-32.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/cozyvibe-apple-touch.png?v=2">
+<link rel="stylesheet" href="/fonts/cozy/cozy-fonts.css">
+<script>
+(function(){var q=null;try{q=new URLSearchParams(location.search).get('zeit')}catch(e){}
+var s=Date.parse('2026-11-18T10:00:00+01:00'),z=Date.parse('2026-11-21T00:00:00+01:00'),n=Date.now();
+var p=(q==='vorher'||q==='waehrend'||q==='nachher')?q:(n<s?'vorher':(n<z?'waehrend':'nachher'));
+document.documentElement.setAttribute('data-phase',p);})();
+</script>
+<style>
+:root{--cream:#FBF6F0;--linie:#EBDDCD;--ink:#2B211C;--akzent:#8F4E07;--k1:#B5620A;--k2:#8A4A06;--navy:#0B214A;--navy2:#173F7E}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1200px 560px at 50% -160px,rgba(247,217,166,.55),rgba(247,217,166,0) 72%) no-repeat,var(--cream);color:var(--ink);font-family:'Mulish',-apple-system,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-wrap:pretty;hyphens:none}
+h1,h2,h3{text-wrap:balance}
+a{color:var(--ink)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.anzeige-leiste{background:var(--ink);color:#fff;text-align:center;font-size:13px;font-weight:700;letter-spacing:.04em;padding:7px 16px}
+.entwurf{background:#B3261E;color:#fff;font-weight:800;text-align:center;padding:12px 16px;font-size:15px;line-height:1.4}
+.zurueck{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:#fff;color:var(--ink);text-decoration:none;
+  font-weight:700;font-size:15px;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px}
+.hero{text-align:center;padding:30px 0 22px}
+.eyebrow{font-family:'Marcellus',serif;text-transform:uppercase;letter-spacing:.22em;font-size:13px;color:var(--akzent)}
+h1{font-family:'Dancing Script',cursive;font-weight:700;font-size:clamp(44px,9vw,64px);line-height:1.1;margin:6px 0 12px}
+.hero p{max-width:1060px;margin:0 auto;font-size:18px;text-wrap:pretty}
+/* Robert 10.11.2026: „fetter geschrieben, dass die wissen, okay, ich bin nur ein Weitergeber“ – blau wie „Meine Pflege-Linie“ */
+.hero .hero-wichtig{display:inline-block;margin-top:14px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;
+  font-weight:800;font-size:clamp(18px,2.6vw,22px);line-height:1.35;border-radius:18px;padding:12px 24px;
+  box-shadow:0 0 0 3px #fff,0 0 0 5px #6E9BF2,0 10px 30px -10px rgba(11,33,74,.55)}
+.hero .hero-wichtig span{white-space:nowrap}
+@media (max-width:560px){.hero .hero-wichtig span{white-space:normal}}
+/* Robert 10.11.2026: „Gedankenstrich mit ein bisschen Abstand“ – der Strich steht vorn im zweiten Teil, nie allein am Zeilenende */
+.hero .hero-wichtig .hw-anfang{white-space:nowrap}
+.hero .hero-wichtig .hw-strich{margin:0 .45em 0 .2em}
+/* Robert 10.11.2026: „alle Produkte mindestens 5 % günstiger über meine Links, schön hervorgehoben“ – Schalter rabatt_zeile, vorerst AUS */
+.hero .hero-rabatt{display:block;width:max-content;max-width:100%;margin:12px auto 0;background:linear-gradient(135deg,#C46F12,#8A4A06);color:#fff;
+  font-weight:800;font-size:clamp(16px,2.2vw,19px);line-height:1.35;border-radius:999px;padding:9px 22px;text-wrap:balance;
+  box-shadow:0 0 0 3px #fff,0 0 0 5px #E9B872,0 10px 26px -12px rgba(143,78,7,.7)}
+@media (max-width:560px){.hero .hero-rabatt{border-radius:18px}}
+/* Robert 10.11.2026: „Nu Skin überall fett und etwas größer als der andere Text“ (nu_hervorheben) */
+.nu{font-weight:800;font-size:1.08em;white-space:nowrap}
+h1 .nu,h2 .nu,h3 .nu,.eyebrow .nu,.knopf .nu,.anzeige-leiste .nu{font-size:inherit}
+.sprung{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.sprung a{background:#fff;border:1px solid var(--linie);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;text-decoration:none}
+.bf{display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch;background:linear-gradient(160deg,var(--navy),var(--navy2));
+  color:#fff;border-radius:24px;overflow:hidden;margin:6px 0 8px}
+.bf-text{padding:32px 30px;display:flex;flex-direction:column;justify-content:center}
+.bf .eyebrow{color:#FFFFFF}
+.bf h2{font-size:clamp(28px,4.6vw,42px);line-height:1.15;font-weight:800;margin:10px 0 12px}
+.bf p{font-size:18px;margin:0 0 10px}
+.bf .pille{display:inline-block;background:#fff;color:var(--navy);font-weight:800;font-size:22px;border-radius:999px;padding:6px 18px;margin-bottom:12px;align-self:flex-start;white-space:nowrap}
+.bf-bild img{display:block;width:100%;height:100%;object-fit:cover;min-height:280px}
+section{padding:28px 0}
+.titel{font-family:'Dancing Script',cursive;font-weight:700;font-size:clamp(34px,6.5vw,46px);line-height:1.15;margin:0 0 6px}
+.unter{margin:0 0 18px;max-width:none;text-wrap:pretty}
+.unter .z{display:block}
+/* Karten: 1 / 2 / 4 nebeneinander; 7 Zeilen je Karte laufen per Subgrid quer durch die Reihe */
+.grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:600px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:980px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.karte{display:grid;grid-template-rows:subgrid;grid-row:span 7;row-gap:0;background:#fff;border:1px solid var(--linie);
+  border-radius:20px;overflow:hidden;box-shadow:0 6px 18px -10px rgba(64,38,24,.25)}
+.karte-bild{position:relative;aspect-ratio:4/5;background:var(--navy)}
+.karte-bild img{display:block;width:100%;height:100%;object-fit:cover}
+.rabatt{position:absolute;top:12px;left:12px;background:#fff;color:var(--navy);font-weight:800;font-size:17px;border-radius:999px;padding:4px 12px;white-space:nowrap}
+.k-ohne{min-height:96px;display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--akzent);
+  background:radial-gradient(120% 120% at 50% 20%,#FEF5E0,#FCE9C2)}
+.k-kopf{padding:14px 16px 0}
+.art{font-family:'Marcellus',serif;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--akzent)}
+.karte h3{font-size:19px;line-height:1.25;font-weight:800;margin:4px 0 0}
+.k-kurz{padding:8px 16px 0}
+.kurz{font-size:16px;line-height:1.45;font-weight:600}
+.kern{font-size:15px;line-height:1.45;margin-top:6px}
+.k-chips{list-style:none;display:flex;flex-wrap:wrap;align-content:flex-start;gap:6px;padding:10px 16px 0}
+.k-chips li{background:#FEF5E0;border:1px solid #F0DBB0;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700;line-height:1.5}
+.k-chips:empty{padding:0}
+.abschnitt-nem{max-width:760px;margin:-6px 0 18px}
+.k-mehr{padding:6px 16px 0}
+.mehr{appearance:none;-webkit-appearance:none;background:none;border:0;font:inherit;font-size:15px;font-weight:800;color:var(--akzent);
+  cursor:pointer;padding:6px 0;display:inline-flex;align-items:center;gap:6px;text-decoration:underline;text-underline-offset:3px}
+.mehr .auf,.offen .mehr .zu{display:none}
+.offen .mehr .auf{display:inline}
+.pfeil{display:inline-block;transition:transform .25s;text-decoration:none}
+.offen .pfeil{transform:rotate(180deg)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.offen .panel{grid-template-rows:1fr}
+.panel-innen{overflow:hidden;visibility:hidden;transition:visibility 0s linear .3s}
+.offen .panel-innen{visibility:visible;transition-delay:0s}
+.panel-innen>:first-child{margin-top:6px}
+.k-preis{padding:12px 16px 0;display:flex;flex-direction:column;justify-content:flex-end}
+.k-preis>div{display:flex;flex-direction:column}
+.k-knopf{padding:12px 16px 18px}
+@supports not (grid-template-rows:subgrid){
+  .karte{display:flex;flex-direction:column}.k-preis{margin-top:auto}
+}
+@media (prefers-reduced-motion:reduce){.panel,.panel-innen,.pfeil{transition:none}}
+.tipp{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 18px;background:#fff;border:1px solid var(--linie);
+  border-left:6px solid var(--akzent);border-radius:18px;padding:18px 20px;margin:8px 0 0}
+.tipp p{margin:0;max-width:640px}
+.tipp a{white-space:nowrap;font-weight:800;color:var(--akzent)}
+.laut{font-size:14px;font-weight:700;margin:0 0 4px}
+.aussagen{list-style:none;margin:0 0 14px}
+.aussagen li{position:relative;padding-left:20px;margin:0 0 6px;font-size:16px;line-height:1.45}
+.aussagen li::before{content:'✦';position:absolute;left:0;top:2px;font-size:12px;color:var(--akzent)}
+.beschreibung{font-size:16px;margin:0 0 10px}
+.nem{border-left:4px solid var(--akzent);padding:4px 0 4px 12px;font-size:14px;line-height:1.5;margin:0 0 14px}
+.preis-gross{font-size:28px;font-weight:800;line-height:1.15;white-space:nowrap}
+.preis-statt{font-size:16px;white-space:nowrap;margin-top:2px}
+.preis-info{font-size:13px;line-height:1.4;margin-top:2px}
+.knopf{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:16px;color:#fff;border-radius:999px;padding:13px 16px;
+  background:linear-gradient(135deg,var(--k1),var(--k2));box-shadow:0 6px 16px -8px rgba(138,74,6,.6)}
+.knopf-dm{background:#fff;color:var(--ink);border:2px solid var(--ink);box-shadow:none}
+.knopf-hinweis{font-size:14px;text-align:center;margin:8px 0 0;line-height:1.4}
+.preis-fuss{font-size:14px;margin-top:16px}
+.kasten{background:#fff;border:1px solid var(--linie);border-radius:20px;padding:24px 22px}
+.kasten ul{margin:12px 0 0 0;list-style:none}
+.kasten ul li{position:relative;padding-left:22px;margin:0 0 10px}
+.kasten ul li::before{content:'✦';position:absolute;left:0;top:3px;font-size:13px;color:var(--akzent)}
+.vorteile{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0 10px}
+.vorteile div{position:relative;overflow:hidden;background:linear-gradient(170deg,#fff 0%,#FEF5E0 55%,#FCE9C2 100%);border:1px solid #F0D3A0;
+  border-radius:20px;padding:20px 14px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  box-shadow:0 14px 30px -20px rgba(181,98,10,.55),inset 0 1px 0 #fff}
+.vorteile div::before{content:"✦";position:absolute;top:10px;right:14px;font-size:14px;color:#E9B872}
+.vorteile .v-zahl{font-size:34px;font-weight:800;line-height:1.1;color:var(--akzent);white-space:nowrap;margin-bottom:6px;
+  text-shadow:0 0 18px rgba(233,184,114,.65)}
+.vorteile b{font-size:16px;line-height:1.3}
+.vorteile div>span:last-child{font-size:15px;line-height:1.35}
+.blog{font-size:15px;line-height:1.5;margin:0 0 10px}
+.ich{font-size:15px;margin:0 0 12px}
+.karte-bild.hell{background:#fff;border-bottom:1px solid var(--linie)}
+.karte-bild.hell img{object-fit:contain;padding:14px}
+.klein{font-size:14px;margin-top:12px}
+.nw{white-space:nowrap}
+.schritte{list-style:none;counter-reset:s;margin:14px 0 0}
+.bestellen-satz{margin:10px 0 0;font-weight:600;text-wrap:balance}
+.konto-link{display:inline-block;margin-top:6px;font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:3px}
+.schritte li{counter-increment:s;position:relative;padding:0 0 14px 50px;min-height:38px}
+.schritte li::before{content:counter(s);position:absolute;left:0;top:-2px;width:36px;height:36px;border-radius:50%;
+  background:var(--ink);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+/* „So bestellst du“ leuchtet und glitzert (Robert 09.11.2026): goldener Rand, der schimmert, pulsierender Schein, Funkeln */
+.kasten-glanz{position:relative;border:2px solid transparent;
+  background:linear-gradient(105deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.75) 50%,rgba(255,255,255,0) 58%) padding-box,
+    linear-gradient(170deg,#fff 0%,#FFF8EC 60%,#FCEBCB 100%) padding-box,
+    linear-gradient(115deg,#E9B872 0%,#FFF1D2 18%,#C9822A 36%,#FFF1D2 54%,#E9B872 72%,#C9822A 100%) border-box;
+  background-repeat:no-repeat;background-size:300% 100%,100% 100%,300% 100%;box-shadow:0 16px 36px -22px rgba(181,98,10,.6);animation:glanz-rand 4.5s ease-in-out infinite alternate,glanz-leuchten 3.2s ease-in-out infinite}
+.kasten-glanz::before,.kasten-glanz::after{position:absolute;pointer-events:none;color:#E9B872;line-height:1;
+  text-shadow:0 0 12px rgba(233,184,114,1),0 0 2px #fff;animation:glanz-funkeln 2.6s ease-in-out infinite}
+.kasten-glanz::before{content:"✦";top:14px;right:18px;font-size:22px}
+.kasten-glanz::after{content:"✧";top:42px;right:40px;font-size:14px;animation-delay:1.3s}
+.kasten-glanz .titel{text-shadow:0 0 22px rgba(233,184,114,.75)}
+.kasten-glanz .schritte li::before{background:linear-gradient(135deg,#C46F12,var(--k2));
+  box-shadow:0 0 0 3px #fff,0 0 0 4px #EFCB8E,0 0 16px 2px rgba(233,184,114,.8)}
+@keyframes glanz-rand{from{background-position:100% 0,0 0,0% 0}to{background-position:0% 0,0 0,100% 0}}
+@keyframes glanz-leuchten{0%,100%{box-shadow:0 16px 36px -22px rgba(181,98,10,.6),0 0 0 0 rgba(233,184,114,0)}
+  50%{box-shadow:0 18px 40px -20px rgba(181,98,10,.7),0 0 34px 4px rgba(233,184,114,.55)}}
+@keyframes glanz-funkeln{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(18deg)}}
+/* Morgen- und Abendroutine */
+.routine{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.r-spalte{position:relative;border:1px solid var(--linie);border-radius:24px;padding:22px 22px 10px;
+  box-shadow:0 14px 34px -22px rgba(143,78,7,.5),0 2px 8px -4px rgba(64,38,24,.12)}
+.r-morgen{background:linear-gradient(90deg,rgba(233,184,114,0),#E9B872 28%,#F7D9A6 50%,#E9B872 72%,rgba(233,184,114,0)) top/100% 3px no-repeat,
+  radial-gradient(120% 70% at 85% 0%,#FFF1D6,rgba(255,241,214,0) 60%),#fff}
+.r-abend{background:linear-gradient(90deg,rgba(79,134,240,0),#4F86F0 28%,#D6E6FF 50%,#4F86F0 72%,rgba(79,134,240,0)) top/100% 3px no-repeat,
+  radial-gradient(120% 70% at 85% 0%,#E8EFFC,rgba(232,239,252,0) 60%),#fff}
+.r-spalte h3{font-family:'Marcellus',serif;text-transform:uppercase;letter-spacing:.16em;font-size:15px;margin:0 0 14px}
+.r-spalte h3 span{font-size:20px;margin-right:4px}
+.r-morgen h3 span{color:#C9822A;text-shadow:0 0 12px rgba(233,184,114,.9)}
+.r-abend h3 span{color:var(--navy2);text-shadow:0 0 12px rgba(79,134,240,.6)}
+.r-spalte ol{list-style:none;counter-reset:r;margin:0}
+.r-spalte li{counter-increment:r;position:relative;padding:0 0 16px 48px;min-height:40px;display:flex;flex-direction:column;gap:1px}
+.r-spalte li::before{content:counter(r);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+.r-morgen li::before{background:linear-gradient(135deg,#C46F12,var(--k2));box-shadow:0 0 0 3px #fff,0 0 0 4px #EFCB8E,0 0 14px 1px rgba(233,184,114,.7)}
+.r-abend li::before{background:linear-gradient(135deg,var(--navy),var(--navy2));box-shadow:0 0 0 3px #fff,0 0 0 4px #BFD3F7,0 0 14px 1px rgba(79,134,240,.45)}
+.r-schritt{font-family:'Marcellus',serif;text-transform:uppercase;letter-spacing:.1em;font-size:12px;font-weight:600}
+.r-name{font-weight:800;font-size:17px;line-height:1.3;color:var(--ink);text-decoration:underline;text-decoration-color:#E9B872;
+  text-decoration-thickness:2px;text-underline-offset:3px}
+.r-abend .r-name{text-decoration-color:#9DBBF3}
+.r-text{font-size:15px;line-height:1.45}
+@media (max-width:760px){.routine{grid-template-columns:1fr}.r-spalte{padding:20px 18px 8px}}
+/* Kontakt-Knöpfe: Instagram, Facebook, E-Mail */
+.kontakt{display:grid;gap:10px;margin-top:16px}
+.kontakt-knopf{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:800;font-size:16px;
+  color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:11px 16px;
+  transition:transform .15s ease,box-shadow .15s ease}
+.kontakt-knopf:hover{transform:translateY(-2px)}
+.kontakt-knopf.k-ig{border-color:#C13584}.kontakt-knopf.k-ig svg{color:#C13584}
+.kontakt-knopf.k-ig:hover{box-shadow:0 0 0 3px rgba(193,53,132,.18),0 10px 22px -10px rgba(193,53,132,.6)}
+.kontakt-knopf.k-fb{border-color:#1877F2}.kontakt-knopf.k-fb svg{color:#1877F2}
+.kontakt-knopf.k-fb:hover{box-shadow:0 0 0 3px rgba(24,119,242,.18),0 10px 22px -10px rgba(24,119,242,.6)}
+.kontakt-knopf.k-mail{border-color:var(--akzent)}.kontakt-knopf.k-mail svg{color:var(--akzent)}
+.kontakt-knopf.k-mail:hover{box-shadow:0 0 0 3px rgba(233,184,114,.3),0 10px 22px -10px rgba(181,98,10,.6)}
+@media (prefers-reduced-motion:reduce){.kasten-glanz,.kasten-glanz::before,.kasten-glanz::after{animation:none}.kontakt-knopf{transition:none}}
+/* Kasten „Kostenlose Beratung“ (CozyVibe/beratung) hier so breit wie die zwei Kästen darüber */
+#bestellen .cv-beratung{max-width:none;margin:22px 0 0}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pflicht{border-top:1px solid var(--linie);padding:22px 0 8px;font-size:14px;line-height:1.6}
+.pflicht p{margin:0 0 10px}
+footer{background:#F0E4D7;border-top:1px solid var(--linie);padding:34px 0 0;text-align:center}
+.fuss-marke{font-family:'Dancing Script',cursive;font-weight:700;font-size:30px}
+.fuss-links{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;margin:12px 16px 0;font-family:'Marcellus',serif;
+  text-transform:uppercase;letter-spacing:.14em;font-size:12px}
+.fuss-links a{color:var(--ink);text-decoration:none}
+.fuss-ki{font-size:13px;margin:12px 16px 0}
+html[data-phase="vorher"] .ph-waehrend,html[data-phase="vorher"] .ph-nachher,
+html[data-phase="waehrend"] .ph-vorher,html[data-phase="waehrend"] .ph-nachher,
+html[data-phase="nachher"] .ph-vorher,html[data-phase="nachher"] .ph-waehrend,html[data-phase="nachher"] .ph-bf{display:none!important}
+html[data-phase="waehrend"] .ph-nicht-waehrend{display:none!important}
+.ab-vor[hidden],.ab-nach[hidden]{display:none!important}
+@media (max-width:760px){
+  .bf{grid-template-columns:1fr}.bf-bild{order:-1}.bf-bild img{min-height:0;aspect-ratio:16/11;object-position:center 40%}
+  .bf-text{padding:24px 20px}.zwei{grid-template-columns:1fr}.kasten{padding:20px 18px}
+  .vorteile{grid-template-columns:1fr}
+}
+
+/* ===== CozyVibe-Kopf (CozyVibe/kopf/kopf.py) ===== */
+.cv-kopf{position:sticky;top:0;z-index:400;background:rgba(251,246,240,.9);-webkit-backdrop-filter:blur(16px) saturate(1.25);
+  backdrop-filter:blur(16px) saturate(1.25);border-bottom:1px solid #EBDDCD;box-shadow:0 12px 30px -24px rgba(143,78,7,.55)}
+.cv-kopf::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(233,184,114,0),#E9B872 25%,#F7D9A6 50%,#E9B872 75%,rgba(233,184,114,0))}
+.cv-innen{max-width:1180px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:22px}
+.cv-kopf a{text-decoration:none}
+.cv-marke{display:flex;align-items:center;gap:12px;color:#2B211C;flex-shrink:0}
+.cv-kopf .cv-marke:hover{color:#2B211C}
+.cv-marke img{width:54px;height:54px;border-radius:50%;display:block;box-shadow:0 0 0 3px #fff,0 0 22px 3px rgba(233,184,114,.7)}
+.cv-name{display:flex;flex-direction:column;font-family:'Dancing Script',cursive;font-weight:700;font-size:32px;line-height:1;color:#2B211C}
+.cv-name small{font-family:'Marcellus',serif;font-weight:400;font-size:10px;letter-spacing:.34em;text-transform:uppercase;margin-top:5px;color:#2B211C}
+.cv-reiter{display:flex;gap:8px;flex-wrap:nowrap}
+.cv-reiter a{font-family:'Marcellus',serif;text-transform:uppercase;letter-spacing:.07em;font-size:12.5px;font-weight:600;line-height:1.2;
+  color:#2B211C;background:#fff;border:1.5px solid #2B211C;border-radius:999px;padding:8px 15px;white-space:nowrap;
+  transition:transform .15s ease,box-shadow .15s ease}
+.cv-kopf .cv-reiter a:hover{color:#2B211C;transform:translateY(-1px);box-shadow:0 0 0 3px rgba(233,184,114,.35),0 8px 18px -10px rgba(143,78,7,.6)}
+.cv-kopf .cv-reiter a.aktiv,.cv-kopf .cv-reiter a.aktiv:hover{background:linear-gradient(135deg,#2B211C,#4A3426);color:#fff;
+  box-shadow:0 0 0 3px rgba(233,184,114,.45),0 8px 20px -10px rgba(43,33,28,.7)}
+/* „Meine Pflege-Linie“: blauer Rahmen wie auf der Pflege-Seite, der schimmert (Robert, 09.11.2026) */
+.cv-kopf .cv-reiter a.cv-blau{position:relative;overflow:hidden;color:#0B214A;border:2px solid transparent;
+  background:linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(115deg,#0B214A 0%,#173F7E 24%,#4F86F0 42%,#D6E6FF 50%,#4F86F0 58%,#173F7E 76%,#0B214A 100%) border-box;
+  background-size:100% 100%,320% 100%;box-shadow:0 0 16px -4px rgba(47,95,184,.6);
+  animation:cv-blau 3.4s ease-in-out infinite alternate}
+.cv-kopf .cv-reiter a.cv-blau::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(79,134,240,0),rgba(79,134,240,.2),rgba(79,134,240,0));transform:skewX(-20deg);
+  animation:cv-glanz 4.6s ease-in-out infinite}
+.cv-kopf .cv-reiter a.cv-blau:hover{color:#0B214A;box-shadow:0 0 0 3px rgba(79,134,240,.28),0 8px 22px -8px rgba(23,63,126,.65)}
+.cv-kopf .cv-reiter a.cv-blau.aktiv,.cv-kopf .cv-reiter a.cv-blau.aktiv:hover{color:#fff;
+  background:linear-gradient(135deg,#0B214A,#173F7E) padding-box,
+    linear-gradient(115deg,#4F86F0 0%,#D6E6FF 25%,#4F86F0 50%,#D6E6FF 75%,#4F86F0 100%) border-box;
+  background-size:100% 100%,320% 100%;box-shadow:0 0 0 3px rgba(79,134,240,.3),0 0 24px -2px rgba(59,111,216,.75)}
+.cv-kopf .cv-reiter a.cv-blau.aktiv::after{background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.4),rgba(255,255,255,0))}
+@keyframes cv-blau{from{background-position:0 0,0% 0}to{background-position:0 0,100% 0}}
+.cv-rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
+.cv-knopf{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:7px;font-family:'Marcellus',serif;
+  text-transform:uppercase;letter-spacing:.12em;font-size:12.5px;font-weight:700;line-height:1.2;color:#fff;white-space:nowrap;
+  background:linear-gradient(135deg,#C46F12,#8A4A06);border-radius:999px;padding:12px 20px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 8px 22px -8px rgba(181,98,10,.8);animation:cv-leuchten 2.8s ease-in-out infinite}
+.cv-kopf .cv-knopf:hover{color:#fff;filter:brightness(1.07)}
+.cv-knopf::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);
+  animation:cv-glanz 3.8s ease-in-out infinite}
+.cv-pfeil{transition:transform .2s ease}
+.cv-knopf:hover .cv-pfeil{transform:translateX(3px)}
+@keyframes cv-leuchten{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 8px 22px -8px rgba(181,98,10,.8),0 0 0 0 rgba(233,184,114,0)}
+  50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 10px 26px -8px rgba(181,98,10,.9),0 0 24px 5px rgba(233,184,114,.6)}}
+@keyframes cv-glanz{0%,55%{left:-60%}100%{left:135%}}
+.cv-rund{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;
+  border:1.5px solid #2B211C;color:#2B211C}
+.cv-kopf .cv-rund:hover{color:#E60023;border-color:#E60023}
+/* Sprach-Schalter (Blog, FAQ, Über uns) sitzt im Kopf statt frei schwebend */
+.cv-kopf .lang-switch{position:static;top:auto;right:auto;box-shadow:none;background:#fff;border:1.5px solid #EBDDCD;padding:3px;z-index:auto}
+.cv-kopf .lang-switch button{color:#2B211C}
+.cv-kopf .lang-switch button.active{background:#2B211C;color:#fff!important}
+html{scroll-padding-top:96px}
+@media (prefers-reduced-motion:reduce){.cv-knopf,.cv-knopf::before,.cv-kopf .cv-reiter a.cv-blau,.cv-kopf .cv-reiter a.cv-blau::after{animation:none}
+  .cv-reiter a,.cv-pfeil{transition:none}}
+/* Tablet und Handy: Reiter-Pillen in die zweite Zeile, Kopf bleibt fixiert */
+@media (max-width:920px){
+  .cv-innen{flex-wrap:wrap;row-gap:9px;padding:9px 16px 11px}
+  .cv-reiter{order:3;width:100%}
+  html{scroll-padding-top:128px}
+}
+@media (max-width:520px){
+  .cv-innen{gap:10px}
+  .cv-marke{gap:9px}
+  .cv-marke img{width:42px;height:42px;box-shadow:0 0 0 2px #fff,0 0 16px 2px rgba(233,184,114,.7)}
+  .cv-name{font-size:26px}
+  .cv-name small{font-size:8.5px;letter-spacing:.3em;margin-top:3px}
+  .cv-reiter{gap:6px;justify-content:space-between}
+  .cv-reiter a{font-size:11px;letter-spacing:.04em;padding:7px 10px}
+  .cv-reiter .cv-lang{display:none}
+  .cv-knopf{font-size:11px;letter-spacing:.08em;padding:10px 14px}
+  .cv-rund{width:36px;height:36px}
+  .cv-rechts{gap:7px}
+  .cv-rechts:has(.lang-switch) .cv-knopf{display:none}
+  .cv-kopf .lang-switch button{padding:5px 8px}
+  html{scroll-padding-top:118px}
+}
+</style>
+<noscript><style>.panel{grid-template-rows:1fr}.panel-innen{visibility:visible}.mehr{display:none}</style></noscript>
+</head>
+<body>
+<div class="anzeige-leiste">Anzeige · Affiliate-Links zu <b class="nu">Nu Skin</b></div>
+
+<!-- cv-kopf · gebaut von CozyVibe/kopf/kopf.py – nicht von Hand ändern -->
+<div class="cv-kopf" role="banner">
+  <div class="cv-innen">
+    <a class="cv-marke" href="/" aria-label="CozyVibe – Startseite"><img src="/cozyvibe-icon.png?v=2" alt="" width="54" height="54"><span class="cv-name">CozyVibe<small>Beauty</small></span></a>
+    <div class="cv-reiter" role="navigation" aria-label="Bereiche"><a href="/cozy-picks.html">Cozy Picks</a><a class="cv-blau aktiv" aria-current="page" href="/pflege/" rel="nofollow"><span class=cv-lang>Meine </span>Pflege-Linie</a><a href="/blog/">Beauty-Tipps</a></div>
+    <div class="cv-rechts"><a class="cv-knopf" href="#bestellen"><span>So bestellst du</span><span class="cv-pfeil" aria-hidden="true">→</span></a></div>
+  </div>
+</div>
+<!-- /cv-kopf -->
+<main class="wrap">
+  <a class="zurueck" href="/"><span aria-hidden="true">←</span>&nbsp; Zurück zur Startseite</a>
+  <header class="hero">
+    <p class="eyebrow">Meine Pflege-Linie</p>
+    <h1>Pflege, die ich mag</h1>
+    <p class="hero-zeile">Hier findest du die Pflege von <b class="nu">Nu&nbsp;Skin</b>, die ich dir empfehle. Tipp auf <span class="nw">„Zu <b class="nu">Nu Skin</b>“</span>, dort siehst du den aktuellen Preis.</p>
+    <p class="hero-wichtig"><span>Du bestellst direkt bei <b class="nu">Nu&nbsp;Skin</b></span> <span><span class="hw-anfang"><span class="hw-strich">–</span><b class="nu">Nu&nbsp;Skin</b></span> liefert zu dir nach Hause.</span></p>
+    
+    <div class="sprung"><a href="#favoriten" class="ph-bf">Black Friday</a><a href="#ganzjahr">Das ganze Jahr dabei</a><a href="#herbst">Im Herbst gefragt</a><a href="#routine">Morgen &amp; Abend</a><a href="#vital">Vital-Produkte</a><a href="#spar-abo">Spar-Abo</a><a href="#bestellen">So bestellst du</a></div>
+  </header>
+  
+<section id="black-friday" style="padding-top:8px">
+  <div class="bf">
+    <div class="bf-text">
+      <p class="eyebrow">Black Friday bei <b class="nu">Nu Skin</b></p>
+      <h2 class="ph-vorher">Ab Mittwoch, 18.11., um 10 Uhr</h2>
+      <h2 class="ph-waehrend">Jetzt: bis Freitag, 20.11.</h2>
+      <span class="pille ph-bf">−30 % auf 8 Favoriten</span>
+      <p class="ph-vorher">Drei Tage lang gibt es ausgewählte Pflege günstiger, nur solange der Vorrat reicht. Such dir deine Favoriten schon jetzt aus.</p>
+      <p class="ph-waehrend">Die Black-Friday-Preise gelten bis Freitag, 20.11., nur solange der Vorrat reicht.</p>
+    </div>
+    <div class="bf-bild"><img src="bilder/bild-00.jpg" alt="" width="720" height="900"></div>
+  </div>
+</section>
+<section id="favoriten">
+  <div class="wrap-innen">
+    <h2 class="titel ph-bf">Die Black-Friday-Favoriten</h2>
+    <h2 class="titel ph-nachher">Meine Pflege-Favoriten</h2>
+    <p class="unter ph-bf"><span class="z">Gerät, Gesichtspflege, Wimpern-Serum und Kapseln: Diese acht Produkte gibt es vom <span class="nw">18. bis 20.11.</span> um −30 % günstiger.</span></p>
+    <div class="grid"><article class="karte" id="p-ageloc-galvanic-spa"><div class="karte-bild"><img src="bilder/bild-01.jpg" alt="" width="720" height="900" loading="lazy"><span class="rabatt ph-bf">−30 %</span></div><div class="k-kopf"><p class="art">Gerät</p><h3>ageLOC Galvanic Spa</h3></div><div class="k-kurz"><p class="kurz">Ein kleines Pflege-Gerät für zu Hause.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Mildert die Ausprägung feiner Linien und Falten.</p></div><ul class="k-chips"><li>2- bis 3-mal pro Woche</li><li>mit den Facial Gels</li><li>Gesicht, Körper, Kopfhaut</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-galvanic-spa"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-galvanic-spa"><div class="panel-innen"><p class="blog">Ein kleines Pflege-Gerät für zu Hause. Fürs Gesicht verwendest du es 2- bis 3-mal pro Woche zusammen mit den Facial Gels. Im Set sind auch Aufsätze für die Partie um Augen und Mund, für den Körper und für die Kopfhaut.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Mildert die Ausprägung feiner Linien und Falten.</li></ul></div></div></div><div class="k-preis"><div class="ph-bf"><span class="preis-gross">343,49 €</span><span class="preis-statt">statt <s>490,70 €</s></span><span class="preis-info">Black-Friday-Preis 18. bis 20.11., inkl. MwSt.</span></div></div><div class="k-knopf"><div class="ph-bf"><a class="knopf" href="https://nskn.co/GoIC0Z" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div><div class="ph-nachher"><a class="knopf" href="https://nskn.co/KO08gz" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></div></article><article class="karte" id="p-ageloc-galvanic-spa-face-gels"><div class="karte-bild"><img src="bilder/bild-02.jpg" alt="" width="720" height="900" loading="lazy"><span class="rabatt ph-bf">−30 %</span></div><div class="k-kopf"><p class="art">Serum und Wirkstoffe</p><h3>ageLOC Galvanic Spa Facial Gels</h3></div><div class="k-kurz"><p class="kurz">Die passenden Gels zum Galvanic Spa.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Entfernt Unreinheiten.</p></div><ul class="k-chips"><li>Pre-Treat + Treatment Gel</li><li>für das Gerät</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-galvanic-spa-face-gels"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-galvanic-spa-face-gels"><div class="panel-innen"><p class="blog">Die passenden Gels zum Galvanic Spa: zuerst das Pre-Treat Gel, danach das Treatment Gel. Gedacht sind sie für die Anwendung mit dem Gerät.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Entfernt Unreinheiten.</li></ul></div></div></div><div class="k-preis"><div class="ph-bf"><span class="preis-gross">50,70 €</span><span class="preis-statt">statt <s>72,43 €</s></span><span class="preis-info">Black-Friday-Preis 18. bis 20.11., inkl. MwSt.</span></div></div><div class="k-knopf"><div class="ph-bf"><a class="knopf" href="https://nskn.co/GoIC0Z" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div><div class="ph-nachher"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div></div></article><article class="karte" id="p-ageloc-truface-line-corrector"><div class="karte-bild"><img src="bilder/bild-03.jpg" alt="" width="720" height="900" loading="lazy"><span class="rabatt ph-bf">−30 %</span></div><div class="k-kopf"><p class="art">Serum und Wirkstoffe</p><h3>ageLOC Tru Face Line Corrector</h3></div><div class="k-kurz"><p class="kurz">Serum für gezielte Pflege, morgens und abends.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Hilft, das Erscheinungsbild von feinen Linien und Fältchen, insbesondere um den Mund und die Augen, zu reduzieren und zu glätten.</p></div><ul class="k-chips"><li>Augen, Mund, Stirn</li><li>nach der Reinigung</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-truface-line-corrector"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-truface-line-corrector"><div class="panel-innen"><p class="blog">Ein Serum für die feinen Linien um Augen, Mund und Stirn. Du trägst es morgens und abends nach der Reinigung gezielt auf diese Stellen auf. Am Galvanic Spa gibt es dafür einen eigenen Aufsatz.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Hilft, das Erscheinungsbild von feinen Linien und Fältchen, insbesondere um den Mund und die Augen, zu reduzieren und zu glätten.</li></ul></div></div></div><div class="k-preis"><div class="ph-bf"><span class="preis-gross">53,03 €</span><span class="preis-statt">statt <s>75,76 €</s></span><span class="preis-info">Black-Friday-Preis 18. bis 20.11., inkl. MwSt.</span></div></div><div class="k-knopf"><div class="ph-bf"><a class="knopf" href="https://nskn.co/GoIC0Z" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div><div class="ph-nachher"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div></div></article><article class="karte" id="p-ageloc-truface-radiant-day"><div class="karte-bild"><img src="bilder/bild-04.jpg" alt="" width="720" height="900" loading="lazy"><span class="rabatt ph-bf">−30 %</span></div><div class="k-kopf"><p class="art">Tagespflege mit LSF</p><h3>ageLOC Tru Face Radiant Day</h3></div><div class="k-kurz"><p class="kurz">Tagespflege mit Lichtschutzfaktor 22.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Verleiht der Haut ein vitales und strahlenderes Aussehen.</p></div><ul class="k-chips"><li>morgens</li><li>letzter Pflegeschritt</li><li>LSF 22</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-truface-radiant-day"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-truface-radiant-day"><div class="panel-innen"><p class="blog">Die Tagespflege mit Lichtschutzfaktor 22 ist morgens der letzte Schritt deiner Pflege. Sonnenschutz gehört auch im Herbst und Winter in den Alltag, und hier ist er schon drin.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Verleiht der Haut ein vitales und strahlenderes Aussehen.</li></ul></div></div></div><div class="k-preis"><div class="ph-bf"><span class="preis-gross">57,96 €</span><span class="preis-statt">statt <s>82,80 €</s></span><span class="preis-info">Black-Friday-Preis 18. bis 20.11., inkl. MwSt.</span></div></div><div class="k-knopf"><div class="ph-bf"><a class="knopf" href="https://nskn.co/GoIC0Z" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div><div class="ph-nachher"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div></div></article><article class="karte" id="p-ageloc-truface-essence-ultra"><div class="karte-bild"><img src="bilder/bild-05.jpg" alt="" width="720" height="900" loading="lazy"><span class="rabatt ph-bf">−30 %</span></div><div class="k-kopf"><p class="art">Serum und Wirkstoffe</p><h3>ageLOC Tru Face Essence Ultra</h3></div><div class="k-kurz"><p class="kurz">Serum in Einzelkapseln für Augen, Hals und Kinn.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Definiert die Haut um die Augen, den Hals, das Kinn, den Mund und die Kieferpartie für ein konturiertes und geformtes Aussehen.</p></div><ul class="k-chips"><li>1 Kapsel je Anwendung</li><li>morgens + abends</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-truface-essence-ultra"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-truface-essence-ultra"><div class="panel-innen"><p class="blog">Ein Serum in Einzelkapseln für die Haut um Augen, Hals, Kinn, Mund und Kieferpartie. Du verwendest es morgens und abends vor der Feuchtigkeitspflege, eine Kapsel reicht für eine Anwendung.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Definiert die Haut um die Augen, den Hals, das Kinn, den Mund und die Kieferpartie für ein konturiertes und geformtes Aussehen.</li></ul></div></div></div><div class="k-preis"><div class="ph-bf"><span class="preis-gross">136,21 €</span><span class="preis-statt">statt <s>194,58 €</s></span><span class="preis-info">Black-Friday-Preis 18. bis 20.11., inkl. MwSt.</span></div></div><div class="k-knopf"><div class="ph-bf"><a class="knopf" href="https://nskn.co/GoIC0Z" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div><div class="ph-nachher"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div></div></article><article class="karte" id="p-nutricentials-pumps-vitaminc-collagen"><div class="karte-bild"><img src="bilder/bild-06.jpg" alt="" width="720" height="900" loading="lazy"><span class="rabatt ph-bf">−30 %</span></div><div class="k-kopf"><p class="art">Serum und Wirkstoffe</p><h3>Nutricentials Vitamin C + Collagen Pump</h3></div><div class="k-kurz"><p class="kurz">Tropfen mit Vitamin C für mehr Glow.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Hilft, deine Haut sichtbar zum Strahlen zu bringen.</p></div><ul class="k-chips"><li>2 bis 3 Tropfen</li><li>morgens + abends</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-nutricentials-pumps-vitaminc-collagen"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-nutricentials-pumps-vitaminc-collagen"><div class="panel-innen"><p class="blog">Tropfen mit Vitamin C und kollagenen Aminosäuren für mehr Glow. Vitamin C gehört auch 2026 zu den Klassikern der Hautpflege. Du gibst morgens und abends 2 bis 3 Tropfen nach Reinigung und Toner auf.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Hilft, deine Haut sichtbar zum Strahlen zu bringen.</li><li>Hilft, das Erscheinungsbild feiner Linien zu mindern.</li></ul></div></div></div><div class="k-preis"><div class="ph-bf"><span class="preis-gross">39,79 €</span><span class="preis-statt">statt <s>56,84 €</s></span><span class="preis-info">Black-Friday-Preis 18. bis 20.11., inkl. MwSt.</span></div></div><div class="k-knopf"><div class="ph-bf"><a class="knopf" href="https://nskn.co/GoIC0Z" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div><div class="ph-nachher"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div></div></article><article class="karte" id="p-nu-colour-lash-brow-serum"><div class="karte-bild"><img src="bilder/bild-07.jpg" alt="" width="720" height="900" loading="lazy"><span class="rabatt ph-bf">−30 %</span></div><div class="k-kopf"><p class="art">Make-up</p><h3>Nu Colour Lash + Brow Serum</h3></div><div class="k-kurz"><p class="kurz">Serum für Wimpern und Augenbrauen.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Sorgt für sichtbar längere, dickere, vollere und glänzendere Wimpern.</p></div><ul class="k-chips"><li>morgens + abends</li><li>augenärztlich getestet</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-nu-colour-lash-brow-serum"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-nu-colour-lash-brow-serum"><div class="panel-innen"><p class="blog">Für Wimpern und Augenbrauen: Das Serum trägst du morgens und abends dünn an den Wurzeln auf.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Sorgt für sichtbar längere, dickere, vollere und glänzendere Wimpern.</li><li>Augenärztlich getestet.</li></ul></div></div></div><div class="k-preis"><div class="ph-bf"><span class="preis-gross">47,62 €</span><span class="preis-statt">statt <s>68,03 €</s></span><span class="preis-info">Black-Friday-Preis 18. bis 20.11., inkl. MwSt.</span></div></div><div class="k-knopf"><div class="ph-bf"><a class="knopf" href="https://nskn.co/GoIC0Z" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div><div class="ph-nachher"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div></div></article><article class="karte" id="p-beauty-focus-multibeauty"><div class="karte-bild"><img src="bilder/bild-08.jpg" alt="" width="720" height="900" loading="lazy"><span class="rabatt ph-bf">−30 %</span></div><div class="k-kopf"><p class="art">Nahrungsergänzungsmittel</p><h3>Beauty Focus MultiBeauty</h3></div><div class="k-kurz"><p class="kurz">Kapseln mit Biotin, Zink und Vitamin C.</p></div><ul class="k-chips"><li>Nahrungsergänzung</li><li>Kapseln</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-beauty-focus-multibeauty"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-beauty-focus-multibeauty"><div class="panel-innen"><p class="blog">Kapseln mit Biotin, Zink, Vitamin C, Riboflavin, Niacin, Vitamin E und Selen, dazu Rosmarin- und Grapefruitextrakt (Zutaten laut <b class="nu">Nu Skin</b>).</p><p class="nem">Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.</p></div></div></div><div class="k-preis"><div class="ph-bf"><span class="preis-gross">44,77 €</span><span class="preis-statt">statt <s>63,95 €</s></span><span class="preis-info">Black-Friday-Preis 18. bis 20.11., inkl. MwSt.</span></div></div><div class="k-knopf"><div class="ph-bf"><a class="knopf" href="https://nskn.co/GoIC0Z" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div><div class="ph-nachher"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div></div></article></div>
+    <p class="nem abschnitt-nem" style="margin-top:16px">Beauty Focus MultiBeauty ist ein Nahrungsergänzungsmittel. Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.</p>
+    <p class="preis-fuss ph-bf">Preise laut Nu-Skin-Preisliste, Stand 09.11.2026. Maßgeblich ist immer der Preis im Nu-Skin-Shop beim Bestellen.</p>
+  </div>
+</section>
+  
+<section id="reihenfolge" style="padding-bottom:0">
+  <div class="tipp">
+    <p><b>Welche Pflege kommt zuerst?</b> Reinigung, Toner, Serum, Creme, Sonnenschutz: In meinen Beauty-Tipps steht die
+    richtige Reihenfolge Schritt für Schritt.</p>
+    <a href="/blog/skincare-reihenfolge.html">Zur richtigen Reihenfolge →</a>
+  </div>
+</section>
+<section id="ganzjahr">
+  <h2 class="titel">Das ganze Jahr dabei</h2>
+  <p class="unter"><span class="z">Pflege, die ich dir auch nach dem Black Friday gern empfehle.</span></p>
+  
+  <div class="grid"><article class="karte" id="p-ageloc-lumispa-io"><div class="karte-bild hell"><img src="bilder/bild-21.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Gerät</p><h3>ageLOC LumiSpa iO</h3></div><div class="k-kurz"><p class="kurz">Reinigungsgerät mit Silikonaufsatz.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Schon nach einer Anwendung fühlt sich die Haut weicher und glatter an.</p></div><ul class="k-chips"><li>2 Minuten</li><li>morgens + abends</li><li>mit Vera-App</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-lumispa-io"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-lumispa-io"><div class="panel-innen"><p class="blog">Ein Reinigungsgerät mit Silikonaufsatz (sanft, normal oder fest) für morgens und abends. Zusammen mit dem passenden Cleanser reinigst du dein Gesicht in zwei Minuten. Das Gerät verbindet sich mit der Vera-App, in der du auch deinen Hautscan machen kannst.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Schon nach einer Anwendung fühlt sich die Haut weicher und glatter an.</li><li>Sanft genug, um zweimal täglich an Gesicht, Hals und Dekolleté angewendet zu werden.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/KO08gz" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-ageloc-lumispa-cleansers"><div class="karte-bild hell"><img src="bilder/bild-22.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Reinigung</p><h3>ageLOC LumiSpa Activating Face Cleanser</h3></div><div class="k-kurz"><p class="kurz">Der Cleanser zum LumiSpa-Gerät, in fünf Varianten.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Strahlende, jugendlich aussehende Haut.</p></div><ul class="k-chips"><li>für jeden Hauttyp</li><li>teils duftstofffrei</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-lumispa-cleansers"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-lumispa-cleansers"><div class="panel-innen"><p class="blog">Der Cleanser für das LumiSpa-Gerät, in fünf Varianten, zum Beispiel für trockene oder empfindliche Haut. Die Varianten für empfindliche Haut und für zu Unreinheiten neigende Haut sind duftstofffrei.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Strahlende, jugendlich aussehende Haut.</li><li>Cremige und reisefreundliche Cleanser.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/PwcQQD" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-nutricentials-dew-all-day"><div class="karte-bild hell"><img src="bilder/bild-23.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Creme</p><h3>Nutricentials Dew All Day</h3></div><div class="k-kurz"><p class="kurz">Cremige Feuchtigkeitspflege für alle Hauttypen.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Pistazienöl und Sheabutter verleihen weiche und glatte Haut.</p></div><ul class="k-chips"><li>morgens + abends</li><li>verstopft keine Poren</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-nutricentials-dew-all-day"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-nutricentials-dew-all-day"><div class="panel-innen"><p class="blog">Meine Empfehlung, wenn die Haut im Herbst spannt: eine cremige Feuchtigkeitspflege für morgens und abends, für alle Hauttypen. Laut <b class="nu">Nu Skin</b> spendet sie Feuchtigkeit, die bis zu 24 Stunden anhält, und verstopft die Poren nicht.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Nutricentials Dew All Day wirkt beruhigend und verleiht eine geschmeidigere, glattere Haut.</li><li>Pistazienöl und Sheabutter verleihen weiche und glatte Haut.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/PwcQQD" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-nutricentials-moisturize-me"><div class="karte-bild hell"><img src="bilder/bild-24.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Creme</p><h3>Nutricentials Moisturize Me</h3></div><div class="k-kurz"><p class="kurz">Reichhaltige Gesichtscreme für trockene Tage.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Verstärkt die Ausstrahlung und verbessert sichtbar die Leuchtkraft der Haut.</p></div><ul class="k-chips"><li>reichhaltig</li><li>Kälte und Heizungsluft</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-nutricentials-moisturize-me"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-nutricentials-moisturize-me"><div class="panel-innen"><p class="blog">Die reichhaltigere Gesichtscreme für Tage, an denen deine Haut mehr Feuchtigkeit möchte, zum Beispiel bei Kälte und Heizungsluft.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Verstärkt die Ausstrahlung und verbessert sichtbar die Leuchtkraft der Haut.</li><li>Nutricentials Moisturize Me ist eine ultra-luxuriöse Gesichtscreme, die deiner Haut einen Feuchtigkeitskick verpasst, um sie geschmeidiger und strahlender aussehen zu lassen − stundenlang.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/PwcQQD" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-perennial-intense-body-moisturizer"><div class="karte-bild hell"><img src="bilder/bild-25.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Körper</p><h3><b class="nu">Nu Skin</b> Perennial</h3></div><div class="k-kurz"><p class="kurz">Körperlotion ohne Duftstoffe.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Spendet Feuchtigkeit und beugt Feuchtigkeitsverlust vor.</p></div><ul class="k-chips"><li>ohne Duftstoffe</li><li>alle Hauttypen</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-perennial-intense-body-moisturizer"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-perennial-intense-body-moisturizer"><div class="panel-innen"><p class="blog">Für Haut, die im Winter am ganzen Körper trocken wird: eine intensive Körperlotion ohne Duftstoffe, mit Extrakt aus der Zwiebel der Strauß-Narzisse. Großzügig auf dem ganzen Körper verteilen.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Spendet Feuchtigkeit und beugt Feuchtigkeitsverlust vor.</li><li>Frei von Duftstoffen und für alle Hauttypen geeignet.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/PwcQQD" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-nutricentials-day-dream-protective-lotion"><div class="karte-bild hell"><img src="bilder/bild-26.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Tagespflege mit LSF</p><h3>Nutricentials Day Dream Protective Lotion</h3></div><div class="k-kurz"><p class="kurz">Leichte Tagespflege mit LSF 30.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Eine Gesichtscreme mit zusätzlichem UVB-Schutz sowie bioadaptiven Pflanzenextrakten bewahrt deine Haut vor den negativen Auswirkungen von Umwelteinflüssen.</p></div><ul class="k-chips"><li>morgens</li><li>LSF 30</li><li>leicht</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-nutricentials-day-dream-protective-lotion"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-nutricentials-day-dream-protective-lotion"><div class="panel-innen"><p class="blog">Sonnenschutz gehört das ganze Jahr in die Morgenroutine, nicht nur im Sommer. Diese leichte Tagespflege hat einen Lichtschutzfaktor von 30 schon eingebaut, dazu Pflanzenextrakte, unter anderem aus Ingwerwurzel.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Eine Gesichtscreme mit zusätzlichem UVB-Schutz sowie bioadaptiven Pflanzenextrakten bewahrt deine Haut vor den negativen Auswirkungen von Umwelteinflüssen.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/PwcQQD" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-nutricentials-eye-love-bright-eyes"><div class="karte-bild hell"><img src="bilder/bild-27.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Augen</p><h3>Nutricentials Eye Love Bright Eyes</h3></div><div class="k-kurz"><p class="kurz">Leichte Augencreme für morgens und abends.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Nicht komedogen.</p></div><ul class="k-chips"><li>um die Augen einklopfen</li><li>vor Serum und Creme</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-nutricentials-eye-love-bright-eyes"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-nutricentials-eye-love-bright-eyes"><div class="panel-innen"><p class="blog">Eine leichte, cremige Augencreme. Du klopfst sie morgens und abends nach Reinigung und Toner sanft um die Augenpartie, vor Serum und Feuchtigkeitspflege. Nicht auf die Lider auftragen.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Nicht komedogen.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/PwcQQD" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-ap-24-whitening-toothpaste"><div class="karte-bild hell"><img src="bilder/bild-28.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Zahnpflege</p><h3>AP 24 Whitening Fluoride Toothpaste</h3></div><div class="k-kurz"><p class="kurz">Zahnpasta mit Fluorid, Geschmack Vanille-Minze.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Eine Kombination milder Schleifmittel, die speziell zum Polieren und Glätten entwickelt wurde.</p></div><ul class="k-chips"><li>2-mal täglich</li><li>110 g</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ap-24-whitening-toothpaste"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ap-24-whitening-toothpaste"><div class="panel-innen"><p class="blog">Der Klassiker von <b class="nu">Nu Skin</b> für jeden Tag: eine Zahnpasta mit Fluorid und milden Putzkörpern, Geschmack Vanille-Minze. Mindestens zweimal täglich gründlich putzen, wie bei jeder Zahnpasta.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Eine Kombination milder Schleifmittel, die speziell zum Polieren und Glätten entwickelt wurde.</li><li>Hilft, vor Zahnbelag zu schützen.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/PwcQQD" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article></div>
+</section>
+<section id="herbst">
+  <h2 class="titel">Im Herbst gefragt</h2>
+  <p class="unter"><span class="z">Laut Trendberichten gefragt im Herbst und Winter 2026: Ceramide für die Hautbarriere, Retinol, Vitamin C und Pflege-Geräte.</span> <span class="z">Dazu passen diese vier. Vitamin C und das Galvanic Spa findest du weiter oben.</span></p>
+  
+  <div class="grid"><article class="karte" id="p-nutricentials-ceramides-postbiotics-pump"><div class="karte-bild hell"><img src="bilder/bild-29.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Serum und Wirkstoffe</p><h3>Nutricentials Ceramides + Postbiotics Pump</h3></div><div class="k-kurz"><p class="kurz">Tropfen mit Ceramiden und Postbiotika.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Nutricentials Pumps Ceramides + Postbiotics bietet deiner Haut einen Extrakick an Feuchtigkeitspflege, um sie zu beruhigen und sichtbar zu glätten.</p></div><ul class="k-chips"><li>Trend: Ceramide</li><li>zur gewohnten Pflege</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-nutricentials-ceramides-postbiotics-pump"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-nutricentials-ceramides-postbiotics-pump"><div class="panel-innen"><p class="blog">Ceramide sind das Trend-Thema der Saison. Sie sind ein natürlicher Teil der Hautbarriere, und die ist im Herbst durch Kälte und Heizungsluft besonders gefordert. Diese Tropfen mit Ceramiden und Postbiotika gibst du zu deiner gewohnten Pflege dazu.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Nutricentials Pumps Ceramides + Postbiotics bietet deiner Haut einen Extrakick an Feuchtigkeitspflege, um sie zu beruhigen und sichtbar zu glätten.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/Xq3AA6" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-ageloc-tru-face-peptide-retinol-complex"><div class="karte-bild hell"><img src="bilder/bild-30.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Serum und Wirkstoffe</p><h3>ageLOC Tru Face Peptide Retinol Complex</h3></div><div class="k-kurz"><p class="kurz">Serum mit Retinolkomplex und Peptid.</p></div><ul class="k-chips"><li>abends</li><li>Trend: Retinol</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-tru-face-peptide-retinol-complex"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-tru-face-peptide-retinol-complex"><div class="panel-innen"><p class="blog">Retinol ist im Herbst und Winter wieder gefragt. Hier steckt es als Retinolkomplex zusammen mit einem Peptid drin. Es gehört in die Abendroutine: nach Reinigung und Gesichtswasser, danach deine Feuchtigkeitspflege.</p></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/Xq3AA6" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-ageloc-boost-system"><div class="karte-bild hell"><img src="bilder/bild-31.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Gerät</p><h3>ageLOC Boost System</h3></div><div class="k-kurz"><p class="kurz">Mikrostrom-Gerät mit Serum für zu Hause.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Dunkle Flecken werden optisch reduziert.</p></div><ul class="k-chips"><li>2 Minuten</li><li>1-mal täglich</li><li>Trend: Geräte</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-ageloc-boost-system"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-ageloc-boost-system"><div class="panel-innen"><p class="blog">Pflege-Geräte für zu Hause gehören zu den Trends der Saison. Das Boost-Gerät arbeitet mit Mikrostrom und wird mit dem Activating Serum verwendet: drei Pumpstöße auf das Gerät, auf einer Gesichtshälfte verteilen und mit dem Gerät von innen nach außen gleiten, dann die andere Hälfte. Einmal am Tag, das Gerät schaltet sich nach zwei Minuten selbst ab. Danach wie gewohnt weiterpflegen.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Zum Patent angemeldete variabel pulsierende Mikrostrom-Technologie.</li><li>Dunkle Flecken werden optisch reduziert.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/KO08gz" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article><article class="karte" id="p-nutricentials-pillow-glow"><div class="karte-bild hell"><img src="bilder/bild-32.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Maske</p><h3>Nutricentials Pillow Glow</h3></div><div class="k-kurz"><p class="kurz">Feuchtigkeitsmaske für die Nacht.</p><p class="kern"><b>Laut <b class="nu">Nu Skin</b>:</b> Geeignet für alle Hauttypen.</p></div><ul class="k-chips"><li>abends, letzter Schritt</li><li>2- bis 3-mal pro Woche</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-nutricentials-pillow-glow"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-nutricentials-pillow-glow"><div class="panel-innen"><p class="blog">Eine Nachtmaske mit cremiger Gel-Textur, laut <b class="nu">Nu Skin</b> für die natürliche Feuchtigkeitsbarriere der Haut. Das passt zum Trend-Thema der Saison. Du trägst sie abends als letzten Schritt großzügig über Serum oder Creme auf und lässt sie über Nacht wirken, 2- bis 3-mal pro Woche.</p><p class="laut">Das sagt <b class="nu">Nu Skin</b>:</p><ul class="aussagen"><li>Geeignet für alle Hauttypen.</li></ul></div></div></div><div class="k-preis"></div><div class="k-knopf"><a class="knopf" href="https://nskn.co/Xq3AA6" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></article></div>
+</section>
+<section id="routine">
+  <h2 class="titel">Meine Morgen- und Abendroutine</h2>
+  <p class="unter"><span class="z">So passen die Produkte zusammen, in der Reihenfolge, die <b class="nu">Nu Skin</b> angibt.</span> <span class="z">Tipp auf einen Namen, dann springst du zum Produkt.</span></p>
+  <div class="routine">
+    <div class="r-spalte r-morgen"><h3><span aria-hidden="true">☀</span> Morgens</h3><ol><li><span class="r-schritt">Reinigen</span><a class="r-name" href="#p-ageloc-lumispa-io">LumiSpa iO + Cleanser</a><span class="r-text">Gesicht anfeuchten, Cleanser verteilen, zwei Minuten mit dem Gerät reinigen.</span></li><li><span class="r-schritt">Augen</span><a class="r-name" href="#p-nutricentials-eye-love-bright-eyes">Eye Love Bright Eyes</a><span class="r-text">Nach der Reinigung sanft um die Augen einklopfen, vor Serum und Creme.</span></li><li><span class="r-schritt">Tagespflege mit LSF 30</span><a class="r-name" href="#p-nutricentials-day-dream-protective-lotion">Day Dream Protective Lotion</a><span class="r-text">Leichte Tagespflege mit LSF 30. Sonnenschutz kommt morgens immer zum Schluss.</span></li></ol></div>
+    <div class="r-spalte r-abend"><h3><span aria-hidden="true">☾</span> Abends</h3><ol><li><span class="r-schritt">Reinigen</span><a class="r-name" href="#p-ageloc-lumispa-io">LumiSpa iO + Cleanser</a><span class="r-text">Wie am Morgen: Cleanser verteilen und zwei Minuten mit dem Gerät reinigen.</span></li><li><span class="r-schritt">Augen</span><a class="r-name" href="#p-nutricentials-eye-love-bright-eyes">Eye Love Bright Eyes</a><span class="r-text">Sanft um die Augen einklopfen, nicht auf die Lider.</span></li><li><span class="r-schritt">Serum</span><a class="r-name" href="#p-ageloc-tru-face-peptide-retinol-complex">Tru Face Peptide Retinol Complex</a><span class="r-text">Jeden Abend auf Gesicht und Hals, danach die Creme.</span></li><li><span class="r-schritt">Creme</span><a class="r-name" href="#p-nutricentials-dew-all-day">Dew All Day</a><span class="r-text">Großzügig auf Gesicht und Hals, mit Bewegungen nach außen und oben.</span></li><li><span class="r-schritt">Extra, 2- bis 3-mal pro Woche</span><a class="r-name" href="#p-nutricentials-pillow-glow">Pillow Glow</a><span class="r-text">Als letzter Schritt über die Creme, leicht einziehen lassen, bleibt über Nacht drauf.</span></li></ol></div>
+  </div>
+  <p class="klein">Verwendest du einen Toner, kommt er direkt nach der Reinigung. Bei empfindlicher Haut neue Pflege zuerst an einer kleinen Stelle testen.</p>
+</section>
+<section id="vital">
+  <h2 class="titel">Vital-Produkte</h2>
+  <p class="unter"><span class="z">Nahrungsergänzung von <b class="nu">Nu Skin</b>.</span> <span class="z">Hier stehen nur Angaben, die in der EU erlaubt sind.</span></p>
+  <p class="nem abschnitt-nem">Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.</p>
+  <div class="grid"><article class="karte" id="p-collagen-plus"><div class="karte-bild hell"><img src="bilder/bild-33.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Nahrungsergänzungsmittel</p><h3>Beauty Focus Collagen+</h3></div><div class="k-kurz"><p class="kurz">Trinkpulver mit Kollagen in Portionsbeuteln.</p></div><ul class="k-chips"><li>Orange-Zitrus</li><li>enthält Weizen</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-collagen-plus"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-collagen-plus"><div class="panel-innen"><p class="blog">Ein Trinkpulver in Portionsbeuteln mit Orangen-Zitrus-Geschmack: je Beutel 2.500 mg Kollagenhydrolysat vom Rind, dazu Weizenkeimextrakt und Lutein, gesüßt mit Stevia. Wichtig: enthält Weizen (Gluten) und ist nicht vegan.</p><p class="ich"><b>So nehme ich es:</b> Ich trinke morgens einen Beutel, in Wasser eingerührt. Das ist ein fester Schritt in meiner Morgenroutine.</p><p class="nem">Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.</p></div></div></div><div class="k-preis"></div><div class="k-knopf"><div class="ab-vor" data-ab="2026-12-01T00:00:00+01:00"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div><div class="ab-nach" data-ab="2026-12-01T00:00:00+01:00" hidden><a class="knopf" href="https://nskn.co/XEV9Wz" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></div></article><article class="karte" id="p-lifepak-elements"><div class="karte-bild hell"><img src="bilder/bild-34.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Vitamine und Mineralstoffe</p><h3>LifePak Elements</h3></div><div class="k-kurz"><p class="kurz">Tagesportion aus 3 Tabletten.</p></div><ul class="k-chips"><li>9 Nährstoffe</li><li>7 Pflanzenstoffe</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-lifepak-elements"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-lifepak-elements"><div class="panel-innen"><p class="blog">Die schlankere Fassung von LifePak+: eine Tagesportion aus 3 Tabletten mit 9 Nährstoffen und 7 Pflanzenstoffen, unter anderem aus Zitrus und Holunder.</p><p class="ich"><b>So nehme ich es:</b> Ich nehme morgens meine drei Tabletten zum Frühstück.</p><p class="nem">Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.</p></div></div></div><div class="k-preis"></div><div class="k-knopf"><div class="ab-vor" data-ab="2026-12-01T00:00:00+01:00"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div><div class="ab-nach" data-ab="2026-12-01T00:00:00+01:00" hidden><a class="knopf" href="https://nskn.co/XEV9Wz" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></div></article><article class="karte" id="p-lifepak-plus"><div class="karte-bild hell"><img src="bilder/bild-35.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Vitamine und Mineralstoffe</p><h3>LifePak+</h3></div><div class="k-kurz"><p class="kurz">Tagesbeutel mit 4 Tabletten.</p></div><ul class="k-chips"><li>13 Vitamine</li><li>9 Mineralstoffe</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-lifepak-plus"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-lifepak-plus"><div class="panel-innen"><p class="blog">Ein Tagesbeutel mit 4 Tabletten: 13 Vitamine, 9 Mineralstoffe und Pflanzenextrakte, unter anderem Vitamin C, Vitamin D, B-Vitamine, Magnesium, Calcium und Zink. Praktisch, weil alles in einem Beutel steckt.</p><p class="nem">Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.</p></div></div></div><div class="k-preis"></div><div class="k-knopf"><div class="ab-vor" data-ab="2026-12-01T00:00:00+01:00"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div><div class="ab-nach" data-ab="2026-12-01T00:00:00+01:00" hidden><a class="knopf" href="https://nskn.co/XEV9Wz" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></div></article><article class="karte" id="p-marineomega"><div class="karte-bild hell"><img src="bilder/bild-36.jpg" alt="" width="720" height="900" loading="lazy"></div><div class="k-kopf"><p class="art">Omega-3</p><h3>MarineOmega</h3></div><div class="k-kurz"><p class="kurz">Fisch- und Krillöl in Weichkapseln.</p></div><ul class="k-chips"><li>EPA + DHA</li><li>IFOS-zertifiziert</li></ul><div class="k-mehr"><button type="button" class="mehr" aria-expanded="false" aria-controls="m-marineomega"><span class="zu">Mehr lesen</span><span class="auf">Weniger anzeigen</span><span class="pfeil" aria-hidden="true">▾</span></button><div class="panel" id="m-marineomega"><div class="panel-innen"><p class="blog">Fisch- und Krillöl in Weichkapseln, laut <b class="nu">Nu Skin</b> IFOS-zertifiziert. Eine Tagesportion (2 Kapseln) liefert laut <b class="nu">Nu Skin</b> über 700 mg EPA und 500 mg DHA.</p><p class="laut">Zugelassene Angaben (EU):</p><ul class="aussagen"><li>EPA und DHA tragen zu einer normalen Herzfunktion bei. Die positive Wirkung stellt sich bei einer täglichen Aufnahme von 250 mg EPA und DHA ein.</li><li>DHA trägt zur Erhaltung einer normalen Gehirnfunktion bei. Die positive Wirkung stellt sich bei einer täglichen Aufnahme von 250 mg DHA ein.</li><li>DHA trägt zur Erhaltung normaler Sehkraft bei. Die positive Wirkung stellt sich bei einer täglichen Aufnahme von 250 mg DHA ein.</li></ul><p class="nem">Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.</p></div></div></div><div class="k-preis"></div><div class="k-knopf"><div class="ab-vor" data-ab="2026-12-01T00:00:00+01:00"><a class="knopf knopf-dm" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener">Link per Nachricht holen</a><p class="knopf-hinweis">Schreib mir auf Instagram „HAUT“, ich schicke dir meinen Link.</p></div><div class="ab-nach" data-ab="2026-12-01T00:00:00+01:00" hidden><a class="knopf" href="https://nskn.co/XEV9Wz" target="_blank" rel="sponsored noopener">Zu <b class="nu">Nu Skin</b></a><p class="knopf-hinweis">Du bestellst direkt bei <b class="nu">Nu Skin</b>.</p></div></div></article></div>
+</section>
+  
+<section id="spar-abo">
+  <div class="kasten kasten-glanz">
+    <h2 class="titel">Spar-Abo bei <b class="nu">Nu Skin</b></h2>
+    <p>Du verwendest ein Produkt regelmäßig? Dann lohnt sich das <b>Spar-Abo von <b class="nu">Nu Skin</b></b> (ADR, „Automatic Delivery Rewards“).
+    Es funktioniert ähnlich wie ein Spar-Abo beim Online-Einkauf: Du wählst Produkte und Liefertag, <b>und alles kommt von selbst
+    zu dir nach Hause.</b></p>
+    <div class="vorteile">
+      <div><span class="v-zahl">20&nbsp;%</span><b>als Produktpunkte</b><span>bei monatlicher Lieferung</span></div>
+      <div><span class="v-zahl">30&nbsp;%</span><b>als Produktpunkte</b><span>ab der 13. Bestellung</span></div>
+      <div><span class="v-zahl">Punkte</span><b>gegen Produkte</b><span>eintauschen, 12 Monate gültig</span></div>
+    </div>
+    <ul>
+      <li><b>Punkte sammeln, Produkte holen:</b> Ab einem Bestellwert von 50&nbsp;SV (so heißt der Punktewert bei <b class="nu">Nu Skin</b>) bekommst du
+      bei monatlicher Lieferung <b>20&nbsp;% als Produktpunkte, ab der 13. Bestellung sogar 30&nbsp;%</b>. Bei Lieferung alle zwei Monate
+      sind es 10&nbsp;%. Die Punkte <b>tauschst du gegen Produkte ein</b>. Es gibt Höchstgrenzen, die stehen in den Bedingungen.</li>
+      <li><b>Flexibel:</b> jeden Monat oder alle zwei Monate. <b>Ändern oder beenden kannst du online</b> in deinem <span class="nw">Nu-Skin-Konto</span>,
+      spätestens 5 Werktage vor dem Liefertag.</li>
+      <li>Gut zu wissen: Die Punkte gelten 12 Monate. Aktionsartikel, zum Beispiel zum Black-Friday-Preis, bringen keine Punkte.
+      Wer das Abo ganz beendet, verliert die gesammelten Punkte.</li>
+    </ul>
+    <p class="klein">Stand 09.11.2026, laut den ADR-Bedingungen von <b class="nu">Nu Skin</b> Österreich. Es gelten immer die aktuellen Bedingungen bei
+    <b class="nu">Nu Skin</b>: <a href="https://www.nuskin.com/de_AT/info/customer-service/adr-loyalty-programme.html" target="_blank" rel="noopener">ADR bei <b class="nu">Nu Skin</b></a>.</p>
+  </div>
+</section>
+  
+<section id="bestellen">
+  <div class="zwei">
+    <div class="kasten kasten-glanz">
+      <h2 class="titel">So bestellst du</h2>
+      <p class="bestellen-satz">Über meine Seite bestellst du im offiziellen <b class="nu">Nu&nbsp;Skin</b> Shop. Du bist dann direkt bei <b class="nu">Nu&nbsp;Skin</b>
+      und bekommst die Produkte von dort.</p>
+      <ol class="schritte">
+        <li>Produkt aussuchen und auf <span class="nw">„Zu <b class="nu">Nu Skin</b>“</span> tippen. Das ist mein persönlicher Link.</li>
+        <li>Bei <b class="nu">Nu Skin</b> ein kostenloses Kundenkonto anlegen oder dich anmelden. <a class="konto-link" href="https://nskn.co/7fIglp" target="_blank" rel="sponsored noopener">Noch kein Konto? <span class="nw">Hier über meinen Link anlegen.</span></a></li>
+        <li>Bestellen und bezahlen. <b class="nu">Nu&nbsp;Skin</b> schickt dir die Ware direkt nach Hause.</li>
+      </ol>
+      <p class="klein">Dein Kauf läuft direkt mit <b class="nu">Nu Skin</b>: Rechnung, Lieferung, Rückgabe und Gewährleistung.
+      Ich verkaufe selbst nichts weiter. <a href="https://www.nuskin.com/de_AT/corporate/compliance-corner/return.html" target="_blank" rel="noopener">Rückgabe bei <b class="nu">Nu&nbsp;Skin</b></a></p>
+    </div>
+    <div class="kasten">
+      <h2 class="titel">Fragen?</h2>
+      <p>Schreib mir, wie es dir am liebsten ist. Ich helfe dir gern beim Aussuchen. Auf Instagram oder Facebook reicht ein Wort:
+      <b>Schreib mir <span class="nw">„HAUT“</span></b>, dann melde ich mich.</p>
+      <div class="kontakt">
+        <a class="kontakt-knopf k-ig" href="https://ig.me/m/cozyvibeapp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span>Nachricht auf Instagram</span></a>
+        <a class="kontakt-knopf k-fb" href="https://m.me/cozyvibeapp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg><span>Nachricht auf Facebook</span></a>
+        <a class="kontakt-knopf k-mail" href="mailto:hello@beautyroutine.app?subject=Frage%20zu%20meiner%20Pflege"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><span>E-Mail schreiben</span></a>
+      </div>
+      <p class="klein">E-Mail: <a href="mailto:hello@beautyroutine.app">hello@beautyroutine.app</a></p>
+    </div>
+  </div>
+  <!-- cv-beratung · gebaut von CozyVibe/beratung/beratung.py – nicht von Hand ändern -->
+<style id="cv-beratung-stil">
+.cv-beratung{position:relative;display:flex;align-items:center;gap:20px;max-width:1040px;margin:30px auto;padding:22px 26px;border-radius:26px;
+  color:#2B211C;border:2px solid transparent;box-sizing:border-box;
+  background:radial-gradient(120% 90% at 0% 0%,#FFF3DF,rgba(255,243,223,0) 60%) padding-box,linear-gradient(#fff,#FFFBF5) padding-box,
+    linear-gradient(115deg,#B5620A 0%,#E9B872 22%,#F7D9A6 40%,#FFF4DE 50%,#F7D9A6 60%,#E9B872 78%,#B5620A 100%) border-box;
+  background-size:100% 100%,100% 100%,320% 100%;box-shadow:0 18px 40px -24px rgba(143,78,7,.6),0 0 0 6px rgba(233,184,114,.12);
+  animation:cvb-rand 3.6s ease-in-out infinite alternate}
+@keyframes cvb-rand{from{background-position:0 0,0 0,0% 0}to{background-position:0 0,0 0,100% 0}}
+.cvb-symbol{flex-shrink:0;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px;
+  background:radial-gradient(circle at 50% 35%,#fff,#FCE9C2);box-shadow:0 0 0 3px #fff,0 0 0 4px #F1DDBE,0 0 24px 3px rgba(233,184,114,.65)}
+.cvb-text{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.cvb-oben{font-family:'Marcellus',Georgia,serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#8A4A06}
+.cv-beratung strong{font-family:'Dancing Script',cursive;font-weight:700;font-size:2rem;line-height:1.05;color:#2B211C}
+.cvb-satz{font-size:.98rem;line-height:1.5;color:#2B211C;text-wrap:pretty}
+.cv-beratung a.cvb-knopf{position:relative;overflow:hidden;flex-shrink:0;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-family:'Marcellus',Georgia,serif;text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700;line-height:1.2;color:#fff;
+  white-space:nowrap;background:linear-gradient(135deg,#C46F12,#8A4A06);border-radius:999px;padding:15px 24px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 10px 24px -8px rgba(181,98,10,.85);animation:cvb-leuchten 2.8s ease-in-out infinite}
+.cv-beratung a.cvb-knopf:hover{color:#fff;filter:brightness(1.07)}
+.cv-beratung a.cvb-knopf::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);
+  animation:cvb-glanz 3.8s ease-in-out infinite}
+.cvb-pfeil{transition:transform .2s ease}
+.cv-beratung a.cvb-knopf:hover .cvb-pfeil{transform:translateX(3px)}
+@keyframes cvb-leuchten{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 10px 24px -8px rgba(181,98,10,.85),0 0 0 0 rgba(233,184,114,0)}
+  50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 12px 28px -8px rgba(181,98,10,.9),0 0 26px 6px rgba(233,184,114,.6)}}
+@keyframes cvb-glanz{0%,55%{left:-60%}100%{left:135%}}
+@media (max-width:760px){
+  .cv-beratung{flex-direction:column;text-align:center;gap:12px;margin:22px 14px;padding:22px 18px 20px}
+  .cvb-text{align-items:center}
+  .cv-beratung strong{font-size:1.85rem}
+  .cv-beratung a.cvb-knopf{width:100%;justify-content:center;box-sizing:border-box}
+}
+@media (prefers-reduced-motion:reduce){.cv-beratung,.cv-beratung a.cvb-knopf,.cv-beratung a.cvb-knopf::before{animation:none}.cvb-pfeil{transition:none}}
+</style>
+<aside class="cv-beratung" aria-label="Kostenlose Beratung">
+  <span class="cvb-symbol" aria-hidden="true">💬</span>
+  <span class="cvb-text">
+    <span class="cvb-oben">Online · 30 oder 60 Minuten</span>
+    <strong>Kostenlose Beratung</strong>
+    <span class="cvb-satz">Wir sprechen online – über Zoom, WhatsApp oder FaceTime. Ich schau mir deine Routine mit dir an und beantworte deine Fragen zu Pflege- und Vital-Produkten. Kostenlos und unverbindlich: du musst nichts kaufen.</span>
+  </span>
+  <a class="cvb-knopf" href="https://termin.cozyvibe.at/?von=pflege" rel="nofollow"><span>Termin aussuchen</span><span class="cvb-pfeil" aria-hidden="true">→</span></a>
+</aside>
+<!-- /cv-beratung -->
+</section>
+  
+<div class="pflicht">
+  <p><b>Anzeige:</b> Diese Seite enthält Werbung für Produkte von <b class="nu">Nu Skin</b>. Ich bin unabhängiger <b class="nu">Nu Skin</b> Brand Affiliate.
+  Bestellst du über meinen Link, bekomme ich von <b class="nu">Nu Skin</b> eine Provision. Dein Preis ändert sich dadurch nicht.</p>
+  <p lang="en">Independent Brand Affiliate Produced Website – This website is not produced or approved by <b class="nu">Nu Skin</b> Enterprises Inc. or its affiliated companies.</p>
+  <p>Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.</p>
+  <p>Produktbilder und Produktbeschreibungen: <b class="nu">Nu Skin</b>. Diese Seite ist ein persönlicher Pflege-Tipp und ersetzt keine ärztliche
+  oder dermatologische Beratung. Bei empfindlicher Haut bitte vorab die Inhaltsstoffe prüfen.</p>
+</div>
+  <a class="zurueck" href="/" style="margin-bottom:26px"><span aria-hidden="true">←</span>&nbsp; Zurück zur Startseite</a>
+</main>
+<footer>
+  <div class="fuss-marke">CozyVibe</div>
+  <div class="fuss-links">
+    <a href="/">Startseite</a>
+    <a href="/cozy-picks/nutzungshinweise.html">Nutzungshinweise</a>
+    <a href="/cozy-picks/impressum.html">Impressum</a>
+    <a href="/cozy-picks/datenschutz.html">Datenschutz</a>
+    <a href="/cozy-picks/transparenz.html">Transparenz</a>
+  </div>
+  <p class="fuss-ki">Seite mit KI-Unterstützung erstellt</p>
+<style id="hkn-stil">
+/* Herkunftsnachweis - einheitlich auf allen Seiten seit 30.08.2026.
+   Alle Klassen beginnen mit hkn-, damit sie mit keinem Seitengeruest kollidieren. */
+/* Unten Luft lassen: auf der Zahnarztseite klebte der Block sonst am unteren
+   Bildschirmrand. env(safe-area-inset-bottom) beruecksichtigt zusaetzlich die
+   Leiste am iPhone ohne Home-Knopf. */
+/* Der Block hat IMMER denselben dunklen Grund - auch auf hellen Seiten.
+   Grund: Das Terminal-Gruen der Marke (#4ADE80) kommt auf Weiss nur auf
+   1,74:1 und ist damit unlesbar. Auf #0B0B0B sind es 10,8:1. So steht
+   jede Marke ueberall in ihrer echten Farbe, und der Block sieht auf
+   allen Seiten gleich aus - wie eine Signatur unter dem Brief. */
+.hkn{margin:26px 0 0;background:#0B0B0B;border-top:1px solid rgba(255,255,255,.10);
+  padding:26px 16px calc(30px + env(safe-area-inset-bottom,0px))}
+.hkn-innen{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
+  gap:18px 44px;max-width:900px;margin:0 auto;padding:0;list-style:none}
+.hkn-block{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  text-align:center;text-decoration:none;gap:9px;min-width:132px;padding:4px 2px;
+  border-radius:10px;transition:transform .18s ease}
+.hkn-block:hover,.hkn-block:focus-visible{transform:translateY(-2px)}
+.hkn-block:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+/* Einzelangaben statt der Kurzschreibweise: "font: 600 10.5px/1.35 inherit" ist
+   ungueltig - inherit ist an dieser Stelle kein erlaubter Wert, und die ganze
+   Zeile wird verworfen. Die Beschriftung kam dadurch mit 18px statt 10,5px. */
+.hkn-label{font-size:10.5px;font-weight:600;line-height:1.35;letter-spacing:.15em;
+  text-transform:uppercase;color:#F5F5F5;-webkit-text-fill-color:#F5F5F5;margin:0}
+.hkn-bild{height:72px;display:flex;align-items:center;justify-content:center}
+/* Feste Hoehe, nicht auto: sonst ist der Kasten vor dem Laden 0x0 hoch,
+   das Layout springt und das verzoegerte Laden greift nicht zuverlaessig. */
+.hkn-bild img{height:72px;width:auto;max-width:132px;object-fit:contain;display:block}
+.hkn-name{font-size:13px;font-weight:600;line-height:1.35;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px;white-space:nowrap;margin:0}
+/* Am Handy: ZWEI Nennungen bleiben nebeneinander, erst DREI stehen untereinander.
+   Geloest ohne Sonderklasse - :has() prueft, wie viele Bloecke drin sind.
+   Fuer aeltere Browser ohne :has() gibt es darunter den Ersatzweg. */
+@media (max-width:640px){
+  /* zwei Bloecke: nebeneinander, nur enger und mit kleineren Logos */
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))){
+    flex-direction:row;flex-wrap:nowrap;align-items:flex-start;gap:12px;justify-content:center}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-block{
+    min-width:0;flex:1 1 0;max-width:50%}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-bild{height:56px}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-bild img{
+    height:56px;max-width:100%}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-name{
+    font-size:12px;white-space:normal;overflow-wrap:anywhere}
+  .hkn-innen:has(> .hkn-block:nth-child(2)):not(:has(> .hkn-block:nth-child(3))) .hkn-label{
+    font-size:9.5px;letter-spacing:.1em}
+
+  /* drei oder mehr: untereinander, jeder Block mittig */
+  .hkn-innen:has(> .hkn-block:nth-child(3)),
+  .hkn-innen:has(> .hkn-block:only-child){
+    flex-direction:column;flex-wrap:nowrap;align-items:center;gap:26px}
+  .hkn-innen:has(> .hkn-block:nth-child(3)) .hkn-block,
+  .hkn-innen:has(> .hkn-block:only-child) .hkn-block{width:100%;min-width:0}
+}
+/* Ersatzweg fuer Browser ohne :has() (Safari vor 15.4, Firefox vor 121):
+   dort bleibt es beim alten Verhalten - alles untereinander und mittig. */
+@supports not selector(:has(*)){
+  @media (max-width:640px){
+    .hkn-innen{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:26px}
+    .hkn-block{width:100%;min-width:0}
+  }
+}
+@media (prefers-reduced-motion:reduce){ .hkn-block{transition:none} .hkn-block:hover{transform:none} }
+.hkn-robschman .hkn-name{color:#4ADE80;-webkit-text-fill-color:#4ADE80}
+.hkn-robschman:hover .hkn-name,.hkn-robschman:focus-visible .hkn-name{color:#86EFAC;-webkit-text-fill-color:#86EFAC}
+.hkn-webwerkstube .hkn-name{color:#A78BFA;-webkit-text-fill-color:#A78BFA}
+.hkn-webwerkstube:hover .hkn-name,.hkn-webwerkstube:focus-visible .hkn-name{color:#C4B5FD;-webkit-text-fill-color:#C4B5FD}</style>
+<section class="hkn" aria-label="Herkunft dieser Website">
+  <div class="hkn-innen">
+    <a class="hkn-block hkn-robschman" href="https://robschman.at/?von=beauty-pflege" target="_blank" rel="noopener">
+      <span class="hkn-label">App von</span>
+      <span class="hkn-bild"><img src="/assets/hkn-robschman.png" alt="robschman programming" height="72" loading="lazy"></span>
+      <span class="hkn-name">robschman.at</span>
+    </a>
+    <a class="hkn-block hkn-webwerkstube" href="https://webwerkstube.at/?von=beauty-pflege" target="_blank" rel="noopener">
+      <span class="hkn-label">Website von</span>
+      <span class="hkn-bild"><img src="/assets/hkn-webwerkstube.png" alt="Web Werkstube" height="72" loading="lazy"></span>
+      <span class="hkn-name">webwerkstube.at</span>
+    </a>
+  </div>
+</section>
+</footer>
+<script>
+// Beim Öffnen ganz oben anfangen – auch in einer Vorschau, die ihre eigene Scrollposition behält (Robert 20.10.2026).
+// Nicht bei Zurück, Neuladen oder Sprungmarke.
+(function () {
+  if (location.hash) return;
+  var n = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+  if (n && (n.type === 'back_forward' || n.type === 'reload')) return;
+  var seite = document.documentElement;
+  try { seite.scrollIntoView({ block: 'start', behavior: 'instant' }); } catch (e) { seite.scrollIntoView(true); }
+})();
+</script>
+<script>
+// Knöpfe mit Startdatum (paket_links → ab): bis dahin „Link per Nachricht holen“, danach der Paket-Link. Test: ?datum=2026-12-02
+(function(){var q=null;try{q=new URLSearchParams(location.search).get('datum')}catch(e){}
+var n=q?Date.parse(q):Date.now();if(isNaN(n))n=Date.now();
+var el=document.querySelectorAll('[data-ab]');for(var i=0;i<el.length;i++){var nach=n>=Date.parse(el[i].getAttribute('data-ab'));
+el[i].hidden=el[i].classList.contains('ab-nach')?!nach:nach;}})();
+</script>
+<script>
+// „Mehr lesen“: klappt alle Karten derselben Reihe gemeinsam auf und wieder zu (Robert 09.11.2026)
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest ? ev.target.closest('.mehr') : null;
+  if (!b) return;
+  var k = b.closest('.karte'), auf = !k.classList.contains('offen'), oben = k.offsetTop;
+  Array.prototype.forEach.call(k.parentElement.children, function (c) {
+    if (!c.classList.contains('karte') || Math.abs(c.offsetTop - oben) > 4) return;
+    c.classList.toggle('offen', auf);
+    var cb = c.querySelector('.mehr');
+    if (cb) cb.setAttribute('aria-expanded', auf ? 'true' : 'false');
+  });
+});
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af15814ccc2541fd844836f3ef6fce5f"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
