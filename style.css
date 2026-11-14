@@ -426,6 +426,18 @@ body.theme-rainbow .tab.active{ opacity:1; box-shadow:0 4px 12px rgba(0,0,0,0.22
   -webkit-tap-highlight-color: transparent;
 }
 .zur-website:active { background: rgba(0,0,0,0.42); }
+/* Auch in der Begrüßung (heller Grund): dunkle Pille oben links */
+.ob-zur-website {
+  position: absolute;
+  top: calc(14px + env(safe-area-inset-top));
+  left: calc(16px + env(safe-area-inset-left));
+  background: #4a1d3d;
+  font-size: 0.8rem;
+  padding: 8px 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+.ob-zur-website:active { background: #2e1126; }
+.onboarding a.ob-zur-website { color: #fff !important; text-decoration: none !important; }
 
 .header-branding {
   font-size: 0.6rem;
