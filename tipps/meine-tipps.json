@@ -1,0 +1,212 @@
+{
+  "hinweis": "Nu-Skin-Tipps der Beauty-App (Anzeige). Diese Datei ist per robots.txt für Suchmaschinen gesperrt, weil Nu Skin SEO verbietet. Nur deutsche Fassung. Texte aus Nu-Skin-Marketing/pflege-seite.json, keine Heilaussagen, keine Preise, keine Kaufaufforderung. Robert 22.11.2026: keine Altersabfrage.",
+  "knopf": "✦ Mein Tipp · Anzeige",
+  "etikett": "Anzeige",
+  "link_text": "Zu meiner Pflege-Seite →",
+  "affiliate": "Ich bin Nu Skin Brand Affiliate und bekomme eine Provision, wenn du über meinen Link bestellst. Für dich ändert sich der Preis nicht.",
+  "pflichtsatz": "Independent Brand Affiliate Produced Website – This website is not produced or approved by Nu Skin Enterprises Inc. or its affiliated companies.",
+  "schliessen": "Schließen",
+  "schritte": {
+    "ms1": "reinigen",
+    "es2": "reinigen",
+    "bms1": "reinigen",
+    "bes1": "reinigen",
+    "ms3": "serum",
+    "es4": "serum",
+    "ms6": "tagespflege",
+    "bms4": "tagespflege",
+    "es6": "nachtcreme",
+    "ms4": "augen",
+    "es5": "augen",
+    "ws4": "massage",
+    "mw1": "morgen",
+    "bmw1": "morgen"
+  },
+  "tipps": {
+    "reinigen": {
+      "titel": "Mein Tipp zum Reinigen",
+      "name": "ageLOC LumiSpa iO + Cleanser",
+      "text": "Ein Reinigungsgerät mit Silikonaufsatz (sanft, normal oder fest) für morgens und abends. Zusammen mit dem passenden Cleanser reinigst du dein Gesicht in zwei Minuten.",
+      "bild": "/pflege/bilder/bild-21.jpg",
+      "link": "/pflege/#p-ageloc-lumispa-io"
+    },
+    "serum": {
+      "titel": "Mein Tipp zum Serum",
+      "name": "Nutricentials Ceramides + Postbiotics Pump",
+      "text": "Tropfen mit Ceramiden und Postbiotika. Ceramide sind ein natürlicher Teil der Hautbarriere. Du gibst die Tropfen zu deiner gewohnten Pflege dazu.",
+      "bild": "/pflege/bilder/bild-29.jpg",
+      "link": "/pflege/#p-nutricentials-ceramides-postbiotics-pump"
+    },
+    "tagespflege": {
+      "titel": "Mein Tipp zum Sonnenschutz",
+      "name": "Nutricentials Day Dream Protective Lotion",
+      "text": "Eine leichte Tagespflege mit Lichtschutzfaktor 30, dazu Pflanzenextrakte, unter anderem aus Ingwerwurzel. Sonnenschutz gehört das ganze Jahr in die Morgenroutine, nicht nur im Sommer.",
+      "bild": "/pflege/bilder/bild-26.jpg",
+      "link": "/pflege/#p-nutricentials-day-dream-protective-lotion"
+    },
+    "nachtcreme": {
+      "titel": "Mein Tipp zur Nachtcreme",
+      "name": "Nutricentials Moisturize Me",
+      "text": "Die reichhaltigere Gesichtscreme für Tage, an denen deine Haut mehr Feuchtigkeit möchte, zum Beispiel bei Kälte und Heizungsluft.",
+      "bild": "/pflege/bilder/bild-24.jpg",
+      "link": "/pflege/#p-nutricentials-moisturize-me"
+    },
+    "augen": {
+      "titel": "Mein Tipp zur Augenpflege",
+      "name": "Nutricentials Eye Love Bright Eyes",
+      "text": "Eine leichte, cremige Augencreme. Du klopfst sie morgens und abends nach Reinigung und Toner sanft um die Augenpartie, vor Serum und Feuchtigkeitspflege. Nicht auf die Lider auftragen.",
+      "bild": "/pflege/bilder/bild-27.jpg",
+      "link": "/pflege/#p-nutricentials-eye-love-bright-eyes"
+    },
+    "massage": {
+      "titel": "Mein Tipp zur Gesichtsmassage",
+      "name": "ageLOC Boost System",
+      "text": "Ein Gerät mit Mikrostrom, das mit dem Activating Serum verwendet wird: Serum auf einer Gesichtshälfte verteilen und mit dem Gerät von innen nach außen gleiten, dann die andere Hälfte. Einmal am Tag, nach zwei Minuten schaltet es sich selbst ab.",
+      "bild": "/pflege/bilder/bild-31.jpg",
+      "link": "/pflege/#p-ageloc-boost-system"
+    },
+    "morgen": {
+      "titel": "Mein Morgen",
+      "name": "Beauty Focus Collagen+",
+      "text": "Ich trinke morgens einen Beutel, in Wasser eingerührt. Das ist ein fester Schritt in meiner Morgenroutine. Es ist ein Trinkpulver in Portionsbeuteln mit Orangen‑Zitrus‑Geschmack. Enthält Weizen (Gluten) und ist nicht vegan.",
+      "zusatz": "Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche und ausgewogene Ernährung und eine gesunde Lebensweise.",
+      "bild": "/pflege/bilder/bild-33.jpg",
+      "link": "/pflege/#p-collagen-plus"
+    }
+  },
+  "favorit_titel": "Favorit der Woche",
+  "favoriten_hinweis": "Robert 22.11.2026: jede Woche ein Nu-Skin-Favorit (Mo 00:00 bis Mo 00:00), ersetzt das Amazon-Produkt der Woche. Kein Countdown (keine künstliche Eile), keine Preise, nur Deutsch. Nahrungsergänzung (\"nem\": true) zeigt auf der Karte den Verweis auf Nutzungsbedingungen 6.5 (Robert 22.11.2026), der volle Satz steht im Tipp-Fenster und auf der Pflege-Seite. Nächste Planung ab 15.03.2027, spätestens bis 08.03.2027.",
+  "favoriten": [
+    {
+      "ab": "2026-11-23T00:00:00",
+      "bis": "2026-11-30T00:00:00",
+      "name": "Nutricentials Moisturize Me",
+      "text": "Heizungsluft? Reichhaltige Gesichtscreme für trockene Tage 🤍",
+      "bild": "/pflege/bilder/bild-24.jpg",
+      "link": "/pflege/#p-nutricentials-moisturize-me"
+    },
+    {
+      "ab": "2026-11-30T00:00:00",
+      "bis": "2026-12-07T00:00:00",
+      "name": "Nutricentials Ceramides + Postbiotics Pump",
+      "text": "Tropfen mit Ceramiden, einfach zur gewohnten Pflege dazu 💧",
+      "bild": "/pflege/bilder/bild-29.jpg",
+      "link": "/pflege/#p-nutricentials-ceramides-postbiotics-pump"
+    },
+    {
+      "ab": "2026-12-07T00:00:00",
+      "bis": "2026-12-14T00:00:00",
+      "name": "Nu Skin Perennial",
+      "text": "Körperlotion ohne Duftstoffe für trockene Wintertage 🧡",
+      "bild": "/pflege/bilder/bild-25.jpg",
+      "link": "/pflege/#p-perennial-intense-body-moisturizer"
+    },
+    {
+      "ab": "2026-12-14T00:00:00",
+      "bis": "2026-12-21T00:00:00",
+      "name": "ageLOC LumiSpa iO",
+      "text": "Geschenkidee: Reinigungsgerät für morgens und abends 🎁",
+      "bild": "/pflege/bilder/bild-21.jpg",
+      "link": "/pflege/#p-ageloc-lumispa-io"
+    },
+    {
+      "ab": "2026-12-21T00:00:00",
+      "bis": "2026-12-28T00:00:00",
+      "name": "Nutricentials Pillow Glow",
+      "text": "Feuchtigkeitsmaske für die Nacht, 2- bis 3-mal pro Woche 🌙",
+      "bild": "/pflege/bilder/bild-32.jpg",
+      "link": "/pflege/#p-nutricentials-pillow-glow"
+    },
+    {
+      "ab": "2026-12-28T00:00:00",
+      "bis": "2027-01-04T00:00:00",
+      "name": "Nutricentials Eye Love Bright Eyes",
+      "text": "Leichte Augencreme für morgens und abends ✨",
+      "bild": "/pflege/bilder/bild-27.jpg",
+      "link": "/pflege/#p-nutricentials-eye-love-bright-eyes"
+    },
+    {
+      "ab": "2027-01-04T00:00:00",
+      "bis": "2027-01-11T00:00:00",
+      "name": "Beauty Focus Collagen+",
+      "text": "Ich trinke morgens einen Beutel, in Wasser eingerührt 🍊",
+      "bild": "/pflege/bilder/bild-33.jpg",
+      "link": "/pflege/#p-collagen-plus",
+      "nem": true
+    },
+    {
+      "ab": "2027-01-11T00:00:00",
+      "bis": "2027-01-18T00:00:00",
+      "name": "Nutricentials Day Dream Protective Lotion",
+      "text": "Auch im Winter: leichte Tagespflege mit LSF 30 ☀️",
+      "bild": "/pflege/bilder/bild-26.jpg",
+      "link": "/pflege/#p-nutricentials-day-dream-protective-lotion"
+    },
+    {
+      "ab": "2027-01-18T00:00:00",
+      "bis": "2027-01-25T00:00:00",
+      "name": "Nutricentials Dew All Day",
+      "text": "Cremige Feuchtigkeitspflege für alle Hauttypen 🤍",
+      "bild": "/pflege/bilder/bild-23.jpg",
+      "link": "/pflege/#p-nutricentials-dew-all-day"
+    },
+    {
+      "ab": "2027-01-25T00:00:00",
+      "bis": "2027-02-01T00:00:00",
+      "name": "ageLOC Tru Face Peptide Retinol Complex",
+      "text": "Serum mit Retinolkomplex und Peptid für den Abend 🌙",
+      "bild": "/pflege/bilder/bild-30.jpg",
+      "link": "/pflege/#p-ageloc-tru-face-peptide-retinol-complex"
+    },
+    {
+      "ab": "2027-02-01T00:00:00",
+      "bis": "2027-02-08T00:00:00",
+      "name": "ageLOC Boost System",
+      "text": "Mikrostrom-Gerät mit Serum für zu Hause ⚡",
+      "bild": "/pflege/bilder/bild-31.jpg",
+      "link": "/pflege/#p-ageloc-boost-system"
+    },
+    {
+      "ab": "2027-02-08T00:00:00",
+      "bis": "2027-02-15T00:00:00",
+      "name": "Beauty Focus MultiBeauty",
+      "text": "Kapseln mit Biotin, Zink und Vitamin C 💊",
+      "bild": "/pflege/bilder/bild-08.jpg",
+      "link": "/pflege/#p-beauty-focus-multibeauty",
+      "nem": true
+    },
+    {
+      "ab": "2027-02-15T00:00:00",
+      "bis": "2027-02-22T00:00:00",
+      "name": "Nutricentials Vitamin C + Collagen Pump",
+      "text": "Tropfen mit Vitamin C für mehr Glow 🍊",
+      "bild": "/pflege/bilder/bild-06.jpg",
+      "link": "/pflege/#p-nutricentials-pumps-vitaminc-collagen"
+    },
+    {
+      "ab": "2027-02-22T00:00:00",
+      "bis": "2027-03-01T00:00:00",
+      "name": "Nu Colour Lash + Brow Serum",
+      "text": "Serum für Wimpern und Augenbrauen 💕",
+      "bild": "/pflege/bilder/bild-07.jpg",
+      "link": "/pflege/#p-nu-colour-lash-brow-serum"
+    },
+    {
+      "ab": "2027-03-01T00:00:00",
+      "bis": "2027-03-08T00:00:00",
+      "name": "ageLOC Tru Face Essence Ultra",
+      "text": "Serum in Einzelkapseln für Augen, Hals und Kinn 💎",
+      "bild": "/pflege/bilder/bild-05.jpg",
+      "link": "/pflege/#p-ageloc-truface-essence-ultra"
+    },
+    {
+      "ab": "2027-03-08T00:00:00",
+      "bis": "2027-03-15T00:00:00",
+      "name": "ageLOC Galvanic Spa",
+      "text": "Pflege-Gerät für Gesicht, Körper und Kopfhaut ✨",
+      "bild": "/pflege/bilder/bild-01.jpg",
+      "link": "/pflege/#p-ageloc-galvanic-spa"
+    }
+  ],
+  "nem_verweis": "Nahrungsergänzung · Hinweis in den Nutzungsbedingungen, Punkt 6.5"
+}

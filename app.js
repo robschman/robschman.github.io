@@ -470,7 +470,7 @@ const ROUTINES = {
     { id: 'ws1', emoji: '🫧', name: 'Gesichtspeeling',             hint: '1-2x pro Woche – abgestorbene Hautzellen entfernen', en: 'Face scrub',              enHint: '1-2x per week – remove dead skin cells' },
     { id: 'ws2', emoji: '🎭', name: 'Gesichtsmaske',               hint: 'Tonerde-, Hydro- oder Sheet-Mask (10–20 Min)',      en: 'Face mask',                 enHint: 'Clay, hydro or sheet mask (10–20 min)' },
     { id: 'ws3', emoji: '💎', name: 'Peel-off Maske',              hint: 'Poren reinigen & Mitesser entfernen',              en: 'Peel-off mask',             enHint: 'Cleanse pores & remove blackheads' },
-    { id: 'ws4', emoji: '🌿', name: 'Gesichtsmassage',             hint: 'Gua-Sha oder Jade Roller für Lymphdrainage',       en: 'Face massage',              enHint: 'Gua-Sha or jade roller for lymph drainage' },
+    { id: 'ws4', emoji: '🌿', name: 'Gesichtsmassage',             hint: 'Gua-Sha oder Jade Roller zum Entspannen',          en: 'Face massage',              enHint: 'Gua sha or jade roller to relax' },
     { id: 'ws5', emoji: '👄', name: 'Lippenpeeling',               hint: 'Sanft peelen für weiche Lippen',                   en: 'Lip scrub',                 enHint: 'Gently exfoliate for soft lips' },
   ],
   weekly_hair: [
@@ -898,6 +898,7 @@ function buildList(catKey) {
 
     const displayName = (currentLang === 'en' && item.en)   ? item.en     : item.name;
     const displayHint = (currentLang === 'en' && item.enHint) ? item.enHint : item.hint;
+    const tipp = findeTipp(item.id);
 
     li.innerHTML = `
       <span class="checkbox">
@@ -909,6 +910,7 @@ function buildList(catKey) {
       <span class="item-label">
         <span class="item-name">${escHtml(displayName)}</span>
         ${displayHint ? `<span class="item-hint">${escHtml(displayHint)}</span>` : ''}
+        ${tipp ? `<button type="button" class="tipp-btn" data-tipp="${escHtml(item.id)}">${escHtml(meineTipps.knopf || '✦')}</button>` : ''}
       </span>
       <span class="item-actions">
         ${customBtns}
@@ -926,6 +928,9 @@ function buildList(catKey) {
     ul.appendChild(li);
   });
 
+  ul.querySelectorAll('.tipp-btn').forEach(btn =>
+    btn.addEventListener('click', e => { e.stopPropagation(); oeffneTipp(btn.dataset.tipp); })
+  );
   ul.querySelectorAll('.toggle-btn').forEach(btn =>
     btn.addEventListener('click', e => { e.stopPropagation(); toggleHidden(btn.dataset.id); })
   );
@@ -937,7 +942,110 @@ function buildList(catKey) {
   );
 }
 
-function renderAll() { Object.keys(KEY_TO_LIST).forEach(buildList); }
+function renderAll() { Object.keys(KEY_TO_LIST).forEach(buildList); zeigeNuSkinFlaechen(); }
+
+// ===== Meine Tipps (Nu Skin, Anzeige) =====
+// Alle Nu-Skin-Texte stehen in /tipps/meine-tipps.json. Der Ordner ist in der robots.txt
+// für Suchmaschinen gesperrt (Nu Skin verbietet SEO) – deshalb hier im Code keine
+// Produktnamen. Nur in der deutschen Fassung, nicht im Bearbeiten-Modus.
+let meineTipps = null;
+
+function ladeMeineTipps() {
+  fetch('/tipps/meine-tipps.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => {
+      if (!d || !d.tipps || !d.schritte) return;
+      meineTipps = d;
+      renderAll();
+      setInterval(zeigeNuSkinFlaechen, 60000);   // Montag 00:00 → nächster Favorit, auch bei offener App
+    })
+    .catch(() => {});
+}
+
+function findeTipp(stepId) {
+  if (!meineTipps || currentLang !== 'de' || editMode) return null;
+  const key = meineTipps.schritte[stepId];
+  return key ? meineTipps.tipps[key] || null : null;
+}
+
+function oeffneTipp(stepId) {
+  const tipp = findeTipp(stepId);
+  if (!tipp) return;
+  let ov = document.getElementById('tippOverlay');
+  if (!ov) {
+    ov = document.createElement('div');
+    ov.className = 'modal-overlay';
+    ov.id = 'tippOverlay';
+    ov.innerHTML = `
+      <div class="modal tipp-modal" role="dialog" aria-modal="true" aria-labelledby="tippTitel">
+        <span class="tipp-etikett"></span>
+        <h3 class="modal-title tipp-titel" id="tippTitel"></h3>
+        <div class="tipp-inhalt">
+          <img class="tipp-bild" alt="" width="720" height="900">
+          <p class="tipp-name"></p>
+        </div>
+        <p class="tipp-text"></p>
+        <p class="tipp-zusatz"></p>
+        <a class="modal-save tipp-link" target="_blank" rel="sponsored noopener"></a>
+        <p class="tipp-affiliate"></p>
+        <p class="tipp-pflicht"></p>
+        <button type="button" class="modal-cancel tipp-zu"></button>
+      </div>`;
+    document.body.appendChild(ov);
+    const zu = () => ov.classList.remove('open');
+    ov.addEventListener('click', e => { if (e.target === ov) zu(); });
+    ov.querySelector('.tipp-zu').addEventListener('click', zu);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') zu(); });
+  }
+  ov.querySelector('.tipp-etikett').textContent   = meineTipps.etikett || '';
+  ov.querySelector('.tipp-titel').textContent     = '✦ ' + (tipp.titel || '');
+  ov.querySelector('.tipp-bild').src              = tipp.bild || '';
+  ov.querySelector('.tipp-name').textContent      = tipp.name || '';
+  ov.querySelector('.tipp-text').textContent      = tipp.text || '';
+  ov.querySelector('.tipp-zusatz').textContent    = tipp.zusatz || '';
+  ov.querySelector('.tipp-link').href             = tipp.link || '/pflege/';
+  ov.querySelector('.tipp-link').textContent      = meineTipps.link_text || '';
+  ov.querySelector('.tipp-affiliate').textContent = meineTipps.affiliate || '';
+  ov.querySelector('.tipp-pflicht').textContent   = meineTipps.pflichtsatz || '';
+  ov.querySelector('.tipp-zu').textContent        = meineTipps.schliessen || '×';
+  ov.classList.add('open');
+}
+
+// Favorit der Woche (Glitzer-Karte #pdwCard) + Banner „Meine Pflege-Linie“ – nur Deutsch.
+// Die Karte gab es früher für Amazon (produkt-der-woche.js); seit 23.11.2026 kommt sie aus
+// meine-tipps.json → „favoriten“. Ohne Countdown (keine künstliche Eile).
+function zeigeNuSkinFlaechen() {
+  const de = currentLang === 'de';
+  const banner = document.getElementById('pflegeBanner');
+  if (banner) banner.style.display = de ? '' : 'none';
+  const pflicht = document.getElementById('nuskinPflichtsatz');   // Nu-Skin-Pflichtsatz unten in der App
+  if (pflicht) { pflicht.textContent = (de && meineTipps) ? (meineTipps.pflichtsatz || '') : ''; pflicht.hidden = !pflicht.textContent; }
+  const card = document.getElementById('pdwCard');
+  if (!card) return;
+  const jetzt = Date.now();
+  const fav = (meineTipps && Array.isArray(meineTipps.favoriten))
+    ? meineTipps.favoriten.find(f => jetzt >= new Date(f.ab).getTime() && jetzt < new Date(f.bis).getTime())
+    : null;
+  if (!fav) {
+    if (card.dataset.nuskin) { card.style.display = 'none'; delete card.dataset.nuskin; }
+    return;
+  }
+  if (!de) { card.style.display = 'none'; return; }
+  card.dataset.nuskin = '1';
+  card.href = fav.link || '/pflege/';
+  card.rel = 'noopener';
+  card.querySelector('.pdw-eyebrow').textContent = '✦ ' + (meineTipps.favorit_titel || '');
+  document.getElementById('pdwName').textContent = fav.name || '';
+  document.getElementById('pdwDesc').textContent = String(fav.text || '').replace(/\s+(\S+)\s*$/, '\u00a0$1');
+  const hinweis = document.getElementById('pdwCountdown');      // statt Countdown: bei Nahrungsergänzung der Verweis
+  hinweis.textContent = fav.nem ? (meineTipps.nem_verweis || '') : '';
+  hinweis.classList.toggle('pdw-nem', !!fav.nem);
+  const img = document.getElementById('pdwPhoto');
+  if (fav.bild) { img.src = fav.bild; img.alt = ''; img.style.display = ''; } else { img.style.display = 'none'; }
+  card.style.display = 'block';
+}
+
+ladeMeineTipps();
 
 function escHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');

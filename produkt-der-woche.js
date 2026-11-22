@@ -1,3 +1,6 @@
+// ⚠️ SEIT 23.11.2026 RUHT DIESE DATEI (Robert): Die Glitzer-Karte zeigt jede Woche einen
+//    Nu-Skin-Favoriten aus tipps/meine-tipps.json → „favoriten“ (Steuerung in app.js,
+//    zeigeNuSkinFlaechen). Hier keine neuen Amazon-Produkte mehr eintragen.
 // ════════════════════════════════════════════════════════════════════════
 //  PRODUKT DER WOCHE  —  laeuft nur noch JEDE ZWEITE WOCHE
 //  (Regel ab 09.09.2026: nicht mehr jede Woche ein Produkt, sondern nur in

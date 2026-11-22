@@ -1,5 +1,5 @@
 // Beauty Routine App – Service Worker
-const CACHE = 'beauty-routine-v46';
+const CACHE = 'beauty-routine-v52';
 const ASSETS = [
   '/app.html',
   '/style.css',
@@ -49,7 +49,8 @@ self.addEventListener('fetch', e => {
   const isHTML = isNavigation
     || url.pathname.endsWith('.html')
     || url.pathname.endsWith('/')
-    || url.pathname.endsWith('/produkt-der-woche.js');
+    || url.pathname.endsWith('/produkt-der-woche.js')
+    || url.pathname.startsWith('/tipps/');   // Nu-Skin-Tipps: immer frisch
 
   // HTML/Navigationen: immer zuerst vom Netzwerk (network-first)
   // → Nutzer sehen sofort Updates, ohne Cache löschen zu müssen

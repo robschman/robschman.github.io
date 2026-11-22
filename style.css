@@ -3289,3 +3289,66 @@ body.theme-rainbow { background-color: #FF6F4A !important; }
 .onboarding .agb-inline-btn { color: #BD6C0A !important; }
 .onboarding a { color: #BD6C0A !important; }
 .onboarding input[type="checkbox"] { accent-color: #EF9320 !important; }
+/* ===== Meine Tipps (Nu Skin, Anzeige) – Texte in /tipps/meine-tipps.json ===== */
+.tipp-btn {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 9px;
+  border: 1px solid var(--pink-mid);
+  border-radius: 99px;
+  background: var(--pink-light);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.app.edit-mode .tipp-btn { display: none; }
+.tipp-modal { max-height: calc(100vh - 40px); overflow-y: auto; }
+.tipp-etikett {
+  display: inline-block;
+  border: 1px solid var(--text);
+  border-radius: 6px;
+  padding: 0 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.tipp-titel { margin-bottom: 12px; text-wrap: balance; }
+.tipp-inhalt { display: flex; gap: 14px; align-items: center; }
+.tipp-bild {
+  flex: 0 0 88px;
+  width: 88px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--pink-light);
+}
+.tipp-name { font-weight: 800; color: var(--text); font-size: 1rem; line-height: 1.3; margin: 0; text-wrap: balance; }
+.tipp-text { color: var(--text); font-size: 0.88rem; line-height: 1.5; margin: 12px 0 0; text-wrap: pretty; }
+a.tipp-link {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  text-decoration: none;
+}
+.tipp-affiliate, .tipp-pflicht { color: var(--text); font-size: 0.72rem; line-height: 1.45; margin: 10px 0 0; }
+.tipp-pflicht { font-size: 0.66rem; }
+.tipp-zu { width: 100%; margin-top: 14px; color: var(--text); }
+.tipp-zusatz { color: var(--text); font-size: 0.75rem; line-height: 1.45; margin: 8px 0 0; font-style: italic; }
+.tipp-zusatz:empty { display: none; }
+
+/* Banner „Meine Pflege-Linie“ (Nu Skin, seit 23.11.2026) */
+.pflege-banner { position: relative; margin-top: 0; background: linear-gradient(135deg, #B0406A 0%, #6E1F45 100%); box-shadow: 0 4px 16px rgba(110,31,69,0.34); }
+.pflege-banner:hover, .pflege-banner:active { box-shadow: 0 6px 20px rgba(110,31,69,0.48); }
+.pflege-banner .pflege-banner-symbol { width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; background: #fff; display: flex;
+  align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.22); }
+.pflege-banner .fav-banner-text small { opacity: 1; }
+.pflege-banner-ad { position: absolute; top: 7px; right: 12px; font-size: 9px; font-weight: 700; letter-spacing: .05em;
+  color: #fff; background: rgba(0,0,0,.30); padding: 2px 7px; border-radius: 20px; }
+/* keine einzelnen Wörter allein in der letzten Zeile (Robert, Zeilenumbruch-Regel) */
+.fav-banner-text small, .pdw-desc, .pdw-eyebrow { text-wrap: balance; }
+.pdw-countdown.pdw-nem { color: #2a2018; font-weight: 600; font-size: 10.5px; }
+.nuskin-pflicht { color: var(--text); font-size: 10.5px; line-height: 1.45; max-width: 340px; margin: 0 auto 10px; padding: 0 16px; text-wrap: balance; }

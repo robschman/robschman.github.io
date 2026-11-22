@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /tipps/
 
 Sitemap: https://beautyroutine.app/sitemap.xml
