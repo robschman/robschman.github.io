@@ -1521,7 +1521,8 @@ function getTheme() {
   let t = store.get('routine_theme');
   if (!t) {
     // Migration für Alt-User: Buben-Geschlecht hatte früher das blaue Design
-    var _gd = store.get('routine_gender'); t = _gd === 'boy' ? 'blue' : (_gd === 'divers' ? 'rainbow' : 'pink');
+    // Seit Dezember 2026: Standard ist das Rosé-Satin-Design 'cozy' (Bub: Espresso-Gold, divers: Regenbogen)
+    var _gd = store.get('routine_gender'); t = _gd === 'divers' ? 'rainbow' : 'cozy';
   }
   if (t === 'girl') t = 'pink';   // Legacy normalisieren
   if (t === 'boy')  t = 'blue';
@@ -1544,6 +1545,21 @@ function applyThemeClasses(theme) {
   document.body.classList.toggle('theme-rainbow', theme === 'rainbow');
   document.body.classList.toggle('gender-boy', getGender() === 'boy');
   document.body.classList.toggle('gender-divers', getGender() === 'divers');
+  document.body.classList.toggle('saison-winter', istWinterSaison());
+  // Überzieh-Farbe (iPhone, beim Ziehen über den Rand) passend halten
+  var _bg = { blue:'#90caf9', winter:'#8A3354', mono:'#2b2b2b', rainbow:'#FF5252', pink:'#f9a8c9',
+    cozy: getGender() === 'boy' ? '#1c1410' : (istWinterSaison() ? '#7A1F2E' : '#D28E93') }[theme];
+  if (_bg) document.documentElement.style.backgroundColor = _bg;
+}
+
+// Winter-Samt im Rosé-Design: automatisch vom 1. Dezember bis Ende Februar.
+// Zum Ausprobieren: app.html?saison=winter bzw. ?saison=normal
+function istWinterSaison() {
+  var q = location.search;
+  if (/saison=winter/.test(q)) return true;
+  if (/saison=normal/.test(q)) return false;
+  var m = new Date().getMonth();
+  return m === 11 || m <= 1;
 }
 
 // Optik + Inhalt komplett anwenden (liest Geschlecht + Design aus dem Speicher)
@@ -1854,7 +1870,7 @@ function initOnboarding() {
 
     // ---- Step 1 → 1b (Geschlecht) ----
     let selectedGender = 'girl';          // 'girl' | 'boy'  → Inhalt
-    let selectedTheme  = 'pink';          // 'pink' | 'cozy' | 'blue' → Optik
+    let selectedTheme  = 'cozy';          // Standard seit Dezember 2026: Rosé Satin ('cozy')
     const goStep1b = () => {
       if (!document.getElementById('nameInput').value.trim()) {
         document.getElementById('nameInput').focus();

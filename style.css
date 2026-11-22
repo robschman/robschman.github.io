@@ -263,7 +263,7 @@ body {
   background: #f9a8c9;
 }
 body.theme-boy  .sticky-top { background: #90caf9; }  /* Blau */
-body.theme-cozy .sticky-top { background: #F8C76B; }  /* Gold (CozyVibe) */
+/* theme-cozy: .sticky-top steht im Rosé-Block (Variable --cz-status) */
 body.theme-mono    .sticky-top { background: #2b2b2b; }  /* Anthrazit (Mono) */
 body.theme-rainbow .sticky-top { background: linear-gradient(120deg, #FF5252 0%, #FF9800 20%, #FFD600 38%, #43A047 56%, #1E88E5 74%, #8E24AA 100%); }  /* Regenbogen */
 /* Bunte Tabs (Morgen rot/orange, Abend gelb/gruen, Woechentlich gruen/blau) */
@@ -793,7 +793,6 @@ body.theme-boy .cozyvibe-banner-arrow {
 }
 .completion-banner.show { display: block; }
 body.theme-boy    .completion-banner { background: linear-gradient(135deg, #64b5f6, #1565c0); }
-body.theme-cozy   .completion-banner { background: linear-gradient(135deg, #F8C76B, #BD6C0A); }
 body.theme-winter .completion-banner { background: linear-gradient(135deg, #A85478, #6B2440); }
 
 @keyframes popIn {
@@ -2255,216 +2254,386 @@ body.theme-boy {
 }
 
 /* ============================================================
-   THEME: COZY (Cream + Gold — CozyVibe Sub-Brand)
-   Warmer, reifer Look für 25-44. Gespiegelt nach theme-boy-Muster.
+   THEME: COZY = „Rosé Satin“ (seit Dezember 2026 Standard-Design)
+   Drei Fassungen über Variablen:
+   - Grundfassung  Rosé + Roségold mit Glas-Karten
+   - saison-winter Winter-Samt (Bordeaux + Gold), automatisch 1.12. bis Ende Februar
+   - gender-boy    Espresso + Gold (gilt das ganze Jahr, auch im Winter)
+   Schrift: Mulish (Text), Marcellus (Beschriftungen), Dancing Script (Logo),
+   Cormorant (Winter-Logo), Bodoni Moda (Bub-Logo). Alles lokal, kein Google.
+   Lesbarer Text bleibt schwarz/dunkel bzw. weiß (kein Grau).
    ============================================================ */
+@font-face { font-family: 'Cormorant'; font-weight: 700; font-display: swap; src: url('/fonts/cozy/cormorant-700.woff2') format('woff2'); }
+@font-face { font-family: 'Bodoni Moda'; font-weight: 700; font-display: swap; src: url('/fonts/cozy/bodoni-moda-700.woff2') format('woff2'); }
+
 body.theme-cozy {
-  --pink:        #EF9320;   /* CozyVibe primary gold */
-  --pink-light:  #FEF5E0;   /* primary-tint */
-  --pink-mid:    #BD6C0A;   /* primary-strong */
-  --purple:      #E8A93C;   /* warm gold accent */
-  --bg:          #FBF6F0;   /* cream canvas */
+  --pink:        #C98A7A;   /* Roségold */
+  --pink-light:  #FBE7E3;   /* zarter Rosé-Ton */
+  --pink-mid:    #B5677A;   /* Rosé kräftig */
+  --purple:      #D9919A;   /* Rosé Akzent */
+  --bg:          #FBF3EE;
   --card:        #FFFFFF;
-  --text:        #3B302A;   /* warm espresso ink */
-  --text-soft:   #93847A;   /* muted */
-  --border:      #EBDDCD;   /* warm hairline */
-  --shadow:      rgba(189, 108, 10, 0.18);
+  --text:        #3d2230;
+  --text-soft:   #4a2a38;   /* bewusst dunkel: kein Grau */
+  --border:      #F0D2CE;
+  --shadow:      rgba(150,70,90,0.16);
+
+  --cz-status:     #D28E93;
+  --cz-kopf:       linear-gradient(150deg, #D99A9C 0%, #C97B88 45%, #A85A70 100%);
+  --cz-kopf-text:  #FFFFFF;
+  --cz-kopf-akzent:#FFFFFF;
+  --cz-logo-font:  'Dancing Script', cursive;
+  --cz-logo-farbe: #FFFFFF;
+  --cz-seite:      linear-gradient(180deg, #F9E6E4 0px, #FBF3EE 380px, #FBF6F0 900px);
+  --cz-tabs:       linear-gradient(135deg, #FBEDEA 0%, #F6DCD8 100%);
+  --cz-tab-text:   #3d2230;
+  --cz-tab-bg:     rgba(255,255,255,0.7);
+  --cz-tab-rand:   #EFC9C6;
+  --cz-tab-aktiv:  linear-gradient(135deg, #C98A7A, #B5677A);
+  --cz-tab-aktiv-text: #FFFFFF;
+  --cz-akzent:     linear-gradient(135deg, #C98A7A, #B5677A);
+  --cz-akzent-schatten: rgba(150,70,90,0.32);
+  --cz-label:      #A95468;
+  --cz-karte:      rgba(255,255,255,0.82);
+  --cz-karte-kopf: linear-gradient(135deg, rgba(251,231,227,0.95), rgba(246,220,216,0.95));
+  --cz-linie:      #F6E1DD;
+  --cz-check-rand: #D79A9E;
+  --cz-check-fertig: linear-gradient(135deg, #E3A99A, #B5677A);
+  --cz-check-haken:#FFFFFF;
+  --cz-fortschritt:linear-gradient(90deg, #FFFFFF, #F7D8C8);
+  --cz-glanz-farben:      #E8B49B, #FFFFFF, #C98A7A, #F3D2C3, #B5677A, #FFFFFF, #E8B49B, #C98A7A, #FFF3EC, #B5677A, #E8B49B;
+  --cz-glanz-text: linear-gradient(90deg, #B5677A, #C98A7A, #A95468);
+  --cz-banner-1:   linear-gradient(135deg, #C98A7A 0%, #9E4F66 100%);
+  --cz-banner-2:   linear-gradient(135deg, #D69A8A 0%, #B5677A 100%);
+  --cz-banner-3:   linear-gradient(135deg, #A95468 0%, #6E2A44 100%);
+  --cz-banner-symbol: #B5677A;
+  --cz-overlay:    rgba(90,30,50,0.32);
+  --cz-onboarding: linear-gradient(160deg, #FBF3EE 0%, #F6DCD8 50%, #C97B88 100%);
+  font-family: 'Mulish', system-ui, -apple-system, sans-serif;
 }
 
-body.theme-cozy .header {
-  background: linear-gradient(140deg, #F8C76B 0%, #EF9320 48%, #BD6C0A 100%);
+/* Winter-Samt: Bordeaux + Gold (1.12. bis Ende Februar) */
+body.theme-cozy.saison-winter {
+  --pink:        #B8862F;
+  --pink-light:  #FBF1E6;
+  --pink-mid:    #7A1F2E;
+  --purple:      #D9A75A;
+  --bg:          #FAF4EE;
+  --text:        #2e1418;
+  --text-soft:   #3e2026;
+  --border:      #EADBCD;
+  --shadow:      rgba(78,18,32,0.16);
+
+  --cz-status:     #7A1F2E;
+  --cz-kopf:       linear-gradient(160deg, #7A1F2E 0%, #4E1220 100%);
+  --cz-kopf-text:  #FFF3E3;
+  --cz-kopf-akzent:#F2D49A;
+  --cz-logo-font:  'Cormorant', Georgia, serif;
+  --cz-logo-farbe: #FFF3E3;
+  --cz-seite:      #FAF4EE;
+  --cz-tabs:       #FAF4EE;
+  --cz-tab-text:   #2e1418;
+  --cz-tab-bg:     #FFFFFF;
+  --cz-tab-rand:   #E7D3C4;
+  --cz-tab-aktiv:  #7A1F2E;
+  --cz-tab-aktiv-text: #FFF3E3;
+  --cz-akzent:     linear-gradient(135deg, #8E2A3A, #5E1726);
+  --cz-akzent-schatten: rgba(78,18,32,0.34);
+  --cz-label:      #7A1F2E;
+  --cz-karte:      #FFFFFF;
+  --cz-karte-kopf: #FFFFFF;
+  --cz-linie:      #F1E5DA;
+  --cz-check-rand: #C99A5B;
+  --cz-check-fertig: #7A1F2E;
+  --cz-check-haken:#F2D49A;
+  --cz-fortschritt:linear-gradient(90deg, #D9A75A, #F2D49A);
+  --cz-glanz-farben:      #D9A75A, #FFF3E3, #7A1F2E, #F2D49A, #B8862F, #FFF3E3, #D9A75A, #7A1F2E, #F2D49A, #D9A75A;
+  --cz-glanz-text: linear-gradient(90deg, #7A1F2E, #A3671F, #7A1F2E);
+  --cz-banner-1:   linear-gradient(135deg, #8E2A3A 0%, #4E1220 100%);
+  --cz-banner-2:   linear-gradient(135deg, #A3671F 0%, #6E4512 100%);
+  --cz-banner-3:   linear-gradient(135deg, #5E1A2A 0%, #34101A 100%);
+  --cz-banner-symbol: #7A1F2E;
+  --cz-overlay:    rgba(46,20,24,0.36);
+  --cz-onboarding: linear-gradient(160deg, #FAF4EE 0%, #F2E2D2 50%, #7A1F2E 100%);
 }
-body.theme-cozy .tab.active {
-  background: linear-gradient(135deg, #EF9320, #BD6C0A);
-  box-shadow: 0 3px 12px rgba(189,108,10,0.34);
+
+/* Bub-Modus: Espresso + Gold (das ganze Jahr) */
+body.theme-cozy.gender-boy {
+  --pink:        #B8862F;
+  --pink-light:  #F7EEDC;
+  --pink-mid:    #8A6420;
+  --purple:      #C9973A;
+  --bg:          #F7F1E8;
+  --text:        #2a2018;
+  --text-soft:   #3a2c20;
+  --border:      #E3D3B5;
+  --shadow:      rgba(28,20,16,0.16);
+
+  --cz-status:     #1c1410;
+  --cz-kopf:       radial-gradient(120% 90% at 20% 0%, #3a2a1e 0%, #1c1410 70%);
+  --cz-kopf-text:  #FFF6E6;
+  --cz-kopf-akzent:#F3D9A4;
+  --cz-logo-font:  'Bodoni Moda', Georgia, serif;
+  --cz-logo-farbe: #F7E3A8;
+  --cz-seite:      #F7F1E8;
+  --cz-tabs:       #F7F1E8;
+  --cz-tab-text:   #2a2018;
+  --cz-tab-bg:     transparent;
+  --cz-tab-rand:   #CDB78F;
+  --cz-tab-aktiv:  #1c1410;
+  --cz-tab-aktiv-text: #F7E3A8;
+  --cz-akzent:     linear-gradient(135deg, #2a1e16, #120c09);
+  --cz-akzent-schatten: rgba(28,20,16,0.34);
+  --cz-label:      #2a2018;
+  --cz-karte:      #FFFFFF;
+  --cz-karte-kopf: #FFFFFF;
+  --cz-linie:      #EFE4CF;
+  --cz-check-rand: #C9973A;
+  --cz-check-fertig: linear-gradient(135deg, #B8862F, #F7E3A8);
+  --cz-check-haken:#1c1410;
+  --cz-fortschritt:linear-gradient(90deg, #B8862F, #F7E3A8, #C9973A);
+  --cz-glanz-farben:      #B8862F, #F7E3A8, #C9973A, #FFF1C9, #8A6420, #F7E3A8, #B8862F, #FFF1C9, #C9973A, #B8862F;
+  --cz-glanz-text: linear-gradient(90deg, #8A6420, #B8862F, #6E4E16);
+  --cz-banner-1:   linear-gradient(135deg, #3a2a1e 0%, #1c1410 100%);
+  --cz-banner-2:   linear-gradient(135deg, #A3761F 0%, #6E4E16 100%);
+  --cz-banner-3:   linear-gradient(135deg, #2a1e16 0%, #120c09 100%);
+  --cz-banner-symbol: #1c1410;
+  --cz-overlay:    rgba(28,20,16,0.4);
+  --cz-onboarding: linear-gradient(160deg, #F7F1E8 0%, #EADBC0 50%, #3a2a1e 100%);
 }
-body.theme-cozy .tab:not(.active) {
-  background: linear-gradient(135deg, rgba(239,147,32,0.14), rgba(189,108,10,0.18));
-  color: #BD6C0A;
+
+/* ---------- Grundflächen ---------- */
+body.theme-cozy { background-color: #FBF6F0; }
+body.theme-cozy.saison-winter { background-color: #FAF4EE; }
+body.theme-cozy.gender-boy { background-color: #F7F1E8; }
+body.theme-cozy .app { background: var(--cz-seite); }
+body.theme-cozy .sticky-top { background: var(--cz-status); }
+
+/* ---------- Kopf ---------- */
+body.theme-cozy .header { background: var(--cz-kopf); color: var(--cz-kopf-text); }
+body.theme-cozy .header::before { background: rgba(255,255,255,0.07); }
+body.theme-cozy .logo-beauty {
+  font-family: var(--cz-logo-font);
+  color: var(--cz-logo-farbe);
+  text-shadow: 0 2px 12px rgba(80,20,40,0.28);
 }
-body.theme-cozy #progressBar {
-  background: linear-gradient(90deg, #FBD274, #EF9320);
+body.theme-cozy.saison-winter .logo-beauty { font-size: 2.15rem; letter-spacing: 0.3px; }
+body.theme-cozy.gender-boy .logo-beauty {
+  font-size: 1.7rem; letter-spacing: 0.02em;
+  background: linear-gradient(100deg, #B8862F 0%, #F7E3A8 35%, #C9973A 55%, #FFF1C9 75%, #B8862F 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
 }
-body.theme-cozy .section-header {
-  background: linear-gradient(135deg, #F8C76B, #EF9320);
+body.theme-cozy .logo-name { color: var(--cz-kopf-text); }
+body.theme-cozy .logo-routine {
+  font-family: 'Marcellus', serif; font-weight: 400; opacity: 1; color: var(--cz-kopf-akzent);
 }
-body.theme-cozy .checklist-item:hover { background: #FEF5E0; }
-body.theme-cozy .item-check { border-color: #E8A93C; }
-body.theme-cozy .checklist-item.done .item-check {
-  background: linear-gradient(135deg, #EF9320, #BD6C0A);
-  border-color: #BD6C0A;
+body.theme-cozy .greeting-row { color: var(--cz-kopf-text); }
+body.theme-cozy .header-branding { color: var(--cz-kopf-text); }
+body.theme-cozy .date-display {
+  color: var(--cz-kopf-text);
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.5);
 }
-body.theme-cozy .reset-btn {
-  background: linear-gradient(135deg, #F8C76B, #EF9320);
-  box-shadow: 0 4px 16px rgba(189,108,10,0.34);
-}
-body.theme-cozy .reset-all-btn {
-  background: linear-gradient(135deg, #EF9320, #9C5408);
-  box-shadow: 0 4px 16px rgba(156,84,8,0.34);
-}
-body.theme-cozy .termine-btn {
-  background: linear-gradient(135deg, #E8A93C, #BD6C0A);
-  box-shadow: 0 4px 16px rgba(189,108,10,0.34);
-}
+body.theme-cozy.saison-winter .date-display,
+body.theme-cozy.gender-boy .date-display { background: rgba(255,255,255,0.07); border-color: rgba(242,212,154,0.5); }
+body.theme-cozy .progress-bar-wrap { background: rgba(255,255,255,0.3); }
+body.theme-cozy.saison-winter .progress-bar-wrap,
+body.theme-cozy.gender-boy .progress-bar-wrap { background: rgba(242,212,154,0.2); }
+body.theme-cozy #progressBar { background: var(--cz-fortschritt); }
+body.theme-cozy .progress-label { color: var(--cz-kopf-text); }
 body.theme-cozy .today-badge,
 body.theme-cozy .date-today-badge {
-  background: linear-gradient(135deg, #F8C76B, #EF9320);
-  box-shadow: 0 2px 10px rgba(239,147,32,0.5);
+  background: var(--cz-akzent);
+  box-shadow: 0 2px 10px var(--cz-akzent-schatten);
 }
-body.theme-cozy .tip-bubble {
-  background: linear-gradient(145deg, #FEF5E0 0%, #FCEFCC 55%, #FCE9C2 100%);
-  border-color: rgba(251,210,116,0.85);
-  box-shadow: 0 6px 22px rgba(189,108,10,0.12), inset 0 1px 4px rgba(255,255,255,0.95);
+body.theme-cozy.saison-winter .date-today-badge,
+body.theme-cozy.gender-boy .date-today-badge {
+  background: linear-gradient(135deg, #D9A75A, #F2D49A); color: #2e1418;
 }
-body.theme-cozy .tip-bubble:nth-child(2) {
-  background: linear-gradient(145deg, #FCEFCC 0%, #FEF5E0 55%, #FCE9C2 100%);
+
+/* ---------- Reiter ---------- */
+body.theme-cozy .tabs { background: var(--cz-tabs); border-bottom-color: var(--border); }
+body.theme-cozy .tab:not(.active) {
+  background: var(--cz-tab-bg);
+  color: var(--cz-tab-text);
+  box-shadow: inset 0 0 0 1px var(--cz-tab-rand);
 }
+body.theme-cozy .tab.active {
+  background: var(--cz-tab-aktiv);
+  color: var(--cz-tab-aktiv-text);
+  box-shadow: 0 3px 12px var(--cz-akzent-schatten);
+}
+body.theme-cozy .tab:hover:not(.active) { color: var(--cz-tab-text); }
+body.theme-cozy .tab-label {
+  font-family: 'Marcellus', serif; font-style: normal; font-weight: 400;
+  font-size: 0.8rem; letter-spacing: 0.04em;
+}
+body.theme-cozy .edit-toggle-btn { background: rgba(255,255,255,0.8); box-shadow: 0 1px 4px var(--shadow); }
+body.theme-cozy .app.edit-mode .edit-toggle-btn {
+  background: var(--cz-akzent);
+  box-shadow: 0 3px 10px var(--cz-akzent-schatten);
+}
+
+/* ---------- Karten und Liste ---------- */
+body.theme-cozy .category {
+  background: var(--cz-karte);
+  border-color: var(--border);
+  box-shadow: 0 8px 22px -14px rgba(120,50,70,0.4);
+  border-radius: 18px;
+}
+body.theme-cozy .category-title {
+  background: var(--cz-karte-kopf);
+  color: var(--cz-label);
+  font-family: 'Marcellus', serif; font-weight: 400;
+  font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase;
+  border-bottom: 1px solid var(--cz-linie);
+}
+body.theme-cozy .checklist-item { border-bottom-color: var(--cz-linie); }
+body.theme-cozy .checklist-item:hover { background: var(--pink-light); }
+body.theme-cozy .checkbox { border: 2px solid var(--cz-check-rand); }
+body.theme-cozy .checklist-item.done .checkbox { background: var(--cz-check-fertig); border-color: transparent; }
+body.theme-cozy .checkbox-check { stroke: var(--cz-check-haken); }
+body.theme-cozy .item-name { font-weight: 700; }
+body.theme-cozy .tipp-btn { border-color: var(--cz-check-rand); background: var(--pink-light); color: var(--text); }
+body.theme-cozy .completion-banner { background: var(--cz-banner-1); }
+
+/* ---------- Favorit der Woche: schimmernder Rahmen ---------- */
+/* Farbliste als Variable, der Verlauf selbst hier: nur so dreht sich der Winkel --pdw-a mit */
+body.theme-cozy .pdw-glow { background: conic-gradient(from var(--pdw-a), var(--cz-glanz-farben)); animation-duration: 9s; }
+body.theme-cozy .pdw-inner { background: rgba(255,255,255,0.94); }
+body.theme-cozy .pdw-eyebrow { font-size: 1.3rem; white-space: nowrap; background: var(--cz-glanz-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.theme-cozy.saison-winter .pdw-eyebrow { font-family: 'Cormorant', Georgia, serif; font-size: 1.2rem; }
+body.theme-cozy.gender-boy .pdw-eyebrow { font-family: 'Bodoni Moda', Georgia, serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+body.theme-cozy .pdw-name,
+body.theme-cozy .pdw-desc,
+body.theme-cozy .pdw-arrow { color: var(--text); }
+body.theme-cozy .pdw-countdown { color: var(--cz-label); }
+body.theme-cozy .pdw-ad { background: rgba(60,20,35,0.55); }
+
+/* ---------- Banner (Saison, Pflege-Linie, CozyVibe, Beratung) ---------- */
+body.theme-cozy .seasonal-banner {
+  background: var(--cz-banner-2) !important;
+  box-shadow: 0 3px 14px var(--cz-akzent-schatten) !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+body.theme-cozy .seasonal-banner:hover,
+body.theme-cozy .seasonal-banner:active { box-shadow: 0 5px 18px var(--cz-akzent-schatten) !important; }
+body.theme-cozy .fav-banner { box-shadow: 0 4px 16px var(--cz-akzent-schatten); font-family: inherit; -webkit-tap-highlight-color: transparent; }
+body.theme-cozy .fav-banner:hover,
+body.theme-cozy .fav-banner:active { box-shadow: 0 6px 20px var(--cz-akzent-schatten); }
+body.theme-cozy .pflege-banner { background: var(--cz-banner-1); }
+body.theme-cozy #favBanner { background: var(--cz-banner-2); }
+body.theme-cozy .beratung-banner { background: var(--cz-banner-3); }
+body.theme-cozy.gender-boy .pflege-banner { box-shadow: inset 0 0 0 1px #C9973A, 0 4px 16px rgba(28,20,16,0.3); }
+body.theme-cozy.saison-winter .fav-banner-text strong { font-family: 'Cormorant', Georgia, serif; font-size: 1.15rem; white-space: nowrap; }
+body.theme-cozy.gender-boy .fav-banner-text strong { font-family: 'Bodoni Moda', Georgia, serif; font-size: 1.02rem; letter-spacing: 0.01em; white-space: nowrap; color: #F7E3A8; }
+body.theme-cozy .pflege-banner-symbol,
+body.theme-cozy .beratung-banner-symbol { color: var(--cz-banner-symbol); }
+body.theme-cozy .cozyvibe-banner {
+  background: linear-gradient(135deg, var(--pink-light) 0%, #FFFFFF 100%) !important;
+  border-color: var(--border) !important;
+}
+body.theme-cozy .cozyvibe-banner-title,
+body.theme-cozy .cozyvibe-banner-arrow { color: var(--cz-label) !important; }
+body.theme-cozy .cozyvibe-banner-sub { color: var(--text) !important; }
+
+/* ---------- Knöpfe ---------- */
+body.theme-cozy .reset-btn,
+body.theme-cozy .reset-all-btn,
+body.theme-cozy .termine-btn,
+body.theme-cozy .name-save-btn,
+body.theme-cozy .modal-save,
+body.theme-cozy .add-termin-fab {
+  background: var(--cz-akzent);
+  box-shadow: 0 4px 16px var(--cz-akzent-schatten);
+}
+body.theme-cozy.gender-boy .reset-btn,
+body.theme-cozy.gender-boy .reset-all-btn,
+body.theme-cozy.gender-boy .termine-btn,
+body.theme-cozy.gender-boy .name-save-btn,
+body.theme-cozy.gender-boy .modal-save,
+body.theme-cozy.gender-boy .add-termin-fab { color: #F7E3A8; }
+
+/* ---------- Tipp-Blasen ---------- */
+body.theme-cozy .tip-bubble,
+body.theme-cozy .tip-bubble:nth-child(2),
 body.theme-cozy .tip-bubble:nth-child(3) {
-  background: linear-gradient(145deg, #FDF6E3 0%, #FCEFCC 55%, #F8E6BE 100%);
+  background: linear-gradient(145deg, #FFFFFF 0%, var(--pink-light) 100%);
+  border-color: var(--border);
+  box-shadow: 0 6px 22px -10px var(--cz-akzent-schatten), inset 0 1px 4px rgba(255,255,255,0.95);
 }
 body.theme-cozy .tip-bubble::before,
 body.theme-cozy .tip-bubble::after {
-  background: linear-gradient(145deg, #FEF5E0, #FCE9C2);
-  border-color: rgba(251,210,116,0.85);
-  box-shadow: 0 3px 8px rgba(189,108,10,0.1);
-}
-body.theme-cozy .checklist-item { border-bottom-color: #F0E4D7; }
-body.theme-cozy .gender-btn.selected {
-  border-color: #BD6C0A;
-  background: linear-gradient(135deg, #FEF5E0, #FCE9C2);
-  color: #BD6C0A;
-  box-shadow: 0 4px 16px rgba(189,108,10,0.26);
-}
-body.theme-cozy .name-save-btn {
-  background: linear-gradient(135deg, #EF9320, #BD6C0A);
-  box-shadow: 0 4px 16px rgba(189,108,10,0.34);
-}
-body.theme-cozy .ob-option.selected {
-  border-color: #BD6C0A;
-  background: linear-gradient(135deg, #FEF5E0, #FCE9C2);
-  color: #BD6C0A;
-}
-body.theme-cozy .onboarding {
-  background: linear-gradient(160deg, #FBF6F0 0%, #FCE9C2 50%, #EF9320 100%);
-}
-body.theme-cozy .termine-header {
-  background: linear-gradient(140deg, #F8C76B 0%, #EF9320 45%, #BD6C0A 100%);
-}
-body.theme-cozy .termin-soon {
-  background: linear-gradient(135deg, #FEF5E0, #FCE9C2);
-  border-color: #BD6C0A;
-}
-body.theme-cozy .termin-soon .termin-datetime { color: #BD6C0A; }
-body.theme-cozy .termin-past { background: #F7F3EE; border-color: #E6DDD0; }
-body.theme-cozy .termin-emoji {
-  background: linear-gradient(135deg, #FEF5E0, #FCEFCC);
-}
-body.theme-cozy .termin-datetime { color: #BD6C0A; }
-body.theme-cozy .termin-action-btn { background: #FEF5E0; }
-body.theme-cozy .add-termin-fab {
-  background: linear-gradient(135deg, #EF9320, #BD6C0A);
-  box-shadow: 0 6px 20px rgba(189,108,10,0.4);
-}
-body.theme-cozy .termin-preset-chip {
-  background: linear-gradient(160deg, rgba(255,255,255,0.9), rgba(254,245,224,0.75));
-  border-color: #F8C76B;
-  color: #BD6C0A;
-}
-body.theme-cozy .termin-preset-chip:active {
-  background: linear-gradient(135deg, #EF9320, #BD6C0A);
-}
-body.theme-cozy .termin-card {
-  border-color: #EBDDCD;
-  box-shadow: 0 2px 10px rgba(189,108,10,0.1);
-}
-body.theme-cozy .settings-lang-btn.active {
-  background: linear-gradient(135deg, #FEF5E0, #FCE9C2);
-  border-color: #BD6C0A;
-  color: #BD6C0A;
-}
-body.theme-cozy .settings-lang-btn { border-color: #EBDDCD; }
-body.theme-cozy .settings-section { border-bottom-color: #EBDDCD; }
-body.theme-cozy .settings-label { color: #93847A; }
-body.theme-cozy .modal-save {
-  background: linear-gradient(135deg, #EF9320, #BD6C0A);
-}
-body.theme-cozy .settings-input,
-body.theme-cozy .name-input { border-color: #EBDDCD; }
-body.theme-cozy .settings-input:focus,
-body.theme-cozy .name-input:focus {
-  border-color: #EF9320;
-  box-shadow: 0 0 0 3px rgba(239,147,32,0.15);
-}
-body.theme-cozy .ob-option {
-  border-color: #EBDDCD;
-  box-shadow: 0 2px 8px rgba(189,108,10,0.07) !important;
-}
-body.theme-cozy .ob-option:hover {
-  border-color: #F8C76B;
-  background: #FEF5E0;
-}
-body.theme-cozy .gender-btn {
-  border-color: #EBDDCD;
-  color: #93847A;
-}
-body.theme-cozy .modal-overlay.open > .modal {
-  box-shadow: 0 8px 40px rgba(189,108,10,0.16);
-}
-body.theme-cozy .tabs {
-  background: linear-gradient(135deg, #FEF5E0 0%, #FCE9C2 100%);
-  border-bottom-color: #F8C76B;
-}
-body.theme-cozy .footer {
-  background: linear-gradient(135deg, rgba(254,245,224,0.97) 0%, rgba(252,233,194,0.97) 100%);
-  border-top-color: #F8C76B;
-}
-body.theme-cozy .modal-overlay {
-  background: rgba(94, 53, 8, 0.32);
-}
-body.theme-cozy .settings-open-btn {
-  box-shadow: 0 2px 12px rgba(189,108,10,0.13);
-  border-color: #EBDDCD;
-}
-body.theme-cozy .settings-open-btn:active { background: #FEF5E0; }
-body.theme-cozy .preset-chip {
-  background: linear-gradient(160deg, rgba(255,255,255,0.9) 0%, rgba(254,245,224,0.75) 100%);
-  box-shadow:
-    inset 0 1px 2px rgba(255,255,255,1),
-    inset 0 -1px 2px rgba(189,108,10,0.1),
-    0 3px 8px rgba(189,108,10,0.16),
-    0 1px 2px rgba(0,0,0,0.06);
-}
-body.theme-cozy .preset-chip:active {
-  background: linear-gradient(135deg, #EF9320, #BD6C0A);
-}
-body.theme-cozy .edit-toggle-btn {
-  box-shadow: 0 1px 4px rgba(189,108,10,0.15);
-}
-body.theme-cozy .app.edit-mode .edit-toggle-btn {
-  background: linear-gradient(135deg, #EF9320, #BD6C0A);
-  box-shadow: 0 3px 10px rgba(189,108,10,0.4);
-}
-body.theme-cozy {
-  background-color: #FBF6F0;
+  background: linear-gradient(145deg, #FFFFFF, var(--pink-light));
+  border-color: var(--border);
+  box-shadow: 0 3px 8px var(--shadow);
 }
 
-/* CozyVibe-Theme: Banner-Überschreibungen (gold) */
-body.theme-cozy .seasonal-banner {
-  background: linear-gradient(135deg, #F8C76B 0%, #EF9320 100%) !important;
-  box-shadow: 0 3px 14px rgba(189,108,10,0.3) !important;
-  -webkit-tap-highlight-color: rgba(189,108,10,0.18) !important;
+/* ---------- Begrüßung, Einstellungen, Fenster ---------- */
+body.theme-cozy .onboarding { background: var(--cz-onboarding); }
+body.theme-cozy .gender-btn { border-color: var(--border); color: var(--text); }
+body.theme-cozy .gender-btn.selected,
+body.theme-cozy .ob-option.selected,
+body.theme-cozy .settings-lang-btn.active {
+  border-color: var(--pink-mid);
+  background: var(--pink-light);
+  color: var(--text);
+  box-shadow: 0 4px 16px var(--shadow);
 }
-body.theme-cozy .seasonal-banner:hover,
-body.theme-cozy .seasonal-banner:active {
-  box-shadow: 0 5px 18px rgba(189,108,10,0.42) !important;
+body.theme-cozy .ob-option { border-color: var(--border); box-shadow: 0 2px 8px var(--shadow) !important; }
+body.theme-cozy .ob-option:hover { border-color: var(--cz-check-rand); background: var(--pink-light); }
+body.theme-cozy .settings-lang-btn { border-color: var(--border); }
+body.theme-cozy .settings-section { border-bottom-color: var(--border); }
+body.theme-cozy .settings-label { color: var(--text); }
+body.theme-cozy .settings-input,
+body.theme-cozy .name-input { border-color: var(--border); }
+body.theme-cozy .settings-input:focus,
+body.theme-cozy .name-input:focus { border-color: var(--pink-mid); box-shadow: 0 0 0 3px var(--shadow); }
+body.theme-cozy .modal-overlay { background: var(--cz-overlay); }
+body.theme-cozy .modal-overlay.open > .modal { box-shadow: 0 8px 40px var(--shadow); }
+body.theme-cozy .settings-open-btn { box-shadow: 0 2px 12px var(--shadow); border-color: var(--border); }
+body.theme-cozy .settings-open-btn:active { background: var(--pink-light); }
+body.theme-cozy .footer {
+  background: rgba(255,255,255,0.94);
+  border-top-color: var(--border);
 }
-body.theme-cozy .cozyvibe-banner {
-  background: linear-gradient(135deg, #FEF5E0 0%, #FCE9C2 100%) !important;
-  border-color: rgba(189,108,10,0.22) !important;
+body.theme-cozy .preset-chip,
+body.theme-cozy .termin-preset-chip {
+  background: linear-gradient(160deg, #FFFFFF 0%, var(--pink-light) 100%);
+  border-color: var(--border);
+  color: var(--text);
+  box-shadow: inset 0 1px 2px #FFFFFF, 0 3px 8px var(--shadow);
 }
-body.theme-cozy .cozyvibe-banner-title { color: #BD6C0A !important; }
-body.theme-cozy .cozyvibe-banner-sub { color: #93847A !important; }
-body.theme-cozy .cozyvibe-banner-arrow { color: #BD6C0A !important; }
+body.theme-cozy .preset-chip:active,
+body.theme-cozy .termin-preset-chip:active { background: var(--cz-akzent); color: #FFFFFF; }
+
+/* ---------- Termine ---------- */
+body.theme-cozy .termine-header { background: var(--cz-kopf); color: var(--cz-kopf-text); }
+body.theme-cozy .termin-card { border-color: var(--border); box-shadow: 0 2px 10px var(--shadow); }
+body.theme-cozy .termin-soon { background: var(--pink-light); border-color: var(--pink-mid); }
+body.theme-cozy .termin-past { background: #F7F3EE; border-color: var(--border); }
+body.theme-cozy .termin-emoji { background: var(--pink-light); }
+body.theme-cozy .termin-datetime { color: var(--cz-label); }
+body.theme-cozy .termin-action-btn { background: var(--pink-light); }
+
+/* ---------- Cookie-Hinweis (kommt aus /cookie-consent.js, das auch die Website nutzt) ----------
+   Nur in der App umgefärbt: dafür reicht die höhere Spezifität (body.theme-cozy …),
+   die gemeinsame Datei bleibt unverändert. Beide Knöpfe bleiben gleich gut sichtbar. */
+body.theme-cozy #bra-cookie-banner {
+  background: rgba(255,255,255,0.97);
+  border-top-color: var(--border);
+  box-shadow: 0 -8px 40px var(--shadow);
+}
+body.theme-cozy #bra-cookie-banner .bra-text strong,
+body.theme-cozy #bra-cookie-banner .bra-text p { color: var(--text); }
+body.theme-cozy #bra-cookie-banner .bra-text a { color: var(--cz-label); }
+body.theme-cozy #bra-cookie-banner .bra-accept {
+  background: var(--cz-akzent);
+  box-shadow: 0 4px 16px var(--cz-akzent-schatten);
+}
+body.theme-cozy.gender-boy #bra-cookie-banner .bra-accept { color: #F7E3A8; }
+body.theme-cozy #bra-cookie-banner .bra-decline { color: var(--text); border-color: var(--pink-mid); }
+body.theme-cozy #bra-cookie-banner .bra-decline:hover { border-color: var(--text); color: var(--text); }
 
 
 
@@ -3266,7 +3435,7 @@ body.theme-boy .legal-footer span {
 
 /* Pull-to-Refresh / Overscroll-Hintergrund pro Design (iOS) */
 html.theme-boy    { background-color: #90caf9; }
-html.theme-cozy   { background-color: #F8C76B; }
+html.theme-cozy   { background-color: #D28E93; }  /* Rosé; Winter/Bub setzt das Vorab-Skript in app.html */
 html.theme-winter { background-color: #8A3354; }
 html.theme-mono   { background-color: #2b2b2b; }
 html.theme-rainbow{ background-color: #FF6F4A; }
@@ -3277,18 +3446,19 @@ body.theme-mono    { background-color: #2b2b2b !important; }
 body.theme-rainbow { background-color: #FF6F4A !important; }
 .icon-info-url { text-decoration: underline dotted; cursor: pointer; }
 
-/* Onboarding immer CozyVibe-Gold (Marken-Einfuehrung, egal welches Theme) */
-.onboarding { background: linear-gradient(160deg, #FBF6F0 0%, #FCE9C2 50%, #EF9320 100%) !important; }
-.onboarding .name-save-btn, .onboarding .ob-next-btn { background: linear-gradient(135deg, #EF9320, #BD6C0A) !important; box-shadow: 0 4px 16px rgba(189,108,10,0.34) !important; }
-.onboarding .name-input { border-color: #EBDDCD !important; }
-.onboarding .name-input:focus { border-color: #EF9320 !important; box-shadow: 0 0 0 3px rgba(239,147,32,0.15) !important; }
-.onboarding .ob-option { border-color: #EBDDCD !important; }
-.onboarding .ob-option:hover { border-color: #F8C76B !important; background: #FEF5E0 !important; }
-.onboarding .ob-option.selected, .onboarding .gender-btn.selected { border-color: #BD6C0A !important; background: linear-gradient(135deg, #FEF5E0, #FCE9C2) !important; color: #BD6C0A !important; }
-.onboarding .gender-btn { border-color: #EBDDCD !important; }
-.onboarding .agb-inline-btn { color: #BD6C0A !important; }
-.onboarding a { color: #BD6C0A !important; }
-.onboarding input[type="checkbox"] { accent-color: #EF9320 !important; }
+/* Begrüßung immer im Rosé-Satin-Design (Marken-Einführung, egal welches Theme; seit Dezember 2026, vorher Gold) */
+.onboarding { background: linear-gradient(160deg, #FBF3EE 0%, #F6DCD8 50%, #C97B88 100%) !important; font-family: 'Mulish', system-ui, -apple-system, sans-serif; }
+.onboarding .onboarding-title { font-family: 'Marcellus', serif; font-weight: 400; }
+.onboarding .name-save-btn, .onboarding .ob-next-btn { background: linear-gradient(135deg, #C98A7A, #B5677A) !important; box-shadow: 0 4px 16px rgba(150,70,90,0.32) !important; }
+.onboarding .name-input { border-color: #F0D2CE !important; }
+.onboarding .name-input:focus { border-color: #B5677A !important; box-shadow: 0 0 0 3px rgba(181,103,122,0.16) !important; }
+.onboarding .ob-option { border-color: #F0D2CE !important; }
+.onboarding .ob-option:hover { border-color: #D79A9E !important; background: #FBE7E3 !important; }
+.onboarding .ob-option.selected, .onboarding .gender-btn.selected { border-color: #B5677A !important; background: linear-gradient(135deg, #FFFFFF, #FBE7E3) !important; color: #3d2230 !important; }
+.onboarding .gender-btn { border-color: #F0D2CE !important; }
+.onboarding .agb-inline-btn { color: #A95468 !important; }
+.onboarding a { color: #A95468 !important; }
+.onboarding input[type="checkbox"] { accent-color: #B5677A !important; }
 /* ===== Meine Tipps (Nu Skin, Anzeige) – Texte in /tipps/meine-tipps.json ===== */
 .tipp-btn {
   display: inline-block;

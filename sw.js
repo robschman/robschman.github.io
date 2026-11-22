@@ -1,5 +1,5 @@
 // Beauty Routine App – Service Worker
-const CACHE = 'beauty-routine-v52';
+const CACHE = 'beauty-routine-v55';
 const ASSETS = [
   '/app.html',
   '/style.css',
@@ -21,7 +21,13 @@ const ASSETS = [
   '/fonts/dancing-script-700.woff2',
   '/fonts/dancing-script-700-ext.woff2',
   '/fonts/exo2-700.woff2',
-  '/fonts/exo2-700-ext.woff2'
+  '/fonts/exo2-700-ext.woff2',
+  '/fonts/cozy/cozy-fonts.css',
+  '/fonts/cozy/cf-2.woff2',
+  '/fonts/cozy/cf-6.woff2',
+  '/fonts/cozy/cf-8.woff2',
+  '/fonts/cozy/cormorant-700.woff2',
+  '/fonts/cozy/bodoni-moda-700.woff2'
 ];
 
 self.addEventListener('install', e => {
@@ -74,9 +80,22 @@ self.addEventListener('fetch', e => {
   // Fonts, CSS, JS: aus Cache laden (schnell) – cache-first.
   // ignoreSearch:true → gecachtes /style.css trifft die Anfrage /style.css?v=2.2 usw.
   // KEIN app.html-Fallback für Assets (sonst käme HTML statt CSS/JS zurück).
+  // Seit 22.11.2026: zuerst die GENAU passende Fassung (mit ?v=…) suchen. Fehlt sie,
+  // frisch vom Netz holen und merken. Vorher lieferte ignoreSearch nach einem Update
+  // noch die alte style.css/app.js aus, die neue Optik kam erst beim zweiten Öffnen.
+  // Nur ohne Internet wird auf eine ältere Fassung zurückgegriffen.
   e.respondWith(
-    caches.match(e.request, { ignoreSearch: true }).then(cached => {
-      return cached || fetch(e.request);
+    caches.match(e.request).then(exact => {
+      if (exact) return exact;
+      return fetch(e.request)
+        .then(response => {
+          if (response.ok && url.origin === self.location.origin) {
+            const clone = response.clone();
+            caches.open(CACHE).then(c => c.put(e.request, clone));
+          }
+          return response;
+        })
+        .catch(() => caches.match(e.request, { ignoreSearch: true }));
     })
   );
 });

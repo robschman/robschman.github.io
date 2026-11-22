@@ -64,7 +64,8 @@
   </script>
 
   <link rel="stylesheet" href="/fonts.css" />
-  <link rel="stylesheet" href="style.css?v=3.2" />
+  <link rel="stylesheet" href="/fonts/cozy/cozy-fonts.css" />
+  <link rel="stylesheet" href="style.css?v=3.4" />
   <!-- Kein AdSense: Die App zeigt keine Anzeigen (Konto nicht aktiv). Es wird bewusst
        KEIN Google-Werbe-Script geladen, damit vor der Cookie-Einwilligung keine
        Verbindung zu Google entsteht. Falls AdSense später kommt: ausschließlich NACH
@@ -77,7 +78,7 @@
     (function(){
       try {
         var t = localStorage.getItem('routine_theme');
-        if (!t) { var _gt = localStorage.getItem('routine_gender'); t = _gt === 'boy' ? 'blue' : (_gt === 'divers' ? 'rainbow' : 'pink'); }
+        if (!t) { var _gt = localStorage.getItem('routine_gender'); t = _gt === 'divers' ? 'rainbow' : 'cozy'; }
         if (t === 'girl') t = 'pink';
         if (t === 'boy')  t = 'blue';
         var c = document.body.classList;
@@ -89,7 +90,11 @@
         else if (t === 'winter') c.add('theme-winter');
         else if (t === 'mono')    c.add('theme-mono');
         else if (t === 'rainbow') c.add('theme-rainbow');
-        var bgMap = { blue:'#90caf9', cozy:'#F8C76B', winter:'#8A3354', mono:'#2b2b2b', rainbow:'#FF5252' };
+        // Winter-Samt automatisch vom 1.12. bis Ende Februar (zum Testen: app.html?saison=winter bzw. ?saison=normal)
+        var _m = new Date().getMonth(), _q = location.search;
+        var _winter = /saison=winter/.test(_q) ? true : (/saison=normal/.test(_q) ? false : (_m === 11 || _m <= 1));
+        if (_winter) c.add('saison-winter');
+        var bgMap = { blue:'#90caf9', cozy:(_gg === 'boy' ? '#1c1410' : (_winter ? '#7A1F2E' : '#D28E93')), winter:'#8A3354', mono:'#2b2b2b', rainbow:'#FF5252' };
         document.documentElement.style.backgroundColor = bgMap[t] || '#f9a8c9';
         var htmlCls = { blue:'theme-boy', cozy:'theme-cozy', winter:'theme-winter', mono:'theme-mono', rainbow:'theme-rainbow' }[t];
         if (htmlCls) document.documentElement.classList.add(htmlCls);
@@ -166,13 +171,13 @@
           <h2 class="onboarding-title" data-tr="designTitle"></h2>
           <p class="onboarding-text" data-tr="designHint"></p>
           <div class="gender-options gender-options-4">
-            <button class="gender-btn design-btn selected" data-value="pink">
+            <button class="gender-btn design-btn selected" data-value="cozy">
+              <span class="gender-icon">✨</span>
+              <span data-tr="vibeCozy"></span>
+            </button>
+            <button class="gender-btn design-btn" data-value="pink">
               <span class="gender-icon">🌸</span>
               <span data-tr="vibePink"></span>
-            </button>
-            <button class="gender-btn design-btn" data-value="cozy">
-              <span class="gender-icon">🍑</span>
-              <span data-tr="vibeCozy"></span>
             </button>
             <button class="gender-btn design-btn" data-value="blue">
               <span class="gender-icon">💙</span>
@@ -679,13 +684,13 @@
         <div class="settings-section">
           <div class="settings-label">🎨 <span data-tr="designTitle"></span></div>
           <div class="gender-options gender-options-4 settings-design">
+            <button class="gender-btn design-btn" data-value="cozy">
+              <span class="gender-icon">✨</span>
+              <span data-tr="vibeCozy"></span>
+            </button>
             <button class="gender-btn design-btn" data-value="pink">
               <span class="gender-icon">🌸</span>
               <span data-tr="vibePink"></span>
-            </button>
-            <button class="gender-btn design-btn" data-value="cozy">
-              <span class="gender-icon">🍑</span>
-              <span data-tr="vibeCozy"></span>
             </button>
             <button class="gender-btn design-btn" data-value="blue">
               <span class="gender-icon">💙</span>
@@ -791,7 +796,7 @@
   </div>
 
   <script src="produkt-der-woche.js?v=2"></script>
-  <script src="app.js?v=2.18"></script>
+  <script src="app.js?v=2.19"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
